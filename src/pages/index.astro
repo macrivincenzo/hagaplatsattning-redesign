@@ -1,17 +1,352 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Hagaplatsattning</h1>
-	</body>
-</html>
+<Layout
+  title="Haga Plattsättning AB – Badrumsrenovering &amp; Kakelsättning Stockholm"
+  description="Professionell badrumsrenovering och kakelsättning i Stockholm. Certifierade plattsättare med våtrumsintyg och garanti. Få gratis offert idag."
+>
+
+  <style>
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('/hero-bg.jpg') center/cover no-repeat;
+      opacity: 0.18;
+    }
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200,169,110,0.15);
+      border: 1px solid rgba(200,169,110,0.4);
+      color: #c8a96e;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 span { color: #c8a96e; }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #c8a96e;
+      color: #1a1a2e;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: #b8995e; transform: translateY(-1px); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: background 0.15s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-size: 1.8rem; font-weight: 800; color: #c8a96e; }
+    .hero-stat span { font-size: 0.82rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 5rem 1.5rem;
+      background: #f7f7f7;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #c8a96e;
+      margin-bottom: 0.75rem;
+    }
+    .section-header h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #1a1a2e;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-header p {
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+      border: 1px solid #eee;
+    }
+    .service-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(200,169,110,0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; margin-bottom: 0.6rem; }
+    .service-card p { font-size: 0.9rem; color: #666; line-height: 1.6; margin-bottom: 1rem; }
+    .service-card a { font-size: 0.88rem; font-weight: 600; color: #c8a96e; }
+    .service-card a:hover { text-decoration: underline; }
+
+    /* ══ POSITION 2: RECO SECTION (MIDDLE HOMEPAGE) ══ */
+    .reco-section {
+      background: #fff;
+      padding: 0;
+    }
+    .reco-section iframe {
+      width: 100%;
+      border: 0;
+      display: block;
+      overflow: hidden;
+      height: 225px;
+    }
+
+    /* ── WHY US ── */
+    .why-us {
+      padding: 5rem 1.5rem;
+      background: #1a1a2e;
+      color: #fff;
+    }
+    .why-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .why-content h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .why-content h2 span { color: #c8a96e; }
+    .why-content p { color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 1.5rem; }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .why-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .why-list li::before {
+      content: '✓';
+      color: #c8a96e;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .why-cta {
+      margin-top: 2rem;
+      display: inline-block;
+      background: #c8a96e;
+      color: #1a1a2e;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    .why-cta:hover { background: #b8995e; }
+    .why-image {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: #c8a96e;
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+    }
+    .cta-band h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: #1a1a2e; margin-bottom: 0.75rem; }
+    .cta-band p { color: rgba(26,26,46,0.75); margin-bottom: 1.75rem; font-size: 1.05rem; }
+    .cta-band .btn-dark {
+      background: #1a1a2e;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 2.25rem;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    .cta-band .btn-dark:hover { background: #0f1020; }
+
+    @media (max-width: 768px) {
+      .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .why-image { display: none; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Certifierade plattsättare · Stockholm</div>
+      <h1>Professionell <span>Badrumsrenovering</span> i Stockholm</h1>
+      <p>Vi sätter kakel och klinker med hög precision. Våtrumsintyg på allt arbete, försäkrad via Svedea och godkänd enligt BBV-reglerna.</p>
+      <div class="hero-actions">
+        <a href="/offert" class="btn-primary">Få gratis offert</a>
+        <a href="/badrumsrenovering-stockholm" class="btn-secondary">Läs mer</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>34</strong><span>Verifierade omdömen</span></div>
+        <div class="hero-stat"><strong>4.9/5</strong><span>Snittbetyg Reco</span></div>
+        <div class="hero-stat"><strong>100%</strong><span>Tillfrågade kunder</span></div>
+        <div class="hero-stat"><strong>BBV</strong><span>Certifierade</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services">
+    <div class="section-header">
+      <p class="section-label">Våra tjänster</p>
+      <h2>Vad kan vi hjälpa dig med?</h2>
+      <p>Vi specialiserar oss på kakel och klinker i badrum, kök och hall. Kvalitetsarbete med garanti.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🛁</div>
+        <h3>Badrumsrenovering Stockholm</h3>
+        <p>Totalrenovering av badrum med tätskikt, kakel, klinker och alla våtrumsarbeten. Godkänt intyg ingår alltid.</p>
+        <a href="/badrumsrenovering-stockholm">Läs mer →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔷</div>
+        <h3>Kakelsättning Stockholm</h3>
+        <p>Professionell plattsättning av kakel och klinker i badrum, hall och andra utrymmen. Hög precision och fina fogar.</p>
+        <a href="/kakelsattare-stockholm">Läs mer →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🍳</div>
+        <h3>Köksrenovering Stockholm</h3>
+        <p>Stänkskydd i kakel, klinkergolv och kaklade väggar i kök. Vi ger köket ett nytt lyft med rätt material.</p>
+        <a href="/koksrenovering-stockholm">Läs mer →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💰</div>
+        <h3>Priser &amp; offert</h3>
+        <p>Tydliga priser utan dolda kostnader. Vi ger en detaljerad offert efter besiktning. Alltid fast pris.</p>
+        <a href="/badrumsrenovering-pris">Se priser →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ POSITION 2: RECO SECTION — middle of homepage ══ -->
+  <section class="reco-section" aria-label="Kundomdömen från Reco">
+    <iframe
+      src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=false&lang=sv"
+      title="Haga Plattsättning AB - Omdömen på Reco"
+      height="225"
+      style="width:100%;border:0;display:block;overflow:hidden;"
+      loading="lazy"
+    ></iframe>
+  </section>
+
+  <!-- ── WHY US ── -->
+  <section class="why-us">
+    <div class="why-grid">
+      <div class="why-content">
+        <h2>Varför välja <span>Haga Plattsättning?</span></h2>
+        <p>Vi är ett verifierat företag på Reco med 4.9 i betyg av 34 kunder. Vår styrka är noggrannhet, rak kommunikation och att vi alltid håller vad vi lovar.</p>
+        <ul class="why-list">
+          <li>Våtrumsintyg och BBV-certifierat arbete</li>
+          <li>Försäkrat via Svedea – trygghet för dig som kund</li>
+          <li>Fast pris – inga överraskningar på slutfakturan</li>
+          <li>100 % av kunderna tillfrågas om omdöme</li>
+          <li>Städar alltid efter avslutad renovering</li>
+          <li>Rekommenderad 2 år i rad på Reco</li>
+        </ul>
+        <a href="/offert" class="why-cta">Begär offert</a>
+      </div>
+      <div class="why-image">Projektbild kommer</div>
+    </div>
+  </section>
+
+  <!-- ── CTA BAND ── -->
+  <section class="cta-band">
+    <h2>Redo att renovera ditt badrum?</h2>
+    <p>Kontakta oss idag för en kostnadsfri offert. Vi svarar inom 24 timmar.</p>
+    <a href="/offert" class="btn-dark">Få gratis offert</a>
+  </section>
+
+</Layout>

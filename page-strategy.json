@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-04-15",
+  "business": "Haga Platsättning",
+  "location": "Stockholm",
+  "pages": [
+    {
+      "priority": 1,
+      "title": "Badrumsrenovering Stockholm",
+      "url_slug": "badrumsrenovering-stockholm",
+      "primary_keyword": "badrumsrenovering stockholm",
+      "primary_volume": 1000,
+      "primary_cpc": 21.52,
+      "secondary_keywords": [
+        "badrumsrenovering",
+        "renovera badrum",
+        "badrumsrenoverare",
+        "renovera badrum stockholm",
+        "badrumsrenovering i stockholm"
+      ],
+      "combined_cluster_volume": 12190,
+      "aeo_questions": [
+        "Vad kostar badrumsrenovering i Stockholm?",
+        "Hur lång tid tar en badrumsrenovering?",
+        "Vad ingår i en badrumsrenovering?"
+      ],
+      "meta_title": "Badrumsrenovering Stockholm – Kakelsättare med Garanti",
+      "meta_description": "Professionell badrumsrenovering i Stockholm. Vi sätter kakel och klinker med hög kvalitet och fast pris. Få gratis offert idag."
+    },
+    {
+      "priority": 2,
+      "title": "Badrumsrenovering Pris",
+      "url_slug": "badrumsrenovering-pris",
+      "primary_keyword": "badrumsrenovering pris",
+      "primary_volume": 1900,
+      "primary_cpc": 3.07,
+      "secondary_keywords": [
+        "renovera badrum pris",
+        "badrumsrenovering kostnad",
+        "kostnad renovera badrum",
+        "badrumsrenovering kostnad stockholm",
+        "offert badrumsrenovering stockholm"
+      ],
+      "combined_cluster_volume": 6000,
+      "aeo_questions": [
+        "Vad kostar badrumsrenovering per kvm?",
+        "Hur mycket kostar en badrumsrenovering 5 kvm?",
+        "Vad påverkar priset på badrumsrenovering?"
+      ],
+      "meta_title": "Badrumsrenovering Pris 2026 – Vad Kostar Det i Stockholm?",
+      "meta_description": "Se vad en badrumsrenovering kostar i Stockholm 2026. Priser per kvm, vad som ingår och hur du får bäst offert."
+    },
+    {
+      "priority": 3,
+      "title": "Kakelsättare Stockholm",
+      "url_slug": "kakelsattare-stockholm",
+      "primary_keyword": "kakelsättare stockholm",
+      "primary_volume": 390,
+      "primary_cpc": 2.73,
+      "secondary_keywords": [
+        "kakelsättning stockholm",
+        "kakel badrum",
+        "klinker badrum",
+        "kakla om badrum",
+        "plattsättare badrum stockholm"
+      ],
+      "combined_cluster_volume": 11180,
+      "aeo_questions": [
+        "Vad kostar det att anlita en kakelsättare i Stockholm?",
+        "Hur väljer man en bra kakelsättare?",
+        "Vad är skillnaden mellan kakel och klinker?"
+      ],
+      "meta_title": "Kakelsättare Stockholm – Professionell Platsättning",
+      "meta_description": "Certifierad kakelsättare i Stockholm. Vi lägger kakel och klinker i badrum, kök och hall. Snabb offert och garanti på utfört arbete."
+    },
+    {
+      "priority": 4,
+      "title": "Köksrenovering Stockholm",
+      "url_slug": "koksrenovering-stockholm",
+      "primary_keyword": "köksrenovering stockholm",
+      "primary_volume": 390,
+      "primary_cpc": 12.62,
+      "secondary_keywords": [
+        "kakla om i köket",
+        "kakel kök",
+        "renovera kök stockholm",
+        "köksrenovering i stockholm"
+      ],
+      "combined_cluster_volume": 9580,
+      "aeo_questions": [
+        "Vad kostar att kakla om ett kök i Stockholm?",
+        "Hur lång tid tar en köksrenovering?",
+        "Ska man kakla hela väggen eller bara stänkskyddet?"
+      ],
+      "meta_title": "Köksrenovering Stockholm – Kakla om Kök med Proffs",
+      "meta_description": "Köksrenovering i Stockholm med fokus på kakel och klinker. Vi kaklar om kök, lägger stänkskydd och köksgolv. Gratis offert."
+    }
+  ]
+}
