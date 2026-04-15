@@ -587,6 +587,107 @@
           gap: 2rem;
         }
       }
+
+      /* ── DEEP GUIDE ── */
+      .guide-section { background: #ffffff; border-top: 1px solid #e8e8ee; }
+      .guide-header {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 0;
+      }
+      .guide-header h2 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 800;
+        color: #0a0a1a;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
+      }
+      .guide-header > p {
+        font-size: 1rem;
+        color: #555;
+        max-width: 640px;
+        line-height: 1.7;
+      }
+      .guide-block {
+        padding: 4rem 0;
+        border-top: 1px solid #e8e8ee;
+        margin-top: 3rem;
+      }
+      .guide-block.gray { background: #f8f8fb; }
+      .guide-block-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: 4rem;
+      }
+      .guide-block-inner.text-only { grid-template-columns: 1fr; }
+      .guide-block img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+        object-fit: cover;
+        height: 360px;
+      }
+      .guide-text h3 {
+        font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+        font-weight: 700;
+        color: #0a0a1a;
+        letter-spacing: -0.015em;
+        line-height: 1.25;
+        margin-bottom: 1rem;
+      }
+      .guide-text p {
+        font-size: 0.95rem;
+        color: #444;
+        line-height: 1.75;
+        margin-bottom: 0.9rem;
+      }
+      .guide-text p:last-child { margin-bottom: 0; }
+      .price-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.88rem;
+        margin: 1.25rem 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .price-table th {
+        background: #0a0a1a;
+        color: #fff;
+        padding: 0.65rem 1rem;
+        text-align: left;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .price-table td {
+        padding: 0.6rem 1rem;
+        border-bottom: 1px solid #e8e8ee;
+        color: #333;
+        background: #fff;
+      }
+      .price-table tr:last-child td { border-bottom: none; }
+      .rot-box {
+        background: #f0f7f0;
+        border: 1px solid #c3dfc3;
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        font-size: 0.88rem;
+        color: #1a4a1a;
+        line-height: 1.65;
+        margin-top: 1.1rem;
+      }
+      .rot-box strong { display: block; margin-bottom: 0.25rem; font-size: 0.9rem; }
+      @media (max-width: 800px) {
+        .guide-block-inner { grid-template-columns: 1fr; gap: 2rem; }
+        .guide-block img { height: 240px; }
+        .img-first { order: -1; }
+      }
     </style>
 
     <!-- ── SECTION 1: HERO ── -->
@@ -660,7 +761,209 @@
       </div>
     </section>
 
-    <!-- ── SECTION 3: FAQ (AEO) ── -->
+    <!-- ── SECTION 3: DEEP GUIDE ── -->
+    <section class="guide-section" aria-label="Guide till badrumsrenovering i Stockholm">
+
+      <div class="guide-header">
+        <p class="section-label">Komplett guide</p>
+        <h2>Allt du behöver veta om badrumsrenovering i Stockholm</h2>
+        <p>
+          Vi hjälper stockholmare att renovera badrum varje dag. Här svarar vi på de vanligaste
+          frågorna om vad som ingår, hur lång tid det tar, vad det kostar och vad du behöver
+          tänka på för att få ett hållbart och korrekt utfört resultat.
+        </p>
+      </div>
+
+      <!-- Block 1: Vad ingår — text left, image 1 right -->
+      <div class="guide-block">
+        <div class="guide-block-inner">
+          <div class="guide-text">
+            <h3>Vad ingår i en komplett badrumsrenovering?</h3>
+            <p>
+              En komplett badrumsrenovering i Stockholm innefattar betydligt mer än att bara byta
+              kakel. För att renovera badrum på rätt sätt krävs ett noggrant förarbete, rätt material
+              och certifierat utförande enligt gällande branschregler.
+            </p>
+            <p>Så här ser en komplett renovering av badrum ut hos oss:</p>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li>Rivning av befintligt kakel, klinker och tätskikt</li>
+              <li>Kontroll och förberedelse av underlag och väggar</li>
+              <li>Nytt tätskikt (membran) enligt GVK-normer och BBV</li>
+              <li>Kakelsättning och klinkerläggning på väggar och golv</li>
+              <li>Fogning med fuktbeständig fog</li>
+              <li>Silikonfogar i alla rörliga fogar och hörn</li>
+              <li>Slutstädning och slutbesiktning</li>
+              <li>Officiellt kvalitetsdokument (BKR) med BankID-signering</li>
+              <li>Alla arbeten försäkrade via Svedea försäkring</li>
+            </ul>
+          </div>
+          <div>
+            <img
+              src="/hagaplattsattningbildhemsida1.avif"
+              alt="Komplett badrumsrenovering i Stockholm – kakelsättning och tätskikt av Haga Plattsättning AB"
+              width="580"
+              height="360"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 2: Hur lång tid — image 2 left, text right -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner">
+          <div class="img-first">
+            <img
+              src="/hagaplattsattningbildhemsida2.avif"
+              alt="Badrumsrenovering i Stockholm – professionell plattsättning med rätt tidsplan och precision"
+              width="580"
+              height="360"
+              loading="lazy"
+            />
+          </div>
+          <div class="guide-text">
+            <h3>Hur lång tid tar en badrumsrenovering i Stockholm?</h3>
+            <p>
+              En av de vanligaste frågorna vi får handlar om tidsåtgång. Svaret beror på badrumsyta,
+              vad som ska göras och om det krävs VVS-arbeten. Som en generell riktlinje kan du räkna med:
+            </p>
+            <ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;">
+              <li>Litet badrum (4–5 kvm): 1–2 veckor</li>
+              <li>Normalt badrum (6–8 kvm): 2–3 veckor</li>
+              <li>Större badrum eller kombinerat (8–12 kvm): 3–4 veckor</li>
+            </ul>
+            <p>
+              En viktig del av tidsåtgången är tätskiktets härdningstid — membranet måste torka
+              ordentligt innan kakelsättningen kan påbörjas. Det går inte att rusa igenom det momentet
+              utan att riskera framtida fuktskador.
+            </p>
+            <p>
+              Vi ger alltid en tydlig tidsplan i offerten så att du som kund vet exakt när
+              renoveringen startar och när ditt badrum är klart att använda.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 3: Pris — text left, image 3 right -->
+      <div class="guide-block">
+        <div class="guide-block-inner">
+          <div class="guide-text">
+            <h3>Vad kostar en badrumsrenovering i Stockholm?</h3>
+            <p>
+              Kostnaden för att renovera badrum i Stockholm varierar beroende på yta, materialval
+              och vad som ska göras. Nedan ser du ungefärliga prisintervall baserade på
+              badrumsrenovering med kakel och klinker, inklusive material och arbete:
+            </p>
+            <table class="price-table" aria-label="Prisguide badrumsrenovering Stockholm">
+              <thead>
+                <tr>
+                  <th>Badrumsyta</th>
+                  <th>Budgetrenovering</th>
+                  <th>Standardrenovering</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>4 kvm</td><td>60 000–80 000 kr</td><td>100 000–140 000 kr</td></tr>
+                <tr><td>6 kvm</td><td>80 000–120 000 kr</td><td>150 000–200 000 kr</td></tr>
+                <tr><td>10 kvm</td><td>120 000–160 000 kr</td><td>200 000–280 000 kr</td></tr>
+              </tbody>
+            </table>
+            <div class="rot-box">
+              <strong>ROT-avdraget sänker din kostnad med 30 %</strong>
+              Du har rätt att dra av 30 % av arbetskostnaden via ROT-avdraget. Det innebär att
+              en badrumsrenovering med 100 000 kr i arbetskostnad kostar dig 70 000 kr efter
+              avdrag — vi hanterar ROT-ansökan direkt mot Skatteverket.
+            </div>
+          </div>
+          <div>
+            <img
+              src="/hagaplattsattningbildhemsida3.avif"
+              alt="Badrumsrenovering pris Stockholm – transparent fast pris och ROT-avdrag via Haga Plattsättning AB"
+              width="580"
+              height="360"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 4: Material — text only -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Kakel, klinker och storformat – vad ska man välja vid renovering av badrum?</h3>
+            <p>
+              Ett av de viktigaste valen vid renovering av badrum är vilket material du väljer.
+              Kakel badrum används traditionellt på väggar och är lättare att sätta, medan
+              klinker är hårdare, tåligare och passar perfekt på golv och i utsatta miljöer.
+              Storformat — plattor på 60×60 cm och uppåt — är i dag det mest populära valet
+              i Stockholm tack vare det rena, moderna utseendet och färre synliga fogar.
+            </p>
+            <p>
+              Att kakla om badrum med storformat ställer högre krav på underlaget och kräver
+              en mer erfaren plattsättare, men resultatet är oöverträffat. Vi hjälper dig
+              välja rätt kakel och klinker för just ditt badrum, baserat på yta, budget och stil.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 5: Vad ska man tänka på — text only -->
+      <div class="guide-block">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Vad ska man tänka på när man anlitar en badrumsrenoverare i Stockholm?</h3>
+            <p>
+              Det finns många badrumsrenoverare i Stockholm, men alla håller inte samma standard.
+              Här är de viktigaste sakerna att kontrollera innan du skriver på ett avtal:
+            </p>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li><strong>BKR-behörighet</strong> – se till att företaget är behörigt och kan utfärda officiellt kvalitetsdokument</li>
+              <li><strong>Våtrumsintyg</strong> – kräv att arbetet avslutas med ett intyg enligt BBV-reglerna</li>
+              <li><strong>Fast pris</strong> – undvik löpande räkning, begär alltid en skriftlig offert med fast pris</li>
+              <li><strong>Försäkrat arbete</strong> – kontrollera att företaget har ansvarsförsäkring som täcker eventuella skador</li>
+              <li><strong>Referenser</strong> – be om att få se referensprojekt eller läsa verifierade kundrecensioner</li>
+              <li><strong>F-skattsedel</strong> – alltid ett krav för seriösa hantverkare</li>
+            </ul>
+            <p style="margin-top:1rem;">
+              Haga Plattsättning AB uppfyller samtliga av ovanstående krav. Vi är BKR-behöriga,
+              utfärdar kvalitetsdokument, arbetar med fast pris och är försäkrade via Svedea.
+              <a href="/offertforfragan" style="color:#0a0a1a;font-weight:700;">Kontakta oss för en kostnadsfri offert →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 6: BRF & tillstånd — text only -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Badrumsrenovering i bostadsrätt – brf-regler och tillstånd i Stockholm</h3>
+            <p>
+              Bor du i en bostadsrätt i Stockholm behöver du vanligtvis meddela din
+              bostadsrättsförening (brf) innan du påbörjar en badrumsrenovering. I de flesta
+              föreningar krävs ingen formell ansökan för kakelsättning, men en skriftlig
+              anmälan med uppgifter om vem som utför arbetet är standard.
+            </p>
+            <p>
+              Många brf:er i Stockholm kräver dessutom att arbetet utförs av en certifierad
+              badrumsrenoverare som kan uppvisa BKR-behörighet och utfärda ett våtrumsintyg.
+              Utan intyget kan föreningen inte godkänna renoveringen, och du som bostadsrättsinnehavare
+              kan bli personligt ansvarig för eventuella framtida vattenskador.
+            </p>
+            <p>
+              Vi är vana vid att samarbeta med bostadsrättsföreningar i Stockholm och kan
+              vid behov kommunicera direkt med din förening och tillhandahålla all nödvändig
+              dokumentation för godkännande.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── SECTION 4: FAQ (AEO) ── -->
     <section class="faq-section" id="faq" aria-label="Vanliga frågor om badrumsrenovering i Stockholm">
       <div class="section-inner">
         <p class="section-label">Vanliga frågor</p>
