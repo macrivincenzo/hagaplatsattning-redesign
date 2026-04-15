@@ -328,5 +328,342 @@
       });
     </script>
 
+
+    <!-- ── FOOTER ── -->
+    <style>
+      /* ── FOOTER LAYOUT ── */
+      .site-footer {
+        background: #000000;
+        color: rgba(255,255,255,0.75);
+        border-top: 1px solid rgba(255,255,255,0.08);
+        font-size: 0.875rem;
+        line-height: 1.65;
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem 2.5rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.4fr;
+        gap: 3rem;
+      }
+
+      /* Column headings */
+      .footer-heading {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255,255,255,0.35);
+        margin-bottom: 1rem;
+      }
+
+      /* Column 1 – Brand */
+      .footer-brand-logo {
+        height: 44px;
+        width: auto;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .footer-brand-text {
+        color: rgba(255,255,255,0.65);
+        font-size: 0.85rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+      }
+      .footer-badges {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      /* Column 2 & 3 – Links & Areas */
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+      .footer-links a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        transition: color 0.15s;
+        white-space: nowrap;
+      }
+      .footer-links a:hover { color: #fff; }
+      .footer-areas {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+      .footer-areas li {
+        color: rgba(255,255,255,0.6);
+        font-size: 0.84rem;
+      }
+
+      /* Column 4 – Contact */
+      .footer-contact-block {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        margin-bottom: 1.25rem;
+      }
+      .footer-contact-block a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        transition: color 0.15s;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .footer-contact-block a:hover { color: #fff; }
+      .footer-address {
+        color: rgba(255,255,255,0.6);
+        font-size: 0.84rem;
+        font-style: normal;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+      }
+      .footer-hours {
+        color: rgba(255,255,255,0.55);
+        font-size: 0.82rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+      }
+      .footer-hours strong {
+        display: block;
+        color: rgba(255,255,255,0.35);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.3rem;
+      }
+      .footer-cta {
+        display: inline-block;
+        background: #fff;
+        color: #1a1a2e;
+        font-weight: 700;
+        font-size: 0.88rem;
+        padding: 0.55rem 1.2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: opacity 0.15s;
+        text-align: center;
+        width: 100%;
+      }
+      .footer-cta:hover { opacity: 0.88; }
+
+      /* Bottom bar */
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.35);
+      }
+      .footer-bottom a {
+        color: rgba(255,255,255,0.4);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .footer-bottom a:hover { color: rgba(255,255,255,0.75); }
+      .footer-bottom-links {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .footer-inner {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+        .footer-col-brand { grid-column: 1 / -1; }
+      }
+      @media (max-width: 540px) {
+        .footer-inner {
+          grid-template-columns: 1fr;
+          padding: 2.5rem 1.25rem 2rem;
+        }
+        .footer-col-brand { grid-column: auto; }
+        .footer-bottom { flex-direction: column; align-items: flex-start; }
+      }
+    </style>
+
+    <footer class="site-footer" aria-label="Sidfot">
+
+      <div class="footer-inner">
+
+        <!-- ── COL 1: Brand ── -->
+        <div class="footer-col-brand">
+          <a href="/" aria-label="Haga Plattsättning AB – startsida">
+            <img src="/logo.avif" alt="Haga Plattsättning AB logotyp" class="footer-brand-logo" width="120" height="44" />
+          </a>
+          <p class="footer-brand-text">
+            Haga Plattsättning AB är ett certifierat plattsättarföretag med verksamhet i Stockholm
+            och hela Stockholmsregionen. Vi utför professionell badrumsrenovering, kakelsättning och
+            köksrenovering med fokus på hög kvalitet, noggrant hantverk och transparenta priser.
+            Alla våra arbeten utförs med våtrumsintyg enligt Byggkeramikrådets riktlinjer och
+            GVK-normer, vilket garanterar ett korrekt och hållbart resultat. Vi arbetar med
+            certifierade plattsättare, erbjuder fast pris utan dolda kostnader och har tilldelats
+            Reco-utmärkelsen Rekommenderat Företag två år i rad. Kontakta oss för en kostnadsfri
+            offert – vi hjälper dig från idé till färdigt badrum.
+          </p>
+          <div class="footer-badges">
+            <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" target="_blank" rel="noopener" aria-label="Rekommenderat 2 år i rad – Reco">
+              <img src="https://www.reco.se/assets/images/badges/BadgeTwoYears.svg" alt="Rekommenderat 2 år i rad – Reco" width="56" height="56" />
+            </a>
+            <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" target="_blank" rel="noopener" aria-label="Rekommenderat företag 2025 – Reco">
+              <img src="https://www.reco.se/assets/images/badges/trust2025.svg" alt="Rekommenderat företag 2025 – Reco" width="56" height="56" />
+            </a>
+            <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" target="_blank" rel="noopener" aria-label="Rekommenderat företag 2024 – Reco">
+              <img src="https://www.reco.se/assets/images/badges/trust2024.svg" alt="Rekommenderat företag 2024 – Reco" width="56" height="56" />
+            </a>
+          </div>
+        </div>
+
+        <!-- ── COL 2: Tjänster ── -->
+        <div>
+          <p class="footer-heading">Våra tjänster</p>
+          <ul class="footer-links" role="list">
+            <li><a href="/badrumsrenovering-stockholm">Badrumsrenovering Stockholm</a></li>
+            <li><a href="/badrumsrenovering-pris">Badrumsrenovering pris</a></li>
+            <li><a href="/kakelsattare-stockholm">Kakelsättare Stockholm</a></li>
+            <li><a href="/koksrenovering-stockholm">Köksrenovering Stockholm</a></li>
+            <li><a href="/referensprojekt">Referensprojekt</a></li>
+            <li><a href="/om-oss">Om oss</a></li>
+            <li><a href="/offertforfragan">Offertförfrågan</a></li>
+          </ul>
+        </div>
+
+        <!-- ── COL 3: Serviceområden ── -->
+        <div>
+          <p class="footer-heading">Vi arbetar i hela Stockholmsregionen</p>
+          <ul class="footer-areas" role="list">
+            <li>Stockholm</li>
+            <li>Sollentuna</li>
+            <li>Solna</li>
+            <li>Sundbyberg</li>
+            <li>Lidingö</li>
+            <li>Danderyd</li>
+            <li>Täby</li>
+            <li>Nacka</li>
+            <li>Bromma</li>
+            <li>Järfälla</li>
+            <li>Upplands Väsby</li>
+          </ul>
+        </div>
+
+        <!-- ── COL 4: Kontakt ── -->
+        <div>
+          <p class="footer-heading">Kontakt</p>
+          <address class="footer-address">
+            Haga Plattsättning AB<br />
+            Skyttevägen 6<br />
+            192 58 Sollentuna
+          </address>
+          <div class="footer-contact-block">
+            <a href="tel:0739133348" aria-label="Ring Haga Plattsättning">📞 073-913 33 48</a>
+            <a href="mailto:kontakt@hagaplattsattning.se" aria-label="Maila Haga Plattsättning">✉ kontakt@hagaplattsattning.se</a>
+          </div>
+          <div class="footer-hours">
+            <strong>Öppettider</strong>
+            Mån–Fre: 07:00–17:00<br />
+            Lör–Sön: Stängt
+          </div>
+          <a href="/offertforfragan" class="footer-cta">Få gratis offert →</a>
+        </div>
+
+      </div>
+
+      <!-- ── BOTTOM BAR ── -->
+      <div class="footer-bottom">
+        <span>© 2026 Haga Plattsättning AB &nbsp;·&nbsp; Org.nr: 559297-8505 &nbsp;·&nbsp; F-skatt</span>
+        <nav class="footer-bottom-links" aria-label="Juridiska sidor">
+          <a href="/integritetspolicy">Integritetspolicy</a>
+          <a href="/cookies">Cookies</a>
+        </nav>
+      </div>
+
+    </footer>
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.hagaplattsattning.se/#business",
+      "name": "Haga Plattsättning AB",
+      "legalName": "Haga Plattsättning AB",
+      "url": "https://www.hagaplattsattning.se",
+      "logo": "https://www.hagaplattsattning.se/logo.avif",
+      "image": "https://www.hagaplattsattning.se/logo.avif",
+      "telephone": "+46739133348",
+      "email": "kontakt@hagaplattsattning.se",
+      "vatID": "SE559297850501",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Skyttevägen 6",
+        "postalCode": "192 58",
+        "addressLocality": "Sollentuna",
+        "addressRegion": "Stockholm",
+        "addressCountry": "SE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 59.4281,
+        "longitude": 17.9506
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "07:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": [
+        "Stockholm","Sollentuna","Solna","Sundbyberg","Lidingö",
+        "Danderyd","Täby","Nacka","Bromma","Järfälla","Upplands Väsby"
+      ],
+      "description": "Certifierat plattsättarföretag i Stockholm. Professionell badrumsrenovering, kakelsättning och köksrenovering med våtrumsintyg, fast pris och GVK-godkända lösningar.",
+      "knowsAbout": [
+        "Badrumsrenovering","Kakelsättning","Köksrenovering",
+        "Plattsättning","Våtrumsintyg","GVK-normer","Kakel och klinker"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Byggkeramikrådets våtrumsintyg"
+        }
+      ],
+      "award": [
+        "Rekommenderat Företag 2024 – Reco",
+        "Rekommenderat Företag 2025 – Reco",
+        "Rekommenderat 2 år i rad – Reco"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "ratingCount": "34",
+        "reviewCount": "34"
+      },
+      "sameAs": [
+        "https://www.reco.se/haga-plattsattning-ab-sollentuna"
+      ]
+    }
+    </script>
+
   </body>
 </html>
