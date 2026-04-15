@@ -23,10 +23,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 0.75rem;
+        gap: 3rem;
         height: 44px;
         font-size: 0.88rem;
-        flex-wrap: wrap;
       }
       .contact-bar a {
         color: rgba(255,255,255,0.85);
@@ -37,9 +36,8 @@
         transition: color 0.15s;
       }
       .contact-bar a:hover { color: #c8a96e; }
-      .contact-bar__sep {
-        color: rgba(255,255,255,0.2);
-        font-size: 1rem;
+      @media (max-width: 500px) {
+        .contact-bar { justify-content: space-around; gap: 0; }
       }
     </style>
   </head>
@@ -58,7 +56,6 @@
     <!-- ── CONTACT BAR ── -->
     <div class="contact-bar">
       <a href="tel:0739133348" aria-label="Ring oss">📞 073-913 33 48</a>
-      <span class="contact-bar__sep">|</span>
       <a href="mailto:kontakt@hagaplattsattning.se" aria-label="Skicka e-post">✉ kontakt@hagaplattsattning.se</a>
     </div>
 
