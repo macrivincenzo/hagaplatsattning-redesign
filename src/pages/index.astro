@@ -9,12 +9,82 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Haga Plattsättning AB</title>
+    <meta name="description" content="Professionell badrumsrenovering i Stockholm. Vi sätter kakel och klinker med hög kvalitet och fast pris. Certifierade plattsättare med våtrumsintyg. Få gratis offert idag." />
+    <title>Haga Plattsättning AB – Badrumsrenovering &amp; Kakelsättning Stockholm</title>
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body { font-family: system-ui, sans-serif; }
       .reco-bar { width: 100%; overflow: hidden; }
       .reco-bar iframe { width: 100%; border: 0; display: block; overflow: hidden; height: 225px; }
+
+      /* ── CONTACT BAR ── */
+      .contact-bar {
+        background: #12122a;
+        border-top: 2px solid #c8a96e;
+        padding: 0 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        min-height: 52px;
+        flex-wrap: wrap;
+      }
+      .contact-bar__item {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        text-decoration: none;
+        padding: 0.6rem 0;
+        transition: opacity 0.15s;
+      }
+      .contact-bar__item:hover { opacity: 0.85; }
+      .contact-bar__icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 0.85rem;
+      }
+      .contact-bar__icon--phone { background: #c8a96e; color: #12122a; }
+      .contact-bar__icon--email { background: rgba(255,255,255,0.08); color: #c8a96e; }
+      .contact-bar__text { display: flex; flex-direction: column; line-height: 1.2; }
+      .contact-bar__label {
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255,255,255,0.45);
+      }
+      .contact-bar__value {
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+      .contact-bar__item--phone .contact-bar__value { color: #c8a96e; }
+      .contact-bar__badge {
+        font-size: 0.68rem;
+        background: rgba(200,169,110,0.12);
+        border: 1px solid rgba(200,169,110,0.3);
+        color: #c8a96e;
+        padding: 0.2rem 0.6rem;
+        border-radius: 50px;
+        white-space: nowrap;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+      .contact-bar__divider {
+        width: 1px;
+        height: 28px;
+        background: rgba(255,255,255,0.08);
+      }
+      @media (max-width: 500px) {
+        .contact-bar { gap: 0; justify-content: space-around; }
+        .contact-bar__divider { display: none; }
+        .contact-bar__badge { display: none; }
+      }
     </style>
   </head>
   <body>
@@ -27,6 +97,26 @@
         style="width:100%;border:0;display:block;overflow:hidden;"
         data-reactroot
       ></iframe>
+    </div>
+
+    <!-- ── CONTACT BAR ── -->
+    <div class="contact-bar">
+      <a href="tel:0739133348" class="contact-bar__item contact-bar__item--phone" aria-label="Ring oss">
+        <div class="contact-bar__icon contact-bar__icon--phone">📞</div>
+        <div class="contact-bar__text">
+          <span class="contact-bar__label">Ring oss direkt</span>
+          <span class="contact-bar__value">073-913 33 48</span>
+        </div>
+      </a>
+      <div class="contact-bar__badge">Svarar inom 24h</div>
+      <div class="contact-bar__divider"></div>
+      <a href="mailto:kontakt@hagaplattsattning.se" class="contact-bar__item" aria-label="Skicka e-post">
+        <div class="contact-bar__icon contact-bar__icon--email">✉️</div>
+        <div class="contact-bar__text">
+          <span class="contact-bar__label">Skicka e-post</span>
+          <span class="contact-bar__value">kontakt@hagaplattsattning.se</span>
+        </div>
+      </a>
     </div>
 
   </body>
