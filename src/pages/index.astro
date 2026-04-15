@@ -453,7 +453,8 @@
         margin-bottom: 3rem;
       }
       .faq-section {
-        background: #f8f8fb;
+        background: #ffffff;
+        border-top: 1px solid #e8e8ee;
         padding: 5rem 0;
       }
       .faq-grid {
@@ -500,6 +501,92 @@
       @media (max-width: 700px) {
         .faq-grid { grid-template-columns: 1fr; }
       }
+
+      /* ── BKR SECTION ── */
+      .bkr-section {
+        background: #f8f8fb;
+        border-top: 1px solid #e8e8ee;
+        padding: 5rem 0;
+      }
+      .bkr-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 4rem;
+      }
+      .bkr-image {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+        line-height: 0;
+      }
+      .bkr-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px;
+      }
+      .bkr-text {}
+      .bkr-text h2 {
+        font-size: clamp(1.5rem, 2.8vw, 2rem);
+        font-weight: 800;
+        color: #0a0a1a;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.1rem;
+      }
+      .bkr-text p {
+        font-size: 0.95rem;
+        color: #444;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+      }
+      .bkr-checklist {
+        list-style: none;
+        margin: 1.5rem 0 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+      .bkr-checklist li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.65rem;
+        font-size: 0.92rem;
+        color: #222;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+      .bkr-checklist li::before {
+        content: '✓';
+        color: #2a7a2a;
+        font-weight: 700;
+        font-size: 1rem;
+        flex-shrink: 0;
+        margin-top: 0.05rem;
+      }
+      .bkr-cta {
+        display: inline-block;
+        background: #0a0a1a;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 0.65rem 1.4rem;
+        border-radius: 7px;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      .bkr-cta:hover { opacity: 0.82; }
+      @media (max-width: 800px) {
+        .bkr-inner {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
     </style>
 
     <!-- ── SECTION 1: HERO ── -->
@@ -529,7 +616,51 @@
       </div>
     </section>
 
-    <!-- ── SECTION 2: FAQ (AEO) ── -->
+    <!-- ── SECTION 2: BKR-BEHÖRIG ── -->
+    <section class="bkr-section" aria-label="BKR-behörig plattsättare – Haga Plattsättning AB">
+      <div class="bkr-inner">
+
+        <div class="bkr-image">
+          <img
+            src="/behorig-vatrum.avif"
+            alt="BKR-behörig plattsättare utför badrumsrenovering i Stockholm – Haga Plattsättning AB"
+            width="580"
+            height="480"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="bkr-text">
+          <p class="section-label">Certifiering &amp; kvalitet</p>
+          <h2>BKR-behörig plattsättare i Stockholm – vi utfärdar kvalitetsdokument</h2>
+          <p>
+            Haga Plattsättning AB är ett BKR-behörigt plattsättningsföretag, vilket innebär att vi
+            arbetar enligt Byggkeramikrådets branschregler för våtrum (BBV) och utfärdar ett officiellt
+            kvalitetsdokument efter varje genomförd badrumsrenovering. Dokumentet undertecknas
+            elektroniskt via BankID av ansvarig arbetsledare och är det enda sättet att dokumentera
+            att arbetet är fackmässigt utfört.
+          </p>
+          <p>
+            BKR-certifiering är branschstandard i Sverige och en viktig trygghet för dig som husägare.
+            Vid en vattenskada kan ditt försäkringsbolag begära dokumentation på att renoveringen är
+            korrekt utförd – utan kvalitetsdokument kan skadan avvisas av försäkringsbolaget.
+            Kvalitetsdokumentet ökar även bostadens värde och är ett krav som många köpare och
+            bostadsrättsföreningar ställer inför en försäljning.
+          </p>
+          <ul class="bkr-checklist" aria-label="BKR-certifieringens fördelar">
+            <li>Behöriga enligt Byggkeramikrådet (BKR)</li>
+            <li>Arbetar enligt BBV – Branschregler för Våtrum</li>
+            <li>Utfärdar officiellt kvalitetsdokument (Bilaga A till BBV) med BankID-signering</li>
+            <li>Skyddar dig vid försäkringsskador och vid försäljning av bostad</li>
+            <li>Uppfyller krav från bostadsrättsföreningar och banker</li>
+          </ul>
+          <a href="/offertforfragan" class="bkr-cta">Få gratis offert →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: FAQ (AEO) ── -->
     <section class="faq-section" id="faq" aria-label="Vanliga frågor om badrumsrenovering i Stockholm">
       <div class="section-inner">
         <p class="section-label">Vanliga frågor</p>
