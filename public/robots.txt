@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block build artifacts and config files from indexing
+Disallow: /cdn-cgi/
+Disallow: /_astro/
+Disallow: /404
+
+# Sitemap location
+Sitemap: https://www.hagaplattsattning.se/sitemap.xml
