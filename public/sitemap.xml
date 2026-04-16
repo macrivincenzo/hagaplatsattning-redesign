@@ -44,7 +44,6 @@
        SERVICE PAGES — uncomment each page as it goes live
        ═══════════════════════════════════════════════ -->
 
-  <!--
   <url>
     <loc>https://www.hagaplattsattning.se/badrumsrenovering-stockholm/</loc>
     <lastmod>2026-04-16</lastmod>
@@ -54,6 +53,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/badrumsrenovering-stockholm/"/>
   </url>
 
+  <!--
   <url>
     <loc>https://www.hagaplattsattning.se/kakelsattare-stockholm/</loc>
     <lastmod>2026-04-16</lastmod>
