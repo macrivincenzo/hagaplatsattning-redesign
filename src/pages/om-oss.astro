@@ -239,11 +239,16 @@
       .bkr-text h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 700; color: #0a0a1a; margin: 2rem 0 0.75rem; letter-spacing: -0.015em; line-height: 1.25; }
       .bkr-text h3:first-of-type { margin-top: 1.25rem; }
       .bkr-text p { font-size: 0.95rem; color: #444; line-height: 1.75; margin-bottom: 0.9rem; }
-      .sv-image-wrap { margin: 1.5rem 0 2rem; max-width: 320px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.08); line-height: 0; }
+      .sv-image-wrap { margin: 1.25rem 0 1.5rem; max-width: 160px; line-height: 0; }
       .sv-image-wrap img { width: 100%; height: auto; display: block; }
-      .service-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
-      .service-links a { color: #0a0a1a; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(10,10,26,0.25); font-size: 0.95rem; }
-      .service-links a:hover { text-decoration-color: #0a0a1a; }
+      .tjanst-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 1.25rem; }
+      .tjanst-card { background: #f8f8fb; border: 1px solid #e8e8ee; border-radius: 8px; padding: 1.1rem 1.25rem; text-decoration: none; transition: border-color 0.15s, background 0.15s; display: block; }
+      .tjanst-card:hover { border-color: #c0c0d0; background: #f0f0f8; }
+      .tjanst-card strong { display: block; font-size: 0.92rem; color: #0a0a1a; margin-bottom: 0.3rem; }
+      .tjanst-card span { font-size: 0.84rem; color: #666; line-height: 1.55; }
+      .area-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+      .area-tag { background: #f0f0f8; border: 1px solid #e0e0ee; border-radius: 20px; padding: 0.3rem 0.85rem; font-size: 0.84rem; color: #444; white-space: nowrap; }
+      @media (max-width: 600px) { .tjanst-grid { grid-template-columns: 1fr; } }
       .faq-section { background: #ffffff; border-top: 1px solid #e8e8ee; padding: 4rem 0 5rem; }
       .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
       .faq-item { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
@@ -355,12 +360,24 @@
         <p>
           Vi hjälper dig med hela kedjan från planering till färdigställt våtrumsdokument — välj sida för mer detaljer och prisindikationer.
         </p>
-        <ul class="service-links" role="list">
-          <li><a href="/badrumsrenovering-stockholm">Badrumsrenovering Stockholm</a></li>
-          <li><a href="/badrumsrenovering-pris">Vad kostar en badrumsrenovering?</a></li>
-          <li><a href="/kakelsattare-stockholm">Kakelsättare Stockholm</a></li>
-          <li><a href="/koksrenovering-stockholm">Köksrenovering Stockholm</a></li>
-        </ul>
+        <div class="tjanst-grid">
+          <a href="/badrumsrenovering-stockholm" class="tjanst-card">
+            <strong>Badrumsrenovering Stockholm</strong>
+            <span>Komplett renovering med BKR-intyg, fast pris och garanti.</span>
+          </a>
+          <a href="/badrumsrenovering-pris" class="tjanst-card">
+            <strong>Vad kostar en badrumsrenovering?</strong>
+            <span>Priser per kvm, vad som ingår och hur du får bäst offert.</span>
+          </a>
+          <a href="/kakelsattare-stockholm" class="tjanst-card">
+            <strong>Kakelsättare Stockholm</strong>
+            <span>Certifierad kakelsättning av kakel och klinker i badrum och kök.</span>
+          </a>
+          <a href="/koksrenovering-stockholm" class="tjanst-card">
+            <strong>Köksrenovering Stockholm</strong>
+            <span>Kakel, klinker och stänkskydd i kök med professionellt utförande.</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -368,8 +385,24 @@
       <div class="section-inner prose-block">
         <h2 class="section-title" id="arbetsomrade">Vårt arbetsområde</h2>
         <p>
-          Vi utför kakelsättning och badrumsrenovering i hela Stockholms län. Våra vanligaste arbetsområden inkluderar: Östermalm, Södermalm, Kungsholmen, Vasastan, Lidingö, Nacka, Solna, Sundbyberg, Täby, Danderyd och Sollentuna.
+          Vi utför kakelsättning och badrumsrenovering i hela Stockholms län. Hör av dig oavsett var i regionen du befinner dig — vi tar oss dit.
         </p>
+        <div class="area-tags" aria-label="Arbetsområden i Stockholms län">
+          <span class="area-tag">Östermalm</span>
+          <span class="area-tag">Södermalm</span>
+          <span class="area-tag">Kungsholmen</span>
+          <span class="area-tag">Vasastan</span>
+          <span class="area-tag">Lidingö</span>
+          <span class="area-tag">Nacka</span>
+          <span class="area-tag">Solna</span>
+          <span class="area-tag">Sundbyberg</span>
+          <span class="area-tag">Täby</span>
+          <span class="area-tag">Danderyd</span>
+          <span class="area-tag">Sollentuna</span>
+          <span class="area-tag">Järfälla</span>
+          <span class="area-tag">Bromma</span>
+          <span class="area-tag">Upplands Väsby</span>
+        </div>
       </div>
     </section>
 
