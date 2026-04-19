@@ -169,14 +169,64 @@
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        background: #000;
+        background: #fff;
         position: relative;
+        margin: 0;
       }
-      .video-card video {
-        width: 100%;
-        display: block;
+      .video-shell {
+        position: relative;
+        background: #0a0a0a;
         aspect-ratio: 16 / 9;
-        object-fit: cover;
+      }
+      .video-shell video {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+      }
+      .video-play-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: rgba(0,0,0,0.5);
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s, opacity 0.25s;
+        z-index: 2;
+      }
+      .video-play-overlay:hover { background: rgba(0,0,0,0.42); }
+      .video-play-overlay:focus {
+        outline: 3px solid #fff;
+        outline-offset: -3px;
+      }
+      .video-play-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.95);
+        color: #0a0a1a;
+        font-size: 1.35rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 4px;
+        line-height: 1;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+      }
+      .video-play-text {
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+      }
+      .video-shell.is-playing .video-play-overlay {
+        opacity: 0;
+        pointer-events: none;
       }
       .video-label {
         padding: 0.85rem 1rem;
@@ -186,6 +236,26 @@
         font-weight: 600;
         color: #333;
       }
+      .video-seo-copy {
+        padding: 1.15rem 1rem 1.35rem;
+        background: #fafafc;
+        border-top: 1px solid #e8e8ee;
+      }
+      .video-seo-copy h3 {
+        font-size: 0.98rem;
+        font-weight: 800;
+        color: #0a0a1a;
+        line-height: 1.3;
+        margin-bottom: 0.65rem;
+        letter-spacing: -0.015em;
+      }
+      .video-seo-copy p {
+        font-size: 0.87rem;
+        color: #444;
+        line-height: 1.75;
+        margin-bottom: 0.6rem;
+      }
+      .video-seo-copy p:last-child { margin-bottom: 0; }
       .video-fallback {
         display: none;
         padding: 2.25rem 1.25rem;
@@ -207,6 +277,7 @@
         border-radius: 4px;
       }
       .video-card.video-load-failed .video-fallback { display: flex; }
+      .video-card.video-load-failed .video-play-overlay { display: none; }
       .video-card.video-load-failed video { display: none; }
       @media (max-width: 700px) {
         .videos-grid { grid-template-columns: 1fr; }
@@ -507,52 +578,137 @@
         <h2 class="section-title">Se plattsättningen i rörelse</h2>
         <p class="section-lead">
           Två korta filmer som visar hur vi arbetar – professionell plattsättning och badrumsrenovering
-          utförd av Haga Plattsättning AB i Stockholm.
+          utförd av Haga Plattsättning AB i Stockholm. Klicka på <strong>Spela video</strong> för att starta;
+          därefter kan du använda webbläsarens egna kontroller (paus, volym, helskärm).
         </p>
         <div class="videos-grid">
-          <div class="video-card">
-            <video
-              controls
-              playsinline
-              preload="metadata"
-              aria-label="Video 1 – plattsättning och kakelsättning utfört av Haga Plattsättning AB i Stockholm"
-            >
-              <source src="/hagaplatt_video_1.webm" type="video/webm" />
-              Din webbläsare stöder inte videouppspelning.
-            </video>
-            <div class="video-fallback" role="alert">
-              <strong>Videon kunde inte laddas</strong>
-              <span>Videofilen saknas på servern eller kunde inte nås. Lägg <code>hagaplatt_video_1.webm</code> i projektets <code>public</code>-mapp, committa och publicera om.</span>
+          <figure class="video-card">
+            <div class="video-shell" data-video-shell>
+              <video
+                id="ref-video-golvbrunn"
+                controls
+                playsinline
+                preload="metadata"
+                title="Referensvideo: klinkerläggning runt golvbrunn och plattsättning i badrum i Stockholm – Haga Plattsättning AB"
+                aria-label="Referensvideo från Haga Plattsättning AB: professionell plattsättning och klinkerläggning kring golvbrunn i badrum i Stockholm, utförd av BKR-behörig kakelsättare med våtrumsintyg enligt BBV."
+              >
+                <source src="/hagaplatt_video_1.webm" type="video/webm" />
+                Din webbläsare stöder inte videouppspelning.
+              </video>
+              <button
+                type="button"
+                class="video-play-overlay"
+                aria-label="Spela upp referensvideo: plattsättning och klinker kring golvbrunn i badrum – Haga Plattsättning AB Stockholm"
+              >
+                <span class="video-play-icon" aria-hidden="true">▶</span>
+                <span class="video-play-text">Spela video</span>
+              </button>
+              <div class="video-fallback" role="alert">
+                <strong>Videon kunde inte laddas</strong>
+                <span>Videofilen saknas på servern eller kunde inte nås. Lägg <code>hagaplatt_video_1.webm</code> i projektets <code>public</code>-mapp, committa och publicera om.</span>
+              </div>
             </div>
-            <div class="video-label">Plattsättning i badrum – Haga Plattsättning AB Stockholm</div>
-          </div>
-          <div class="video-card">
-            <video
-              controls
-              playsinline
-              preload="metadata"
-              aria-label="Video 2 – badrumsrenovering och klinkerläggning av Haga Plattsättning AB i Stockholm"
-            >
-              <source src="/hagaplatt_video_2.webm" type="video/webm" />
-              Din webbläsare stöder inte videouppspelning.
-            </video>
-            <div class="video-fallback" role="alert">
-              <strong>Videon kunde inte laddas</strong>
-              <span>Videofilen saknas på servern eller kunde inte nås. Lägg <code>hagaplatt_video_2.webm</code> i projektets <code>public</code>-mapp, committa och publicera om.</span>
+            <figcaption class="video-label">
+              Plattsättning i badrum – klinker runt golvbrunn | Haga Plattsättning AB Stockholm
+            </figcaption>
+            <div class="video-seo-copy">
+              <h3>Vad visar den här referensvideon från Haga Plattsättning AB?</h3>
+              <p>
+                Filmen visar hur vi som certifierade plattsättare i Stockholm arbetar med klinkerläggning och precision
+                kring golvbrunn – ett kritisk moment i varje badrumsrenovering. Fel utförande här ökar risken för läckage;
+                därför följer Haga Plattsättning AB Byggkeramikrådets branschregler för våtrum (BBV) och dokumenterar
+                arbetet så att du får trygghet inför försäkring och framtida försäljning.
+              </p>
+              <p>
+                Söker du <strong>kakelsättare i Stockholm</strong>, <strong>plattsättning badrum</strong> eller
+                <strong>badrumsrenovering med BKR-intyg</strong>? Kontakta Haga Plattsättning AB för kostnadsfri offert –
+                vi arbetar i hela Stockholmsregionen med fast pris och våtrumsintyg.
+              </p>
             </div>
-            <div class="video-label">Badrumsrenovering med klinker – Haga Plattsättning AB Stockholm</div>
-          </div>
+          </figure>
+          <figure class="video-card">
+            <div class="video-shell" data-video-shell>
+              <video
+                id="ref-video-balkong"
+                controls
+                playsinline
+                preload="metadata"
+                title="Referensvideo: plattsättning på balkong och utomhusyta i Stockholm – Haga Plattsättning AB"
+                aria-label="Referensvideo från Haga Plattsättning AB: hållbar plattsättning och klinkerläggning på balkong eller utomhusyta i Stockholm, utförd av erfarna plattsättare med fokus på dränering, fall och långsiktigt väderbeständigt resultat."
+              >
+                <source src="/hagaplatt_video_2.webm" type="video/webm" />
+                Din webbläsare stöder inte videouppspelning.
+              </video>
+              <button
+                type="button"
+                class="video-play-overlay"
+                aria-label="Spela upp referensvideo: plattsättning på balkong med klinker – Haga Plattsättning AB Stockholm"
+              >
+                <span class="video-play-icon" aria-hidden="true">▶</span>
+                <span class="video-play-text">Spela video</span>
+              </button>
+              <div class="video-fallback" role="alert">
+                <strong>Videon kunde inte laddas</strong>
+                <span>Videofilen saknas på servern eller kunde inte nås. Lägg <code>hagaplatt_video_2.webm</code> i projektets <code>public</code>-mapp, committa och publicera om.</span>
+              </div>
+            </div>
+            <figcaption class="video-label">
+              Plattsättning på balkong och utomhusyta | Haga Plattsättning AB Stockholm
+            </figcaption>
+            <div class="video-seo-copy">
+              <h3>Varför välja Haga Plattsättning AB för utomhusplattsättning i Stockholm?</h3>
+              <p>
+                Balkonger, altaner och entréer utsätts för fukt, frost och slitage. I videon ser du hur Haga Plattsättning AB
+                lägger klinker och utför plattsättning med hantverksmässig kvalitet anpassad för svenska förhållanden.
+                Vi är BKR-behöriga och PER-auktoriserade plattsättare – samma noggrannhet som i badrum, oavsett om det
+                gäller <strong>utomhusplattsättning</strong>, <strong>klinker på balkong</strong> eller
+                <strong>renovering inför försäljning</strong> i Stockholm.
+              </p>
+              <p>
+                Vill du se fler referensprojekt? Scrolla ned till bildgalleriet eller begär offert via vår sida
+                Offertförfrågan. Haga Plattsättning AB – certifierad plattsättare i Stockholm med 4,9/5 på Reco och
+                verifierade kundomdömen.
+              </p>
+            </div>
+          </figure>
         </div>
       </div>
     </section>
 
     <script is:inline>
-      document.querySelectorAll('.video-card video').forEach(function (video) {
-        video.addEventListener('error', function () {
-          var card = video.closest('.video-card');
-          if (card) card.classList.add('video-load-failed');
+      (function () {
+        document.querySelectorAll('.video-card').forEach(function (card) {
+          var video = card.querySelector('video');
+          var shell = card.querySelector('[data-video-shell]');
+          var btn = card.querySelector('.video-play-overlay');
+          if (!video || !shell || !btn) return;
+
+          video.addEventListener('error', function () {
+            card.classList.add('video-load-failed');
+          });
+
+          function syncOverlay() {
+            if (video.paused && (video.currentTime === 0 || video.ended)) {
+              shell.classList.remove('is-playing');
+            }
+          }
+
+          btn.addEventListener('click', function () {
+            video.focus();
+            var p = video.play();
+            if (p && typeof p.then === 'function') {
+              p.catch(function () {});
+            }
+            shell.classList.add('is-playing');
+          });
+
+          video.addEventListener('play', function () {
+            shell.classList.add('is-playing');
+          });
+          video.addEventListener('pause', syncOverlay);
+          video.addEventListener('ended', syncOverlay);
         });
-      });
+      })();
     </script>
 
     <!-- ── PHOTO GALLERY ── -->
@@ -1235,6 +1391,49 @@
         "name": "Haga Plattsättning AB",
         "url": "https://www.hagaplattsattning.se"
       }
+    }
+    </script>
+
+    <!-- ── JSON-LD: VideoObject (referensvideor) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "VideoObject",
+          "@id": "https://www.hagaplattsattning.se/referensprojekt#video-golvbrunn",
+          "name": "Referensvideo: plattsättning och klinker kring golvbrunn i badrum – Haga Plattsättning AB Stockholm",
+          "description": "Se hur BKR-behöriga plattsättare från Haga Plattsättning AB utför klinkerläggning och plattsättning kring golvbrunn i badrum i Stockholm enligt BBV, med fokus på täthet, precision och dokumenterat våtrumsutförande.",
+          "thumbnailUrl": "https://www.hagaplattsattning.se/hagaplatt_1.avif",
+          "uploadDate": "2026-04-19",
+          "contentUrl": "https://www.hagaplattsattning.se/hagaplatt_video_1.webm",
+          "encodingFormat": "video/webm",
+          "inLanguage": "sv",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Haga Plattsättning AB",
+            "url": "https://www.hagaplattsattning.se",
+            "logo": { "@type": "ImageObject", "url": "https://www.hagaplattsattning.se/logo.avif" }
+          }
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://www.hagaplattsattning.se/referensprojekt#video-balkong",
+          "name": "Referensvideo: plattsättning på balkong och utomhusyta – Haga Plattsättning AB Stockholm",
+          "description": "Referensfilm som visar utomhusplattsättning och klinkerläggning på balkong i Stockholm av Haga Plattsättning AB – certifierade plattsättare med erfarenhet av väder, fall och hållbara foglösningar.",
+          "thumbnailUrl": "https://www.hagaplattsattning.se/hagaplatt_23.avif",
+          "uploadDate": "2026-04-19",
+          "contentUrl": "https://www.hagaplattsattning.se/hagaplatt_video_2.webm",
+          "encodingFormat": "video/webm",
+          "inLanguage": "sv",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Haga Plattsättning AB",
+            "url": "https://www.hagaplattsattning.se",
+            "logo": { "@type": "ImageObject", "url": "https://www.hagaplattsattning.se/logo.avif" }
+          }
+        }
+      ]
     }
     </script>
 
