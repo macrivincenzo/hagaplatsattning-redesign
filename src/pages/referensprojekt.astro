@@ -150,27 +150,7 @@
         color: #444;
         line-height: 1.7;
         max-width: 700px;
-        margin-bottom: 1.75rem;
-      }
-      .hero-stats {
-        display: flex;
-        gap: 2.5rem;
-        flex-wrap: wrap;
-        margin-top: 1.5rem;
-      }
-      .hero-stat strong {
-        display: block;
-        font-size: 1.6rem;
-        font-weight: 800;
-        color: #0a0a1a;
-        letter-spacing: -0.02em;
-        line-height: 1;
-      }
-      .hero-stat span {
-        font-size: 0.84rem;
-        color: #666;
-        margin-top: 0.2rem;
-        display: block;
+        margin-bottom: 0;
       }
 
       /* ── VIDEOS SECTION ── */
@@ -206,6 +186,28 @@
         font-weight: 600;
         color: #333;
       }
+      .video-fallback {
+        display: none;
+        padding: 2.25rem 1.25rem;
+        text-align: center;
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.65;
+        background: #f0f0f5;
+        aspect-ratio: 16 / 9;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .video-fallback code {
+        font-size: 0.82rem;
+        background: #e4e4ec;
+        padding: 0.1rem 0.35rem;
+        border-radius: 4px;
+      }
+      .video-card.video-load-failed .video-fallback { display: flex; }
+      .video-card.video-load-failed video { display: none; }
       @media (max-width: 700px) {
         .videos-grid { grid-template-columns: 1fr; }
       }
@@ -495,24 +497,6 @@
           Badrumsrenovering, kakelsättning, klinkerläggning och köksrenovering utfört med BKR-behörighet, hög precision
           och fast pris. Se resultaten och kontakta oss för din kostnadsfria offert.
         </p>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <strong>4.9/5</strong>
-            <span>Snittbetyg på Reco</span>
-          </div>
-          <div class="hero-stat">
-            <strong>34+</strong>
-            <span>Verifierade omdömen</span>
-          </div>
-          <div class="hero-stat">
-            <strong>BKR</strong>
-            <span>Behörigt plattsättningsföretag</span>
-          </div>
-          <div class="hero-stat">
-            <strong>PER</strong>
-            <span>Auktoriserat av Plattsättarnas Riksförbund</span>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -529,28 +513,47 @@
           <div class="video-card">
             <video
               controls
+              playsinline
               preload="metadata"
               aria-label="Video 1 – plattsättning och kakelsättning utfört av Haga Plattsättning AB i Stockholm"
             >
               <source src="/hagaplatt_video_1.webm" type="video/webm" />
               Din webbläsare stöder inte videouppspelning.
             </video>
+            <div class="video-fallback" role="alert">
+              <strong>Videon kunde inte laddas</strong>
+              <span>Videofilen saknas på servern eller kunde inte nås. Lägg <code>hagaplatt_video_1.webm</code> i projektets <code>public</code>-mapp, committa och publicera om.</span>
+            </div>
             <div class="video-label">Plattsättning i badrum – Haga Plattsättning AB Stockholm</div>
           </div>
           <div class="video-card">
             <video
               controls
+              playsinline
               preload="metadata"
               aria-label="Video 2 – badrumsrenovering och klinkerläggning av Haga Plattsättning AB i Stockholm"
             >
               <source src="/hagaplatt_video_2.webm" type="video/webm" />
               Din webbläsare stöder inte videouppspelning.
             </video>
+            <div class="video-fallback" role="alert">
+              <strong>Videon kunde inte laddas</strong>
+              <span>Videofilen saknas på servern eller kunde inte nås. Lägg <code>hagaplatt_video_2.webm</code> i projektets <code>public</code>-mapp, committa och publicera om.</span>
+            </div>
             <div class="video-label">Badrumsrenovering med klinker – Haga Plattsättning AB Stockholm</div>
           </div>
         </div>
       </div>
     </section>
+
+    <script is:inline>
+      document.querySelectorAll('.video-card video').forEach(function (video) {
+        video.addEventListener('error', function () {
+          var card = video.closest('.video-card');
+          if (card) card.classList.add('video-load-failed');
+        });
+      });
+    </script>
 
     <!-- ── PHOTO GALLERY ── -->
     <section class="gallery-section" aria-label="Bildgalleri – referensprojekt Haga Plattsättning AB">
