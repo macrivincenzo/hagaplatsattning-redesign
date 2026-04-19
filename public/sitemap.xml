@@ -40,6 +40,15 @@
     </image:image>
   </url>
 
+  <url>
+    <loc>https://www.hagaplattsattning.se/om-oss/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="sv-se" href="https://www.hagaplattsattning.se/om-oss/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/om-oss/"/>
+  </url>
+
   <!-- ═══════════════════════════════════════════════
        SERVICE PAGES — uncomment each page as it goes live
        ═══════════════════════════════════════════════ -->
