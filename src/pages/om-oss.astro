@@ -257,7 +257,13 @@
       .faq-item summary::after { content: '+'; font-size: 1.2rem; font-weight: 400; color: #aaa; flex-shrink: 0; transition: transform 0.2s; }
       .faq-item[open] summary::after { transform: rotate(45deg); }
       .faq-answer { padding: 0 1.4rem 1.2rem; font-size: 0.87rem; color: #555; line-height: 1.7; border-top: 1px solid #f0f0f5; }
-      @media (max-width: 800px) { .bkr-inner { grid-template-columns: 1fr; gap: 2rem; } .faq-grid { grid-template-columns: 1fr; } }
+      .sv-section { background: #f8f8fb; border-top: 1px solid #e8e8ee; padding: 3.5rem 0 4rem; }
+      .sv-inner { max-width: 1060px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 220px 1fr; gap: 3.5rem; align-items: center; }
+      .sv-logo { display: flex; align-items: center; justify-content: center; }
+      .sv-logo img { width: 100%; max-width: 200px; height: auto; display: block; }
+      .sv-text h2 { margin-bottom: 0.75rem; }
+      .sv-text p { font-size: 0.95rem; color: #444; line-height: 1.75; margin-bottom: 0.9rem; }
+      @media (max-width: 800px) { .bkr-inner { grid-template-columns: 1fr; gap: 2rem; } .sv-inner { grid-template-columns: 1fr; gap: 1.75rem; } .sv-logo { justify-content: flex-start; } .faq-grid { grid-template-columns: 1fr; } }
     </style>
 
     <div class="breadcrumb" aria-label="Brödsmulor">
@@ -279,8 +285,8 @@
         </div>
         <div class="hero-image">
           <img
-            src="/hagaplattsattningbildhemsida.avif"
-            alt="Haga Plattsättning AB – plattsättning och badrumsrenovering i Stockholm"
+            src="/haga%20platts%C3%A4ttning%20bild%205.avif"
+            alt="Haga Plattsättning AB – certifierad kakelsättning och badrumsrenovering i Stockholm sedan 2021"
             width="600" height="480" loading="eager" fetchpriority="high"
           />
         </div>
@@ -333,14 +339,21 @@
             PER-auktorisationen inkluderar en garantifond som träder in och skyddar konsumentens rätt om ett auktoriserat företag inte fullgör sitt åtagande. Det är en extra trygghet utöver vår ansvarsförsäkring.
           </p>
 
-          <h3>Säker Vatten</h3>
-          <div class="sv-image-wrap">
-            <img
-              src="/saeker-vatten-rgb-png.avif"
-              alt="Säker Vatten certifiering – Haga Plattsättning anlitar enbart Säker Vatten-certifierade rörmokare vid badrumsrenovering i Stockholm"
-              width="320" height="120" loading="lazy"
-            />
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sv-section" aria-labelledby="saker-vatten-rubrik">
+      <div class="sv-inner">
+        <div class="sv-logo">
+          <img
+            src="/saeker-vatten-rgb-png.avif"
+            alt="Säker Vatten certifiering – Haga Plattsättning anlitar enbart Säker Vatten-certifierade rörmokare vid badrumsrenovering i Stockholm"
+            width="240" height="240" loading="lazy"
+          />
+        </div>
+        <div class="sv-text">
+          <h2 class="section-title" id="saker-vatten-rubrik" style="margin-bottom:0.75rem;">Säker Vatten</h2>
           <p>
             Badrumsrenovering kräver i de flesta fall rörmokararbeten — byte av golvbrunn, flytt av avlopp eller VA-anslutningar. Vi anlitar enbart rörmokare som är certifierade enligt Säker Vatten.
           </p>
@@ -377,31 +390,6 @@
             <strong>Köksrenovering Stockholm</strong>
             <span>Kakel, klinker och stänkskydd i kök med professionellt utförande.</span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section" aria-labelledby="arbetsomrade">
-      <div class="section-inner prose-block">
-        <h2 class="section-title" id="arbetsomrade">Vårt arbetsområde</h2>
-        <p>
-          Vi utför kakelsättning och badrumsrenovering i hela Stockholms län. Hör av dig oavsett var i regionen du befinner dig — vi tar oss dit.
-        </p>
-        <div class="area-tags" aria-label="Arbetsområden i Stockholms län">
-          <span class="area-tag">Östermalm</span>
-          <span class="area-tag">Södermalm</span>
-          <span class="area-tag">Kungsholmen</span>
-          <span class="area-tag">Vasastan</span>
-          <span class="area-tag">Lidingö</span>
-          <span class="area-tag">Nacka</span>
-          <span class="area-tag">Solna</span>
-          <span class="area-tag">Sundbyberg</span>
-          <span class="area-tag">Täby</span>
-          <span class="area-tag">Danderyd</span>
-          <span class="area-tag">Sollentuna</span>
-          <span class="area-tag">Järfälla</span>
-          <span class="area-tag">Bromma</span>
-          <span class="area-tag">Upplands Väsby</span>
         </div>
       </div>
     </section>
