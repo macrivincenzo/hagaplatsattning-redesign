@@ -99,7 +99,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Varfor tar badrumsrenovering ofta lite langre tid i centrala Stockholm?',
         bodyHtml:
-          '<p>Det ar sallan sjalva kakelsattningen som forlangs - det ar logistiken runtomkring som styr tempo.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Materialbarning via trapphus utan hiss</li><li>Begransade arbetstider i BRF (ofta 07-17 vardagar)</li><li>Bokning av hissskydd, garageplats eller containerplats</li><li>Hardningstid for tatschikt mellan arbetsmoment</li></ul><p>Vi bygger alltid in dessa risker i tidsplanen innan start, sa att du far realistiska deadlines.</p>',
+          '<p>Det ar sallan sjalva kakelsattningen som forlangs - det ar logistiken runtomkring som styr tempo.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Materialbarning via trapphus utan hiss</li><li>Begransade arbetstider i BRF (ofta 07-17 vardagar)</li><li>Bokning av hissskydd, garageplats eller containerplats</li><li>Hardningstid for tätskikt mellan arbetsmoment</li></ul><p>Vi bygger alltid in dessa risker i tidsplanen innan start, sa att du far realistiska deadlines.</p>',
         imageSrc: '/hagaplattsattningbildhemsida2.avif',
         imageAlt:
           'Planering av badrumsrenovering i centrala Stockholm med logistik och material',
@@ -117,25 +117,25 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Materialtrender i Stockholm 2026',
         bodyHtml:
-          '<p>Kunder i Stockholm valjer ofta en kombination av funktion, ljusinslapp och lang livslangd.</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Storformat i neutrala toner</strong> - lugnt uttryck och fa fogar</li><li><strong>Kontrastnisch i dusch</strong> - markerad zon utan att overbelasta rummet</li><li><strong>Matt klinker pa golv</strong> - battre halkgrepp i vardagsbruk</li><li><strong>Vaggnara kommod</strong> - ger luftigare kansla i mindre badrum</li><li><strong>Dolda forvaringar</strong> - minskar visuellt brus i stadslagenheter</li></ul>',
+          '<p>Kunder i Stockholm valjer ofta en kombination av funktion, ljusinslapp och lång livslängd.</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Storformat i neutrala toner</strong> - lugnt uttryck och fa fogar</li><li><strong>Kontrastnisch i dusch</strong> - markerad zon utan att overbelasta rummet</li><li><strong>Matt klinker pa golv</strong> - battre halkgrepp i vardagsbruk</li><li><strong>Vaggnara kommod</strong> - ger luftigare kansla i mindre badrum</li><li><strong>Dolda forvaringar</strong> - minskar visuellt brus i stadslagenheter</li></ul>',
         textOnly: true,
         gray: true,
       },
       {
         title: 'Tre misstag som ofta gor Stockholmprojekt dyrare',
         bodyHtml:
-          '<p><strong>1. Otydlig offert:</strong> saknas tydlig avgransning mellan plattsattning, VVS och el blir slutkostnaden osaker.</p><p><strong>2. Fel entreprenor for BRF:</strong> om firman inte kan leverera korrekt dokumentation kan projektet stoppas av foreningen.</p><p><strong>3. For sena materialval:</strong> sena beslut om kakel och inredning skapar leveransluckor och stillestandskostnader.</p><p style="margin-top:1rem;"><a href="/offertforfragan" style="color:#0a0a1a;font-weight:700;">Begär en kostnadsfri offert med fast pris -></a></p>',
+          '<p><strong>1. Otydlig offert:</strong> saknas tydlig avgransning mellan plattsattning, VVS och el blir slutkostnaden osaker.</p><p><strong>2. Fel entreprenor for BRF:</strong> om firman inte kan leverera korrekt dokumentation kan projektet stoppas av föreningen.</p><p><strong>3. For sena materialval:</strong> sena beslut om kakel och inredning skapar leveransluckor och stillestandskostnader.</p><p style="margin-top:1rem;"><a href="/offertforfragan" style="color:#0a0a1a;font-weight:700;">Begär en kostnadsfri offert med fast pris -></a></p>',
         textOnly: true,
       },
       {
         title: 'Steg-for-steg i BRF i Stockholm',
         bodyHtml:
-          '<p>En typisk process i Stockholms bostadsratter ser ut sa har:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Hamta BRF:ens renoveringsregler</li><li><strong>Steg 2:</strong> Skicka in anmalan med entreprenorens behorigheter</li><li><strong>Steg 3:</strong> Informera grannar om bullerperiod och tilltrade</li><li><strong>Steg 4:</strong> Genomfor arbete enligt BBV och dokumentera egenkontroller</li><li><strong>Steg 5:</strong> Leverera kvalitetsdokument efter slutkontroll</li></ul><p>Vill du jamfora med norrort? Se <a href="/badrumsrenovering-sollentuna" style="color:#0a0a1a;font-weight:600;">Sollentuna</a> och <a href="/badrumsrenovering-solna" style="color:#0a0a1a;font-weight:600;">Solna</a>.</p>',
+          '<p>En typisk process i Stockholms bostadsratter ser ut sa har:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Hamta BRF:ens renoveringsregler</li><li><strong>Steg 2:</strong> Skicka in anmälan med entreprenorens behörigheter</li><li><strong>Steg 3:</strong> Informera grannar om bullerperiod och tilltrade</li><li><strong>Steg 4:</strong> Genomfor arbete enligt BBV och dokumentera egenkontroller</li><li><strong>Steg 5:</strong> Leverera kvalitetsdokument efter slutkontroll</li></ul><p>Vill du jamfora med norrort? Se <a href="/badrumsrenovering-sollentuna" style="color:#0a0a1a;font-weight:600;">Sollentuna</a> och <a href="/badrumsrenovering-solna" style="color:#0a0a1a;font-weight:600;">Solna</a>.</p>',
         textOnly: true,
         gray: true,
       },
     ],
-    faqTitle: 'Vanliga fragor om badrumsrenovering i Stockholm',
+    faqTitle: 'Vanliga frågor om badrumsrenovering i Stockholm',
     faqLead:
       'Kortfattade svar om innerstad, BRF-process, kostnad, tidplan och samordning av hantverkare.',
     faqs: [
@@ -149,9 +149,9 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         question: 'Hur langt i forvag bor jag boka badrumsrenovering i Stockholm?',
         answer:
-          'I Stockholm ar det vanligt med 4-8 veckors planering innan start, sarskilt i BRF dar anmalan och granninformation maste hinnas med.',
+          'I Stockholm ar det vanligt med 4-8 veckors planering innan start, sarskilt i BRF dar anmälan och granninformation maste hinnas med.',
         answerHtml:
-          'I Stockholm ar det vanligt med 4-8 veckors planering innan start, sarskilt i BRF dar anmalan och granninformation maste hinnas med.',
+          'I Stockholm ar det vanligt med 4-8 veckors planering innan start, sarskilt i BRF dar anmälan och granninformation maste hinnas med.',
       },
       {
         question: 'Kan ni ta totalansvar inklusive VVS och el?',
@@ -163,16 +163,16 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         question: 'Behover jag BRF-godkannande innan ni startar?',
         answer:
-          'I de flesta bostadsrattsforeningar ja. Vi hjalper dig med underlag, behorighetsintyg och tidplan till styrelsen.',
+          'I de flesta bostadsrattsföreningar ja. Vi hjalper dig med underlag, behörighetsintyg och tidplan till styrelsen.',
         answerHtml:
-          'I de flesta bostadsrattsforeningar ja. Vi hjalper dig med underlag, behorighetsintyg och tidplan till styrelsen.',
+          'I de flesta bostadsrattsföreningar ja. Vi hjalper dig med underlag, behörighetsintyg och tidplan till styrelsen.',
       },
       {
         question: 'Vad ar normal totalbudget for ett badrum i Stockholm?',
         answer:
-          'Manga projekt ligger mellan 140 000 och 300 000 kr beroende pa storlek, material och om stammar eller underlag behover atgardas.',
+          'Manga projekt ligger mellan 140 000 och 300 000 kr beroende pa storlek, material och om stammar eller underlag behover åtgärdas.',
         answerHtml:
-          'Manga projekt ligger mellan 140 000 och 300 000 kr beroende pa storlek, material och om stammar eller underlag behover atgardas.',
+          'Manga projekt ligger mellan 140 000 och 300 000 kr beroende pa storlek, material och om stammar eller underlag behover åtgärdas.',
       },
       {
         question: 'Hur fungerar ROT-avdraget hos er?',
@@ -191,15 +191,15 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         question: 'Vad hander om ni hittar fuktskada vid rivning?',
         answer:
-          'Vi dokumenterar fyndet direkt, gar igenom atgardsforslag med dig och uppdaterar offert innan extraarbete paborjas.',
+          'Vi dokumenterar fyndet direkt, gar igenom åtgärdsforslag med dig och uppdaterar offert innan extraarbete paborjas.',
         answerHtml:
-          'Vi dokumenterar fyndet direkt, gar igenom atgardsforslag med dig och uppdaterar offert innan extraarbete paborjas.',
+          'Vi dokumenterar fyndet direkt, gar igenom åtgärdsforslag med dig och uppdaterar offert innan extraarbete paborjas.',
       },
     ],
     footerFocus:
-      'Denna sida fokuserar pa badrumsrenovering i Stockholm med BKR-behorighet, tydlig projektering och fast pris fran offert till fardigt badrum.',
+      'Denna sida fokuserar pa badrumsrenovering i Stockholm med BKR-behörighet, tydlig projektering och fast pris fran offert till fardigt badrum.',
     localBusinessDescription:
-      'Professionell badrumsrenovering i Stockholm med BKR-behoriga plattsattare, kvalitetsdokument och fast pris.',
+      'Professionell badrumsrenovering i Stockholm med BKR-behöriga plattsattare, kvalitetsdokument och fast pris.',
   },
   sollentuna: {
     slug: 'sollentuna',
@@ -208,13 +208,13 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     seo: {
       title: 'Badrumsrenovering Sollentuna 2026 | Lokal firma med kontor i kommunen',
       description:
-        'Badrumsrenovering i Sollentuna med lokal narvaro pa Skyttevagen. BKR-behorighet, fast pris och tydlig process for BRF, radhus och villa.',
+        'Badrumsrenovering i Sollentuna med lokal narvaro pa Skyttevagen. BKR-behörighet, fast pris och tydlig process for BRF, radhus och villa.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-sollentuna',
       ogTitle: 'Badrumsrenovering Sollentuna - Lokal guide och fast pris',
       ogDescription:
         'Las vad badrumsrenovering kostar i Sollentuna och hur vi jobbar lokalt i Tureberg, Edsberg, Haggvik och Norrviken.',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_15.avif',
-      ogImageAlt: 'Badrumsrenovering i Sollentuna med lokalt team och BKR-behorighet',
+      ogImageAlt: 'Badrumsrenovering i Sollentuna med lokalt team och BKR-behörighet',
       twitterTitle: 'Badrumsrenovering Sollentuna | Haga Plattsättning AB',
       twitterDescription:
         'Lokal badrumsrenovering i Sollentuna med fast pris, kvalitetsdokument och trygg projektsamordning.',
@@ -239,7 +239,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Bostadsratt, radhus eller villa i Sollentuna - olika behov i samma kommun',
         bodyHtml:
-          '<p>I Sollentuna ar spannet stort mellan foreningar i centrum och villakvarter i ytterdelarna. Bostadstypen styr hur renoveringen bor laggas upp.</p><p>I BRF ar process och dokumentation centralt. I radhus och villa blir underlag, ventilation och golvkonstruktion ofta mer avgorande.</p><p>Vi gor alltid en platsanpassad genomgang innan vi ger slutlig tids- och kostnadsbild.</p>',
+          '<p>I Sollentuna ar spannet stort mellan föreningar i centrum och villakvarter i ytterdelarna. Bostadstypen styr hur renoveringen bor laggas upp.</p><p>I BRF ar process och dokumentation centralt. I radhus och villa blir underlag, ventilation och golvkonstruktion ofta mer avgorande.</p><p>Vi gor alltid en platsanpassad genomgang innan vi ger slutlig tids- och kostnadsbild.</p>',
         imageSrc: '/hagaplatt_16.avif',
         imageAlt:
           'Badrumsrenovering i Sollentuna med fokus pa bostadsratt och radhus i norrort',
@@ -247,7 +247,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Tidplan i Sollentuna - varfor projekt ofta blir mer forutsagbara',
         bodyHtml:
-          '<p>Jämfört med innerstan ar logistiken ofta enklare i Sollentuna, vilket minskar risken for onodiga stopp.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Enklare angoring for leveranser och avfall</li><li>Kortare transporttid for hantverkare och material</li><li>Mindre risk for parkeringsrelaterade forseningar</li><li>Samma kvalitetskrav pa tatschikt och dokumentation som i hela lanet</li></ul><p>Vi sattar en realistisk tidplan redan i offertskedet och uppdaterar den lopande under projektet.</p>',
+          '<p>Jämfört med innerstan ar logistiken ofta enklare i Sollentuna, vilket minskar risken for onodiga stopp.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Enklare angoring for leveranser och avfall</li><li>Kortare transporttid for hantverkare och material</li><li>Mindre risk for parkeringsrelaterade forseningar</li><li>Samma kvalitetskrav pa tätskikt och dokumentation som i hela lanet</li></ul><p>Vi sattar en realistisk tidplan redan i offertskedet och uppdaterar den lopande under projektet.</p>',
         imageSrc: '/hagaplatt_17.avif',
         imageAlt:
           'Tidsplan for badrumsrenovering i Sollentuna med effektiv logistik och materialflode',
@@ -272,20 +272,20 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Tre vanliga fallgropar i Sollentunaprojekt',
         bodyHtml:
-          '<p><strong>1. For snabb start utan projektering:</strong> leder ofta till sena andringar och onodiga kostnader.</p><p><strong>2. Underskattad underlagsrisk i aldre badrum:</strong> fukt och skadad stomme maste hanteras innan nytt tatschikt.</p><p><strong>3. Otydlig samordning mellan yrkesgrupper:</strong> tydlig ordning mellan rivning, VVS, el och plattsattning ar avgorande.</p><p style="margin-top:1rem;"><a href="/offertforfragan" style="color:#0a0a1a;font-weight:700;">Boka kostnadsfri offert for Sollentuna -></a></p>',
+          '<p><strong>1. For snabb start utan projektering:</strong> leder ofta till sena andringar och onodiga kostnader.</p><p><strong>2. Underskattad underlagsrisk i aldre badrum:</strong> fukt och skadad stomme maste hanteras innan nytt tätskikt.</p><p><strong>3. Otydlig samordning mellan yrkesgrupper:</strong> tydlig ordning mellan rivning, VVS, el och plattsattning ar avgorande.</p><p style="margin-top:1rem;"><a href="/offertforfragan" style="color:#0a0a1a;font-weight:700;">Boka kostnadsfri offert för Sollentuna -></a></p>',
         textOnly: true,
       },
       {
-        title: 'BRF-process i Sollentuna - sa forbereder du dig',
+        title: 'BRF-process i Sollentuna - sa förbereder du dig',
         bodyHtml:
-          '<p>For de flesta foreningar i kommunen fungerar detta upplagg bast:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Begar gällande renoveringspolicy</li><li><strong>Steg 2:</strong> Lamna in komplett anmalan med tidplan</li><li><strong>Steg 3:</strong> Samordna tilltrade, skydd och granninformation</li><li><strong>Steg 4:</strong> Genomfor renovering enligt BBV</li><li><strong>Steg 5:</strong> Leverera kvalitetsdokument och slutdokumentation</li></ul><p>Behöver du jamfora med andra orter? Se <a href="/badrumsrenovering-stockholm" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-solna" style="color:#0a0a1a;font-weight:600;">Solna</a>.</p>',
+          '<p>For de flesta föreningar i kommunen fungerar detta upplagg bast:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Begar gällande renoveringspolicy</li><li><strong>Steg 2:</strong> Lamna in komplett anmälan med tidplan</li><li><strong>Steg 3:</strong> Samordna tilltrade, skydd och granninformation</li><li><strong>Steg 4:</strong> Genomfor renovering enligt BBV</li><li><strong>Steg 5:</strong> Leverera kvalitetsdokument och slutdokumentation</li></ul><p>Behöver du jamfora med andra orter? Se <a href="/badrumsrenovering-stockholm" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-solna" style="color:#0a0a1a;font-weight:600;">Solna</a>.</p>',
         textOnly: true,
         gray: true,
       },
     ],
-    faqTitle: 'Vanliga fragor om badrumsrenovering i Sollentuna',
+    faqTitle: 'Vanliga frågor om badrumsrenovering i Sollentuna',
     faqLead:
-      'Fragor vi far lokalt i Sollentuna om pris, tidsplan, BRF-krav och hur projektet genomfors steg for steg.',
+      'Frågor vi far lokalt i Sollentuna om pris, tidsplan, BRF-krav och hur projektet genomfors steg for steg.',
     faqs: [
       {
         question: 'Utgar ni verkligen fran Sollentuna?',
@@ -311,16 +311,16 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         question: 'Behover jag anmala renoveringen till min BRF i Sollentuna?',
         answer:
-          'Ja, i de flesta foreningar kravs skriftlig anmalan. Vi hjalper dig med bilagor och certifikat.',
+          'Ja, i de flesta föreningar kravs skriftlig anmälan. Vi hjalper dig med bilagor och certifikat.',
         answerHtml:
-          'Ja, i de flesta foreningar kravs skriftlig anmalan. Vi hjalper dig med bilagor och certifikat.',
+          'Ja, i de flesta föreningar kravs skriftlig anmälan. Vi hjalper dig med bilagor och certifikat.',
       },
       {
         question: 'Vad kostar ett normalt badrum i Sollentuna?',
         answer:
-          'Manga projekt hamnar mellan 140 000 och 250 000 kr beroende pa yta, material och tekniska atgarder.',
+          'Manga projekt hamnar mellan 140 000 och 250 000 kr beroende pa yta, material och tekniska åtgärder.',
         answerHtml:
-          'Manga projekt hamnar mellan 140 000 och 250 000 kr beroende pa yta, material och tekniska atgarder.',
+          'Manga projekt hamnar mellan 140 000 och 250 000 kr beroende pa yta, material och tekniska åtgärder.',
       },
       {
         question: 'Kan ni samordna VVS och el aven i Sollentuna?',
@@ -339,15 +339,15 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         question: 'Vad hander om dolda fel upptacks i ett aldre badrum?',
         answer:
-          'Vi stoppar arbetet, dokumenterar fynden och gar igenom kostnad och atgard med dig innan fortsattning.',
+          'Vi stoppar arbetet, dokumenterar fynden och gar igenom kostnad och åtgärd med dig innan fortsattning.',
         answerHtml:
-          'Vi stoppar arbetet, dokumenterar fynden och gar igenom kostnad och atgard med dig innan fortsattning.',
+          'Vi stoppar arbetet, dokumenterar fynden och gar igenom kostnad och åtgärd med dig innan fortsattning.',
       },
     ],
     footerFocus:
-      'Denna sida ar anpassad for badrumsrenovering i Sollentuna med lokal narvaro, BKR-behorighet och fast pris for BRF, radhus och villa.',
+      'Denna sida ar anpassad for badrumsrenovering i Sollentuna med lokal narvaro, BKR-behörighet och fast pris for BRF, radhus och villa.',
     localBusinessDescription:
-      'Lokal badrumsrenovering i Sollentuna med BKR-behoriga plattsattare, kvalitetsdokument och tydlig projektledning.',
+      'Lokal badrumsrenovering i Sollentuna med BKR-behöriga plattsattare, kvalitetsdokument och tydlig projektledning.',
   },
   solna: {
     slug: 'solna',
@@ -356,7 +356,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     seo: {
       title: 'Badrumsrenovering Solna 2026 | BRF-specialister med fast pris',
       description:
-        'Badrumsrenovering i Solna for bostadsratter och villor. BKR-behorig entreprenor, tydlig BRF-process och fast pris med kvalitetsdokument.',
+        'Badrumsrenovering i Solna for bostadsratter och villor. BKR-behörig entreprenor, tydlig BRF-process och fast pris med kvalitetsdokument.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-solna',
       ogTitle: 'Badrumsrenovering Solna - Fast pris och trygg BRF-process',
       ogDescription:
@@ -365,7 +365,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       ogImageAlt: 'Badrumsrenovering i Solna med modern kakelsattning och dokumenterad kvalitet',
       twitterTitle: 'Badrumsrenovering Solna | Haga Plattsättning AB',
       twitterDescription:
-        'Planera badrumsrenovering i Solna med BKR-behorighet, fast pris och tydliga svar pa BRF-fragor.',
+        'Planera badrumsrenovering i Solna med BKR-behörighet, fast pris och tydliga svar pa BRF-frågor.',
       twitterImage: 'https://www.hagaplattsattning.se/hagaplatt_31.avif',
       geoPlacename: 'Solna',
       geoPosition: '59.3600;18.0009',
@@ -374,12 +374,12 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     },
     hero: {
       lead:
-        'Planerar du badrumsrenovering i Solna? Vi hjalper dig hela vagen med BRF-anmalan, projektering och plattsattning sa att slutresultatet blir bade snyggt och forsakringsbart.',
+        'Planerar du badrumsrenovering i Solna? Vi hjalper dig hela vagen med BRF-anmälan, projektering och plattsattning sa att slutresultatet blir bade snyggt och försäkringsbart.',
       imageSrc: '/hagaplatt_31.avif',
       imageAlt: 'Nytt badrum i Solna med stilrent kakel och precisionslagd klinker',
     },
     guideHeader: {
-      title: 'Badrumsrenovering i Solna - guide for BRF, stadsnara villor och nyproduktion',
+      title: 'Badrumsrenovering i Solna - guide for BRF, stadsnära villor och nyproduktion',
       introHtml:
         'Solna har en hog andel bostadsratter och ett brett spann mellan aldre hus och moderna fastigheter. Det gor att badrumsprojekt ofta krav er en noggrann forstudie innan start. Las aven motsvarande sidor for <a href="/badrumsrenovering-stockholm" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-sollentuna" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>.',
     },
@@ -394,7 +394,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Tidplan i Solna - vanliga orsaker till forsening och hur de undviks',
         bodyHtml:
-          '<p>I Solna ligger manga projekt nara city med hog belastning pa logistik och leveranser. Med ratt forberedelser blir projektet stabilt.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Samordna tilltrade med BRF och forvaltare i god tid</li><li>Sakerstall leveransfons ter for material i tranga omraden</li><li>Planera rivning och uttorkning utan att stressa tatschiktsmoment</li><li>Ha beslut om kakel, kommod och blandare klara fore start</li></ul><p>Vi arbetar med tydliga milstolpar sa att du vet exakt var i processen projektet ar.</p>',
+          '<p>I Solna ligger manga projekt nara city med hog belastning pa logistik och leveranser. Med ratt forberedelser blir projektet stabilt.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Samordna tilltrade med BRF och forvaltare i god tid</li><li>Sakerstall leveransfons ter for material i tranga omraden</li><li>Planera rivning och uttorkning utan att stressa tätskiktsmoment</li><li>Ha beslut om kakel, kommod och blandare klara fore start</li></ul><p>Vi arbetar med tydliga milstolpar sa att du vet exakt var i processen projektet ar.</p>',
         imageSrc: '/hagaplatt_33.avif',
         imageAlt: 'Tidsplanering av badrumsrenovering i Solna med fokus pa BRF och leveranser',
         gray: true,
@@ -418,20 +418,20 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Tre vanliga misstag i badrumsprojekt i Solna',
         bodyHtml:
-          '<p><strong>1. For svag BRF-dialog:</strong> sena besked fran styrelsen kan flytta hela startdatumet.</p><p><strong>2. Fel ordning pa tillval:</strong> om inredning valjs efter rivning uppstar onodig stillestandskostnad.</p><p><strong>3. Underbudgeterad helhet:</strong> manga raknar endast kakel och missar ventilation, VVS eller underlagsatgarder.</p><p style="margin-top:1rem;"><a href="/offertforfragan" style="color:#0a0a1a;font-weight:700;">Få en tydlig offert for badrumsrenovering i Solna -></a></p>',
+          '<p><strong>1. For svag BRF-dialog:</strong> sena besked fran styrelsen kan flytta hela startdatumet.</p><p><strong>2. Fel ordning pa tillval:</strong> om inredning valjs efter rivning uppstar onodig stillestandskostnad.</p><p><strong>3. Underbudgeterad helhet:</strong> manga raknar endast kakel och missar ventilation, VVS eller underlagsåtgärder.</p><p style="margin-top:1rem;"><a href="/offertforfragan" style="color:#0a0a1a;font-weight:700;">Få en tydlig offert for badrumsrenovering i Solna -></a></p>',
         textOnly: true,
       },
       {
         title: 'BRF-renovering i Solna - rekommenderad arbetsordning',
         bodyHtml:
-          '<p>Sa har ser en valfungerande process ut for de flesta foreningar i Solna:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Kontrollera BRF:ens krav pa entreprenor och dokument</li><li><strong>Steg 2:</strong> Skicka in komplett anmalan med tidplan</li><li><strong>Steg 3:</strong> Faststall arbetsfons ter och praktisk tillgang</li><li><strong>Steg 4:</strong> Genomfor renoveringen med lopande egenkontroller</li><li><strong>Steg 5:</strong> Lamna kvalitetsdokument till dig och foreningen</li></ul><p>Om du aven overvager projekt i narliggande orter, se <a href="/badrumsrenovering-stockholm" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-sollentuna" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>.</p>',
+          '<p>Sa har ser en valfungerande process ut for de flesta föreningar i Solna:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Kontrollera BRF:ens krav pa entreprenor och dokument</li><li><strong>Steg 2:</strong> Skicka in komplett anmälan med tidplan</li><li><strong>Steg 3:</strong> Faststall arbetsfons ter och praktisk tillgang</li><li><strong>Steg 4:</strong> Genomfor renoveringen med lopande egenkontroller</li><li><strong>Steg 5:</strong> Lamna kvalitetsdokument till dig och föreningen</li></ul><p>Om du aven overvager projekt i narliggande orter, se <a href="/badrumsrenovering-stockholm" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-sollentuna" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>.</p>',
         textOnly: true,
         gray: true,
       },
     ],
-    faqTitle: 'Vanliga fragor om badrumsrenovering i Solna',
+    faqTitle: 'Vanliga frågor om badrumsrenovering i Solna',
     faqLead:
-      'Svar pa fragor fran boende i Solna om BRF-krav, kostnad, tidplan och vad som kravs for ett forsakringsgodkant badrum.',
+      'Svar pa frågor fran boende i Solna om BRF-krav, kostnad, tidplan och vad som kravs for ett försäkringsgodkant badrum.',
     faqs: [
       {
         question: 'Renoverar ni badrum i hela Solna kommun?',
@@ -443,16 +443,16 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         question: 'Hur fungerar badrumsrenovering i BRF i Solna?',
         answer:
-          'Projektet borjar med BRF-anmalan, sedan tidplan, genomforande och slutlig dokumentation. Vi stottar dig i varje steg.',
+          'Projektet borjar med BRF-anmälan, sedan tidplan, genomforande och slutlig dokumentation. Vi stottar dig i varje steg.',
         answerHtml:
-          'Projektet borjar med BRF-anmalan, sedan tidplan, genomforande och slutlig dokumentation. Vi stottar dig i varje steg.',
+          'Projektet borjar med BRF-anmälan, sedan tidplan, genomforande och slutlig dokumentation. Vi stottar dig i varje steg.',
       },
       {
         question: 'Vad ar en vanlig tidsram for badrum i Solna?',
         answer:
-          'De flesta projekt ligger mellan 2 och 4 veckor beroende pa omfattning, logistik och eventuella tillkommande atgarder.',
+          'De flesta projekt ligger mellan 2 och 4 veckor beroende pa omfattning, logistik och eventuella tillkommande åtgärder.',
         answerHtml:
-          'De flesta projekt ligger mellan 2 och 4 veckor beroende pa omfattning, logistik och eventuella tillkommande atgarder.',
+          'De flesta projekt ligger mellan 2 och 4 veckor beroende pa omfattning, logistik och eventuella tillkommande åtgärder.',
       },
       {
         question: 'Vad kostar badrumsrenovering i Solna totalt?',
@@ -462,11 +462,11 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
           'Manga badrum landar mellan 140 000 och 300 000 kr inklusive arbete och material, beroende pa storlek och valda produkter.',
       },
       {
-        question: 'Kan ni hjalpa till om min forening kraver extra dokumentation?',
+        question: 'Kan ni hjalpa till om min förening kraver extra dokumentation?',
         answer:
-          'Ja, vi levererar de handlingar som normalt efterfragas, inklusive behorighetsuppgifter och kvalitetsdokument.',
+          'Ja, vi levererar de handlingar som normalt efterfragas, inklusive behörighetsuppgifter och kvalitetsdokument.',
         answerHtml:
-          'Ja, vi levererar de handlingar som normalt efterfragas, inklusive behorighetsuppgifter och kvalitetsdokument.',
+          'Ja, vi levererar de handlingar som normalt efterfragas, inklusive behörighetsuppgifter och kvalitetsdokument.',
       },
       {
         question: 'Gor ni en fastprisoffert innan start?',
@@ -493,6 +493,6 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     footerFocus:
       'Denna sida ar framtagen for badrumsrenovering i Solna med tydlig BRF-process, fast pris och dokumenterad kvalitet genom hela projektet.',
     localBusinessDescription:
-      'Badrumsrenovering i Solna med BKR-behoriga plattsattare, fasta offerter och kvalitetssakrad leverans.',
+      'Badrumsrenovering i Solna med BKR-behöriga plattsattare, fasta offerter och kvalitetssakrad leverans.',
   },
 };

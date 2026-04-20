@@ -14,7 +14,7 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
-    { '@type': 'ListItem', position: 2, name: 'Tjanster' },
+    { '@type': 'ListItem', position: 2, name: 'Tjänster' },
     {
       '@type': 'ListItem',
       position: 3,
@@ -88,8 +88,8 @@ const localBusinessJsonLd = {
   ],
   areaServed: ['Stockholm', 'Sollentuna', 'Solna', 'Sundbyberg', 'Lidingo', 'Danderyd', 'Taby', 'Nacka', 'Bromma', 'Jarfalla', 'Upplands Vasby'],
   description: content.localBusinessDescription,
-  knowsAbout: ['Badrumsrenovering', `Badrumsrenovering ${content.city}`, 'Kakelsattning', 'Plattsattning', 'Vatrum', 'BKR-behorighet'],
-  hasCredential: [{ '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikradets vatrumsintyg' }],
+  knowsAbout: ['Badrumsrenovering', `Badrumsrenovering ${content.city}`, 'Kakelsattning', 'Plattsattning', 'Våtrum', 'BKR-behörighet'],
+  hasCredential: [{ '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikradets våtrumsintyg' }],
   award: ['Rekommenderat Foretag 2024 - Reco', 'Rekommenderat Foretag 2025 - Reco', 'Rekommenderat 2 ar i rad - Reco'],
   aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', bestRating: '5', ratingCount: '34', reviewCount: '34' },
   sameAs: ['https://www.reco.se/haga-plattsattning-ab-sollentuna'],
@@ -184,9 +184,9 @@ const localBusinessJsonLd = {
   <body>
     <SiteNav />
 
-    <div class="breadcrumb" aria-label="Brodsmulor">
+    <div class="breadcrumb" aria-label="Brödsmulor">
       <a href="/">Hem</a> <span>›</span>
-      Tjanster <span>›</span>
+      Tjänster <span>›</span>
       <strong>{`Badrumsrenovering ${content.city}`}</strong>
     </div>
 
@@ -196,8 +196,8 @@ const localBusinessJsonLd = {
           <h1>Badrumsrenovering <span>{`i ${content.city}`}</span></h1>
           <p class="hero-lead">{content.hero.lead}</p>
           <div class="hero-actions">
-            <a href="/offertforfragan" class="btn-primary">Fa kostnadsfri offert →</a>
-            <a href="#faq" class="btn-ghost">Vanliga fragor ↓</a>
+            <a href="/offertforfragan" class="btn-primary">Få kostnadsfri offert →</a>
+            <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
           </div>
         </div>
         <div class="hero-image">
@@ -206,20 +206,20 @@ const localBusinessJsonLd = {
       </div>
     </section>
 
-    <section class="bkr-section" aria-label="BKR-behorighet och forsakringsskydd vid badrumsrenovering">
+    <section class="bkr-section" aria-label="BKR-behörighet och försäkringsskydd vid badrumsrenovering">
       <div class="bkr-inner">
         <div class="bkr-image">
-          <img src="/hagaplatt_5.avif" alt={`Badrumsrenovering i ${content.city} med BKR-behorigt arbete och kvalitetsdokument`} width="580" height="480" loading="lazy" />
+          <img src="/behorig-vatrum.avif" alt={`Badrumsrenovering i ${content.city} med BKR-behörigt arbete och kvalitetsdokument`} width="580" height="480" loading="lazy" />
         </div>
         <div class="bkr-text">
-          <p class="section-label">Trygghet och forsakring</p>
-          <h2>Vad hander om du renoverar badrummet utan kvalitetsdokument?</h2>
-          <p>En felaktig vatrumslösning kan bli kostsam. Med dokumenterad BKR-process minskar du risken for ersattningstvist vid skada och far ett badrum som ar byggt for lang livslangd.</p>
-          <ul class="bkr-checklist" aria-label="Vad BKR-behorighet ger dig">
-            <li>Kvalitetsdokument som kravs av forsakringsbolag</li>
-            <li>Tatskikt enligt gallande branschregler och BBV</li>
+          <p class="section-label">Trygghet och försäkring</p>
+          <h2>Vad händer om du renoverar badrummet utan kvalitetsdokument?</h2>
+          <p>En felaktig våtrumslösning kan bli kostsam. Med dokumenterad BKR-process minskar du risken för ersättningstvist vid skada och får ett badrum som är byggt för lång livslängd.</p>
+          <ul class="bkr-checklist" aria-label="Vad BKR-behörighet ger dig">
+            <li>Kvalitetsdokument som krävs av försäkringsbolag</li>
+            <li>Tätskikt enligt gällande branschregler och BBV</li>
             <li>Dokumenterad egenkontroll under hela projektet</li>
-            <li>Tydlig slutleverans som ar enkel att spara till framtida forsaljning</li>
+            <li>Tydlig slutleverans som är enkel att spara till framtida försäljning</li>
           </ul>
           <a href="/offertforfragan" class="btn-primary">Boka kostnadsfri offert →</a>
         </div>
@@ -255,9 +255,9 @@ const localBusinessJsonLd = {
       ))}
     </section>
 
-    <section class="faq-section" id="faq" aria-label={`Vanliga fragor om badrumsrenovering i ${content.city}`}>
+    <section class="faq-section" id="faq" aria-label={`Vanliga frågor om badrumsrenovering i ${content.city}`}>
       <div class="section-inner">
-        <p class="section-label">Vanliga fragor</p>
+        <p class="section-label">Vanliga frågor</p>
         <h2 class="section-title">{content.faqTitle}</h2>
         <p class="section-lead">{content.faqLead}</p>
         <div class="faq-grid">
