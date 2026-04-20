@@ -45,76 +45,7 @@ import SiteNav from '../components/SiteNav.astro';
   </head>
   <body>
 
-    <!-- ── RECO WIDGET ── -->
-    <div class="reco-bar">
-      <iframe src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=false&lang=sv" title="Haga Plattsättning AB - Omdömen på Reco" height="225" style="width:100%;border:0;display:block;overflow:hidden;" data-reactroot></iframe>
-    </div>
-
-    <!-- ── CONTACT BAR ── -->
-    <div class="contact-bar">
-      <a href="tel:0739133348" aria-label="Ring oss">📞 073-913 33 48</a>
-      <a href="mailto:kontakt@hagaplattsattning.se" aria-label="Skicka e-post">✉ kontakt@hagaplattsattning.se</a>
-    </div>
-
-    <!-- ── NAVIGATION ── -->
-    <nav class="site-nav" aria-label="Huvudnavigation">
-      <div class="nav-inner">
-        <a href="/" class="nav-brand" aria-label="Haga Plattsättning AB – startsida">
-          <img src="/logo.avif" alt="Haga Plattsättning AB" class="nav-logo" width="120" height="48" />
-          <div class="nav-badges">
-            <div id="reco--badge-yearsInRowBadge"></div>
-            <div id="reco--badge-2025"></div>
-            <div id="reco--badge-2024"></div>
-          </div>
-        </a>
-        <ul class="nav-links" role="list">
-          <li><a href="/">Hem</a></li>
-          <li><a href="/om-oss" aria-current="page">Om oss</a></li>
-          <li class="nav-dropdown">
-            <a href="#tjanster" aria-haspopup="true">Tjänster</a>
-            <div class="dropdown-menu" role="menu">
-              <a href="/badrumsrenovering-stockholm" role="menuitem">Badrumsrenovering Stockholm</a>
-              <a href="/badrumsrenovering-pris" role="menuitem">Badrumsrenovering Pris</a>
-              <a href="/kakelsattare-stockholm" role="menuitem">Kakelsättare Stockholm</a>
-              <a href="/koksrenovering-stockholm" role="menuitem">Köksrenovering Stockholm</a>
-            </div>
-          </li>
-          <li><a href="/referensprojekt">Referensprojekt</a></li>
-          <li><a href="/offertforfragan">Offertförfrågan</a></li>
-        </ul>
-        <a href="/offertforfragan" class="nav-cta" aria-label="Få gratis offert">Få offert</a>
-        <button class="nav-hamburger" aria-label="Öppna meny" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button>
-      </div>
-      <div class="nav-badges-mobile">
-        <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" target="_blank" rel="noopener" aria-label="Rekommenderat 2 år i rad"><img src="https://www.reco.se/assets/images/badges/BadgeTwoYears.svg" alt="Rekommenderat 2 år i rad – Reco" width="60" height="60" /></a>
-        <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" target="_blank" rel="noopener" aria-label="Rekommenderat företag 2025"><img src="https://www.reco.se/assets/images/badges/trust2025.svg" alt="Rekommenderat företag 2025 – Reco" width="60" height="60" /></a>
-        <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" target="_blank" rel="noopener" aria-label="Rekommenderat företag 2024"><img src="https://www.reco.se/assets/images/badges/trust2024.svg" alt="Rekommenderat företag 2024 – Reco" width="60" height="60" /></a>
-      </div>
-      <div class="nav-mobile" id="mobile-menu" role="navigation" aria-label="Mobilmeny">
-        <a href="/">Hem</a>
-        <a href="/om-oss" aria-current="page">Om oss</a>
-        <span class="mobile-section">Tjänster</span>
-        <a href="/badrumsrenovering-stockholm">Badrumsrenovering Stockholm</a>
-        <a href="/badrumsrenovering-pris">Badrumsrenovering Pris</a>
-        <a href="/kakelsattare-stockholm">Kakelsättare Stockholm</a>
-        <a href="/koksrenovering-stockholm">Köksrenovering Stockholm</a>
-        <a href="/referensprojekt">Referensprojekt</a>
-        <a href="/offertforfragan">Offertförfrågan</a>
-        <a href="/offertforfragan" class="mobile-cta">Få gratis offert</a>
-      </div>
-    </nav>
-
-    <script is:inline src="https://widget.reco.se/yearsInRowBadge/4532782.js"></script>
-    <script is:inline src="https://widget.reco.se/badge/2025/4532782.js"></script>
-    <script is:inline src="https://widget.reco.se/badge/2024/4532782.js"></script>
-    <script>
-      const btn = document.getElementById('hamburger');
-      const menu = document.getElementById('mobile-menu');
-      btn?.addEventListener('click', () => {
-        const open = menu?.classList.toggle('open');
-        btn.setAttribute('aria-expanded', String(open));
-      });
-    </script>
+    <SiteNav />
 
     <!-- ══════════════════════════════════════════
          OM OSS
