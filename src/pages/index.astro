@@ -60,36 +60,71 @@ import SiteNav from '../components/SiteNav.astro';
 
       /* ── HERO ── */
       .hero {
-        background: #ffffff;
+        position: relative;
+        min-height: min(92vh, 820px);
         overflow: hidden;
         border-bottom: 1px solid #e8e8ee;
+        display: flex;
+        align-items: center;
+        padding-top: 128px;
+      }
+      .hero-media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(90deg, rgba(5, 6, 14, 0.7) 0%, rgba(5, 6, 14, 0.5) 34%, rgba(5, 6, 14, 0.2) 56%, rgba(5, 6, 14, 0.08) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.16) 35%, rgba(0, 0, 0, 0.34) 100%);
       }
       .hero-inner {
-        max-width: 1200px;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1320px;
         margin: 0 auto;
-        padding: 0 1.5rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        min-height: 540px;
-        gap: 3rem;
+        padding: 0 1.5rem 3rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
       }
-      .hero-text { padding: 4rem 0; }
+      .hero-text {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 20px;
+        backdrop-filter: blur(2px);
+        padding: clamp(1.6rem, 4vw, 2.2rem);
+        max-width: 680px;
+      }
       .hero h1 {
-        font-size: clamp(2rem, 4vw, 3rem);
+        font-size: clamp(2rem, 4.5vw, 4rem);
         font-weight: 800;
-        color: #0a0a1a;
+        color: #ffffff;
         line-height: 1.15;
         margin-bottom: 1.1rem;
         letter-spacing: -0.02em;
       }
-      .hero h1 span { color: #444; }
+      .hero h1 span { color: #ffffff; }
       .hero-lead {
-        font-size: 1.05rem;
-        color: #444;
-        line-height: 1.7;
+        font-size: 1.12rem;
+        color: rgba(255, 255, 255, 0.96);
+        line-height: 1.65;
         margin-bottom: 2rem;
-        max-width: 480px;
+        max-width: 620px;
       }
       .hero-actions {
         display: flex;
@@ -98,52 +133,106 @@ import SiteNav from '../components/SiteNav.astro';
         align-items: center;
       }
       .btn-primary {
-        background: #0a0a1a;
-        color: #ffffff;
+        background: #ffffff;
+        color: #111111;
         font-weight: 700;
-        font-size: 0.95rem;
-        padding: 0.75rem 1.6rem;
-        border-radius: 7px;
+        font-size: 1rem;
+        padding: 0.85rem 1.7rem;
+        border-radius: 10px;
         text-decoration: none;
-        transition: opacity 0.15s;
+        transition: transform 0.15s ease, opacity 0.15s ease;
         white-space: nowrap;
       }
-      .btn-primary:hover { opacity: 0.82; }
+      .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
       .btn-ghost {
-        color: #555;
-        font-size: 0.92rem;
-        font-weight: 500;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 600;
         text-decoration: none;
         display: flex;
         align-items: center;
         gap: 0.4rem;
         transition: color 0.15s;
       }
-      .btn-ghost:hover { color: #0a0a1a; }
-      .hero-image {
-        height: 100%;
-        min-height: 400px;
-        position: relative;
+      .btn-ghost:hover { color: rgba(255,255,255,0.8); }
+      .hero-badges {
+        width: min(360px, 100%);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        align-self: flex-end;
+      }
+      .hero-badge {
+        background: rgba(255, 255, 255, 0.96);
+        border-radius: 12px;
+        min-height: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
+        box-shadow: 0 8px 26px rgba(0,0,0,0.2);
       }
-      .hero-image img {
+      .hero-badge.main-badge {
+        grid-column: 1 / -1;
+        min-height: 128px;
+      }
+      .hero-badge script {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .hero-image::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to right, #ffffff 0%, transparent 35%);
-        pointer-events: none;
       }
       @media (max-width: 800px) {
-        .hero-inner { grid-template-columns: 1fr; min-height: auto; }
-        .hero-image { min-height: 260px; }
-        .hero-image::after { background: linear-gradient(to bottom, transparent 60%, #ffffff 100%); }
-        .hero-text { padding: 2.5rem 0 1.5rem; }
+        .hero {
+          min-height: auto;
+          padding-top: 112px;
+        }
+        .hero-overlay {
+          background:
+            linear-gradient(180deg, rgba(5, 6, 14, 0.48) 0%, rgba(5, 6, 14, 0.54) 48%, rgba(5, 6, 14, 0.72) 100%);
+        }
+        .hero-inner {
+          padding: 0 1rem 1.4rem;
+          min-height: calc(100vh - 60px);
+          align-items: end;
+          flex-direction: column;
+          justify-content: flex-end;
+          gap: 1rem;
+        }
+        .hero-text {
+          max-width: 100%;
+          padding: 1.2rem;
+          border-radius: 16px;
+        }
+        .hero h1 {
+          font-size: clamp(1.85rem, 8vw, 2.5rem);
+          margin-bottom: 0.75rem;
+        }
+        .hero-lead {
+          font-size: 0.98rem;
+          margin-bottom: 1.25rem;
+        }
+        .hero-actions {
+          width: 100%;
+          gap: 0.7rem;
+        }
+        .btn-primary,
+        .btn-ghost {
+          width: 100%;
+          justify-content: center;
+          border-radius: 10px;
+          min-height: 48px;
+        }
+        .btn-ghost {
+          border: 1px solid rgba(255,255,255,0.34);
+          background: rgba(255,255,255,0.12);
+        }
+        .hero-badges {
+          width: 100%;
+          grid-template-columns: 1fr;
+          gap: 0.6rem;
+        }
+        .hero-badge,
+        .hero-badge.main-badge {
+          min-height: 94px;
+        }
       }
 
       /* ── FAQ ── */
@@ -410,6 +499,20 @@ import SiteNav from '../components/SiteNav.astro';
 
     <!-- ── SECTION 1: HERO ── -->
     <section class="hero" aria-label="Badrumsrenovering Stockholm – Haga Plattsättning AB">
+      <div class="hero-media">
+        <picture>
+          <source srcset="/publichero-mobile.avif" media="(max-width: 800px)" />
+          <img
+            src="/publichero-desktop.avif"
+            alt="Professionell badrumsrenovering i Stockholm – certifierad kakelsättning av Haga Plattsättning AB"
+            width="2400"
+            height="1350"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </picture>
+      </div>
+      <div class="hero-overlay"></div>
       <div class="hero-inner">
         <div class="hero-text">
           <h1>Badrumsrenovering <span>i Stockholm</span></h1>
@@ -422,18 +525,22 @@ import SiteNav from '../components/SiteNav.astro';
             <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
           </div>
         </div>
-        <div class="hero-image">
-          <img
-            src="/haga%20platts%C3%A4ttning%20bild%203.avif"
-            alt="Professionell badrumsrenovering i Stockholm – certifierad kakelsättning av Haga Plattsättning AB"
-            width="600"
-            height="540"
-            loading="eager"
-            fetchpriority="high"
-          />
+        <div class="hero-badges" aria-label="Reco-utmärkelser">
+          <div class="hero-badge main-badge">
+            <div id="reco--badge-yearsInRowBadge"></div>
+          </div>
+          <div class="hero-badge">
+            <div id="reco--badge-2025"></div>
+          </div>
+          <div class="hero-badge">
+            <div id="reco--badge-2024"></div>
+          </div>
         </div>
       </div>
     </section>
+    <script src="https://widget.reco.se/yearsInRowBadge/4532782.js"></script>
+    <script src="https://widget.reco.se/badge/2025/4532782.js"></script>
+    <script src="https://widget.reco.se/badge/2024/4532782.js"></script>
 
     <!-- ── SECTION 2: BKR-BEHÖRIG ── -->
     <section class="bkr-section" aria-label="BKR-behörig plattsättare – Haga Plattsättning AB">

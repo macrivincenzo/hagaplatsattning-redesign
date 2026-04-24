@@ -12,33 +12,86 @@ const isService = [
 <style is:global>
   .reco-bar { width: 100%; overflow: hidden; }
   .reco-bar iframe { width: 100%; border: 0; display: block; overflow: hidden; height: 60px; }
-  .site-nav { background: #ffffff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.12); border-top: 1px solid rgba(230,57,70,0.15); }
+  .site-nav {
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    border-top: 1px solid rgba(230,57,70,0.15);
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .site-nav.nav-home {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: transparent;
+    box-shadow: none;
+    border-top: 0;
+  }
+  .site-nav.nav-home.is-scrolled {
+    background: rgba(255,255,255,0.97);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
   .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 128px; gap: 2rem; }
   .site-nav, .site-nav * { font-family: Arial, Helvetica, sans-serif; }
   .nav-brand { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; }
   .nav-logo { height: 84px; width: auto; display: block; }
   .nav-links { display: flex; align-items: center; list-style: none; gap: 0.1rem; flex: 1; justify-content: center; }
-  .nav-links a { color: #e63946; text-decoration: none; font-size: 1.6rem; font-weight: 700; padding: 0.65rem 1rem; border-radius: 6px; transition: color 0.15s, background 0.15s; white-space: nowrap; }
-  .nav-links a:hover { color: #c81f2d; background: rgba(230,57,70,0.08); }
-  .nav-links a[aria-current="page"] { background: rgba(230,57,70,0.14); }
+  .nav-links a { color: #111111; text-decoration: none; font-size: 1.6rem; font-weight: 700; padding: 0.65rem 1rem; border-radius: 6px; transition: color 0.15s, background 0.15s; white-space: nowrap; }
+  .nav-links a:hover { color: #000000; background: rgba(0,0,0,0.08); }
+  .nav-links a[aria-current="page"] { background: rgba(0,0,0,0.12); }
   .nav-dropdown { position: relative; }
   .nav-dropdown > a::after { content: ' ▾'; font-size: 1rem; opacity: 0.6; }
   .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: #ffffff; border: 1px solid rgba(230,57,70,0.2); border-radius: 8px; padding: 0.5rem 0; min-width: 250px; box-shadow: 0 8px 24px rgba(0,0,0,0.18); z-index: 200; }
   .nav-dropdown:hover .dropdown-menu { display: block; }
-  .dropdown-menu a { display: block; color: #e63946 !important; font-size: 1.15rem !important; font-weight: 600 !important; padding: 0.8rem 1.2rem !important; border-radius: 0 !important; background: none !important; white-space: nowrap; }
-  .dropdown-menu a:hover { color: #c81f2d !important; background: rgba(230,57,70,0.08) !important; }
+  .dropdown-menu a { display: block; color: #111111 !important; font-size: 1.15rem !important; font-weight: 600 !important; padding: 0.8rem 1.2rem !important; border-radius: 0 !important; background: none !important; white-space: nowrap; }
+  .dropdown-menu a:hover { color: #000000 !important; background: rgba(0,0,0,0.08) !important; }
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-  .nav-hamburger span { display: block; width: 24px; height: 2px; background: #e63946; border-radius: 2px; transition: 0.25s; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: #111111; border-radius: 2px; transition: 0.25s; }
   .nav-mobile { display: none; flex-direction: column; background: #ffffff; border-top: 1px solid rgba(230,57,70,0.2); padding: 1rem 1.5rem 1.5rem; gap: 0.25rem; }
   .nav-mobile.open { display: flex; }
-  .nav-mobile a { color: #e63946; text-decoration: none; font-size: 1.2rem; font-weight: 700; padding: 0.85rem 0; border-bottom: 1px solid rgba(230,57,70,0.12); transition: color 0.15s; }
-  .nav-mobile a:hover { color: #c81f2d; }
-  .nav-mobile .mobile-section { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(230,57,70,0.65); padding: 0.9rem 0 0.35rem; }
+  .nav-mobile a { color: #111111; text-decoration: none; font-size: 1.2rem; font-weight: 700; padding: 0.85rem 0; border-bottom: 1px solid rgba(0,0,0,0.12); transition: color 0.15s; }
+  .nav-mobile a:hover { color: #000000; }
+  .nav-mobile .mobile-section { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(0,0,0,0.65); padding: 0.9rem 0 0.35rem; }
+
+  .nav-home .nav-links a {
+    color: #ffffff;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+  }
+  .nav-home .nav-links a:hover { color: #ffffff; background: rgba(255,255,255,0.14); }
+  .nav-home .nav-links a[aria-current="page"] { background: rgba(255,255,255,0.22); }
+  .nav-home .nav-hamburger span { background: #111111; }
+  .nav-home:not(.is-scrolled) .dropdown-menu a {
+    text-shadow: none;
+  }
+  .nav-home.is-scrolled .nav-links a {
+    color: #111111;
+    text-shadow: none;
+  }
+  .nav-home.is-scrolled .nav-links a:hover { color: #000000; background: rgba(0,0,0,0.08); }
+  .nav-home.is-scrolled .nav-links a[aria-current="page"] { background: rgba(0,0,0,0.12); }
+
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
     .nav-inner { height: 96px; }
     .nav-logo { height: 64px; }
+    .site-nav.nav-home {
+      top: 60px;
+      background: rgba(255,255,255,0.62);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .site-nav.nav-home .nav-links a {
+      color: #111111;
+      text-shadow: none;
+    }
+    .site-nav.nav-home .nav-links a:hover { background: rgba(0,0,0,0.08); }
+    .site-nav.nav-home .nav-links a[aria-current="page"] { background: rgba(0,0,0,0.12); }
   }
 </style>
 
@@ -46,7 +99,7 @@ const isService = [
   <iframe src="https://widget.reco.se/v2/venues/4532782/horizontal/large?inverted=false&border=false&lang=sv" title="Haga Plattsättning AB - Omdömen på Reco" height="60" style="width:100%;border:0;display:block;overflow:hidden;" data-reactroot></iframe>
 </div>
 
-<nav class="site-nav" aria-label="Huvudnavigation">
+<nav class:list={['site-nav', path === '/' && 'nav-home']} aria-label="Huvudnavigation">
   <div class="nav-inner">
     <a href="/" class="nav-brand" aria-label="Haga Plattsättning AB – startsida">
       <img src="/Hagaplattsattninglogga.svg" alt="Haga Plattsättning AB" class="nav-logo" width="360" height="108" />
@@ -82,8 +135,17 @@ const isService = [
 <script>
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('mobile-menu');
+  const nav = document.querySelector('.site-nav.nav-home');
   btn?.addEventListener('click', () => {
     const open = menu?.classList.toggle('open');
     btn.setAttribute('aria-expanded', String(open));
   });
+
+  if (nav) {
+    const toggleScrolled = () => {
+      nav.classList.toggle('is-scrolled', window.scrollY > 40);
+    };
+    toggleScrolled();
+    window.addEventListener('scroll', toggleScrolled, { passive: true });
+  }
 </script>
