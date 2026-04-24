@@ -111,20 +111,20 @@ import SiteNav from '../components/SiteNav.astro';
         max-width: 680px;
       }
       .hero h1 {
-        font-size: clamp(2rem, 4.5vw, 4rem);
-        font-weight: 800;
+        font-size: clamp(1.6rem, 3vw, 2.7rem);
+        font-weight: 700;
         color: #ffffff;
-        line-height: 1.15;
-        margin-bottom: 1.1rem;
+        line-height: 1.18;
+        margin-bottom: 0.7rem;
         letter-spacing: -0.02em;
       }
       .hero h1 span { color: #ffffff; }
       .hero-lead {
-        font-size: 1.12rem;
+        font-size: 0.94rem;
         color: rgba(255, 255, 255, 0.96);
-        line-height: 1.65;
-        margin-bottom: 2rem;
-        max-width: 620px;
+        line-height: 1.58;
+        margin-bottom: 1.25rem;
+        max-width: 560px;
       }
       .hero-actions {
         display: flex;
@@ -136,8 +136,8 @@ import SiteNav from '../components/SiteNav.astro';
         background: #ffffff;
         color: #111111;
         font-weight: 700;
-        font-size: 1rem;
-        padding: 0.85rem 1.7rem;
+        font-size: 0.88rem;
+        padding: 0.72rem 1.3rem;
         border-radius: 10px;
         text-decoration: none;
         transition: transform 0.15s ease, opacity 0.15s ease;
@@ -146,8 +146,8 @@ import SiteNav from '../components/SiteNav.astro';
       .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
       .btn-ghost {
         color: #ffffff;
-        font-size: 1rem;
-        font-weight: 600;
+        font-size: 0.88rem;
+        font-weight: 500;
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -155,30 +155,6 @@ import SiteNav from '../components/SiteNav.astro';
         transition: color 0.15s;
       }
       .btn-ghost:hover { color: rgba(255,255,255,0.8); }
-      .hero-badges {
-        width: min(360px, 100%);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.75rem;
-        align-self: flex-end;
-      }
-      .hero-badge {
-        background: rgba(255, 255, 255, 0.96);
-        border-radius: 12px;
-        min-height: 110px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        box-shadow: 0 8px 26px rgba(0,0,0,0.2);
-      }
-      .hero-badge.main-badge {
-        grid-column: 1 / -1;
-        min-height: 128px;
-      }
-      .hero-badge script {
-        width: 100%;
-      }
       @media (max-width: 800px) {
         .hero {
           min-height: auto;
@@ -202,12 +178,12 @@ import SiteNav from '../components/SiteNav.astro';
           border-radius: 16px;
         }
         .hero h1 {
-          font-size: clamp(1.85rem, 8vw, 2.5rem);
-          margin-bottom: 0.75rem;
+          font-size: clamp(1.35rem, 7vw, 2rem);
+          margin-bottom: 0.55rem;
         }
         .hero-lead {
-          font-size: 0.98rem;
-          margin-bottom: 1.25rem;
+          font-size: 0.86rem;
+          margin-bottom: 1rem;
         }
         .hero-actions {
           width: 100%;
@@ -223,15 +199,6 @@ import SiteNav from '../components/SiteNav.astro';
         .btn-ghost {
           border: 1px solid rgba(255,255,255,0.34);
           background: rgba(255,255,255,0.12);
-        }
-        .hero-badges {
-          width: 100%;
-          grid-template-columns: 1fr;
-          gap: 0.6rem;
-        }
-        .hero-badge,
-        .hero-badge.main-badge {
-          min-height: 94px;
         }
       }
 
@@ -525,22 +492,8 @@ import SiteNav from '../components/SiteNav.astro';
             <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
           </div>
         </div>
-        <div class="hero-badges" aria-label="Reco-utmärkelser">
-          <div class="hero-badge main-badge">
-            <div id="reco--badge-yearsInRowBadge"></div>
-          </div>
-          <div class="hero-badge">
-            <div id="reco--badge-2025"></div>
-          </div>
-          <div class="hero-badge">
-            <div id="reco--badge-2024"></div>
-          </div>
-        </div>
       </div>
     </section>
-    <script src="https://widget.reco.se/yearsInRowBadge/4532782.js"></script>
-    <script src="https://widget.reco.se/badge/2025/4532782.js"></script>
-    <script src="https://widget.reco.se/badge/2024/4532782.js"></script>
 
     <!-- ── SECTION 2: BKR-BEHÖRIG ── -->
     <section class="bkr-section" aria-label="BKR-behörig plattsättare – Haga Plattsättning AB">
