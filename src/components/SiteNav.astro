@@ -135,17 +135,37 @@ const isService = [
 <script>
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('mobile-menu');
-  const nav = document.querySelector('.site-nav.nav-home');
+  const nav = document.querySelector<HTMLElement>('.site-nav.nav-home');
   btn?.addEventListener('click', () => {
     const open = menu?.classList.toggle('open');
     btn.setAttribute('aria-expanded', String(open));
   });
 
   if (nav) {
-    const toggleScrolled = () => {
-      nav.classList.toggle('is-scrolled', window.scrollY > 40);
+    const triggerSection = document.getElementById('certifiering-kvalitet') as HTMLElement | null;
+    let triggerPoint = 40;
+
+    const recalculateTriggerPoint = () => {
+      if (!triggerSection) {
+        triggerPoint = 40;
+        return;
+      }
+
+      const navHeight = nav.offsetHeight || 0;
+      const recoBarHeight = 60;
+      triggerPoint = Math.max(0, triggerSection.offsetTop - navHeight - recoBarHeight);
     };
+
+    const toggleScrolled = () => {
+      nav.classList.toggle('is-scrolled', window.scrollY >= triggerPoint);
+    };
+
+    recalculateTriggerPoint();
     toggleScrolled();
     window.addEventListener('scroll', toggleScrolled, { passive: true });
+    window.addEventListener('resize', () => {
+      recalculateTriggerPoint();
+      toggleScrolled();
+    });
   }
 </script>
