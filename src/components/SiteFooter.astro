@@ -34,11 +34,28 @@ const BASE =
     color: #fff;
     margin-bottom: 1rem;
   }
-  .footer-brand-logo {
-    height: 44px;
-    width: auto;
-    display: block;
+  .footer-brand-mark {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.2rem;
     margin-bottom: 1rem;
+    text-decoration: none;
+  }
+  .footer-brand-main {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .footer-brand-sub {
+    color: #fff;
+    opacity: 0.9;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
   }
   .footer-brand-text {
     color: #fff;
@@ -194,7 +211,10 @@ const BASE =
   <div class="footer-inner">
     <div class="footer-col-brand">
       <a href="/" aria-label="Haga Plattsättning AB – startsida">
-        <img src="/hagaplattsattninglogga.svg" alt="Haga Plattsättning AB logotyp" class="footer-brand-logo" width="120" height="44" />
+        <span class="footer-brand-mark">
+          <span class="footer-brand-main">HAGA</span>
+          <span class="footer-brand-sub">Plattsättning AB</span>
+        </span>
       </a>
       <p class="footer-brand-text">{BASE} {pageFocus}</p>
       <div class="footer-badges">
@@ -243,7 +263,6 @@ const BASE =
       <p class="footer-heading">Våra tjänster</p>
       <ul class="footer-links" role="list">
         <li><a href="/badrumsrenovering-stockholm">Badrumsrenovering Stockholm</a></li>
-        <li><a href="/badrumsrenovering-pris">Badrumsrenovering pris</a></li>
         <li><a href="/kakelsattare-stockholm">Kakelsättare Stockholm</a></li>
         <li><a href="/koksrenovering-stockholm">Köksrenovering Stockholm</a></li>
         <li><a href="/referensprojekt">Referensprojekt</a></li>

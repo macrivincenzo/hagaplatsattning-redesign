@@ -6,8 +6,7 @@ import SiteNav from '../components/SiteNav.astro';
 <html lang="sv">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/hagaplattsattningfavicon.svg" type="image/svg+xml" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- ── PRIMARY SEO ── -->
@@ -22,7 +21,7 @@ import SiteNav from '../components/SiteNav.astro';
     <meta property="og:url" content="https://www.hagaplattsattning.se/referensprojekt" />
     <meta property="og:title" content="Referensprojekt – Plattsättning & Badrumsrenovering Stockholm | Haga Plattsättning AB" />
     <meta property="og:description" content="Bilder och videos på utförda referensprojekt från Haga Plattsättning AB – certifierad plattsättare i Stockholm med BKR-behörighet och PER-auktorisation." />
-    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_1.avif" />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_2.avif" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Referensprojekt – plattsättning och badrumsrenovering utfört av Haga Plattsättning AB i Stockholm" />
@@ -31,7 +30,7 @@ import SiteNav from '../components/SiteNav.astro';
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Referensprojekt – Haga Plattsättning AB Stockholm" />
     <meta name="twitter:description" content="Se bilder och videos på utförda plattsättnings- och badrumsrenoveringsprojekt i Stockholm." />
-    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_1.avif" />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_2.avif" />
 
     <!-- ── GEO / LOCAL ── -->
     <meta name="geo.region" content="SE-AB" />
@@ -518,6 +517,32 @@ import SiteNav from '../components/SiteNav.astro';
           });
           video.addEventListener('pause', syncOverlay);
           video.addEventListener('ended', syncOverlay);
+        });
+      })();
+    </script>
+    <script is:inline>
+      (function () {
+        document.querySelectorAll('img').forEach(function (img) {
+          function dropBrokenImage() {
+            if (img.naturalWidth === 0) {
+              var item = img.closest('.gallery-item');
+              if (item) item.remove();
+              else img.remove();
+            }
+          }
+          if (img.complete) dropBrokenImage();
+          img.addEventListener('error', dropBrokenImage);
+        });
+
+        document.querySelectorAll('.video-card video').forEach(function (video) {
+          function dropBrokenVideo() {
+            if (video.error) {
+              var card = video.closest('.video-card');
+              if (card) card.remove();
+            }
+          }
+          if (video.error) dropBrokenVideo();
+          video.addEventListener('error', dropBrokenVideo);
         });
       })();
     </script>
@@ -1134,7 +1159,7 @@ import SiteNav from '../components/SiteNav.astro';
           "@id": "https://www.hagaplattsattning.se/referensprojekt#video-golvbrunn",
           "name": "Referensvideo: plattsättning och klinker kring golvbrunn i badrum – Haga Plattsättning AB Stockholm",
           "description": "Se hur BKR-behöriga plattsättare från Haga Plattsättning AB utför klinkerläggning och plattsättning kring golvbrunn i badrum i Stockholm enligt BBV, med fokus på täthet, precision och dokumenterat våtrumsutförande.",
-          "thumbnailUrl": "https://www.hagaplattsattning.se/hagaplatt_1.avif",
+          "thumbnailUrl": "https://www.hagaplattsattning.se/hagaplatt_2.avif",
           "uploadDate": "2026-04-19",
           "contentUrl": "https://www.hagaplattsattning.se/hagaplatt_video_1.webm",
           "encodingFormat": "video/webm",
@@ -1143,7 +1168,7 @@ import SiteNav from '../components/SiteNav.astro';
             "@type": "Organization",
             "name": "Haga Plattsättning AB",
             "url": "https://www.hagaplattsattning.se",
-            "logo": { "@type": "ImageObject", "url": "https://www.hagaplattsattning.se/hagaplattsattninglogga.svg" }
+            "logo": { "@type": "ImageObject", "url": "https://www.hagaplattsattning.se/behorig-vatrum.avif" }
           }
         },
         {
@@ -1151,7 +1176,7 @@ import SiteNav from '../components/SiteNav.astro';
           "@id": "https://www.hagaplattsattning.se/referensprojekt#video-inomhus-badrum",
           "name": "Referensvideo: inomhusplattsättning och klinker i badrum – Haga Plattsättning AB Stockholm",
           "description": "Referensfilm som visar inomhusplattsättning med klinker i badrum eller våtrum i Stockholm av Haga Plattsättning AB – BKR-behöriga plattsättare med BBV-godkända arbetssätt, fokus på fogar, täthet och långsiktigt hållbara våtrumslösningar.",
-          "thumbnailUrl": "https://www.hagaplattsattning.se/hagaplatt_14.avif",
+          "thumbnailUrl": "https://www.hagaplattsattning.se/hagaplatt_15.avif",
           "uploadDate": "2026-04-19",
           "contentUrl": "https://www.hagaplattsattning.se/hagaplatt_video_2.webm",
           "encodingFormat": "video/webm",
@@ -1160,7 +1185,7 @@ import SiteNav from '../components/SiteNav.astro';
             "@type": "Organization",
             "name": "Haga Plattsättning AB",
             "url": "https://www.hagaplattsattning.se",
-            "logo": { "@type": "ImageObject", "url": "https://www.hagaplattsattning.se/hagaplattsattninglogga.svg" }
+            "logo": { "@type": "ImageObject", "url": "https://www.hagaplattsattning.se/behorig-vatrum.avif" }
           }
         }
       ]

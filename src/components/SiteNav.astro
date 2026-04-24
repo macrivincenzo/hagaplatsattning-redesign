@@ -4,7 +4,6 @@ const isService = [
   '/badrumsrenovering-stockholm',
   '/badrumsrenovering-sollentuna',
   '/badrumsrenovering-solna',
-  '/badrumsrenovering-pris',
   '/kakelsattare-stockholm',
   '/koksrenovering-stockholm',
 ].includes(path);
@@ -13,13 +12,11 @@ const isService = [
 <style is:global>
   .reco-bar { width: 100%; overflow: hidden; }
   .reco-bar iframe { width: 100%; border: 0; display: block; overflow: hidden; height: 60px; }
-  .contact-bar { background: #12122a; display: flex; align-items: center; justify-content: center; gap: 3rem; height: 44px; font-size: 0.88rem; }
-  .contact-bar a { color: rgba(255,255,255,0.85); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
-  .contact-bar a:hover { color: #fff; }
   .site-nav { background: #ffffff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.12); border-top: 1px solid rgba(230,57,70,0.15); }
   .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 128px; gap: 2rem; }
-  .nav-brand { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; text-decoration: none; }
-  .nav-logo { height: 96px; width: auto; display: block; }
+  .nav-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 0.15rem; flex-shrink: 0; text-decoration: none; }
+  .nav-brand-main { color: #111; font-size: 2rem; font-weight: 900; line-height: 1; letter-spacing: -0.02em; }
+  .nav-brand-sub { color: #e63946; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
   .nav-links { display: flex; align-items: center; list-style: none; gap: 0.1rem; flex: 1; justify-content: center; }
   .nav-links a { color: #e63946; text-decoration: none; font-size: 1.6rem; font-weight: 700; padding: 0.65rem 1rem; border-radius: 6px; transition: color 0.15s, background 0.15s; white-space: nowrap; }
   .nav-links a:hover { color: #c81f2d; background: rgba(230,57,70,0.08); }
@@ -45,10 +42,10 @@ const isService = [
     .nav-links, .nav-cta { display: none; }
     .nav-hamburger { display: flex; }
     .nav-inner { height: 96px; }
-    .nav-logo { height: 72px; }
   }
   @media (max-width: 500px) {
-    .contact-bar { justify-content: space-around; gap: 0; }
+    .nav-brand-main { font-size: 1.5rem; }
+    .nav-brand-sub { font-size: 0.85rem; }
   }
 </style>
 
@@ -56,15 +53,11 @@ const isService = [
   <iframe src="https://widget.reco.se/v2/venues/4532782/horizontal/large?inverted=false&border=false&lang=sv" title="Haga Plattsättning AB - Omdömen på Reco" height="60" style="width:100%;border:0;display:block;overflow:hidden;" data-reactroot></iframe>
 </div>
 
-<div class="contact-bar">
-  <a href="tel:0739133348" aria-label="Ring oss">📞 073-913 33 48</a>
-  <a href="mailto:kontakt@hagaplattsattning.se" aria-label="Skicka e-post">✉ kontakt@hagaplattsattning.se</a>
-</div>
-
 <nav class="site-nav" aria-label="Huvudnavigation">
   <div class="nav-inner">
     <a href="/" class="nav-brand" aria-label="Haga Plattsättning AB – startsida">
-      <img src="/hagaplattsattninglogga.svg" alt="Haga Plattsättning AB" class="nav-logo" width="240" height="96" />
+      <span class="nav-brand-main">HAGA</span>
+      <span class="nav-brand-sub">Plattsättning AB</span>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="/" aria-current={path === '/' ? 'page' : undefined}>Hem</a></li>
@@ -75,7 +68,6 @@ const isService = [
           <a href="/badrumsrenovering-stockholm" role="menuitem">Badrumsrenovering Stockholm</a>
           <a href="/kakelsattare-stockholm" role="menuitem">Kakelsättare Stockholm</a>
           <a href="/koksrenovering-stockholm" role="menuitem">Köksrenovering Stockholm</a>
-          <a href="/badrumsrenovering-pris" role="menuitem">Badrumsrenovering Pris</a>
         </div>
       </li>
       <li><a href="/referensprojekt" aria-current={path === '/referensprojekt' ? 'page' : undefined}>Referensprojekt</a></li>
@@ -91,7 +83,6 @@ const isService = [
     <a href="/badrumsrenovering-stockholm">Badrumsrenovering Stockholm</a>
     <a href="/kakelsattare-stockholm">Kakelsättare Stockholm</a>
     <a href="/koksrenovering-stockholm">Köksrenovering Stockholm</a>
-    <a href="/badrumsrenovering-pris">Badrumsrenovering Pris</a>
     <a href="/referensprojekt">Referensprojekt</a>
     <a href="/offertforfragan">Offertförfrågan</a>
     <a href="/offertforfragan" class="mobile-cta">Få gratis offert</a>

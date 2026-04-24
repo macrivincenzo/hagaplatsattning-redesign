@@ -64,12 +64,12 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       ogTitle: 'Badrumsrenovering Stockholm - Fast pris och BKR-behörighet',
       ogDescription:
         'Komplett guide till badrumsrenovering i Stockholm: kostnad, BRF-krav, tidsplan och materialval.',
-      ogImage: 'https://www.hagaplattsattning.se/hagaplattsattningbildhemsida.avif',
+      ogImage: 'https://www.hagaplattsattning.se/haga%20platts%C3%A4ttning%20bild%203.avif',
       ogImageAlt: 'Badrumsrenovering i Stockholm med certifierad plattsättning',
       twitterTitle: 'Badrumsrenovering Stockholm | Haga Plattsättning AB',
       twitterDescription:
         'Planera badrumsrenovering i Stockholm med rätt dokumentation, kvalitet och fast pris.',
-      twitterImage: 'https://www.hagaplattsattning.se/hagaplattsattningbildhemsida.avif',
+      twitterImage: 'https://www.hagaplattsattning.se/haga%20platts%C3%A4ttning%20bild%203.avif',
       geoPlacename: 'Stockholm',
       geoPosition: '59.3293;18.0686',
       latitude: 59.3293,
@@ -78,7 +78,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     hero: {
       lead:
         'Ska du renovera badrum i Stockholm? Här får du en lokalt anpassad guide för BRF, innerstad och villaområden - med tydliga kostnader, krav och tidslinje innan du väljer entreprenör.',
-      imageSrc: '/hagaplattsattningbildhemsida.avif',
+      imageSrc: '/haga%20platts%C3%A4ttning%20bild%203.avif',
       imageAlt:
         'Nyrenoverat badrum i Stockholm med storformatkakel och professionell plattsättning',
     },
@@ -92,7 +92,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         title: 'Bostadsrätt i innerstan vs villa i ytterområden - vad skiljer?',
         bodyHtml:
           '<p>I innerstadens bostadsrätter ansvarar du för ytskikt och tätskikt, medan föreningen ofta ställer detaljerade krav på bullertider, rivningsanmälan och intyg efter avslutat arbete.</p><p>I villaområden som Bromma och Hässelby har du större frihet, men också fullt ansvar om något blir fel. Därför är BKR-dokumentation lika viktig i villa som i BRF.</p><p>Vi anpassar arbetsmetod, tidplan och avfallshantering utifrån fastighetstyp och adress.</p>',
-        imageSrc: '/hagaplattsattningbildhemsida1.avif',
+        imageSrc: '/haga%20platts%C3%A4ttning%20bild%201.avif',
         imageAlt:
           'Badrumsrenovering i bostadsratt i Stockholm med noggrann kakelsattning',
       },
@@ -100,7 +100,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         title: 'Varfor tar badrumsrenovering ofta lite langre tid i centrala Stockholm?',
         bodyHtml:
           '<p>Det ar sallan sjalva kakelsattningen som forlangs - det ar logistiken runtomkring som styr tempo.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Materialbarning via trapphus utan hiss</li><li>Begransade arbetstider i BRF (ofta 07-17 vardagar)</li><li>Bokning av hissskydd, garageplats eller containerplats</li><li>Hardningstid for tätskikt mellan arbetsmoment</li></ul><p>Vi bygger alltid in dessa risker i tidsplanen innan start, sa att du far realistiska deadlines.</p>',
-        imageSrc: '/hagaplattsattningbildhemsida2.avif',
+        imageSrc: '/haga%20platts%C3%A4ttning%20bild%202.avif',
         imageAlt:
           'Planering av badrumsrenovering i centrala Stockholm med logistik och material',
         gray: true,
@@ -109,8 +109,8 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Vad kostar badrumsrenovering i Stockholm 2026?',
         bodyHtml:
-          '<p>Arbetskostnaden beror pa format, underarbete och detaljniva. Nedan ar riktpriser for plattsattning:</p><table class="price-table" aria-label="Priser badrumsrenovering Stockholm 2026"><thead><tr><th>Typ av arbete</th><th>Pris (arbete)</th><th>Efter ROT</th></tr></thead><tbody><tr><td>Standard kakel och klinker</td><td>500-1 000 kr/m2</td><td>250-500 kr/m2</td></tr><tr><td>Storformat 60x60 cm+</td><td>700-1 200 kr/m2</td><td>350-600 kr/m2</td></tr><tr><td>Mosaik och nischer</td><td>800-1 300 kr/m2</td><td>400-650 kr/m2</td></tr><tr><td>Timpris <a href="/kakelsattare-stockholm" style="color:#333;text-decoration:underline;">kakelsattare Stockholm</a></td><td>650-900 kr/timme</td><td>325-450 kr/timme</td></tr></tbody></table><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Se aven <a href="/badrumsrenovering-pris" style="color:#777;">var prisguide</a> for totalbudget inklusive VVS och el.</p>',
-        imageSrc: '/hagaplattsattningbildhemsida3.avif',
+          '<p>Arbetskostnaden beror pa format, underarbete och detaljniva. Nedan ar riktpriser for plattsattning:</p><table class="price-table" aria-label="Priser badrumsrenovering Stockholm 2026"><thead><tr><th>Typ av arbete</th><th>Pris (arbete)</th><th>Efter ROT</th></tr></thead><tbody><tr><td>Standard kakel och klinker</td><td>500-1 000 kr/m2</td><td>250-500 kr/m2</td></tr><tr><td>Storformat 60x60 cm+</td><td>700-1 200 kr/m2</td><td>350-600 kr/m2</td></tr><tr><td>Mosaik och nischer</td><td>800-1 300 kr/m2</td><td>400-650 kr/m2</td></tr><tr><td>Timpris <a href="/kakelsattare-stockholm" style="color:#333;text-decoration:underline;">kakelsattare Stockholm</a></td><td>650-900 kr/timme</td><td>325-450 kr/timme</td></tr></tbody></table><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Se aven var prisguide for totalbudget inklusive VVS och el.</p>',
+        imageSrc: '/haga%20platts%C3%A4ttning%20bild%204.avif',
         imageAlt:
           'Prisbild for badrumsrenovering i Stockholm med fast offert och ROT-avdrag',
       },
@@ -257,7 +257,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Vad kostar badrumsrenovering i Sollentuna 2026?',
         bodyHtml:
-          '<p>Arbetspriserna liknar ovriga Stockholm, men slutkostnaden paverkas av omfattning och materialval.</p><table class="price-table" aria-label="Priser badrumsrenovering Sollentuna 2026"><thead><tr><th>Typ av arbete</th><th>Pris (arbete)</th><th>Efter ROT</th></tr></thead><tbody><tr><td>Standard kakel och klinker</td><td>500-1 000 kr/m2</td><td>250-500 kr/m2</td></tr><tr><td>Storformat 60x60 cm+</td><td>700-1 200 kr/m2</td><td>350-600 kr/m2</td></tr><tr><td>Mosaik och nischer</td><td>800-1 300 kr/m2</td><td>400-650 kr/m2</td></tr><tr><td>Timpris <a href="/kakelsattare-stockholm" style="color:#333;text-decoration:underline;">kakelsattare Stockholm</a></td><td>650-900 kr/timme</td><td>325-450 kr/timme</td></tr></tbody></table><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Las mer i <a href="/badrumsrenovering-pris" style="color:#777;">prisguiden</a> for totalentreprenad och tillval.</p>',
+          '<p>Arbetspriserna liknar ovriga Stockholm, men slutkostnaden paverkas av omfattning och materialval.</p><table class="price-table" aria-label="Priser badrumsrenovering Sollentuna 2026"><thead><tr><th>Typ av arbete</th><th>Pris (arbete)</th><th>Efter ROT</th></tr></thead><tbody><tr><td>Standard kakel och klinker</td><td>500-1 000 kr/m2</td><td>250-500 kr/m2</td></tr><tr><td>Storformat 60x60 cm+</td><td>700-1 200 kr/m2</td><td>350-600 kr/m2</td></tr><tr><td>Mosaik och nischer</td><td>800-1 300 kr/m2</td><td>400-650 kr/m2</td></tr><tr><td>Timpris <a href="/kakelsattare-stockholm" style="color:#333;text-decoration:underline;">kakelsattare Stockholm</a></td><td>650-900 kr/timme</td><td>325-450 kr/timme</td></tr></tbody></table><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Las mer i prisguiden for totalentreprenad och tillval.</p>',
         imageSrc: '/hagaplatt_18.avif',
         imageAlt:
           'Kostnadsniva for badrumsrenovering i Sollentuna med fast pris och ROT-avdrag',
@@ -403,7 +403,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Vad kostar badrumsrenovering i Solna 2026?',
         bodyHtml:
-          '<p>Prisnivan i Solna ligger i linje med ovriga innernara kommuner. Arbetspriser for plattsattning:</p><table class="price-table" aria-label="Priser badrumsrenovering Solna 2026"><thead><tr><th>Typ av arbete</th><th>Pris (arbete)</th><th>Efter ROT</th></tr></thead><tbody><tr><td>Standard kakel och klinker</td><td>500-1 000 kr/m2</td><td>250-500 kr/m2</td></tr><tr><td>Storformat 60x60 cm+</td><td>700-1 200 kr/m2</td><td>350-600 kr/m2</td></tr><tr><td>Mosaik och detaljytor</td><td>800-1 300 kr/m2</td><td>400-650 kr/m2</td></tr><tr><td>Timpris <a href="/kakelsattare-stockholm" style="color:#333;text-decoration:underline;">kakelsattare Stockholm</a></td><td>650-900 kr/timme</td><td>325-450 kr/timme</td></tr></tbody></table><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">For jamforelse mellan olika upplagg, besok <a href="/badrumsrenovering-pris" style="color:#777;">badrumsrenovering pris</a>.</p>',
+          '<p>Prisnivan i Solna ligger i linje med ovriga innernara kommuner. Arbetspriser for plattsattning:</p><table class="price-table" aria-label="Priser badrumsrenovering Solna 2026"><thead><tr><th>Typ av arbete</th><th>Pris (arbete)</th><th>Efter ROT</th></tr></thead><tbody><tr><td>Standard kakel och klinker</td><td>500-1 000 kr/m2</td><td>250-500 kr/m2</td></tr><tr><td>Storformat 60x60 cm+</td><td>700-1 200 kr/m2</td><td>350-600 kr/m2</td></tr><tr><td>Mosaik och detaljytor</td><td>800-1 300 kr/m2</td><td>400-650 kr/m2</td></tr><tr><td>Timpris <a href="/kakelsattare-stockholm" style="color:#333;text-decoration:underline;">kakelsattare Stockholm</a></td><td>650-900 kr/timme</td><td>325-450 kr/timme</td></tr></tbody></table><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">For jamforelse mellan olika upplagg, kontakta oss direkt for prisbild och upplagg.</p>',
         imageSrc: '/hagaplatt_34.avif',
         imageAlt:
           'Kostnadsexempel for badrumsrenovering i Solna med rotavdrag och fastprisoffert',
