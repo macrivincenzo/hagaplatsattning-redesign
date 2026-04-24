@@ -155,6 +155,30 @@ import SiteNav from '../components/SiteNav.astro';
         transition: color 0.15s;
       }
       .btn-ghost:hover { color: rgba(255,255,255,0.8); }
+      .hero-badges {
+        position: absolute;
+        right: 1.5rem;
+        bottom: 1.2rem;
+        z-index: 3;
+        display: flex;
+        align-items: flex-end;
+        gap: 0.55rem;
+      }
+      .hero-badge {
+        border-radius: 999px;
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(3px);
+        padding: 0.3rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.22);
+        line-height: 0;
+      }
+      .hero-badge.main {
+        padding: 0.45rem;
+      }
+      .hero-badge.small {
+        transform: scale(0.82);
+        transform-origin: bottom center;
+      }
       @media (max-width: 800px) {
         .hero {
           min-height: auto;
@@ -202,6 +226,21 @@ import SiteNav from '../components/SiteNav.astro';
         .btn-ghost {
           border: 1px solid rgba(255,255,255,0.34);
           background: rgba(255,255,255,0.12);
+        }
+        .hero-badges {
+          left: 0.85rem;
+          right: auto;
+          bottom: 7.4rem;
+          align-items: center;
+          gap: 0.35rem;
+        }
+        .hero-badge.main {
+          transform: scale(0.92);
+          transform-origin: bottom left;
+        }
+        .hero-badge.small {
+          transform: scale(0.6);
+          transform-origin: bottom left;
         }
       }
 
@@ -483,6 +522,17 @@ import SiteNav from '../components/SiteNav.astro';
         </picture>
       </div>
       <div class="hero-overlay"></div>
+      <div class="hero-badges" aria-label="Reco-utmärkelser">
+        <div class="hero-badge main">
+          <div id="reco--badge-yearsInRowBadge"></div>
+        </div>
+        <div class="hero-badge small">
+          <div id="reco--badge-2025"></div>
+        </div>
+        <div class="hero-badge small">
+          <div id="reco--badge-2024"></div>
+        </div>
+      </div>
       <div class="hero-inner">
         <div class="hero-text">
           <h1>Badrumsrenovering <span>i Stockholm</span></h1>
@@ -497,6 +547,9 @@ import SiteNav from '../components/SiteNav.astro';
         </div>
       </div>
     </section>
+    <script src="https://widget.reco.se/yearsInRowBadge/4532782.js"></script>
+    <script src="https://widget.reco.se/badge/2025/4532782.js"></script>
+    <script src="https://widget.reco.se/badge/2024/4532782.js"></script>
 
     <!-- ── SECTION 2: BKR-BEHÖRIG ── -->
     <section class="bkr-section" id="certifiering-kvalitet" aria-label="BKR-behörig plattsättare – Haga Plattsättning AB">
