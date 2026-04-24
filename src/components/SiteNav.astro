@@ -27,8 +27,6 @@ const isService = [
   .nav-dropdown:hover .dropdown-menu { display: block; }
   .dropdown-menu a { display: block; color: #e63946 !important; font-size: 1.15rem !important; font-weight: 600 !important; padding: 0.8rem 1.2rem !important; border-radius: 0 !important; background: none !important; white-space: nowrap; }
   .dropdown-menu a:hover { color: #c81f2d !important; background: rgba(230,57,70,0.08) !important; }
-  .nav-cta { flex-shrink: 0; background: #ffffff; color: #e63946 !important; font-weight: 700 !important; font-size: 1.35rem !important; padding: 0.75rem 1.4rem !important; border-radius: 8px !important; border: 1px solid #e63946; transition: color 0.15s, background 0.15s !important; white-space: nowrap; text-decoration: none; }
-  .nav-cta:hover { color: #ffffff !important; background: #e63946 !important; }
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
   .nav-hamburger span { display: block; width: 24px; height: 2px; background: #e63946; border-radius: 2px; transition: 0.25s; }
   .nav-mobile { display: none; flex-direction: column; background: #ffffff; border-top: 1px solid rgba(230,57,70,0.2); padding: 1rem 1.5rem 1.5rem; gap: 0.25rem; }
@@ -36,10 +34,8 @@ const isService = [
   .nav-mobile a { color: #e63946; text-decoration: none; font-size: 1.2rem; font-weight: 700; padding: 0.85rem 0; border-bottom: 1px solid rgba(230,57,70,0.12); transition: color 0.15s; }
   .nav-mobile a:hover { color: #c81f2d; }
   .nav-mobile .mobile-section { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(230,57,70,0.65); padding: 0.9rem 0 0.35rem; }
-  .nav-mobile .mobile-cta { margin-top: 0.9rem; background: #ffffff; color: #e63946 !important; font-weight: 700 !important; text-align: center; padding: 0.95rem !important; border-radius: 8px; border: 1px solid #e63946; border-bottom: 1px solid #e63946 !important; }
-  .nav-mobile .mobile-cta:hover { background: #e63946; color: #ffffff !important; }
   @media (max-width: 900px) {
-    .nav-links, .nav-cta { display: none; }
+    .nav-links { display: none; }
     .nav-hamburger { display: flex; }
     .nav-inner { height: 96px; }
   }
@@ -73,7 +69,6 @@ const isService = [
       <li><a href="/referensprojekt" aria-current={path === '/referensprojekt' ? 'page' : undefined}>Referensprojekt</a></li>
       <li><a href="/offertforfragan" aria-current={path === '/offertforfragan' ? 'page' : undefined}>Offertförfrågan</a></li>
     </ul>
-    <a href="/offertforfragan" class="nav-cta" aria-label="Få gratis offert">Få offert</a>
     <button class="nav-hamburger" aria-label="Öppna meny" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile" id="mobile-menu" role="navigation" aria-label="Mobilmeny">
@@ -85,7 +80,6 @@ const isService = [
     <a href="/koksrenovering-stockholm">Köksrenovering Stockholm</a>
     <a href="/referensprojekt">Referensprojekt</a>
     <a href="/offertforfragan">Offertförfrågan</a>
-    <a href="/offertforfragan" class="mobile-cta">Få gratis offert</a>
   </div>
 </nav>
 
