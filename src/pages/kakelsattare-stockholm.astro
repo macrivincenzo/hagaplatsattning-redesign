@@ -212,6 +212,7 @@ import SiteNav from '../components/SiteNav.astro';
       @media (max-width: 800px) {
         .guide-block-inner { grid-template-columns: 1fr; gap: 2rem; }
         .guide-block img { height: 240px; }
+        .img-before-text-mobile { order: -1; }
         .img-first { order: -1; }
         .scenario-grid { grid-template-columns: 1fr; }
       }
@@ -339,7 +340,7 @@ import SiteNav from '../components/SiteNav.astro';
               och bänkskivor.
             </p>
           </div>
-          <div>
+          <div class="img-before-text-mobile">
             <img
               src="/haga%20platts%C3%A4ttning%20bild%201.avif"
               alt="Kakelsättare i Stockholm applicerar storformatkakel med precisionsteknik"

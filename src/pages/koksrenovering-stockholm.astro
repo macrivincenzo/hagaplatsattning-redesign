@@ -208,6 +208,7 @@ import SiteNav from '../components/SiteNav.astro';
       @media (max-width: 800px) {
         .guide-block-inner { grid-template-columns: 1fr; gap: 2rem; }
         .guide-block img { height: 240px; }
+        .img-before-text-mobile { order: -1; }
         .img-first { order: -1; }
         .scenario-grid { grid-template-columns: 1fr; }
       }
@@ -325,7 +326,7 @@ import SiteNav from '../components/SiteNav.astro';
               för mer information om materialval och format.
             </p>
           </div>
-          <div>
+          <div class="img-before-text-mobile">
             <img
               src="/haga%20platts%C3%A4ttning%20bild%201.avif"
               alt="Köksgolv i storformatsklinker – slitstark och modern golvlösning i Stockholmskök"
@@ -403,7 +404,7 @@ import SiteNav from '../components/SiteNav.astro';
               som ofta speglar köksprocessen.
             </p>
           </div>
-          <div>
+          <div class="img-before-text-mobile">
             <img
               src="/haga%20platts%C3%A4ttning%20bild%204.avif"
               alt="Köksrenovering bostadsrätt Stockholm – BRF-regler och anmälan vid ombyggnad"
