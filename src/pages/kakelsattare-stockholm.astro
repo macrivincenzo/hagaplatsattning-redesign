@@ -62,25 +62,94 @@ import SiteNav from '../components/SiteNav.astro';
       .breadcrumb span { margin: 0 0.4rem; color: #ccc; }
 
       /* ── HERO ── */
-      .hero { background: #ffffff; overflow: hidden; border-bottom: 1px solid #e8e8ee; }
-      .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr 1fr; align-items: center; min-height: 540px; gap: 3rem; }
-      .hero-text { padding: 4rem 0; }
-      .hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #0a0a1a; line-height: 1.15; margin-bottom: 1.1rem; letter-spacing: -0.02em; }
-      .hero h1 span { color: #444; }
-      .hero-lead { font-size: 1.05rem; color: #444; line-height: 1.7; margin-bottom: 2rem; max-width: 480px; }
+      .hero {
+        position: relative;
+        min-height: min(78vh, 680px);
+        overflow: hidden;
+        border-bottom: 1px solid #e8e8ee;
+        display: flex;
+        align-items: center;
+        padding-top: 84px;
+      }
+      .hero-media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 38%;
+        display: block;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(90deg, rgba(5, 6, 14, 0.7) 0%, rgba(5, 6, 14, 0.5) 34%, rgba(5, 6, 14, 0.2) 56%, rgba(5, 6, 14, 0.08) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.16) 35%, rgba(0, 0, 0, 0.34) 100%);
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 1.5rem 3rem;
+        display: flex;
+        align-items: flex-end;
+      }
+      .hero-text {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #111111;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        backdrop-filter: blur(3px);
+        padding: clamp(1.6rem, 4vw, 2.2rem);
+        max-width: 680px;
+      }
+      .hero h1 { font-size: clamp(1.6rem, 3vw, 2.7rem); font-weight: 700; color: #111111; line-height: 1.18; margin-bottom: 0.7rem; letter-spacing: -0.02em; }
+      .hero h1 span { color: #111111; }
+      .hero-lead { font-size: 0.94rem; color: #222222; line-height: 1.58; margin-bottom: 1.25rem; max-width: 560px; }
       .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-      .btn-primary { background: #0a0a1a; color: #ffffff; font-weight: 700; font-size: 0.95rem; padding: 0.75rem 1.6rem; border-radius: 7px; text-decoration: none; transition: opacity 0.15s; white-space: nowrap; }
-      .btn-primary:hover { opacity: 0.82; }
-      .btn-ghost { color: #555; font-size: 0.92rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
-      .btn-ghost:hover { color: #0a0a1a; }
-      .hero-image { height: 100%; min-height: 400px; position: relative; overflow: hidden; }
-      .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-      .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, #ffffff 0%, transparent 35%); pointer-events: none; }
+      .btn-primary { background: #111111; border: 1px solid #111111; color: #ffffff; font-weight: 700; font-size: 0.88rem; padding: 0.72rem 1.3rem; border-radius: 10px; text-decoration: none; transition: transform 0.15s ease, opacity 0.15s ease; white-space: nowrap; }
+      .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+      .btn-ghost { color: #111111; font-size: 0.88rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
+      .btn-ghost:hover { color: #000000; }
       @media (max-width: 800px) {
-        .hero-inner { grid-template-columns: 1fr; min-height: auto; }
-        .hero-image { min-height: 260px; }
-        .hero-image::after { background: linear-gradient(to bottom, transparent 60%, #ffffff 100%); }
-        .hero-text { padding: 2.5rem 0 1.5rem; }
+        .hero {
+          min-height: auto;
+          padding-top: 72px;
+        }
+        .hero-media img { object-position: center; }
+        .hero-overlay {
+          background: linear-gradient(180deg, rgba(5, 6, 14, 0.48) 0%, rgba(5, 6, 14, 0.54) 48%, rgba(5, 6, 14, 0.72) 100%);
+        }
+        .hero-inner {
+          padding: 0 1rem 1.4rem;
+          min-height: calc(100vh - 60px);
+          align-items: end;
+          flex-direction: column;
+          justify-content: flex-end;
+          gap: 1rem;
+        }
+        .hero-text { max-width: 100%; padding: 1.2rem; border-radius: 16px; }
+        .hero h1 { font-size: clamp(1.35rem, 7vw, 2rem); margin-bottom: 0.55rem; }
+        .hero-lead { font-size: 0.86rem; margin-bottom: 1rem; }
+        .hero-actions { width: 100%; gap: 0.7rem; }
+        .btn-primary, .btn-ghost {
+          width: 100%;
+          justify-content: center;
+          border-radius: 10px;
+          min-height: 48px;
+        }
+        .btn-ghost {
+          border: 1px solid rgba(0,0,0,0.22);
+          background: rgba(255,255,255,0.8);
+        }
       }
 
       /* ── SHARED ── */
@@ -157,6 +226,14 @@ import SiteNav from '../components/SiteNav.astro';
 
     <!-- ── SECTION 1: HERO ── -->
     <section class="hero" aria-label="Kakelsättare Stockholm – Haga Plattsättning AB">
+      <div class="hero-media">
+        <img
+          src="/hagaplatt_8.avif"
+          alt="Kakelsättare i Stockholm monterar storformatkakel i badrum – Haga Plattsättning AB"
+          width="2400" height="1350" loading="eager" fetchpriority="high"
+        />
+      </div>
+      <div class="hero-overlay"></div>
       <div class="hero-inner">
         <div class="hero-text">
           <h1>Kakelsättare <span>i Stockholm</span></h1>
@@ -170,13 +247,6 @@ import SiteNav from '../components/SiteNav.astro';
             <a href="/offertforfragan" class="btn-primary">Begär kostnadsfri offert →</a>
             <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
           </div>
-        </div>
-        <div class="hero-image">
-          <img
-            src="/haga%20platts%C3%A4ttning%20bild%203.avif"
-            alt="Kakelsättare i Stockholm monterar storformatkakel i badrum – Haga Plattsättning AB"
-            width="600" height="540" loading="eager" fetchpriority="high"
-          />
         </div>
       </div>
     </section>

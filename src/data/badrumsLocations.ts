@@ -78,7 +78,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     hero: {
       lead:
         'Ska du renovera badrum i Stockholm? Här får du en lokalt anpassad guide för BRF, innerstad och villaområden - med tydliga kostnader, krav och tidslinje innan du väljer entreprenör.',
-      imageSrc: '/haga%20platts%C3%A4ttning%20bild%203.avif',
+      imageSrc: '/hagaplatt_15.avif',
       imageAlt:
         'Nyrenoverat badrum i Stockholm med storformatkakel och professionell plattsättning',
     },

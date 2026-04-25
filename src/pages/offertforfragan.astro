@@ -1,0 +1,212 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>Offertförfrågan – Haga Plattsättning AB</title>
+    <meta
+      name="description"
+      content="Skicka offertförfrågan till Haga Plattsättning AB. Beskriv ditt projekt och få återkoppling om badrumsrenovering, kakelsättning eller köksrenovering i Stockholm."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/offertforfragan" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/offertforfragan" />
+    <meta property="og:title" content="Offertförfrågan – Haga Plattsättning AB" />
+    <meta property="og:description" content="Få en tydlig offert för badrum, kök eller kakelsättning i Stockholm." />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_18.avif" />
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: system-ui, -apple-system, sans-serif; background: #fff; color: #111; }
+
+      .section-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+      }
+
+      .offer-section {
+        padding: 3.5rem 0 4.5rem;
+        border-top: 1px solid #ececf2;
+        background: #ffffff;
+      }
+
+      .offer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 1.5rem;
+        align-items: start;
+      }
+
+      .card {
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        background: #fff;
+        padding: 1.3rem;
+        box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+      }
+
+      .eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: #666;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+      }
+
+      .lead {
+        color: #333;
+        line-height: 1.7;
+        margin-bottom: 1.1rem;
+        font-size: 0.95rem;
+      }
+
+      .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        margin-top: 0.7rem;
+      }
+
+      .contact-list a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        text-decoration: none;
+        color: #111;
+        font-weight: 600;
+      }
+
+      .contact-list a:hover { color: #000; }
+
+      .trust-note {
+        margin-top: 1rem;
+        font-size: 0.86rem;
+        color: #444;
+      }
+
+      form {
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 0.2rem;
+        display: block;
+      }
+
+      input, textarea {
+        width: 100%;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        padding: 0.72rem 0.78rem;
+        font: inherit;
+        color: #111;
+        background: #fff;
+      }
+
+      textarea { min-height: 120px; resize: vertical; }
+
+      input:focus, textarea:focus {
+        outline: 2px solid #111;
+        outline-offset: 1px;
+        border-color: #111;
+      }
+
+      .cta {
+        margin-top: 0.35rem;
+        border: 1px solid #111;
+        background: #111;
+        color: #fff;
+        border-radius: 10px;
+        padding: 0.78rem 1rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .small-note {
+        font-size: 0.78rem;
+        color: #666;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 880px) {
+        .offer-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+
+    <section class="offer-section" aria-label="Offertförfrågan">
+      <div class="section-inner">
+        <div class="offer-grid">
+          <div class="card">
+            <p class="eyebrow">Offertförfrågan</p>
+            <h1>Få en tydlig offert för ditt projekt</h1>
+            <p class="lead">
+              Beskriv kort vad du behöver hjälp med så återkommer vi med förslag på upplägg,
+              preliminär tidsplan och prisbild. Vi hjälper dig med badrumsrenovering,
+              kakelsättning och köksrenovering i Stockholm.
+            </p>
+            <div class="contact-list">
+              <a href="tel:0739133348">📞 073-913 33 48</a>
+              <a href="mailto:kontakt@hagaplattsattning.se">✉ kontakt@hagaplattsattning.se</a>
+            </div>
+            <p class="trust-note">BKR-behöriga • Fast pris • Våtrumsintyg vid badrumsprojekt</p>
+          </div>
+
+          <div class="card">
+            <form action="mailto:kontakt@hagaplattsattning.se" method="post" enctype="text/plain">
+              <div>
+                <label for="name">Namn</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div>
+                <label for="phone">Telefon</label>
+                <input id="phone" name="phone" type="tel" required />
+              </div>
+              <div>
+                <label for="email">E-post</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+              <div>
+                <label for="project">Typ av projekt</label>
+                <input id="project" name="project" type="text" placeholder="Ex. badrumsrenovering i BRF" />
+              </div>
+              <div>
+                <label for="message">Beskrivning</label>
+                <textarea id="message" name="message" placeholder="Yta, ort, önskad start och annan relevant info"></textarea>
+              </div>
+              <button class="cta" type="submit">Skicka offertförfrågan</button>
+              <p class="small-note">Vi återkopplar normalt inom 24 timmar på vardagar.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <SiteFooter pageFocus="På offertförfrågan samlar vi snabbaste vägen till kontakt så att du enkelt kan få en tydlig prisbild och rätt upplägg för ditt projekt i Stockholm." />
+  </body>
+</html>
