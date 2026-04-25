@@ -18,6 +18,8 @@ export type BadrumsLocationContent = {
   slug: 'stockholm' | 'sollentuna' | 'solna';
   city: string;
   route: string;
+  bkrImageSrc?: string;
+  bkrImageAlt?: string;
   seo: {
     title: string;
     description: string;
@@ -56,6 +58,8 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     slug: 'stockholm',
     city: 'Stockholm',
     route: '/badrumsrenovering-stockholm',
+    bkrImageSrc: '/behorig-vatrum.avif',
+    bkrImageAlt: 'Behorig kakelsattare i Stockholm med dokumenterad BKR-process',
     seo: {
       title: 'Badrumsrenovering Stockholm 2026 | BKR-behörig firma',
       description:
@@ -99,7 +103,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Varfor tar badrumsrenovering ofta lite langre tid i centrala Stockholm?',
         bodyHtml:
-          '<p>Det ar sallan sjalva kakelsattningen som forlangs - det ar logistiken runtomkring som styr tempo.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Materialbarning via trapphus utan hiss</li><li>Begransade arbetstider i BRF (ofta 07-17 vardagar)</li><li>Bokning av hissskydd, garageplats eller containerplats</li><li>Hardningstid for tätskikt mellan arbetsmoment</li></ul><p>Vi bygger alltid in dessa risker i tidsplanen innan start, sa att du far realistiska deadlines.</p>',
+          '<p>Det ar sallan sjalva kakelsattningen som forlangs - det ar logistiken runtomkring som styr tempo.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Materialbarning via trapphus utan hiss</li><li>Begransade arbetstider i BRF (ofta 07-17 vardagar)</li><li>Bokning av hissskydd, garageplats eller containerplats</li><li>Hardningstid for tätskikt mellan arbetsmoment</li></ul><p>Vi bygger alltid in dessa risker i tidsplanen innan start, sa att du far realistiska deadlines.</p><div style="padding-top:1rem;"><iframe src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv" title="Haga Plattsättning AB - Omdömen på Reco" height="225" style="width:100%;border:0;display:block;overflow:hidden;" data-reactroot loading="lazy"></iframe></div>',
         imageSrc: '/haga%20platts%C3%A4ttning%20bild%202.avif',
         imageAlt:
           'Planering av badrumsrenovering i centrala Stockholm med logistik och material',
