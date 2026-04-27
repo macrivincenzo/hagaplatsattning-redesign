@@ -25,30 +25,33 @@ const breadcrumbJsonLd = {
   ],
 };
 
-const reviewJsonLd = [
+const DEFAULT_REVIEWS = [
   {
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    itemReviewed: { '@type': 'LocalBusiness', '@id': 'https://www.hagaplattsattning.se/#business', name: 'Haga Plattsättning AB' },
-    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-    author: { '@type': 'Person', name: 'Edit W' },
-    datePublished: '2026-04-08',
-    reviewBody:
-      'Otroligt bra upplevelse, de visade stort engagemang i vart projekt redan fran start. Var bade foljsamma och flexibla med vara onskemal, men ocksa drivande och initiativtagande med egna forbattringar och losningar.',
-    publisher: { '@type': 'Organization', name: 'Reco.se' },
+    author: 'Edit W',
+    date: '2026-04-08',
+    rating: 5,
+    text: 'Otroligt bra upplevelse, de visade stort engagemang i vårt projekt redan från start. Var både följsamma och flexibla med våra önskemål, men också drivande och initiativtagande med egna förbättringar och lösningar.',
   },
   {
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    itemReviewed: { '@type': 'LocalBusiness', '@id': 'https://www.hagaplattsattning.se/#business', name: 'Haga Plattsättning AB' },
-    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-    author: { '@type': 'Person', name: 'Adam K, VD Rikets Projektutveckling AB' },
-    datePublished: '2025-11-08',
-    reviewBody:
-      'Vi pa Rikets Projektutveckling AB har anlitat Haga Plattsattning AB som underentreprenor vid flera tillfallen och kan varmt rekommendera dem.',
-    publisher: { '@type': 'Organization', name: 'Reco.se' },
+    author: 'Adam K, VD Rikets Projektutveckling AB',
+    date: '2025-11-08',
+    rating: 5,
+    text: 'Vi på Rikets Projektutveckling AB har anlitat Haga Plattsättning AB som underentreprenör vid flera tillfällen och kan varmt rekommendera dem.',
   },
 ];
+
+const visibleReviews = content.reviews ?? DEFAULT_REVIEWS;
+
+const reviewJsonLd = visibleReviews.map((rev) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Review',
+  itemReviewed: { '@type': 'LocalBusiness', '@id': 'https://www.hagaplattsattning.se/#business', name: 'Haga Plattsättning AB' },
+  reviewRating: { '@type': 'Rating', ratingValue: String(rev.rating), bestRating: '5' },
+  author: { '@type': 'Person', name: rev.author },
+  datePublished: rev.date,
+  reviewBody: rev.text,
+  publisher: { '@type': 'Organization', name: 'Reco.se' },
+}));
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -212,8 +215,10 @@ const serviceJsonLd = {
       .guide-header h2 { font-size: clamp(1.65rem, 2.9vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; color: #0a0a1a; }
       .guide-block { border-top: 1px solid #efeff3; padding: 3rem 0; }
       .guide-block.gray { background: #f8f8fb; }
-      .guide-block-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
+      .guide-block-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
       .guide-block-inner.text-only { grid-template-columns: 1fr; max-width: 900px; }
+      .guide-image { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); line-height: 0; }
+      .guide-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
       .guide-text h3 { font-size: clamp(1.28rem, 2.2vw, 1.6rem); font-weight: 800; color: #0a0a1a; line-height: 1.25; margin-bottom: 0.9rem; }
       .guide-text p { font-size: 0.94rem; color: #444; line-height: 1.75; margin-bottom: 1rem; }
       .bkr-checklist { list-style: none; margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: 0.65rem; }
@@ -222,6 +227,18 @@ const serviceJsonLd = {
       .price-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
       .price-table th, .price-table td { text-align: left; padding: 0.75rem 0.8rem; border-bottom: 1px solid #ececf2; }
       .price-table th { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; color: #666; }
+      .reviews-section { background: #f8f8fb; border-top: 1px solid #e8e8ee; padding: 5rem 0; }
+      .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1.75rem; }
+      .review-card { background: #fff; border-radius: 12px; padding: 1.5rem 1.5rem 1.2rem; box-shadow: 0 1px 8px rgba(0,0,0,0.05); border: 1px solid #efeff3; display: flex; flex-direction: column; }
+      .review-stars { font-size: 1.05rem; letter-spacing: 0.04em; margin-bottom: 0.7rem; }
+      .review-stars .filled { color: #f5b400; }
+      .review-stars .empty { color: #ddd; }
+      .review-card blockquote { font-size: 0.94rem; color: #222; line-height: 1.65; font-style: italic; margin: 0 0 1rem; flex-grow: 1; }
+      .review-card blockquote::before { content: "\201C"; font-size: 1.4rem; color: #aaa; margin-right: 0.1em; vertical-align: -0.2em; }
+      .review-card blockquote::after { content: "\201D"; font-size: 1.4rem; color: #aaa; margin-left: 0.1em; vertical-align: -0.2em; }
+      .review-card cite { font-style: normal; font-size: 0.86rem; font-weight: 600; color: #333; display: block; margin-bottom: 0.3rem; }
+      .review-meta { font-size: 0.78rem; color: #888; margin: 0; }
+      .review-meta a { color: #555; text-decoration: underline; }
       .faq-section { background: #fff; border-top: 1px solid #e8e8ee; padding: 5rem 0; }
       .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #0a0a1a; margin-bottom: 0.75rem; }
       .section-lead { font-size: 1rem; color: #555; max-width: 660px; line-height: 1.7; margin-bottom: 3rem; }
@@ -351,14 +368,46 @@ const serviceJsonLd = {
       {content.guideBlocks.map((block) => (
         <div class:list={['guide-block', block.gray && 'gray']}>
           <div class:list={['guide-block-inner', block.textOnly && 'text-only']}>
+            {!block.textOnly && block.imageSrc && block.imageFirst && (
+              <div class="guide-image">
+                <img src={block.imageSrc} alt={block.imageAlt ?? block.title} width="800" height="500" loading="lazy" />
+              </div>
+            )}
             <div class="guide-text">
               <h3>{block.title}</h3>
               <div set:html={block.bodyHtml} />
             </div>
+            {!block.textOnly && block.imageSrc && !block.imageFirst && (
+              <div class="guide-image">
+                <img src={block.imageSrc} alt={block.imageAlt ?? block.title} width="800" height="500" loading="lazy" />
+              </div>
+            )}
           </div>
         </div>
       ))}
     </section>
+
+    {content.reviews && content.reviews.length > 0 && (
+      <section class="reviews-section" aria-label={`Omdömen från Reco om badrumsrenovering i ${content.city}`}>
+        <div class="section-inner">
+          <p class="section-label">Omdömen</p>
+          <h2 class="section-title">Vad våra kunder säger</h2>
+          <p class="section-lead">Verifierade omdömen från <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" rel="external noopener" style="color:#0a0a1a;font-weight:600;">Reco</a> — totalt 4.9 av 5 baserat på 34 omdömen.</p>
+          <div class="reviews-grid">
+            {content.reviews.map((rev) => (
+              <article class="review-card">
+                <div class="review-stars" aria-label={`${rev.rating} av 5 stjärnor`}>
+                  <span class="filled">{'★'.repeat(rev.rating)}</span><span class="empty">{'★'.repeat(5 - rev.rating)}</span>
+                </div>
+                <blockquote>{rev.text}</blockquote>
+                <cite>— {rev.author}</cite>
+                <p class="review-meta">{rev.date} · Källa: <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" rel="external noopener">Reco</a></p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <section class="faq-section" id="faq" aria-label={`Vanliga frågor om badrumsrenovering i ${content.city}`}>
       <div class="section-inner">

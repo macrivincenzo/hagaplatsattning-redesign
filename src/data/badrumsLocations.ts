@@ -14,6 +14,13 @@ export type GuideBlock = {
   textOnly?: boolean;
 };
 
+export type ReviewItem = {
+  author: string;
+  date: string;
+  rating: number;
+  text: string;
+};
+
 export type BadrumsLocationContent = {
   slug: 'stockholm' | 'sollentuna' | 'solna';
   city: string;
@@ -49,6 +56,7 @@ export type BadrumsLocationContent = {
   faqTitle: string;
   faqLead: string;
   faqs: FaqItem[];
+  reviews?: ReviewItem[];
   footerFocus: string;
   localBusinessDescription: string;
 };
@@ -498,5 +506,144 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       'Denna sida ar framtagen for badrumsrenovering i Solna med tydlig BRF-process och dokumenterad kvalitet genom hela projektet.',
     localBusinessDescription:
       'Badrumsrenovering i Solna med BKR-behöriga plattsattare, tydliga offerter och kvalitetssakrad leverans.',
+  },
+  lidingo: {
+    slug: 'lidingo',
+    city: 'Lidingö',
+    route: '/badrumsrenovering-lidingo/',
+    bkrImageSrc: '/behorig-vatrum.avif',
+    bkrImageAlt: 'BKR-behörig kakelsättare på Lidingö med dokumenterad våtrumsprocess',
+    seo: {
+      title: 'Badrumsrenovering Lidingö – BKR-behörig Plattsättare med Våtrumsintyg | Haga Plattsättning AB',
+      description:
+        'Badrumsrenovering på Lidingö med BKR-behörig plattsättare. Komplett process från offertförfrågan till kvalitetsdokument enligt BBV — för villa, radhus och bostadsrätt på hela Lidingö.',
+      canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-lidingo/',
+      ogTitle: 'Badrumsrenovering Lidingö – BKR-behörighet och Våtrumsintyg',
+      ogDescription:
+        'Badrumsrenovering på Lidingö med BKR-behörighet, BBV-dokumentation och våtrumsintyg. Tydlig process för villa, radhus och bostadsrätt.',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_22.avif',
+      ogImageAlt: 'Modernt badrum på Lidingö med kakel av certifierad plattsättare',
+      twitterTitle: 'Badrumsrenovering Lidingö – BKR-behörig Plattsättare',
+      twitterDescription:
+        'Badrumsrenovering på Lidingö med BKR-behörighet, våtrumsintyg och kvalitetsdokument enligt BBV.',
+      twitterImage: 'https://www.hagaplattsattning.se/hagaplatt_22.avif',
+      geoPlacename: 'Lidingö',
+      geoPosition: '59.3624;18.1380',
+      latitude: 59.3624,
+      longitude: 18.1380,
+    },
+    hero: {
+      lead:
+        'Bor du på Lidingö och planerar nytt badrum? Vi arbetar regelbundet i kommunen och anpassar processen efter villor i Bodal, Skärsätra, Käppala, Brevik och centrala Lidingö — med tydlig logistik från fastlandet och kvalitetsdokument enligt BBV.',
+      imageSrc: '/hagaplatt_22.avif',
+      imageAlt: 'Modernt badrum renoverat på Lidingö med kakel och klinker av BKR-behörig plattsättare',
+    },
+    guideHeader: {
+      title: 'Badrumsrenovering på Lidingö – från villa till bostadsrätt',
+      introHtml:
+        'Lidingö är en av Stockholms mest villatäta kommuner. Många hus från 60- och 70-talet har originaltätskikt som närmar sig slutet av sin livslängd. Vi arbetar regelbundet i Bodal, Skärsätra, Käppala och Brevik och anpassar processen efter villa, radhus och bostadsrätt. Jämför även med våra sidor för <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>.',
+    },
+    guideBlocks: [
+      {
+        title: 'Villor, BRF och radhus på Lidingö – vad skiljer sig åt?',
+        bodyHtml:
+          '<p>Lidingö är till stor del villabebyggelse. Det betyder att vi oftare möter äldre tätskikt, originalrör i gjutjärn och äldre golvbrunnar än i innerstaden. Bostadsrätter finns främst i centrala Lidingö och kräver styrelseanmälan och tydlig dokumentation precis som i andra kommuner.</p><p>Radhus och kedjehus i exempelvis Bodal och Skärsätra har gemensamma väggar, vilket gör ljud- och bullerplanering viktigt under rivningsfasen. Vi går igenom byggåret, originallösningar och eventuella tidigare renoveringar innan vi sätter slutgiltig tidplan.</p>',
+        imageSrc: '/hagaplatt_10.avif',
+        imageAlt: 'Renoverat badrum i villa på Lidingö med ljust kakel och fokus på tätskikt enligt BBV',
+      },
+      {
+        title: 'Logistik från fastlandet – så påverkar Lidingöbron tidsplanen',
+        bodyHtml:
+          '<p>Lidingöbron är enda fordonsförbindelsen från fastlandet och påverkar både materialleveranser och hantverkartillgång. Vi planerar leveranser utanför rusningstid och samordnar avfallshämtning på fasta dagar för att undvika väntetider på bron.</p><p>Vintertid bör projekt med utomhusarbete tidigareläggas eller flyttas till vår och sommar — vi gör en realistisk vinterbedömning redan vid offert. För dig som bor i Brevik eller Käppala lägger vi ofta arbetet i längre sammanhängande pass för att minimera transporter över bron.</p>',
+        imageSrc: '/hagaplatt_27.avif',
+        imageAlt: 'Materialleverans till badrumsrenovering på Lidingö med logistik via Lidingöbron',
+        gray: true,
+        imageFirst: true,
+      },
+      {
+        title: 'När är det dags att renovera badrummet på Lidingö?',
+        bodyHtml:
+          '<p>Branschriktlinjerna säger att tätskikt bör hålla minst 25 år, men på Lidingö ser vi ofta originalbadrum från 60- och 70-talet som närmar sig 50 år. Det finns ingen lag som tvingar dig att renovera vid en viss ålder, men efter 30 år ökar risken för läckage och fuktskada markant.</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li>Synliga sprickor i fog eller kakel</li><li>Lukter eller missfärgningar nära golvbrunn</li><li>Originaltätskikt utan dokumentation</li><li>Avlopp som rinner trögt eller bubblar</li><li>Bostadsrätt äldre än 30 år utan renoveringshistorik</li></ul><p>Vid försäljning ger ett dokumenterat och nyrenoverat badrum både värdehöjning och en tryggare affär — något som betonas av många mäklare på Lidingö.</p>',
+        textOnly: true,
+      },
+      {
+        title: 'Är det värt att renovera badrumet inför försäljning på Lidingö?',
+        bodyHtml:
+          '<p>Ja, om badrummet är slitet eller äldre. Lidingö är en attraktiv bostadsmarknad där köpare ofta är beredda att betala mer för en bostad som inte kräver omedelbar renovering. Ett dokumenterat och BKR-utfört badrum signalerar trygghet och minskar risken för prisförhandling vid besiktning.</p><p>Det viktiga är inte att välja det dyraste materialet, utan att slutresultatet matchar bostadens nivå och har korrekt dokumentation enligt BBV. Vi tar fram en plan tillsammans med dig som tar hänsyn till bostadstyp och målgrupp för försäljningen.</p>',
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Våtrumsmatta eller kakel – vad fungerar bäst på Lidingö?',
+        bodyHtml:
+          '<p>Båda lösningarna är godkända enligt BBV, men de har olika styrkor.</p><p><strong>Kakel och klinker</strong> är slitstarkt, tål fukt utomordentligt och har lång livslängd — typiskt 25–40 år vid korrekt utförande. Kakel ger också mer designfrihet och är ofta att föredra i villor och bostadsrätter där renoveringen ska hålla över tid.</p><p><strong>Våtrumsmatta</strong> är snabbare att lägga och fungerar bra som lösning i hyresrätter eller mindre toalettutrymmen. Den är dock känsligare för slitage och behöver oftast bytas tidigare.</p><p>För boende på Lidingö som planerar att bo kvar länge eller sälja inom några år rekommenderar vi nästan alltid kakel — både för värdebeständighet och för det visuella uttrycket.</p>',
+        imageSrc: '/hagaplatt_29.avif',
+        imageAlt: 'Detaljbild på kakel och klinker i badrumsrenovering på Lidingö',
+      },
+    ],
+    faqTitle: 'Vanliga frågor om badrumsrenovering på Lidingö',
+    faqLead:
+      'Frågor vi ofta får från boende på Lidingö om livslängd, försäljning och materialval — med svar baserade på BBV och vår erfarenhet i kommunen.',
+    faqs: [
+      {
+        question: 'Måste man renovera badrum efter 20 år?',
+        answer:
+          'Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vid 20 år rekommenderar vi en oberoende fuktbesiktning innan beslut tas — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar med åren.',
+        answerHtml:
+          '<p>Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vid 20 år rekommenderar vi en oberoende fuktbesiktning innan beslut tas — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar med åren.</p>',
+      },
+      {
+        question: 'Måste man renovera badrum efter 30 år?',
+        answer:
+          'Efter 30 år är tätskiktet i de flesta originalbadrum förbi sin förväntade livslängd, även med god underhåll. Försäkringsbolag kan minska eller neka ersättning vid fuktskada om badrummet är äldre än 30 år utan dokumenterat tätskiktsbyte. Vi rekommenderar att du tar in en BKR-behörig firma för bedömning innan eventuella problem uppstår.',
+        answerHtml:
+          '<p>Efter 30 år är tätskiktet i de flesta originalbadrum förbi sin förväntade livslängd, även med god underhåll. Försäkringsbolag kan minska eller neka ersättning vid fuktskada om badrummet är äldre än 30 år utan dokumenterat tätskiktsbyte. Vi rekommenderar att du tar in en BKR-behörig firma för bedömning innan eventuella problem uppstår.</p>',
+      },
+      {
+        question: 'När räknas ett badrum som gammalt?',
+        answer:
+          'I praktiken räknas ett badrum som "gammalt" när tätskiktet har uppnått sin förväntade livslängd — för moderna lösningar är det 25 år, för äldre badrum från 60- och 70-talet ofta tidigare. Synliga tecken är spruckna fogar, missfärgningar nära golvbrunn, lukt eller bubblande avlopp. Saknas dokumentation av tätskiktet bedöms badrummet som äldre oavsett synligt skick.',
+        answerHtml:
+          '<p>I praktiken räknas ett badrum som "gammalt" när tätskiktet har uppnått sin förväntade livslängd — för moderna lösningar är det 25 år, för äldre badrum från 60- och 70-talet ofta tidigare. Synliga tecken är spruckna fogar, missfärgningar nära golvbrunn, lukt eller bubblande avlopp. Saknas dokumentation av tätskiktet bedöms badrummet som äldre oavsett synligt skick.</p>',
+      },
+      {
+        question: 'Är det värt att renovera badrum inför försäljning på Lidingö?',
+        answer:
+          'Ja, i de flesta fall. Lidingö är en attraktiv marknad där ett dokumenterat och nyrenoverat badrum både höjer slutpriset och minskar risken för prisförhandling vid besiktning. Det viktigaste är att utförandet är BKR-dokumenterat enligt BBV — det är vad besiktningsmän och försäkringsbolag faktiskt frågar efter.',
+        answerHtml:
+          '<p>Ja, i de flesta fall. Lidingö är en attraktiv marknad där ett dokumenterat och nyrenoverat badrum både höjer slutpriset och minskar risken för prisförhandling vid besiktning. Det viktigaste är att utförandet är BKR-dokumenterat enligt BBV — det är vad besiktningsmän och försäkringsbolag faktiskt frågar efter.</p>',
+      },
+      {
+        question: 'Vad är skillnaden mellan våtrumsmatta och kakel?',
+        answer:
+          'Båda är godkända enligt BBV men har olika styrkor. Kakel och klinker är slitstarkt, har lång livslängd (25–40 år) och ger designfrihet — det vanliga valet i villor och bostadsrätter. Våtrumsmatta är snabbare att lägga och fungerar bra i hyresrätter eller mindre toalettutrymmen, men är känsligare för slitage och behöver oftast bytas tidigare.',
+        answerHtml:
+          '<p>Båda är godkända enligt BBV men har olika styrkor. Kakel och klinker är slitstarkt, har lång livslängd (25–40 år) och ger designfrihet — det vanliga valet i villor och bostadsrätter. Våtrumsmatta är snabbare att lägga och fungerar bra i hyresrätter eller mindre toalettutrymmen, men är känsligare för slitage och behöver oftast bytas tidigare.</p>',
+      },
+    ],
+    reviews: [
+      {
+        author: 'Edit W',
+        date: '2026-04-08',
+        rating: 5,
+        text: 'Otroligt bra upplevelse, de visade stort engagemang i vårt projekt redan från start. Var både följsamma och flexibla med våra önskemål, men också drivande och initiativtagande med egna förbättringar och lösningar.',
+      },
+      {
+        author: 'Fredrik E',
+        date: '2025-12-12',
+        rating: 5,
+        text: 'Väl utfört arbete i tid och på budget.',
+      },
+      {
+        author: 'Eloise K',
+        date: '2025-11-09',
+        rating: 5,
+        text: 'Vi är så nöjda med vår badrumsrenovering. Snabba, effektiva och professionella!',
+      },
+    ],
+    footerFocus:
+      'Denna sida fokuserar på badrumsrenovering på Lidingö med BKR-behörighet, lokal logistikkännedom och dokumenterad kvalitet från offert till färdigt badrum.',
+    localBusinessDescription:
+      'Professionell badrumsrenovering på Lidingö med BKR-behöriga plattsättare och kvalitetsdokument enligt BBV.',
   },
 };
