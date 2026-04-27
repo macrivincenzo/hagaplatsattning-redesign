@@ -1,11 +1,11 @@
 ---
 const path = Astro.url.pathname;
 const isService = [
-  '/badrumsrenovering-stockholm',
-  '/badrumsrenovering-sollentuna',
-  '/badrumsrenovering-solna',
-  '/kakelsattare-stockholm',
-  '/koksrenovering-stockholm',
+  '/badrumsrenovering-stockholm/',
+  '/badrumsrenovering-sollentuna/',
+  '/badrumsrenovering-solna/',
+  '/kakelsattare-stockholm/',
+  '/koksrenovering-stockholm/',
 ].includes(path);
 ---
 
@@ -123,29 +123,29 @@ const isService = [
     </a>
     <ul class="nav-links" role="list">
       <li><a href="/" aria-current={path === '/' ? 'page' : undefined}>Hem</a></li>
-      <li><a href="/om-oss" aria-current={path === '/om-oss' ? 'page' : undefined}>Om oss</a></li>
+      <li><a href="/om-oss/" aria-current={path === '/om-oss/' ? 'page' : undefined}>Om oss</a></li>
       <li class="nav-dropdown">
         <a href="#tjanster" aria-haspopup="true" aria-current={isService ? 'page' : undefined}>Tjänster</a>
         <div class="dropdown-menu" role="menu">
-          <a href="/badrumsrenovering-stockholm" role="menuitem">Badrumsrenovering Stockholm</a>
-          <a href="/kakelsattare-stockholm" role="menuitem">Kakelsättare Stockholm</a>
-          <a href="/koksrenovering-stockholm" role="menuitem">Köksrenovering Stockholm</a>
+          <a href="/badrumsrenovering-stockholm/" role="menuitem">Badrumsrenovering Stockholm</a>
+          <a href="/kakelsattare-stockholm/" role="menuitem">Kakelsättare Stockholm</a>
+          <a href="/koksrenovering-stockholm/" role="menuitem">Köksrenovering Stockholm</a>
         </div>
       </li>
-      <li><a href="/referensprojekt" aria-current={path === '/referensprojekt' ? 'page' : undefined}>Referensprojekt</a></li>
-      <li><a href="/offertforfragan" aria-current={path === '/offertforfragan' ? 'page' : undefined}>Offertförfrågan</a></li>
+      <li><a href="/referensprojekt/" aria-current={path === '/referensprojekt/' ? 'page' : undefined}>Referensprojekt</a></li>
+      <li><a href="/offertforfragan/" aria-current={path === '/offertforfragan/' ? 'page' : undefined}>Offertförfrågan</a></li>
     </ul>
     <button class="nav-hamburger" aria-label="Öppna meny" aria-expanded="false" id="hamburger"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile" id="mobile-menu" role="navigation" aria-label="Mobilmeny">
     <a href="/">Hem</a>
-    <a href="/om-oss">Om oss</a>
+    <a href="/om-oss/">Om oss</a>
     <span class="mobile-section">Tjänster</span>
-    <a href="/badrumsrenovering-stockholm">Badrumsrenovering Stockholm</a>
-    <a href="/kakelsattare-stockholm">Kakelsättare Stockholm</a>
-    <a href="/koksrenovering-stockholm">Köksrenovering Stockholm</a>
-    <a href="/referensprojekt">Referensprojekt</a>
-    <a href="/offertforfragan">Offertförfrågan</a>
+    <a href="/badrumsrenovering-stockholm/">Badrumsrenovering Stockholm</a>
+    <a href="/kakelsattare-stockholm/">Kakelsättare Stockholm</a>
+    <a href="/koksrenovering-stockholm/">Köksrenovering Stockholm</a>
+    <a href="/referensprojekt/">Referensprojekt</a>
+    <a href="/offertforfragan/">Offertförfrågan</a>
   </div>
 </nav>
 

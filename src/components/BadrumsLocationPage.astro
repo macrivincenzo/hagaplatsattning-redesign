@@ -76,13 +76,13 @@ const localBusinessJsonLd = {
   vatID: 'SE559297850501',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Skyttevagen 6',
+    streetAddress: 'Skyttevägen 6',
     postalCode: '192 58',
     addressLocality: 'Sollentuna',
     addressRegion: 'Stockholm',
     addressCountry: 'SE',
   },
-  geo: { '@type': 'GeoCoordinates', latitude: content.seo.latitude, longitude: content.seo.longitude },
+  geo: { '@type': 'GeoCoordinates', latitude: 59.4281, longitude: 17.9506 },
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '07:00', closes: '17:00' },
   ],
@@ -94,6 +94,21 @@ const localBusinessJsonLd = {
   aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', bestRating: '5', ratingCount: '34', reviewCount: '34' },
   sameAs: ['https://www.reco.se/haga-plattsattning-ab-sollentuna'],
 };
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${content.seo.canonical}#service`,
+  name: `Badrumsrenovering ${content.city}`,
+  serviceType: 'Badrumsrenovering',
+  provider: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  areaServed: content.city,
+  url: content.seo.canonical,
+  potentialAction: {
+    '@type': 'RequestQuoteAction',
+    target: 'https://www.hagaplattsattning.se/offertforfragan/',
+  },
+};
 ---
 
 <html lang="sv">
@@ -103,10 +118,12 @@ const localBusinessJsonLd = {
     <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
 
     <title>{content.seo.title}</title>
     <meta name="description" content={content.seo.description} />
     <link rel="canonical" href={content.seo.canonical} />
+    <link rel="alternate" hreflang="sv-SE" href={content.seo.canonical} />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="sv_SE" />
@@ -308,7 +325,7 @@ const localBusinessJsonLd = {
           <h1>Badrumsrenovering <span>{`i ${content.city}`}</span></h1>
           <p class="hero-lead">{content.hero.lead}</p>
           <div class="hero-actions">
-            <a href="/offertforfragan" class="btn-primary">Få kostnadsfri offert →</a>
+            <a href="/offertforfragan/" class="btn-primary">Få kostnadsfri offert →</a>
             <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
           </div>
         </div>
@@ -338,7 +355,7 @@ const localBusinessJsonLd = {
             <li>Dokumenterad egenkontroll under hela projektet</li>
             <li>Tydlig slutleverans som är enkel att spara till framtida försäljning</li>
           </ul>
-          <a href="/offertforfragan" class="btn-primary">Boka kostnadsfri offert →</a>
+          <a href="/offertforfragan/" class="btn-primary">Boka kostnadsfri offert →</a>
         </div>
       </div>
     </section>
@@ -385,5 +402,6 @@ const localBusinessJsonLd = {
     <SiteFooter pageFocus={content.footerFocus} />
 
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
   </body>
 </html>

@@ -10,17 +10,19 @@ import SiteNav from '../components/SiteNav.astro';
     <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
 
     <!-- ── PRIMARY SEO ── -->
     <title>Köksrenovering Stockholm – Kakel & Plattsättning i Kök | Haga Plattsättning AB</title>
     <meta name="description" content="Köksrenovering i Stockholm med professionell kakelsättning. Stänkskydd, köksgolv i klinker och komplett kakelarbete. BKR-behöriga. Begär offert." />
-    <link rel="canonical" href="https://www.hagaplattsattning.se/koksrenovering-stockholm" />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/koksrenovering-stockholm/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/koksrenovering-stockholm/" />
 
     <!-- ── OPEN GRAPH ── -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="sv_SE" />
     <meta property="og:site_name" content="Haga Plattsättning AB" />
-    <meta property="og:url" content="https://www.hagaplattsattning.se/koksrenovering-stockholm" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/koksrenovering-stockholm/" />
     <meta property="og:title" content="Köksrenovering Stockholm – Kakel & Plattsättning i Kök | Haga Plattsättning AB" />
     <meta property="og:description" content="Professionell köksrenovering i Stockholm. Stänkskydd, köksgolv, kakelsättning. BKR-behörig. Begär offert." />
     <meta property="og:image" content="https://www.hagaplattsattning.se/haga%20platts%C3%A4ttning%20bild%203.avif" />
@@ -241,7 +243,7 @@ import SiteNav from '../components/SiteNav.astro';
             som i våra badrumsrenoveringar.
           </p>
           <div class="hero-actions">
-            <a href="/offertforfragan" class="btn-primary">Begär offert för köksrenovering →</a>
+            <a href="/offertforfragan/" class="btn-primary">Begär offert för köksrenovering →</a>
             <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
           </div>
         </div>
@@ -284,7 +286,7 @@ import SiteNav from '../components/SiteNav.astro';
             <li>Enskilda plattor kan bytas vid skada utan att riva hela ytan</li>
             <li>Stor variation i format, färger och uttryck</li>
           </ul>
-          <a href="/offertforfragan" class="bkr-cta">Få offert på stänkskydd →</a>
+          <a href="/offertforfragan/" class="bkr-cta">Få offert på stänkskydd →</a>
         </div>
       </div>
     </section>
@@ -322,7 +324,7 @@ import SiteNav from '../components/SiteNav.astro';
               Vi rekommenderar alltid klinker med halkklassificering R10 eller högre
               för köksgolv. Det ger tillräckligt grepp även vid spill, utan att ytan
               känns skrovlig under fötterna. Se vår sida om
-              <a href="/kakelsattare-stockholm" style="color:#0a0a1a;font-weight:600;">kakelsättare i Stockholm</a>
+              <a href="/kakelsattare-stockholm/" style="color:#0a0a1a;font-weight:600;">kakelsättare i Stockholm</a>
               för mer information om materialval och format.
             </p>
           </div>
@@ -400,7 +402,7 @@ import SiteNav from '../components/SiteNav.astro';
             </p>
             <p>
               Vi hjälper dig navigera BRF-processen. Läs mer om
-              <a href="/badrumsrenovering-stockholm" style="color:#0a0a1a;font-weight:600;">BRF-regler vid badrumsrenovering</a>
+              <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">BRF-regler vid badrumsrenovering</a>
               som ofta speglar köksprocessen.
             </p>
           </div>
@@ -465,10 +467,10 @@ import SiteNav from '../components/SiteNav.astro';
             </ul>
             <p>
               Vi koordinerar alla moment med dina övriga hantverkare. Läs mer om hur vi arbetar
-              med <a href="/badrumsrenovering-stockholm" style="color:#0a0a1a;font-weight:600;">helrenoveringar i Stockholm</a>.
+              med <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">helrenoveringar i Stockholm</a>.
             </p>
             <p style="margin-top:1rem;">
-              <a href="/offertforfragan" style="color:#0a0a1a;font-weight:700;">Boka ett kostnadsfritt hembesök och planeringsamtal →</a>
+              <a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Boka ett kostnadsfritt hembesök och planeringsamtal →</a>
             </p>
           </div>
         </div>
@@ -601,7 +603,7 @@ import SiteNav from '../components/SiteNav.astro';
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Hem", "item": "https://www.hagaplattsattning.se/" },
         { "@type": "ListItem", "position": 2, "name": "Tjänster" },
-        { "@type": "ListItem", "position": 3, "name": "Köksrenovering Stockholm", "item": "https://www.hagaplattsattning.se/koksrenovering-stockholm" }
+        { "@type": "ListItem", "position": 3, "name": "Köksrenovering Stockholm", "item": "https://www.hagaplattsattning.se/koksrenovering-stockholm/" }
       ]
     }
     </script>
@@ -663,6 +665,24 @@ import SiteNav from '../components/SiteNav.astro';
     <SiteFooter
       pageFocus="Vid köksrenovering i Stockholm lägger vi kakel och klinker med samma precision som i våtrum – slitstarka ytor vid diskbänk, spis och golv i hela Stockholmsregionen."
     />
+
+    <!-- ── Service JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.hagaplattsattning.se/koksrenovering-stockholm/#service",
+      "name": "Köksrenovering Stockholm",
+      "serviceType": "Köksrenovering",
+      "provider": { "@id": "https://www.hagaplattsattning.se/#business" },
+      "areaServed": "Stockholm",
+      "url": "https://www.hagaplattsattning.se/koksrenovering-stockholm/",
+      "potentialAction": {
+        "@type": "RequestQuoteAction",
+        "target": "https://www.hagaplattsattning.se/offertforfragan/"
+      }
+    }
+    </script>
 
     <!-- ── LocalBusiness JSON-LD ── -->
     <script type="application/ld+json">

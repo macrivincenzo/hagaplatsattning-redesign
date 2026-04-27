@@ -10,17 +10,19 @@ import SiteNav from '../components/SiteNav.astro';
     <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
 
     <!-- ── PRIMARY SEO ── -->
     <title>Om oss – BKR-behörig Plattsättare i Stockholm | Haga Plattsättning AB</title>
     <meta name="description" content="Haga Plattsättning AB grundades 2021. Vi är BKR-behöriga och PER-auktoriserade plattsättare i Stockholm. Läs om våra certifieringar, arbetsmetod och varför vi enbart anlitar Säker Vatten-certifierade rörmokare." />
-    <link rel="canonical" href="https://www.hagaplattsattning.se/om-oss" />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/om-oss/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/om-oss/" />
 
     <!-- ── OPEN GRAPH ── -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="sv_SE" />
     <meta property="og:site_name" content="Haga Plattsättning AB" />
-    <meta property="og:url" content="https://www.hagaplattsattning.se/om-oss" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/om-oss/" />
     <meta property="og:title" content="Om oss – BKR-behörig Plattsättare i Stockholm | Haga Plattsättning AB" />
     <meta property="og:description" content="BKR-behöriga och PER-auktoriserade plattsättare i Stockholm sedan 2021. Läs om certifieringar, BBV och Säker Vatten." />
     <meta property="og:image" content="https://www.hagaplattsattning.se/haga%20platts%C3%A4ttning%20bild%203.avif" />
@@ -135,7 +137,7 @@ import SiteNav from '../components/SiteNav.astro';
             BKR-behöriga och PER-auktoriserade plattsättare med fokus på dokumentation, BBV och trygghet i varje projekt.
           </p>
           <div class="hero-actions">
-            <a href="/offertforfragan" class="btn-primary">Begär offert →</a>
+            <a href="/offertforfragan/" class="btn-primary">Begär offert →</a>
             <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
           </div>
         </div>
@@ -227,15 +229,15 @@ import SiteNav from '../components/SiteNav.astro';
           Vi hjälper dig med hela kedjan från planering till färdigställt våtrumsdokument — välj sida för mer detaljer om process och utförande.
         </p>
         <div class="tjanst-grid">
-          <a href="/badrumsrenovering-stockholm" class="tjanst-card">
+          <a href="/badrumsrenovering-stockholm/" class="tjanst-card">
             <strong>Badrumsrenovering Stockholm</strong>
             <span>Komplett renovering med BKR-intyg och garanti.</span>
           </a>
-          <a href="/kakelsattare-stockholm" class="tjanst-card">
+          <a href="/kakelsattare-stockholm/" class="tjanst-card">
             <strong>Kakelsättare Stockholm</strong>
             <span>Certifierad kakelsättning av kakel och klinker i badrum och kök.</span>
           </a>
-          <a href="/koksrenovering-stockholm" class="tjanst-card">
+          <a href="/koksrenovering-stockholm/" class="tjanst-card">
             <strong>Köksrenovering Stockholm</strong>
             <span>Kakel, klinker och stänkskydd i kök med professionellt utförande.</span>
           </a>
@@ -290,22 +292,26 @@ import SiteNav from '../components/SiteNav.astro';
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Haga Plattsättning AB",
-      "url": "https://www.hagaplattsattning.se/om-oss",
-      "telephone": "+46739133348",
-      "email": "kontakt@hagaplattsattning.se",
-      "foundingDate": "2021",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Skyttevägen 6",
-        "postalCode": "192 54",
-        "addressLocality": "Sollentuna",
-        "addressCountry": "SE"
-      },
-      "areaServed": "Stockholm",
-      "hasCredential": ["BKR-behörighet", "PER-auktorisation"],
-      "knowsAbout": ["Kakelsättning", "Plattsättning", "Badrumsrenovering Stockholm", "BKR-behörighet", "BBV Branschregler för Våtrum", "Säker Vatten", "PER-auktorisation"]
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hem", "item": "https://www.hagaplattsattning.se/" },
+        { "@type": "ListItem", "position": 2, "name": "Om oss", "item": "https://www.hagaplattsattning.se/om-oss/" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.hagaplattsattning.se/om-oss/",
+      "url": "https://www.hagaplattsattning.se/om-oss/",
+      "pageType": "AboutPage",
+      "name": "Om oss – BKR-behörig Plattsättare i Stockholm | Haga Plattsättning AB",
+      "description": "Haga Plattsättning AB grundades 2021. BKR-behöriga och PER-auktoriserade plattsättare i Stockholm.",
+      "inLanguage": "sv-SE",
+      "isPartOf": { "@id": "https://www.hagaplattsattning.se/#website" },
+      "mainEntity": { "@id": "https://www.hagaplattsattning.se/#business" }
     }
     </script>
 
