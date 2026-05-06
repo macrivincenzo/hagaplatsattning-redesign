@@ -16,8 +16,26 @@ const isService = [
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
-<link rel="stylesheet" href="/design.css" />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" />
+</noscript>
+
+<link rel="preload" href="/design.css" as="style" />
+<link rel="stylesheet" href="/design.css" media="print" onload="this.media='all'" />
+<noscript>
+  <link rel="stylesheet" href="/design.css" />
+</noscript>
 
 <div class="reco-bar">
   <iframe src="https://widget.reco.se/v2/venues/4532782/horizontal/large?inverted=false&border=false&lang=sv" title="Haga Plattsättning AB - Omdömen på Reco" height="60" style="width:100%;border:0;display:block;overflow:hidden;" data-reactroot loading="lazy"></iframe>
@@ -26,7 +44,7 @@ const isService = [
 <nav class="site-nav" aria-label="Huvudnavigation">
   <div class="nav-inner">
     <a href="/" class="nav-brand" aria-label="Haga Plattsättning AB – startsida">
-      <img src="/Hagaplattsattninglogga-cleanbackground.png" alt="Haga Plattsättning AB" class="nav-logo" width="360" height="108" />
+      <img src="/Hagaplattsattninglogga.svg" alt="Haga Plattsättning AB" class="nav-logo" width="239" height="74" fetchpriority="high" decoding="async" />
     </a>
     <ul class="nav-links" role="list">
       <li><a href="/" aria-current={path === '/' ? 'page' : undefined}>Hem</a></li>
