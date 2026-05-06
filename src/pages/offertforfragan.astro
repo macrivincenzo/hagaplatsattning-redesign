@@ -88,10 +88,9 @@ import SiteNav from '../components/SiteNav.astro';
           </div>
 
           <div class="offert-form">
-            <form action="https://formspree.io/f/mwvybzbr" method="POST" style="display:grid;gap:18px">
+            <form id="offert-form" action="https://formspree.io/f/mwvybzbr" method="POST" style="display:grid;gap:18px">
               <input type="hidden" name="_subject" value="Ny offertförfrågan från hagaplattsattning.se" />
               <input type="hidden" name="_language" value="sv" />
-              <input type="hidden" name="_next" value="https://www.hagaplattsattning.se/tack/" />
               <div class="row">
                 <label for="name">Namn
                   <input id="name" name="name" type="text" required />
@@ -114,6 +113,9 @@ import SiteNav from '../components/SiteNav.astro';
               </div>
               <p style="font-size:12.5px;color:var(--ink-mute);font-family:var(--mono);letter-spacing:0.04em">Vi återkopplar normalt inom 24 timmar på vardagar.</p>
             </form>
+            <p id="offert-error" style="display:none;margin-top:12px;color:#9b1c1c;font-size:14px">
+              Något gick fel när formuläret skickades. Försök igen eller kontakta oss på 073-913 33 48.
+            </p>
           </div>
         </div>
       </div>
@@ -124,6 +126,44 @@ import SiteNav from '../components/SiteNav.astro';
         .offer-grid{grid-template-columns:1fr!important}
       }
     </style>
+    <script>
+      const offerForm = document.getElementById('offert-form');
+      const offerError = document.getElementById('offert-error');
+
+      if (offerForm instanceof HTMLFormElement) {
+        offerForm.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          if (offerError) offerError.style.display = 'none';
+
+          const submitButton = offerForm.querySelector('button[type="submit"]');
+          if (submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = true;
+          }
+
+          try {
+            const response = await fetch(offerForm.action, {
+              method: 'POST',
+              body: new FormData(offerForm),
+              headers: {
+                Accept: 'application/json',
+              },
+            });
+
+            if (response.ok) {
+              window.location.href = '/tack/';
+              return;
+            }
+          } catch (_error) {
+            // Show the fallback message below if request fails.
+          }
+
+          if (offerError) offerError.style.display = 'block';
+          if (submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = false;
+          }
+        });
+      }
+    </script>
 
     <SiteFooter pageFocus="På offertförfrågan samlar vi snabbaste vägen till kontakt så att du enkelt kan få rätt upplägg för ditt projekt i Stockholm." />
   </body>
