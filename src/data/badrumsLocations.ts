@@ -67,7 +67,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     city: 'Stockholm',
     route: '/badrumsrenovering-stockholm/',
     bkrImageSrc: '/behorig-vatrum.avif',
-    bkrImageAlt: 'Behorig kakelsattare i Stockholm med dokumenterad BKR-process',
+    bkrImageAlt: 'Behörig kakelsättare i Stockholm med dokumenterad BKR-process',
     seo: {
       title: 'Badrumsrenovering Stockholm – BKR-behörig Plattsättare med Våtrumsintyg | Haga Plattsättning AB',
       description:
@@ -106,12 +106,12 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
           '<p>I innerstadens bostadsrätter ansvarar du för ytskikt och tätskikt, medan föreningen ofta ställer detaljerade krav på bullertider, rivningsanmälan och intyg efter avslutat arbete.</p><p>I villaområden som Bromma och Hässelby har du större frihet, men också fullt ansvar om något blir fel. Därför är BKR-dokumentation lika viktig i villa som i BRF.</p><p>Vi anpassar arbetsmetod, tidplan och avfallshantering utifrån fastighetstyp och adress.</p>',
         imageSrc: '/hagaplattsattningbild1.avif',
         imageAlt:
-          'Badrumsrenovering i bostadsratt i Stockholm med noggrann kakelsattning',
+          'Badrumsrenovering i bostadsrätt i Stockholm med noggrann kakelsättning',
       },
       {
-        title: 'Varfor tar badrumsrenovering ofta lite langre tid i centrala Stockholm?',
+        title: 'Varför tar badrumsrenovering ofta lite längre tid i centrala Stockholm?',
         bodyHtml:
-          '<p>Det ar sallan sjalva kakelsattningen som forlangs - det ar logistiken runtomkring som styr tempo.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Materialbarning via trapphus utan hiss</li><li>Begransade arbetstider i BRF (ofta 07-17 vardagar)</li><li>Bokning av hissskydd, garageplats eller containerplats</li><li>Hardningstid for tätskikt mellan arbetsmoment</li></ul><p>Vi bygger alltid in dessa risker i tidsplanen innan start, sa att du far realistiska deadlines.</p><div style="padding-top:1rem;"><iframe src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv" title="Haga Plattsättning AB - Omdömen på Reco" height="225" style="width:100%;border:0;display:block;overflow:hidden;" data-reactroot loading="lazy"></iframe></div>',
+          '<p>Det är sällan själva kakelsättningen som förlängs – det är logistiken runtomkring som styr tempo.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Materialbärning via trapphus utan hiss</li><li>Begränsade arbetstider i BRF (ofta 07–17 vardagar)</li><li>Bokning av hissskydd, garageplats eller containerplats</li><li>Härdningstid för tätskikt mellan arbetsmoment</li></ul><p>Vi bygger alltid in dessa risker i tidsplanen innan start, så att du får realistiska deadlines.</p><div style="padding-top:1rem;"><iframe src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv" title="Haga Plattsättning AB - Omdömen på Reco" height="225" style="width:100%;border:0;display:block;overflow:hidden;" data-reactroot loading="lazy"></iframe></div>',
         imageSrc: '/hagaplattsattningbild2.avif',
         imageAlt:
           'Planering av badrumsrenovering i centrala Stockholm med logistik och material',
@@ -121,28 +121,28 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         title: 'Planering av badrumsrenovering i Stockholm 2026',
         bodyHtml:
-          '<p>Projektets omfattning beror pa format, underarbete och detaljniva. Vi gar igenom forutsattningar, dokumentation och arbetsordning innan start sa att projektet blir tydligt och genomforbart.</p><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Kontakta oss for offertforfragan och projektgenomgang.</p>',
+          '<p>Projektets omfattning beror på format, underarbete och detaljnivå. Vi går igenom förutsättningar, dokumentation och arbetsordning innan start så att projektet blir tydligt och genomförbart.</p><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Kontakta oss för offertförfrågan och projektgenomgång.</p>',
         imageSrc: '/haga%20platts%C3%A4ttning%20bild%204.avif',
         imageAlt:
-          'Planering av badrumsrenovering i Stockholm med tydlig offertforfragan',
+          'Planering av badrumsrenovering i Stockholm med tydlig offertförfrågan',
       },
       {
         title: 'Materialtrender i Stockholm 2026',
         bodyHtml:
-          '<p>Kunder i Stockholm valjer ofta en kombination av funktion, ljusinslapp och lång livslängd.</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Storformat i neutrala toner</strong> - lugnt uttryck och fa fogar</li><li><strong>Kontrastnisch i dusch</strong> - markerad zon utan att overbelasta rummet</li><li><strong>Matt klinker pa golv</strong> - battre halkgrepp i vardagsbruk</li><li><strong>Vaggnara kommod</strong> - ger luftigare kansla i mindre badrum</li><li><strong>Dolda forvaringar</strong> - minskar visuellt brus i stadslagenheter</li></ul>',
+          '<p>Kunder i Stockholm väljer ofta en kombination av funktion, ljusinsläpp och lång livslängd.</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Storformat i neutrala toner</strong> – lugnt uttryck och få fogar</li><li><strong>Kontrastnisch i dusch</strong> – markerad zon utan att överbelasta rummet</li><li><strong>Matt klinker på golv</strong> – bättre halkgrepp i vardagsbruk</li><li><strong>Väggnära kommod</strong> – ger luftigare känsla i mindre badrum</li><li><strong>Dolda förvaringar</strong> – minskar visuellt brus i stadslägenheter</li></ul>',
         textOnly: true,
         gray: true,
       },
       {
-        title: 'Tre misstag som ofta gor Stockholmprojekt dyrare',
+        title: 'Tre misstag som ofta gör Stockholmsprojekt dyrare',
         bodyHtml:
-          '<p><strong>1. Otydlig offert:</strong> saknas tydlig avgransning mellan plattsattning, VVS och el blir projektet svarare att styra.</p><p><strong>2. Fel entreprenor for BRF:</strong> om firman inte kan leverera korrekt dokumentation kan projektet stoppas av föreningen.</p><p><strong>3. For sena materialval:</strong> sena beslut om kakel och inredning skapar leveransluckor och stillestand.</p><p style="margin-top:1rem;"><a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Begär en kostnadsfri offertforfragan -></a></p>',
+          '<p><strong>1. Otydlig offert:</strong> saknas tydlig avgränsning mellan plattsättning, VVS och el blir projektet svårare att styra.</p><p><strong>2. Fel entreprenör för BRF:</strong> om firman inte kan leverera korrekt dokumentation kan projektet stoppas av föreningen.</p><p><strong>3. För sena materialval:</strong> sena beslut om kakel och inredning skapar leveransluckor och stillestånd.</p><p style="margin-top:1rem;"><a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Begär en kostnadsfri offertförfrågan →</a></p>',
         textOnly: true,
       },
       {
-        title: 'Steg-for-steg i BRF i Stockholm',
+        title: 'Steg-för-steg i BRF i Stockholm',
         bodyHtml:
-          '<p>En typisk process i Stockholms bostadsratter ser ut sa har:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Hamta BRF:ens renoveringsregler</li><li><strong>Steg 2:</strong> Skicka in anmälan med entreprenorens behörigheter</li><li><strong>Steg 3:</strong> Informera grannar om bullerperiod och tilltrade</li><li><strong>Steg 4:</strong> Genomfor arbete enligt BBV och dokumentera egenkontroller</li><li><strong>Steg 5:</strong> Leverera kvalitetsdokument efter slutkontroll</li></ul><p>Vill du jamfora med norrort? Se <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a> och <a href="/badrumsrenovering-solna/" style="color:#0a0a1a;font-weight:600;">Solna</a>.</p>',
+          '<p>En typisk process i Stockholms bostadsrätter ser ut så här:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Hämta BRF:ens renoveringsregler</li><li><strong>Steg 2:</strong> Skicka in anmälan med entreprenörens behörigheter</li><li><strong>Steg 3:</strong> Informera grannar om bullerperiod och tillträde</li><li><strong>Steg 4:</strong> Genomför arbete enligt BBV och dokumentera egenkontroller</li><li><strong>Steg 5:</strong> Leverera kvalitetsdokument efter slutkontroll</li></ul><p>Vill du jämföra med norrort? Se <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a> och <a href="/badrumsrenovering-solna/" style="color:#0a0a1a;font-weight:600;">Solna</a>.</p>',
         textOnly: true,
         gray: true,
       },
@@ -154,64 +154,64 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       {
         question: 'Arbetar ni i hela Stockholm eller bara innerstan?',
         answer:
-          'Vi arbetar i hela Stockholmsregionen, inklusive innerstan, narfororter och norrort. Projektet planeras efter din fastighetstyp och lokala forutsattningar.',
+          'Vi arbetar i hela Stockholmsregionen, inklusive innerstan, närförorter och norrort. Projektet planeras efter din fastighetstyp och lokala förutsättningar.',
         answerHtml:
-          'Vi arbetar i hela Stockholmsregionen, inklusive innerstan, narfororter och norrort. Projektet planeras efter din fastighetstyp och lokala forutsattningar.',
+          'Vi arbetar i hela Stockholmsregionen, inklusive innerstan, närförorter och norrort. Projektet planeras efter din fastighetstyp och lokala förutsättningar.',
       },
       {
-        question: 'Hur langt i forvag bor jag boka badrumsrenovering i Stockholm?',
+        question: 'Hur långt i förväg bör jag boka badrumsrenovering i Stockholm?',
         answer:
-          'I Stockholm ar det vanligt med 4-8 veckors planering innan start, sarskilt i BRF dar anmälan och granninformation maste hinnas med.',
+          'I Stockholm är det vanligt med 4–8 veckors planering innan start, särskilt i BRF där anmälan och granninformation måste hinnas med.',
         answerHtml:
-          'I Stockholm ar det vanligt med 4-8 veckors planering innan start, sarskilt i BRF dar anmälan och granninformation maste hinnas med.',
+          'I Stockholm är det vanligt med 4–8 veckors planering innan start, särskilt i BRF där anmälan och granninformation måste hinnas med.',
       },
       {
         question: 'Kan ni ta totalansvar inklusive VVS och el?',
         answer:
-          'Ja, vi samordnar certifierade samarbetspartners for VVS och el, sa att du har en kontaktvag genom hela projektet.',
+          'Ja, vi samordnar certifierade samarbetspartners för VVS och el, så att du har en kontaktväg genom hela projektet.',
         answerHtml:
-          'Ja, vi samordnar certifierade samarbetspartners for VVS och el, sa att du har en kontaktvag genom hela projektet.',
+          'Ja, vi samordnar certifierade samarbetspartners för VVS och el, så att du har en kontaktväg genom hela projektet.',
       },
       {
-        question: 'Behover jag BRF-godkannande innan ni startar?',
+        question: 'Behöver jag BRF-godkännande innan ni startar?',
         answer:
-          'I de flesta bostadsrattsföreningar ja. Vi hjalper dig med underlag, behörighetsintyg och tidplan till styrelsen.',
+          'I de flesta bostadsrättsföreningar ja. Vi hjälper dig med underlag, behörighetsintyg och tidplan till styrelsen.',
         answerHtml:
-          'I de flesta bostadsrattsföreningar ja. Vi hjalper dig med underlag, behörighetsintyg och tidplan till styrelsen.',
+          'I de flesta bostadsrättsföreningar ja. Vi hjälper dig med underlag, behörighetsintyg och tidplan till styrelsen.',
       },
       {
-        question: 'Hur planerar man omfattningen for ett badrum i Stockholm?',
+        question: 'Hur planerar man omfattningen för ett badrum i Stockholm?',
         answer:
-          'Projektets omfattning beror pa storlek, material och om stammar eller underlag behover åtgärdas.',
+          'Projektets omfattning beror på storlek, material och om stammar eller underlag behöver åtgärdas.',
         answerHtml:
-          'Projektets omfattning beror pa storlek, material och om stammar eller underlag behover åtgärdas.',
+          'Projektets omfattning beror på storlek, material och om stammar eller underlag behöver åtgärdas.',
       },
       {
         question: 'Hur fungerar ROT-avdraget hos er?',
         answer:
-          'Vi drar av ROT direkt pa fakturan och hanterar administrationen mot Skatteverket. Enligt gallande regler ar avdraget 30 % av arbetskostnaden, forutsatt att du uppfyller villkoren.',
+          'Vi drar av ROT direkt på fakturan och hanterar administrationen mot Skatteverket. Enligt gällande regler är avdraget 30 % av arbetskostnaden, förutsatt att du uppfyller villkoren.',
         answerHtml:
-          'Vi drar av ROT direkt pa fakturan och hanterar administrationen mot Skatteverket. Enligt gallande regler ar avdraget 30 % av arbetskostnaden, forutsatt att du uppfyller villkoren.',
+          'Vi drar av ROT direkt på fakturan och hanterar administrationen mot Skatteverket. Enligt gällande regler är avdraget 30 % av arbetskostnaden, förutsatt att du uppfyller villkoren.',
       },
       {
         question: 'Kan jag bo kvar hemma under renoveringen?',
         answer:
-          'Ja, i de flesta fall. Vi planerar arbetsmomenten sa smidigt som mojligt och skapar en tillfallig losning nar toalett eller dusch ar ur drift.',
+          'Ja, i de flesta fall. Vi planerar arbetsmomenten så smidigt som möjligt och skapar en tillfällig lösning när toalett eller dusch är ur drift.',
         answerHtml:
-          'Ja, i de flesta fall. Vi planerar arbetsmomenten sa smidigt som mojligt och skapar en tillfallig losning nar toalett eller dusch ar ur drift.',
+          'Ja, i de flesta fall. Vi planerar arbetsmomenten så smidigt som möjligt och skapar en tillfällig lösning när toalett eller dusch är ur drift.',
       },
       {
-        question: 'Vad hander om ni hittar fuktskada vid rivning?',
+        question: 'Vad händer om ni hittar fuktskada vid rivning?',
         answer:
-          'Vi dokumenterar fyndet direkt, gar igenom åtgärdsforslag med dig och uppdaterar offert innan extraarbete paborjas.',
+          'Vi dokumenterar fyndet direkt, går igenom åtgärdsförslag med dig och uppdaterar offert innan extraarbete påbörjas.',
         answerHtml:
-          'Vi dokumenterar fyndet direkt, gar igenom åtgärdsforslag med dig och uppdaterar offert innan extraarbete paborjas.',
+          'Vi dokumenterar fyndet direkt, går igenom åtgärdsförslag med dig och uppdaterar offert innan extraarbete påbörjas.',
       },
     ],
     footerFocus:
-      'Denna sida fokuserar pa badrumsrenovering i Stockholm med BKR-behörighet, tydlig projektering och dokumenterad kvalitet fran offert till fardigt badrum.',
+      'Denna sida fokuserar på badrumsrenovering i Stockholm med BKR-behörighet, tydlig projektering och dokumenterad kvalitet från offert till färdigt badrum.',
     localBusinessDescription:
-      'Professionell badrumsrenovering i Stockholm med BKR-behöriga plattsattare och kvalitetsdokument.',
+      'Professionell badrumsrenovering i Stockholm med BKR-behöriga plattsättare och kvalitetsdokument.',
   },
   sollentuna: {
     slug: 'sollentuna',
@@ -220,11 +220,11 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     seo: {
       title: 'Badrumsrenovering Sollentuna | Lokal firma med kontor i kommunen',
       description:
-        'Badrumsrenovering i Sollentuna med lokal narvaro pa Skyttevagen. BKR-behörighet och tydlig process for BRF, radhus och villa.',
+        'Badrumsrenovering i Sollentuna med lokal närvaro på Skyttevägen. BKR-behörighet och tydlig process för BRF, radhus och villa.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-sollentuna/',
-      ogTitle: 'Badrumsrenovering Sollentuna - Lokal guide och kvalitet',
+      ogTitle: 'Badrumsrenovering Sollentuna – Lokal guide och kvalitet',
       ogDescription:
-        'Las vad badrumsrenovering kostar i Sollentuna och hur vi jobbar lokalt i Tureberg, Edsberg, Haggvik och Norrviken.',
+        'Läs vad badrumsrenovering kostar i Sollentuna och hur vi jobbar lokalt i Tureberg, Edsberg, Häggvik och Norrviken.',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_15.avif',
       ogImageAlt: 'Badrumsrenovering i Sollentuna med lokalt team och BKR-behörighet',
       twitterTitle: 'Badrumsrenovering Sollentuna | Haga Plattsättning AB',
@@ -238,128 +238,128 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     },
     hero: {
       lead:
-        'Bor du i Sollentuna och planerar nytt badrum? Vi arbetar dagligen i kommunen och ger dig en tydlig plan for BRF, radhus och villa - med lokala tidsramar och tydlig process.',
+        'Bor du i Sollentuna och planerar nytt badrum? Vi arbetar dagligen i kommunen och ger dig en tydlig plan för BRF, radhus och villa – med lokala tidsramar och tydlig process.',
       imageSrc: '/hagaplatt_15.avif',
-      imageAlt: 'Ljust badrum i Sollentuna med kakel och klinker lagda av certifierad plattsattare',
+      imageAlt: 'Ljust badrum i Sollentuna med kakel och klinker lagda av certifierad plattsättare',
     },
     guideHeader: {
-      title: 'Badrumsrenovering i Sollentuna - lokalt perspektiv fran norrort',
+      title: 'Badrumsrenovering i Sollentuna – lokalt perspektiv från norrort',
       introHtml:
-        'Med kontor pa Skyttevagen har vi kort installelsetid i hela Sollentuna. Det gor planering, platsbesok och uppfoljning smidig for dig som bor i till exempel Tureberg, Edsberg, Haggvik eller Norrviken. Se aven vart upplagg for <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-solna/" style="color:#0a0a1a;font-weight:600;">Solna</a>.',
+        'Med kontor på Skyttevägen har vi kort inställelsetid i hela Sollentuna. Det gör planering, platsbesök och uppföljning smidig för dig som bor i till exempel Tureberg, Edsberg, Häggvik eller Norrviken. Se även vårt upplägg för <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-solna/" style="color:#0a0a1a;font-weight:600;">Solna</a>.',
     },
     guideBlocks: [
       {
-        title: 'Bostadsratt, radhus eller villa i Sollentuna - olika behov i samma kommun',
+        title: 'Bostadsrätt, radhus eller villa i Sollentuna – olika behov i samma kommun',
         bodyHtml:
-          '<p>I Sollentuna ar spannet stort mellan föreningar i centrum och villakvarter i ytterdelarna. Bostadstypen styr hur renoveringen bor laggas upp.</p><p>I BRF ar process och dokumentation centralt. I radhus och villa blir underlag, ventilation och golvkonstruktion ofta mer avgorande.</p><p>Vi gor alltid en platsanpassad genomgang innan vi ger slutlig projektbild.</p>',
+          '<p>I Sollentuna är spannet stort mellan föreningar i centrum och villakvarter i ytterdelarna. Bostadstypen styr hur renoveringen bör läggas upp.</p><p>I BRF är process och dokumentation centralt. I radhus och villa blir underlag, ventilation och golvkonstruktion ofta mer avgörande.</p><p>Vi gör alltid en platsanpassad genomgång innan vi ger slutlig projektbild.</p>',
         imageSrc: '/hagaplatt_16.avif',
         imageAlt:
-          'Badrumsrenovering i Sollentuna med fokus pa bostadsratt och radhus i norrort',
+          'Badrumsrenovering i Sollentuna med fokus på bostadsrätt och radhus i norrort',
       },
       {
-        title: 'Tidplan i Sollentuna - varfor projekt ofta blir mer forutsagbara',
+        title: 'Tidplan i Sollentuna – varför projekt ofta blir mer förutsägbara',
         bodyHtml:
-          '<p>Jämfört med innerstan ar logistiken ofta enklare i Sollentuna, vilket minskar risken for onodiga stopp.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Enklare angoring for leveranser och avfall</li><li>Kortare transporttid for hantverkare och material</li><li>Mindre risk for parkeringsrelaterade forseningar</li><li>Samma kvalitetskrav pa tätskikt och dokumentation som i hela lanet</li></ul><p>Vi sattar en realistisk tidplan redan i offertskedet och uppdaterar den lopande under projektet.</p>',
+          '<p>Jämfört med innerstan är logistiken ofta enklare i Sollentuna, vilket minskar risken för onödiga stopp.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Enklare angöring för leveranser och avfall</li><li>Kortare transporttid för hantverkare och material</li><li>Mindre risk för parkeringsrelaterade förseningar</li><li>Samma kvalitetskrav på tätskikt och dokumentation som i hela länet</li></ul><p>Vi sätter en realistisk tidplan redan i offertskedet och uppdaterar den löpande under projektet.</p>',
         imageSrc: '/hagaplatt_17.avif',
         imageAlt:
-          'Tidsplan for badrumsrenovering i Sollentuna med effektiv logistik och materialflode',
+          'Tidsplan för badrumsrenovering i Sollentuna med effektiv logistik och materialflöde',
         gray: true,
         imageFirst: true,
       },
       {
         title: 'Planering av badrumsrenovering i Sollentuna 2026',
         bodyHtml:
-          '<p>Projektets omfattning i Sollentuna paverkas av bostadstyp, underlag och materialval. Vi gar igenom forutsattningar och arbetsordning innan start sa att projektet blir tydligt och genomforbart.</p><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Las mer om process och genomforande i dialog med oss.</p>',
+          '<p>Projektets omfattning i Sollentuna påverkas av bostadstyp, underlag och materialval. Vi går igenom förutsättningar och arbetsordning innan start så att projektet blir tydligt och genomförbart.</p><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Läs mer om process och genomförande i dialog med oss.</p>',
         imageSrc: '/hagaplatt_18.avif',
         imageAlt:
           'Planering av badrumsrenovering i Sollentuna med tydlig process',
       },
       {
-        title: 'Materialval som fungerar bra i Sollentunas bostader',
+        title: 'Materialval som fungerar bra i Sollentunas bostäder',
         bodyHtml:
-          '<p>Vi ser ofta att kunder i Sollentuna prioriterar slitstyrka och enkel skotsel.</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Storformat i ljusa nyanser</strong> - visuellt rymligt i mindre badrum</li><li><strong>Klinker med bra R-varde</strong> - tryggare golv i familjebadrum</li><li><strong>Nischlosningar i dusch</strong> - smart forvaring utan extra mober</li><li><strong>Naturnara toner</strong> - fungerar i bade modern och klassisk stil</li><li><strong>Blandning av matta och halvblanka ytor</strong> - balans mellan uttryck och underhall</li></ul>',
+          '<p>Vi ser ofta att kunder i Sollentuna prioriterar slitstyrka och enkel skötsel.</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Storformat i ljusa nyanser</strong> – visuellt rymligt i mindre badrum</li><li><strong>Klinker med bra R-värde</strong> – tryggare golv i familjebadrum</li><li><strong>Nischlösningar i dusch</strong> – smart förvaring utan extra möbler</li><li><strong>Naturnära toner</strong> – fungerar i både modern och klassisk stil</li><li><strong>Blandning av matta och halvblanka ytor</strong> – balans mellan uttryck och underhåll</li></ul>',
         textOnly: true,
         gray: true,
       },
       {
         title: 'Tre vanliga fallgropar i Sollentunaprojekt',
         bodyHtml:
-          '<p><strong>1. For snabb start utan projektering:</strong> leder ofta till sena andringar och onodiga kostnader.</p><p><strong>2. Underskattad underlagsrisk i aldre badrum:</strong> fukt och skadad stomme maste hanteras innan nytt tätskikt.</p><p><strong>3. Otydlig samordning mellan yrkesgrupper:</strong> tydlig ordning mellan rivning, VVS, el och plattsattning ar avgorande.</p><p style="margin-top:1rem;"><a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Boka kostnadsfri offert för Sollentuna -></a></p>',
+          '<p><strong>1. För snabb start utan projektering:</strong> leder ofta till sena ändringar och onödiga kostnader.</p><p><strong>2. Underskattad underlagsrisk i äldre badrum:</strong> fukt och skadad stomme måste hanteras innan nytt tätskikt.</p><p><strong>3. Otydlig samordning mellan yrkesgrupper:</strong> tydlig ordning mellan rivning, VVS, el och plattsättning är avgörande.</p><p style="margin-top:1rem;"><a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Boka kostnadsfri offert för Sollentuna →</a></p>',
         textOnly: true,
       },
       {
-        title: 'BRF-process i Sollentuna - sa förbereder du dig',
+        title: 'BRF-process i Sollentuna – så förbereder du dig',
         bodyHtml:
-          '<p>For de flesta föreningar i kommunen fungerar detta upplagg bast:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Begar gällande renoveringspolicy</li><li><strong>Steg 2:</strong> Lamna in komplett anmälan med tidplan</li><li><strong>Steg 3:</strong> Samordna tilltrade, skydd och granninformation</li><li><strong>Steg 4:</strong> Genomfor renovering enligt BBV</li><li><strong>Steg 5:</strong> Leverera kvalitetsdokument och slutdokumentation</li></ul><p>Behöver du jamfora med andra orter? Se <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-solna/" style="color:#0a0a1a;font-weight:600;">Solna</a>.</p>',
+          '<p>För de flesta föreningar i kommunen fungerar detta upplägg bäst:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Begär gällande renoveringspolicy</li><li><strong>Steg 2:</strong> Lämna in komplett anmälan med tidplan</li><li><strong>Steg 3:</strong> Samordna tillträde, skydd och granninformation</li><li><strong>Steg 4:</strong> Genomför renovering enligt BBV</li><li><strong>Steg 5:</strong> Leverera kvalitetsdokument och slutdokumentation</li></ul><p>Behöver du jämföra med andra orter? Se <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-solna/" style="color:#0a0a1a;font-weight:600;">Solna</a>.</p>',
         textOnly: true,
         gray: true,
       },
     ],
     faqTitle: 'Vanliga frågor om badrumsrenovering i Sollentuna',
     faqLead:
-      'Frågor vi far lokalt i Sollentuna om tidsplan, BRF-krav och hur projektet genomfors steg for steg.',
+      'Frågor vi får lokalt i Sollentuna om tidsplan, BRF-krav och hur projektet genomförs steg för steg.',
     faqs: [
       {
-        question: 'Utgar ni verkligen fran Sollentuna?',
+        question: 'Utgår ni verkligen från Sollentuna?',
         answer:
-          'Ja, vi har kontor pa Skyttevagen i Sollentuna och arbetar lopande i hela kommunen.',
+          'Ja, vi har kontor på Skyttevägen i Sollentuna och arbetar löpande i hela kommunen.',
         answerHtml:
-          'Ja, vi har kontor pa Skyttevagen i Sollentuna och arbetar lopande i hela kommunen.',
+          'Ja, vi har kontor på Skyttevägen i Sollentuna och arbetar löpande i hela kommunen.',
       },
       {
         question: 'Vilka delar av Sollentuna arbetar ni mest i?',
         answer:
-          'Vi har uppdrag i bland annat Tureberg, Edsberg, Haggvik, Norrviken, Rotebro och Helenelund.',
+          'Vi har uppdrag i bland annat Tureberg, Edsberg, Häggvik, Norrviken, Rotebro och Helenelund.',
         answerHtml:
-          'Vi har uppdrag i bland annat Tureberg, Edsberg, Haggvik, Norrviken, Rotebro och Helenelund.',
+          'Vi har uppdrag i bland annat Tureberg, Edsberg, Häggvik, Norrviken, Rotebro och Helenelund.',
       },
       {
         question: 'Hur snabbt kan ni starta ett projekt i Sollentuna?',
         answer:
-          'Vanligtvis inom 3-6 veckor beroende pa omfattning, materialval och BRF-process om du bor i bostadsratt.',
+          'Vanligtvis inom 3–6 veckor beroende på omfattning, materialval och BRF-process om du bor i bostadsrätt.',
         answerHtml:
-          'Vanligtvis inom 3-6 veckor beroende pa omfattning, materialval och BRF-process om du bor i bostadsratt.',
+          'Vanligtvis inom 3–6 veckor beroende på omfattning, materialval och BRF-process om du bor i bostadsrätt.',
       },
       {
-        question: 'Behover jag anmala renoveringen till min BRF i Sollentuna?',
+        question: 'Behöver jag anmäla renoveringen till min BRF i Sollentuna?',
         answer:
-          'Ja, i de flesta föreningar kravs skriftlig anmälan. Vi hjalper dig med bilagor och certifikat.',
+          'Ja, i de flesta föreningar krävs skriftlig anmälan. Vi hjälper dig med bilagor och certifikat.',
         answerHtml:
-          'Ja, i de flesta föreningar kravs skriftlig anmälan. Vi hjalper dig med bilagor och certifikat.',
+          'Ja, i de flesta föreningar krävs skriftlig anmälan. Vi hjälper dig med bilagor och certifikat.',
       },
       {
         question: 'Vad kostar ett normalt badrum i Sollentuna?',
         answer:
-          'Projektets omfattning beror pa yta, material och tekniska åtgärder.',
+          'Projektets omfattning beror på yta, material och tekniska åtgärder.',
         answerHtml:
-          'Projektets omfattning beror pa yta, material och tekniska åtgärder.',
+          'Projektets omfattning beror på yta, material och tekniska åtgärder.',
       },
       {
-        question: 'Kan ni samordna VVS och el aven i Sollentuna?',
+        question: 'Kan ni samordna VVS och el även i Sollentuna?',
         answer:
-          'Ja, vi samordnar certifierade underentreprenorer och driver projektet med en tydlig tidslinje.',
+          'Ja, vi samordnar certifierade underentreprenörer och driver projektet med en tydlig tidslinje.',
         answerHtml:
-          'Ja, vi samordnar certifierade underentreprenorer och driver projektet med en tydlig tidslinje.',
+          'Ja, vi samordnar certifierade underentreprenörer och driver projektet med en tydlig tidslinje.',
       },
       {
         question: 'Kan familjen bo kvar under renoveringen?',
         answer:
-          'I de flesta fall ja. Vi planerar arbetsordningen sa att vardagen paverkas sa lite som mojligt.',
+          'I de flesta fall ja. Vi planerar arbetsordningen så att vardagen påverkas så lite som möjligt.',
         answerHtml:
-          'I de flesta fall ja. Vi planerar arbetsordningen sa att vardagen paverkas sa lite som mojligt.',
+          'I de flesta fall ja. Vi planerar arbetsordningen så att vardagen påverkas så lite som möjligt.',
       },
       {
-        question: 'Vad hander om dolda fel upptacks i ett aldre badrum?',
+        question: 'Vad händer om dolda fel upptäcks i ett äldre badrum?',
         answer:
-          'Vi stoppar arbetet, dokumenterar fynden och gar igenom åtgärd med dig innan fortsattning.',
+          'Vi stoppar arbetet, dokumenterar fynden och går igenom åtgärd med dig innan fortsättning.',
         answerHtml:
-          'Vi stoppar arbetet, dokumenterar fynden och gar igenom åtgärd med dig innan fortsattning.',
+          'Vi stoppar arbetet, dokumenterar fynden och går igenom åtgärd med dig innan fortsättning.',
       },
     ],
     footerFocus:
-      'Denna sida ar anpassad for badrumsrenovering i Sollentuna med lokal narvaro, BKR-behörighet och tydlig process for BRF, radhus och villa.',
+      'Denna sida är anpassad för badrumsrenovering i Sollentuna med lokal närvaro, BKR-behörighet och tydlig process för BRF, radhus och villa.',
     localBusinessDescription:
-      'Lokal badrumsrenovering i Sollentuna med BKR-behöriga plattsattare, kvalitetsdokument och tydlig projektledning.',
+      'Lokal badrumsrenovering i Sollentuna med BKR-behöriga plattsättare, kvalitetsdokument och tydlig projektledning.',
   },
   solna: {
     slug: 'solna',
@@ -368,16 +368,16 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     seo: {
       title: 'Badrumsrenovering Solna | BRF-specialister',
       description:
-        'Badrumsrenovering i Solna for bostadsratter och villor. BKR-behörig entreprenor, tydlig BRF-process och kvalitetsdokument.',
+        'Badrumsrenovering i Solna för bostadsrätter och villor. BKR-behörig entreprenör, tydlig BRF-process och kvalitetsdokument.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-solna/',
-      ogTitle: 'Badrumsrenovering Solna - Trygg BRF-process',
+      ogTitle: 'Badrumsrenovering Solna – Trygg BRF-process',
       ogDescription:
-        'Lokalt anpassad sida for Solna: tidsplan, BRF-krav och materialval for 2026.',
+        'Lokalt anpassad sida för Solna: tidsplan, BRF-krav och materialval för 2026.',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_31.avif',
-      ogImageAlt: 'Badrumsrenovering i Solna med modern kakelsattning och dokumenterad kvalitet',
+      ogImageAlt: 'Badrumsrenovering i Solna med modern kakelsättning och dokumenterad kvalitet',
       twitterTitle: 'Badrumsrenovering Solna | Haga Plattsättning AB',
       twitterDescription:
-        'Planera badrumsrenovering i Solna med BKR-behörighet och tydliga svar pa BRF-frågor.',
+        'Planera badrumsrenovering i Solna med BKR-behörighet och tydliga svar på BRF-frågor.',
       twitterImage: 'https://www.hagaplattsattning.se/hagaplatt_31.avif',
       geoPlacename: 'Solna',
       geoPosition: '59.3600;18.0009',
@@ -386,126 +386,126 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     },
     hero: {
       lead:
-        'Planerar du badrumsrenovering i Solna? Vi hjalper dig hela vagen med BRF-anmälan, projektering och plattsattning sa att slutresultatet blir bade snyggt och försäkringsbart.',
+        'Planerar du badrumsrenovering i Solna? Vi hjälper dig hela vägen med BRF-anmälan, projektering och plattsättning så att slutresultatet blir både snyggt och försäkringsbart.',
       imageSrc: '/hagaplatt_31.avif',
       imageAlt: 'Nytt badrum i Solna med stilrent kakel och precisionslagd klinker',
     },
     guideHeader: {
-      title: 'Badrumsrenovering i Solna - guide for BRF, stadsnära villor och nyproduktion',
+      title: 'Badrumsrenovering i Solna – guide för BRF, stadsnära villor och nyproduktion',
       introHtml:
-        'Solna har en hog andel bostadsratter och ett brett spann mellan aldre hus och moderna fastigheter. Det gor att badrumsprojekt ofta krav er en noggrann forstudie innan start. Las aven motsvarande sidor for <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>.',
+        'Solna har en hög andel bostadsrätter och ett brett spann mellan äldre hus och moderna fastigheter. Det gör att badrumsprojekt ofta kräver en noggrann förstudie innan start. Läs även motsvarande sidor för <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>.',
     },
     guideBlocks: [
       {
-        title: 'Solnas bostadsmix paverkar hur badrummet bor renoveras',
+        title: 'Solnas bostadsmix påverkar hur badrummet bör renoveras',
         bodyHtml:
-          '<p>I Solna ar det vanligt med bostadsratter i Frosunda, Huvudsta och runt Arenastaden, samtidigt som det finns villabebyggelse i delar av kommunen.</p><p>I BRF ar korrekt underlag till styrelsen avgorande. I villa ar teknisk status pa underlag, golvfall och befintliga installationer ofta den stora fragan.</p><p>Vi lagger stor vikt vid forbesiktning sa att du far en realistisk plan fran dag ett.</p>',
+          '<p>I Solna är det vanligt med bostadsrätter i Frösunda, Huvudsta och runt Arenastaden, samtidigt som det finns villabebyggelse i delar av kommunen.</p><p>I BRF är korrekt underlag till styrelsen avgörande. I villa är teknisk status på underlag, golvfall och befintliga installationer ofta den stora frågan.</p><p>Vi lägger stor vikt vid förbesiktning så att du får en realistisk plan från dag ett.</p>',
         imageSrc: '/hagaplatt_32.avif',
-        imageAlt: 'Badrumsrenovering i Solna bostadsratt med dokumenterad arbetsprocess',
+        imageAlt: 'Badrumsrenovering i Solna bostadsrätt med dokumenterad arbetsprocess',
       },
       {
-        title: 'Tidplan i Solna - vanliga orsaker till forsening och hur de undviks',
+        title: 'Tidplan i Solna – vanliga orsaker till försening och hur de undviks',
         bodyHtml:
-          '<p>I Solna ligger manga projekt nara city med hog belastning pa logistik och leveranser. Med ratt forberedelser blir projektet stabilt.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Samordna tilltrade med BRF och forvaltare i god tid</li><li>Sakerstall leveransfons ter for material i tranga omraden</li><li>Planera rivning och uttorkning utan att stressa tätskiktsmoment</li><li>Ha beslut om kakel, kommod och blandare klara fore start</li></ul><p>Vi arbetar med tydliga milstolpar sa att du vet exakt var i processen projektet ar.</p>',
+          '<p>I Solna ligger många projekt nära city med hög belastning på logistik och leveranser. Med rätt förberedelser blir projektet stabilt.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Samordna tillträde med BRF och förvaltare i god tid</li><li>Säkerställ leveransfönster för material i trånga områden</li><li>Planera rivning och uttorkning utan att stressa tätskiktsmoment</li><li>Ha beslut om kakel, kommod och blandare klara före start</li></ul><p>Vi arbetar med tydliga milstolpar så att du vet exakt var i processen projektet är.</p>',
         imageSrc: '/hagaplatt_33.avif',
-        imageAlt: 'Tidsplanering av badrumsrenovering i Solna med fokus pa BRF och leveranser',
+        imageAlt: 'Tidsplanering av badrumsrenovering i Solna med fokus på BRF och leveranser',
         gray: true,
         imageFirst: true,
       },
       {
         title: 'Planering av badrumsrenovering i Solna 2026',
         bodyHtml:
-          '<p>I Solna paverkas projektets omfattning av bostadstyp, underlag och materialval. Vi planerar arbetsordning och dokumentation innan start for en trygg och tydlig process.</p><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Kontakta oss for offertforfragan och projektgenomgang.</p>',
+          '<p>I Solna påverkas projektets omfattning av bostadstyp, underlag och materialval. Vi planerar arbetsordning och dokumentation innan start för en trygg och tydlig process.</p><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Kontakta oss för offertförfrågan och projektgenomgång.</p>',
         imageSrc: '/hagaplatt_34.avif',
         imageAlt:
-          'Planering av badrumsrenovering i Solna med tydlig offertforfragan',
+          'Planering av badrumsrenovering i Solna med tydlig offertförfrågan',
       },
       {
         title: 'Material och designval som fungerar i Solna',
         bodyHtml:
-          '<p>Manga Solnakunder vill kombinera modern design med robust vardagsfunktion.</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Greige och varma gratoner</strong> - trend som skapar lugn och tidloshet</li><li><strong>Kombination av storformat och accentvagg</strong> - ger karaktar utan visuell oro</li><li><strong>Integrerade nischer</strong> - praktisk forvaring i duschzonen</li><li><strong>Lattstade ytor</strong> - minskar underhallsbehov i familjebruk</li><li><strong>Balanserad belysning</strong> - viktigt i badrum utan stora fonster</li></ul>',
+          '<p>Många Solnakunder vill kombinera modern design med robust vardagsfunktion.</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Greige och varma gråtoner</strong> – trend som skapar lugn och tidlöshet</li><li><strong>Kombination av storformat och accentvägg</strong> – ger karaktär utan visuell oro</li><li><strong>Integrerade nischer</strong> – praktisk förvaring i duschzonen</li><li><strong>Lättstädade ytor</strong> – minskar underhållsbehov i familjebruk</li><li><strong>Balanserad belysning</strong> – viktigt i badrum utan stora fönster</li></ul>',
         textOnly: true,
         gray: true,
       },
       {
         title: 'Tre vanliga misstag i badrumsprojekt i Solna',
         bodyHtml:
-          '<p><strong>1. For svag BRF-dialog:</strong> sena besked fran styrelsen kan flytta hela startdatumet.</p><p><strong>2. Fel ordning pa tillval:</strong> om inredning valjs efter rivning uppstar onodigt stillestand.</p><p><strong>3. Otydlig helhetsplan:</strong> manga missar ventilation, VVS eller underlagsåtgärder i planeringen.</p><p style="margin-top:1rem;"><a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Få en tydlig offertforfragan for badrumsrenovering i Solna -></a></p>',
+          '<p><strong>1. För svag BRF-dialog:</strong> sena besked från styrelsen kan flytta hela startdatumet.</p><p><strong>2. Fel ordning på tillval:</strong> om inredning väljs efter rivning uppstår onödigt stillestånd.</p><p><strong>3. Otydlig helhetsplan:</strong> många missar ventilation, VVS eller underlagsåtgärder i planeringen.</p><p style="margin-top:1rem;"><a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Få en tydlig offertförfrågan för badrumsrenovering i Solna →</a></p>',
         textOnly: true,
       },
       {
-        title: 'BRF-renovering i Solna - rekommenderad arbetsordning',
+        title: 'BRF-renovering i Solna – rekommenderad arbetsordning',
         bodyHtml:
-          '<p>Sa har ser en valfungerande process ut for de flesta föreningar i Solna:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Kontrollera BRF:ens krav pa entreprenor och dokument</li><li><strong>Steg 2:</strong> Skicka in komplett anmälan med tidplan</li><li><strong>Steg 3:</strong> Faststall arbetsfons ter och praktisk tillgang</li><li><strong>Steg 4:</strong> Genomfor renoveringen med lopande egenkontroller</li><li><strong>Steg 5:</strong> Lamna kvalitetsdokument till dig och föreningen</li></ul><p>Om du aven overvager projekt i narliggande orter, se <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>.</p>',
+          '<p>Så här ser en välfungerande process ut för de flesta föreningar i Solna:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Steg 1:</strong> Kontrollera BRF:ens krav på entreprenör och dokument</li><li><strong>Steg 2:</strong> Skicka in komplett anmälan med tidplan</li><li><strong>Steg 3:</strong> Fastställ arbetsfönster och praktisk tillgång</li><li><strong>Steg 4:</strong> Genomför renoveringen med löpande egenkontroller</li><li><strong>Steg 5:</strong> Lämna kvalitetsdokument till dig och föreningen</li></ul><p>Om du även överväger projekt i närliggande orter, se <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>.</p>',
         textOnly: true,
         gray: true,
       },
     ],
     faqTitle: 'Vanliga frågor om badrumsrenovering i Solna',
     faqLead:
-      'Svar pa frågor fran boende i Solna om BRF-krav, tidplan och vad som kravs for ett försäkringsgodkant badrum.',
+      'Svar på frågor från boende i Solna om BRF-krav, tidplan och vad som krävs för ett försäkringsgodkänt badrum.',
     faqs: [
       {
         question: 'Renoverar ni badrum i hela Solna kommun?',
         answer:
           'Ja, vi tar uppdrag i hela Solna inklusive Huvudsta, Frösunda, Råsunda, Bergshamra och Arenastaden.',
         answerHtml:
-          'Ja, vi tar uppdrag i hela Solna inklusive Huvudsta, Frosunda, Rasunda, Bergshamra och Arenastaden.',
+          'Ja, vi tar uppdrag i hela Solna inklusive Huvudsta, Frösunda, Råsunda, Bergshamra och Arenastaden.',
       },
       {
         question: 'Hur fungerar badrumsrenovering i BRF i Solna?',
         answer:
-          'Projektet borjar med BRF-anmälan, sedan tidplan, genomforande och slutlig dokumentation. Vi stottar dig i varje steg.',
+          'Projektet börjar med BRF-anmälan, sedan tidplan, genomförande och slutlig dokumentation. Vi stöttar dig i varje steg.',
         answerHtml:
-          'Projektet borjar med BRF-anmälan, sedan tidplan, genomforande och slutlig dokumentation. Vi stottar dig i varje steg.',
+          'Projektet börjar med BRF-anmälan, sedan tidplan, genomförande och slutlig dokumentation. Vi stöttar dig i varje steg.',
       },
       {
-        question: 'Vad ar en vanlig tidsram for badrum i Solna?',
+        question: 'Vad är en vanlig tidsram för badrum i Solna?',
         answer:
-          'De flesta projekt ligger mellan 2 och 4 veckor beroende pa omfattning, logistik och eventuella tillkommande åtgärder.',
+          'De flesta projekt ligger mellan 2 och 4 veckor beroende på omfattning, logistik och eventuella tillkommande åtgärder.',
         answerHtml:
-          'De flesta projekt ligger mellan 2 och 4 veckor beroende pa omfattning, logistik och eventuella tillkommande åtgärder.',
+          'De flesta projekt ligger mellan 2 och 4 veckor beroende på omfattning, logistik och eventuella tillkommande åtgärder.',
       },
       {
         question: 'Vad kostar badrumsrenovering i Solna totalt?',
         answer:
-          'Projektets omfattning varierar beroende pa storlek och valda produkter.',
+          'Projektets omfattning varierar beroende på storlek och valda produkter.',
         answerHtml:
-          'Projektets omfattning varierar beroende pa storlek och valda produkter.',
+          'Projektets omfattning varierar beroende på storlek och valda produkter.',
       },
       {
-        question: 'Kan ni hjalpa till om min förening kraver extra dokumentation?',
+        question: 'Kan ni hjälpa till om min förening kräver extra dokumentation?',
         answer:
-          'Ja, vi levererar de handlingar som normalt efterfragas, inklusive behörighetsuppgifter och kvalitetsdokument.',
+          'Ja, vi levererar de handlingar som normalt efterfrågas, inklusive behörighetsuppgifter och kvalitetsdokument.',
         answerHtml:
-          'Ja, vi levererar de handlingar som normalt efterfragas, inklusive behörighetsuppgifter och kvalitetsdokument.',
+          'Ja, vi levererar de handlingar som normalt efterfrågas, inklusive behörighetsuppgifter och kvalitetsdokument.',
       },
       {
-        question: 'Gor ni en fastprisoffert innan start?',
+        question: 'Gör ni en fastprisoffert innan start?',
         answer:
-          'Ja, du far en tydlig offert med omfattning, avgransningar och preliminar tidsplan innan arbetet startar.',
+          'Ja, du får en tydlig offert med omfattning, avgränsningar och preliminär tidsplan innan arbetet startar.',
         answerHtml:
-          'Ja, du far en tydlig offert med omfattning, avgransningar och preliminar tidsplan innan arbetet startar.',
+          'Ja, du får en tydlig offert med omfattning, avgränsningar och preliminär tidsplan innan arbetet startar.',
       },
       {
         question: 'Kan ni samordna allting inklusive VVS och el i Solna?',
         answer:
-          'Ja, vi samordnar certifierade samarbetspartners sa att du slipper hantera flera parallella entreprenorer.',
+          'Ja, vi samordnar certifierade samarbetspartners så att du slipper hantera flera parallella entreprenörer.',
         answerHtml:
-          'Ja, vi samordnar certifierade samarbetspartners sa att du slipper hantera flera parallella entreprenorer.',
+          'Ja, vi samordnar certifierade samarbetspartners så att du slipper hantera flera parallella entreprenörer.',
       },
       {
-        question: 'Vad hander vid fuktskada eller annat dolt fel?',
+        question: 'Vad händer vid fuktskada eller annat dolt fel?',
         answer:
-          'Vi dokumenterar direkt, visar vad som behovs och invantar ditt godkannande innan tillaggsarbete startar.',
+          'Vi dokumenterar direkt, visar vad som behövs och inväntar ditt godkännande innan tilläggsarbete startar.',
         answerHtml:
-          'Vi dokumenterar direkt, visar vad som behovs och invantar ditt godkannande innan tillaggsarbete startar.',
+          'Vi dokumenterar direkt, visar vad som behövs och inväntar ditt godkännande innan tilläggsarbete startar.',
       },
     ],
     footerFocus:
-      'Denna sida ar framtagen for badrumsrenovering i Solna med tydlig BRF-process och dokumenterad kvalitet genom hela projektet.',
+      'Denna sida är framtagen för badrumsrenovering i Solna med tydlig BRF-process och dokumenterad kvalitet genom hela projektet.',
     localBusinessDescription:
-      'Badrumsrenovering i Solna med BKR-behöriga plattsattare, tydliga offerter och kvalitetssakrad leverans.',
+      'Badrumsrenovering i Solna med BKR-behöriga plattsättare, tydliga offerter och kvalitetssäkrad leverans.',
   },
   lidingo: {
     slug: 'lidingo',
