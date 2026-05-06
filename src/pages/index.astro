@@ -58,10 +58,24 @@ const localBusinessJsonLd = {
     <meta name="geo.position" content="59.4281;17.9506" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Hero LCP preloads (matched to <picture> sources below) -->
+    <link rel="preload" as="image" href="/publichero-mobile.avif" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/publichero-desktop.avif" media="(min-width: 769px)" fetchpriority="high" />
+
+    <!-- Async-load Google Fonts so they don't block first paint (display=swap already handles fallback) -->
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
     <link rel="stylesheet" href="/design.css" />
   </head>
   <body>
@@ -91,14 +105,18 @@ const localBusinessJsonLd = {
           </div>
         </div>
         <div class="hero-media">
-          <img
-            src="/publichero-desktop.avif"
-            alt="Professionell badrumsrenovering i Stockholm – certifierad kakelsättning av Haga Plattsättning AB"
-            width="2400"
-            height="1350"
-            loading="eager"
-            fetchpriority="high"
-          />
+          <picture>
+            <source media="(max-width: 768px)" srcset="/publichero-mobile.avif" />
+            <img
+              src="/publichero-desktop.avif"
+              alt="Professionell badrumsrenovering i Stockholm – certifierad kakelsättning av Haga Plattsättning AB"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
           <span class="reco-badge">
             <img src="/hagaplattsattningbadge.svg" alt="Reco - Rekommenderat företag två år i rad" width="84" height="84" loading="eager" />
           </span>
