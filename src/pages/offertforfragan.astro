@@ -154,13 +154,14 @@ import SiteNav from '../components/SiteNav.astro';
               return;
             }
           } catch (_error) {
-            // Show the fallback message below if request fails.
+            // If AJAX is blocked by policy/network, fall back to normal submit.
+            offerForm.submit();
+            return;
           }
 
-          if (offerError) offerError.style.display = 'block';
-          if (submitButton instanceof HTMLButtonElement) {
-            submitButton.disabled = false;
-          }
+          // Non-OK response from Formspree: fall back to normal submit.
+          offerForm.submit();
+          return;
         });
       }
     </script>
