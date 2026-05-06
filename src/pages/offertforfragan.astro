@@ -88,7 +88,10 @@ import SiteNav from '../components/SiteNav.astro';
           </div>
 
           <div class="offert-form">
-            <form action="mailto:kontakt@hagaplattsattning.se" method="post" enctype="text/plain" style="display:grid;gap:18px">
+            <form action="https://formspree.io/f/mwvybzbr" method="POST" style="display:grid;gap:18px">
+              <input type="hidden" name="_subject" value="Ny offertförfrågan från hagaplattsattning.se" />
+              <input type="hidden" name="_language" value="sv" />
+              <input type="hidden" name="_next" value="https://www.hagaplattsattning.se/tack/" />
               <div class="row">
                 <label for="name">Namn
                   <input id="name" name="name" type="text" required />
