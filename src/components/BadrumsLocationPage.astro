@@ -128,240 +128,91 @@ const serviceJsonLd = {
     <meta name="geo.region" content="SE-AB" />
     <meta name="geo.placename" content={content.seo.geoPlacename} />
     <meta name="geo.position" content={content.seo.geoPosition} />
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: system-ui, -apple-system, sans-serif; }
-
-      .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-      .breadcrumb { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem 0; font-size: 0.82rem; color: #888; }
-      .breadcrumb a { color: #555; text-decoration: none; }
-      .breadcrumb span { margin: 0 0.4rem; color: #ccc; }
-      .hero {
-        position: relative;
-        min-height: min(78vh, 680px);
-        overflow: hidden;
-        border-bottom: 1px solid #e8e8ee;
-        display: flex;
-        align-items: center;
-        padding-top: 84px;
-      }
-      .hero-media {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-      }
-      .hero-media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 38%;
-        display: block;
-      }
-      .hero-overlay {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background:
-          linear-gradient(90deg, rgba(5, 6, 14, 0.7) 0%, rgba(5, 6, 14, 0.5) 34%, rgba(5, 6, 14, 0.2) 56%, rgba(5, 6, 14, 0.08) 100%),
-          linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.16) 35%, rgba(0, 0, 0, 0.34) 100%);
-      }
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 0 1.5rem 3rem;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-      }
-      .hero-text {
-        font-family: Arial, Helvetica, sans-serif;
-        color: #111111;
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid rgba(255, 255, 255, 0.95);
-        border-radius: 20px;
-        backdrop-filter: blur(3px);
-        padding: clamp(1.6rem, 4vw, 2.2rem);
-        max-width: 680px;
-      }
-      .hero h1 { font-size: clamp(1.6rem, 3vw, 2.7rem); font-weight: 700; color: #111111; line-height: 1.18; margin-bottom: 0.7rem; letter-spacing: -0.02em; }
-      .hero h1 span { color: #111111; }
-      .hero-lead { font-size: 0.94rem; color: #222222; line-height: 1.58; margin-bottom: 1.25rem; max-width: 560px; }
-      .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-      .btn-primary { background: #111111; border: 1px solid #111111; color: #ffffff; font-weight: 700; font-size: 0.88rem; padding: 0.72rem 1.3rem; border-radius: 10px; text-decoration: none; }
-      .btn-ghost { color: #111111; font-size: 0.88rem; font-weight: 500; text-decoration: none; }
-      .bkr-section { background: #f8f8fb; border-top: 1px solid #e8e8ee; padding: 5rem 0; }
-      .bkr-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr; align-items: center; gap: 2rem; }
-      .bkr-image {
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-        line-height: 0;
-      }
-      .bkr-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        border-radius: 12px;
-      }
-      .bkr-text h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; color: #0a0a1a; line-height: 1.2; margin-bottom: 1.1rem; }
-      .bkr-text p { font-size: 0.95rem; color: #444; line-height: 1.75; margin-bottom: 1rem; }
-      .section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-bottom: 0.6rem; }
-      .guide-section { background: #fff; padding: 5rem 0; border-top: 1px solid #ececf2; }
-      .guide-header { max-width: 880px; margin: 0 auto 3rem; padding: 0 1.5rem; text-align: left; color: #333; line-height: 1.75; font-size: 0.96rem; }
-      .guide-header h2 { font-size: clamp(1.65rem, 2.9vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; color: #0a0a1a; }
-      .guide-block { border-top: 1px solid #efeff3; padding: 3rem 0; }
-      .guide-block.gray { background: #f8f8fb; }
-      .guide-block-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
-      .guide-block-inner.text-only { grid-template-columns: 1fr; max-width: 900px; }
-      .guide-image { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); line-height: 0; }
-      .guide-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
-      .guide-text h3 { font-size: clamp(1.28rem, 2.2vw, 1.6rem); font-weight: 800; color: #0a0a1a; line-height: 1.25; margin-bottom: 0.9rem; }
-      .guide-text p { font-size: 0.94rem; color: #444; line-height: 1.75; margin-bottom: 1rem; }
-      .bkr-checklist { list-style: none; margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: 0.65rem; }
-      .bkr-checklist li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.92rem; color: #222; font-weight: 500; line-height: 1.5; }
-      .bkr-checklist li::before { content: '✓'; color: #2a7a2a; font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
-      .price-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
-      .price-table th, .price-table td { text-align: left; padding: 0.75rem 0.8rem; border-bottom: 1px solid #ececf2; }
-      .price-table th { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; color: #666; }
-      .reviews-section { background: #f8f8fb; border-top: 1px solid #e8e8ee; padding: 5rem 0; }
-      .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1.75rem; }
-      .review-card { background: #fff; border-radius: 12px; padding: 1.5rem 1.5rem 1.2rem; box-shadow: 0 1px 8px rgba(0,0,0,0.05); border: 1px solid #efeff3; display: flex; flex-direction: column; }
-      .review-stars { font-size: 1.05rem; letter-spacing: 0.04em; margin-bottom: 0.7rem; }
-      .review-stars .filled { color: #f5b400; }
-      .review-stars .empty { color: #ddd; }
-      .review-card blockquote { font-size: 0.94rem; color: #222; line-height: 1.65; font-style: italic; margin: 0 0 1rem; flex-grow: 1; }
-      .review-card blockquote::before { content: "\201C"; font-size: 1.4rem; color: #aaa; margin-right: 0.1em; vertical-align: -0.2em; }
-      .review-card blockquote::after { content: "\201D"; font-size: 1.4rem; color: #aaa; margin-left: 0.1em; vertical-align: -0.2em; }
-      .review-card cite { font-style: normal; font-size: 0.86rem; font-weight: 600; color: #333; display: block; margin-bottom: 0.3rem; }
-      .review-meta { font-size: 0.78rem; color: #888; margin: 0; }
-      .review-meta a { color: #555; text-decoration: underline; }
-      .faq-section { background: #fff; border-top: 1px solid #e8e8ee; padding: 5rem 0; }
-      .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #0a0a1a; margin-bottom: 0.75rem; }
-      .section-lead { font-size: 1rem; color: #555; max-width: 660px; line-height: 1.7; margin-bottom: 3rem; }
-      .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-      .faq-item { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
-      .faq-item summary { list-style: none; padding: 1.1rem 1.4rem; font-size: 0.92rem; font-weight: 700; color: #0a0a1a; cursor: pointer; }
-      .faq-answer { padding: 0 1.4rem 1.2rem; font-size: 0.87rem; color: #555; line-height: 1.7; border-top: 1px solid #f0f0f5; }
-      @media (max-width: 900px) {
-        .hero {
-          min-height: auto;
-          padding-top: 72px;
-        }
-        .hero-media img {
-          object-position: center;
-        }
-        .hero-inner {
-          padding: 0 1rem 1.4rem;
-          min-height: calc(100vh - 60px);
-          align-items: end;
-          flex-direction: column;
-          justify-content: flex-end;
-          gap: 1rem;
-        }
-        .hero-text {
-          max-width: 100%;
-          padding: 1.2rem;
-          border-radius: 16px;
-        }
-        .hero h1 {
-          font-size: clamp(1.35rem, 7vw, 2rem);
-          margin-bottom: 0.55rem;
-        }
-        .hero-lead {
-          font-size: 0.86rem;
-          margin-bottom: 1rem;
-        }
-        .hero-actions {
-          width: 100%;
-          gap: 0.7rem;
-        }
-        .btn-primary,
-        .btn-ghost {
-          width: 100%;
-          min-height: 48px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 10px;
-        }
-        .btn-ghost {
-          border: 1px solid rgba(0,0,0,0.22);
-          background: rgba(255,255,255,0.8);
-        }
-        .bkr-inner, .guide-block-inner { grid-template-columns: 1fr; }
-        .faq-grid { grid-template-columns: 1fr; }
-      }
-    </style>
   </head>
   <body>
     <SiteNav />
 
-    <div class="breadcrumb" aria-label="Brödsmulor">
-      <a href="/">Hem</a> <span>›</span>
-      Tjänster <span>›</span>
-      <strong>{`Badrumsrenovering ${content.city}`}</strong>
+    <div class="page-header">
+      <nav class="breadcrumb" aria-label="Brödsmulor">
+        <a href="/">Hem</a> <span>›</span>
+        <span>Tjänster</span> <span>›</span>
+        <strong style="color:var(--ink)">{`Badrumsrenovering ${content.city}`}</strong>
+      </nav>
     </div>
 
-    <section class="hero" aria-label={`Badrumsrenovering ${content.city} - Haga Plattsättning AB`}>
-      <div class="hero-media">
-        <img
-          src={content.hero.imageSrc}
-          alt={content.hero.imageAlt}
-          width="2400"
-          height="1350"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-inner">
-        <div class="hero-text">
-          <h1>Badrumsrenovering <span>{`i ${content.city}`}</span></h1>
-          <p class="hero-lead">{content.hero.lead}</p>
+    <section class="s-hero" aria-label={`Badrumsrenovering ${content.city} - Haga Plattsättning AB`}>
+      <div class="container">
+        <div>
+          <span class="eyebrow">Plattsättare i {content.city}</span>
+          <h1 class="h-display" style="margin-top:18px">Badrumsrenovering<br /><em>{`i ${content.city}`}</em></h1>
+          <p class="lede" style="margin-top:22px">{content.hero.lead}</p>
           <div class="hero-actions">
-            <a href="/offertforfragan/" class="btn-primary">Få kostnadsfri offert →</a>
-            <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
+            <a href="/offertforfragan/" class="btn btn-primary">Få kostnadsfri offert <span class="arrow">→</span></a>
+            <a href="#faq" class="btn-link">Vanliga frågor ↓</a>
           </div>
+        </div>
+        <div class="hero-media">
+          <img
+            src={content.hero.imageSrc}
+            alt={content.hero.imageAlt}
+            width="2400"
+            height="1350"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <span class="reco-badge">
+            <img src="/hagaplattsattningbadge.svg" alt="Reco - Rekommenderat företag två år i rad" width="84" height="84" loading="eager" />
+          </span>
         </div>
       </div>
     </section>
 
-    <section class="bkr-section" aria-label="BKR-behörighet och försäkringsskydd vid badrumsrenovering">
-      <div class="bkr-inner">
-        {content.bkrImageSrc && (
-          <div class="bkr-image">
-            <img
-              src={content.bkrImageSrc}
-              alt={content.bkrImageAlt ?? `BKR-behörig badrumsrenovering i ${content.city}`}
-              width="580"
-              height="480"
-              loading="lazy"
-            />
+    <section class="cert-strip" aria-label="Certifieringar">
+      <span class="item">Behörigt Våtrum</span>
+      <span class="item">Säker Vatten</span>
+      <span class="item">BKR-certifierad</span>
+      <span class="item">F-skatt &amp; försäkrad</span>
+      <span class="item">Kvalitetsdokument</span>
+    </section>
+
+    <section class="s-twocol" aria-label="BKR-behörighet och försäkringsskydd vid badrumsrenovering">
+      <div class="container">
+        <div>
+          <span class="eyebrow section-label">Trygghet och försäkring</span>
+          <h2 class="h-section" style="margin-top:14px">Vad händer om du renoverar badrummet utan <em>kvalitetsdokument?</em></h2>
+          <div class="body-prose" style="margin-top:18px;max-width:54ch">
+            <p>En felaktig våtrumslösning kan bli kostsam. Med dokumenterad BKR-process minskar du risken för ersättningstvist vid skada och får ett badrum som är byggt för lång livslängd.</p>
           </div>
-        )}
-        <div class="bkr-text">
-          <p class="section-label">Trygghet och försäkring</p>
-          <h2>Vad händer om du renoverar badrummet utan kvalitetsdokument?</h2>
-          <p>En felaktig våtrumslösning kan bli kostsam. Med dokumenterad BKR-process minskar du risken för ersättningstvist vid skada och får ett badrum som är byggt för lång livslängd.</p>
           <ul class="bkr-checklist" aria-label="Vad BKR-behörighet ger dig">
             <li>Kvalitetsdokument som krävs av försäkringsbolag</li>
             <li>Tätskikt enligt gällande branschregler och BBV</li>
             <li>Dokumenterad egenkontroll under hela projektet</li>
             <li>Tydlig slutleverans som är enkel att spara till framtida försäljning</li>
           </ul>
-          <a href="/offertforfragan/" class="btn-primary">Boka kostnadsfri offert →</a>
+          <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="/offertforfragan/">Boka kostnadsfri offert <span class="arrow">→</span></a>
+          </div>
         </div>
+        {content.bkrImageSrc && (
+          <div>
+            <div class="media-card">
+              <img
+                src={content.bkrImageSrc}
+                alt={content.bkrImageAlt ?? `BKR-behörig badrumsrenovering i ${content.city}`}
+                width="580"
+                height="480"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
 
     <section class="guide-section" aria-label={`Komplett guide till badrumsrenovering i ${content.city}`}>
       <div class="guide-header">
-        <p class="section-label">{`Guide: Badrumsrenovering ${content.city}`}</p>
-        <h2>{content.guideHeader.title}</h2>
+        <span class="eyebrow section-label">{`Guide: Badrumsrenovering ${content.city}`}</span>
+        <h2 class="h-section" style="margin-top:14px">{content.guideHeader.title}</h2>
         <p set:html={content.guideHeader.introHtml} />
       </div>
 
@@ -375,7 +226,7 @@ const serviceJsonLd = {
             )}
             <div class="guide-text">
               <h3>{block.title}</h3>
-              <div set:html={block.bodyHtml} />
+              <div class="body-prose" set:html={block.bodyHtml} />
             </div>
             {!block.textOnly && block.imageSrc && !block.imageFirst && (
               <div class="guide-image">
@@ -388,16 +239,16 @@ const serviceJsonLd = {
     </section>
 
     {content.reviews && content.reviews.length > 0 && (
-      <section class="reviews-section" aria-label={`Omdömen från Reco om badrumsrenovering i ${content.city}`}>
-        <div class="section-inner">
-          <p class="section-label">Omdömen</p>
-          <h2 class="section-title">Vad våra kunder säger</h2>
-          <p class="section-lead">Verifierade omdömen från <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" rel="external noopener" style="color:#0a0a1a;font-weight:600;">Reco</a> — totalt 4.9 av 5 baserat på 34 omdömen.</p>
+      <section class="section" style="background:var(--paper-2);padding:var(--section-y) 0" aria-label={`Omdömen från Reco om badrumsrenovering i ${content.city}`}>
+        <div class="container">
+          <span class="eyebrow section-label">Omdömen</span>
+          <h2 class="h-section" style="margin-top:14px">Vad våra <em>kunder säger</em></h2>
+          <p class="section-lead" style="margin-top:18px">Verifierade omdömen från <a href="https://www.reco.se/haga-plattsattning-ab-sollentuna" rel="external noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Reco</a> — totalt 4.9 av 5 baserat på 34 omdömen.</p>
           <div class="reviews-grid">
             {content.reviews.map((rev) => (
               <article class="review-card">
                 <div class="review-stars" aria-label={`${rev.rating} av 5 stjärnor`}>
-                  <span class="filled">{'★'.repeat(rev.rating)}</span><span class="empty">{'★'.repeat(5 - rev.rating)}</span>
+                  <span>{'★'.repeat(rev.rating)}</span><span class="empty">{'★'.repeat(5 - rev.rating)}</span>
                 </div>
                 <blockquote>{rev.text}</blockquote>
                 <cite>— {rev.author}</cite>
@@ -405,22 +256,37 @@ const serviceJsonLd = {
               </article>
             ))}
           </div>
+          <div style="margin-top:40px">
+            <iframe
+              src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv"
+              title="Haga Plattsättning AB - Omdömen på Reco"
+              height="225"
+              style="width:100%;border:0;display:block;overflow:hidden;border-radius:16px;"
+              data-reactroot
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </section>
     )}
 
-    <section class="faq-section" id="faq" aria-label={`Vanliga frågor om badrumsrenovering i ${content.city}`}>
-      <div class="section-inner">
-        <p class="section-label">Vanliga frågor</p>
-        <h2 class="section-title">{content.faqTitle}</h2>
-        <p class="section-lead">{content.faqLead}</p>
+    <section class="s-faq" id="faq" aria-label={`Vanliga frågor om badrumsrenovering i ${content.city}`}>
+      <div class="container">
         <div class="faq-grid">
-          {content.faqs.map((faq) => (
-            <details class="faq-item">
-              <summary>{faq.question}</summary>
-              <div class="faq-answer" set:html={faq.answerHtml} />
-            </details>
-          ))}
+          <div>
+            <span class="eyebrow section-label">Vanliga frågor</span>
+            <h2 class="h-section" style="margin-top:14px">{content.faqTitle}</h2>
+            <p class="section-lead" style="margin-top:18px">{content.faqLead}</p>
+            <a href="/offertforfragan/" class="btn btn-secondary" style="margin-top:24px">Fråga oss direkt <span class="arrow">→</span></a>
+          </div>
+          <div class="faq-list">
+            {content.faqs.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.question}<span class="toggle">+</span></summary>
+                <div class="answer faq-answer" set:html={faq.answerHtml} />
+              </details>
+            ))}
+          </div>
         </div>
       </div>
     </section>

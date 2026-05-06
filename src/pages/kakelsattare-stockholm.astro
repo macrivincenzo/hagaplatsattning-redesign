@@ -56,185 +56,14 @@ const localBusinessJsonLd = {
     <meta name="geo.region" content="SE-AB" />
     <meta name="geo.placename" content="Stockholm" />
     <meta name="geo.position" content="59.4281;17.9506" />
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: system-ui, -apple-system, sans-serif; }
-
-    </style>
   </head>
   <body>
 
     <SiteNav />
 
-
     <!-- ══════════════════════════════════════════
          KAKELSÄTTARE STOCKHOLM – SERVICE PAGE
     ══════════════════════════════════════════ -->
-    <style>
-      .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-
-      /* ── BREADCRUMB ── */
-      .breadcrumb { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem 0; font-size: 0.82rem; color: #888; }
-      .breadcrumb a { color: #555; text-decoration: none; transition: color 0.15s; }
-      .breadcrumb a:hover { color: #0a0a1a; }
-      .breadcrumb span { margin: 0 0.4rem; color: #ccc; }
-
-      /* ── HERO ── */
-      .hero {
-        position: relative;
-        min-height: min(78vh, 680px);
-        overflow: hidden;
-        border-bottom: 1px solid #e8e8ee;
-        display: flex;
-        align-items: center;
-        padding-top: 84px;
-      }
-      .hero-media {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-      }
-      .hero-media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 38%;
-        display: block;
-      }
-      .hero-overlay {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background:
-          linear-gradient(90deg, rgba(5, 6, 14, 0.7) 0%, rgba(5, 6, 14, 0.5) 34%, rgba(5, 6, 14, 0.2) 56%, rgba(5, 6, 14, 0.08) 100%),
-          linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.16) 35%, rgba(0, 0, 0, 0.34) 100%);
-      }
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 0 1.5rem 3rem;
-        display: flex;
-        align-items: flex-end;
-      }
-      .hero-text {
-        font-family: Arial, Helvetica, sans-serif;
-        color: #111111;
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid rgba(255, 255, 255, 0.95);
-        border-radius: 20px;
-        backdrop-filter: blur(3px);
-        padding: clamp(1.6rem, 4vw, 2.2rem);
-        max-width: 680px;
-      }
-      .hero h1 { font-size: clamp(1.6rem, 3vw, 2.7rem); font-weight: 700; color: #111111; line-height: 1.18; margin-bottom: 0.7rem; letter-spacing: -0.02em; }
-      .hero h1 span { color: #111111; }
-      .hero-lead { font-size: 0.94rem; color: #222222; line-height: 1.58; margin-bottom: 1.25rem; max-width: 560px; }
-      .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-      .btn-primary { background: #111111; border: 1px solid #111111; color: #ffffff; font-weight: 700; font-size: 0.88rem; padding: 0.72rem 1.3rem; border-radius: 10px; text-decoration: none; transition: transform 0.15s ease, opacity 0.15s ease; white-space: nowrap; }
-      .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-      .btn-ghost { color: #111111; font-size: 0.88rem; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
-      .btn-ghost:hover { color: #000000; }
-      @media (max-width: 800px) {
-        .hero {
-          min-height: auto;
-          padding-top: 72px;
-        }
-        .hero-media img { object-position: center; }
-        .hero-overlay {
-          background: linear-gradient(180deg, rgba(5, 6, 14, 0.48) 0%, rgba(5, 6, 14, 0.54) 48%, rgba(5, 6, 14, 0.72) 100%);
-        }
-        .hero-inner {
-          padding: 0 1rem 1.4rem;
-          min-height: calc(100vh - 60px);
-          align-items: end;
-          flex-direction: column;
-          justify-content: flex-end;
-          gap: 1rem;
-        }
-        .hero-text { max-width: 100%; padding: 1.2rem; border-radius: 16px; }
-        .hero h1 { font-size: clamp(1.35rem, 7vw, 2rem); margin-bottom: 0.55rem; }
-        .hero-lead { font-size: 0.86rem; margin-bottom: 1rem; }
-        .hero-actions { width: 100%; gap: 0.7rem; }
-        .btn-primary, .btn-ghost {
-          width: 100%;
-          justify-content: center;
-          border-radius: 10px;
-          min-height: 48px;
-        }
-        .btn-ghost {
-          border: 1px solid rgba(0,0,0,0.22);
-          background: rgba(255,255,255,0.8);
-        }
-      }
-
-      /* ── SHARED ── */
-      .section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-bottom: 0.6rem; }
-      .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #0a0a1a; margin-bottom: 0.75rem; letter-spacing: -0.02em; line-height: 1.2; }
-      .section-lead { font-size: 1rem; color: #555; max-width: 560px; line-height: 1.7; margin-bottom: 3rem; }
-      .outbound-link { color: #1a5a8a; text-decoration: underline; text-decoration-color: rgba(26,90,138,0.3); transition: text-decoration-color 0.15s; }
-      .outbound-link:hover { text-decoration-color: #1a5a8a; }
-
-      /* ── FAQ ── */
-      .faq-section { background: #ffffff; border-top: 1px solid #e8e8ee; padding: 5rem 0; }
-      .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-      .faq-item { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
-      .faq-item summary { list-style: none; padding: 1.1rem 1.4rem; font-size: 0.92rem; font-weight: 700; color: #0a0a1a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; user-select: none; }
-      .faq-item summary::-webkit-details-marker { display: none; }
-      .faq-item summary::after { content: '+'; font-size: 1.2rem; font-weight: 400; color: #aaa; flex-shrink: 0; transition: transform 0.2s; }
-      .faq-item[open] summary::after { transform: rotate(45deg); }
-      .faq-answer { padding: 0 1.4rem 1.2rem; font-size: 0.87rem; color: #555; line-height: 1.7; border-top: 1px solid #f0f0f5; }
-      @media (max-width: 700px) { .faq-grid { grid-template-columns: 1fr; } }
-
-      /* ── BKR / INSURANCE SECTION ── */
-      .bkr-section { background: #f8f8fb; border-top: 1px solid #e8e8ee; padding: 5rem 0; }
-      .bkr-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; }
-      .bkr-image { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.1); line-height: 0; }
-      .bkr-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
-      .bkr-text h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; color: #0a0a1a; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1.1rem; }
-      .bkr-text p { font-size: 0.95rem; color: #444; line-height: 1.75; margin-bottom: 1rem; }
-      .bkr-checklist { list-style: none; margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: 0.65rem; }
-      .bkr-checklist li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.92rem; color: #222; font-weight: 500; line-height: 1.5; }
-      .bkr-checklist li::before { content: '✓'; color: #2a7a2a; font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
-      .bkr-cta { display: inline-block; background: #0a0a1a; color: #fff; font-weight: 700; font-size: 0.92rem; padding: 0.65rem 1.4rem; border-radius: 7px; text-decoration: none; transition: opacity 0.15s; }
-      .bkr-cta:hover { opacity: 0.82; }
-      .warning-box { background: #fff5f5; border: 1px solid #e8c0c0; border-radius: 8px; padding: 1rem 1.25rem; font-size: 0.88rem; color: #6a1a1a; line-height: 1.65; margin: 1.25rem 0; }
-      .warning-box strong { display: block; margin-bottom: 0.25rem; font-size: 0.9rem; }
-      @media (max-width: 800px) { .bkr-inner { grid-template-columns: 1fr; gap: 2rem; } }
-
-      /* ── DEEP GUIDE ── */
-      .guide-section { background: #ffffff; border-top: 1px solid #e8e8ee; }
-      .guide-header { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem 0; }
-      .guide-header h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #0a0a1a; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.75rem; }
-      .guide-header > p { font-size: 1rem; color: #555; max-width: 640px; line-height: 1.7; }
-      .guide-block { padding: 4rem 0; border-top: 1px solid #e8e8ee; margin-top: 3rem; }
-      .guide-block.gray { background: #f8f8fb; }
-      .guide-block-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 4rem; }
-      .guide-block-inner.text-only { grid-template-columns: 1fr; }
-      .guide-block img { width: 100%; border-radius: 10px; display: block; object-fit: cover; height: 360px; }
-      .guide-text h3 { font-size: clamp(1.2rem, 2.4vw, 1.55rem); font-weight: 700; color: #0a0a1a; letter-spacing: -0.015em; line-height: 1.25; margin-bottom: 1rem; }
-      .guide-text p { font-size: 0.95rem; color: #444; line-height: 1.75; margin-bottom: 0.9rem; }
-      .guide-text p:last-child { margin-bottom: 0; }
-      .price-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 1.25rem 0; border-radius: 8px; overflow: hidden; }
-      .price-table th { background: #0a0a1a; color: #fff; padding: 0.65rem 1rem; text-align: left; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
-      .price-table td { padding: 0.6rem 1rem; border-bottom: 1px solid #e8e8ee; color: #333; background: #fff; }
-      .price-table tr:last-child td { border-bottom: none; }
-      .rot-box { background: #f0f7f0; border: 1px solid #c3dfc3; border-radius: 8px; padding: 1rem 1.25rem; font-size: 0.88rem; color: #1a4a1a; line-height: 1.65; margin-top: 1.1rem; }
-      .rot-box strong { display: block; margin-bottom: 0.25rem; font-size: 0.9rem; }
-      .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.25rem 0; }
-      .scenario-card { background: #f8f8fb; border: 1px solid #e8e8ee; border-radius: 8px; padding: 1.1rem 1.25rem; }
-      .scenario-card strong { display: block; font-size: 0.9rem; color: #0a0a1a; margin-bottom: 0.4rem; }
-      .scenario-card span { font-size: 0.85rem; color: #555; line-height: 1.6; }
-      @media (max-width: 800px) {
-        .guide-block-inner { grid-template-columns: 1fr; gap: 2rem; }
-        .guide-block img { height: 240px; }
-        .img-before-text-mobile { order: -1; }
-        .img-first { order: -1; }
-        .scenario-grid { grid-template-columns: 1fr; }
-      }
-    </style>
 
     <!-- ── BREADCRUMB ── -->
     <div class="breadcrumb" aria-label="Brödsmulor">
@@ -244,28 +73,31 @@ const localBusinessJsonLd = {
     </div>
 
     <!-- ── SECTION 1: HERO ── -->
-    <section class="hero" aria-label="Kakelsättare Stockholm – Haga Plattsättning AB">
-      <div class="hero-media">
-        <img
-          src="/hagaplatt_8.avif"
-          alt="Kakelsättare i Stockholm monterar storformatkakel i badrum – Haga Plattsättning AB"
-          width="2400" height="1350" loading="eager" fetchpriority="high"
-        />
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-inner">
-        <div class="hero-text">
-          <h1>Kakelsättare <span>i Stockholm</span></h1>
-          <p class="hero-lead">
+    <section class="s-hero" aria-label="Kakelsättare Stockholm – Haga Plattsättning AB">
+      <div class="container">
+        <div>
+          <span class="eyebrow">Plattsättare i Stockholm</span>
+          <h1 class="h-display" style="margin-top:18px">Kakelsättare<br /><em>i Stockholm</em></h1>
+          <p class="lede" style="margin-top:22px">
             Att hitta rätt kakelsättare i Stockholm handlar om mer än att jämföra olika alternativ.
             Det handlar om behörighet, erfarenhet och trygghet. Vi på Haga Plattsättning AB
             guidar dig genom vad du bör tänka på – och varför rätt val av hantverkare
             avgör hela slutresultatet.
           </p>
           <div class="hero-actions">
-            <a href="/offertforfragan/" class="btn-primary">Begär kostnadsfri offert →</a>
-            <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
+            <a href="/offertforfragan/" class="btn btn-primary">Begär kostnadsfri offert <span class="arrow">→</span></a>
+            <a href="#faq" class="btn-link">Vanliga frågor ↓</a>
           </div>
+        </div>
+        <div class="hero-media">
+          <img
+            src="/hagaplatt_8.avif"
+            alt="Kakelsättare i Stockholm monterar storformatkakel i badrum – Haga Plattsättning AB"
+            width="2400"
+            height="1350"
+            loading="eager"
+            fetchpriority="high"
+          />
         </div>
       </div>
     </section>
@@ -360,7 +192,7 @@ const localBusinessJsonLd = {
           </div>
           <div class="img-before-text-mobile">
             <img
-              src="/haga%20platts%C3%A4ttning%20bild%201.avif"
+              src="/hagaplattsattningbild.avif"
               alt="Kakelsättare i Stockholm applicerar storformatkakel med precisionsteknik"
               width="580" height="360" loading="lazy"
             />
@@ -373,7 +205,7 @@ const localBusinessJsonLd = {
         <div class="guide-block-inner">
           <div class="img-first">
             <img
-              src="/haga%20platts%C3%A4ttning%20bild%202.avif"
+              src="/hagaplattsattningbild3.avif"
               alt="Professionell kakelsättning i Stockholm med fokus på planering och kvalitet"
               width="580" height="360" loading="lazy"
             />
@@ -433,7 +265,7 @@ const localBusinessJsonLd = {
           </div>
           <div>
             <img
-              src="/haga%20platts%C3%A4ttning%20bild%204.avif"
+              src="/hagaplattsattningbild4.avif"
               alt="Verifierad kakelsättare i Stockholm kontrollerar tätskikt innan montering"
               width="580" height="360" loading="lazy"
             />

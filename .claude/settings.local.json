@@ -3,7 +3,19 @@
     "allow": [
       "Bash(grep -E \".astro$\")",
       "Bash(git *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(mkdir -p /tmp/design-extract)",
+      "Bash(tar -xzf \"C:\\\\Users\\\\ASUS\\\\.claude\\\\projects\\\\C--Users-ASUS-OneDrive-Skrivbord-hagaplatsattning-redesign\\\\c3177399-f36b-4bba-ae91-da3613ce0ec3\\\\tool-results\\\\webfetch-1778052766838-oktgl5.bin\" -C /tmp/design-extract)",
+      "Read(//tmp/**)",
+      "Bash(cp \"/c/Users/ASUS/.claude/projects/C--Users-ASUS-OneDrive-Skrivbord-hagaplatsattning-redesign/c3177399-f36b-4bba-ae91-da3613ce0ec3/tool-results/webfetch-1778052766838-oktgl5.bin\" /tmp/design-extract/design.tar.gz)",
+      "Bash(tar -xzf design.tar.gz)",
+      "Bash(cygpath *)",
+      "Bash(awk 'NR<59 || \\(NR>63 && NR<73\\) || NR>233' src/pages/koksrenovering-stockholm.astro)",
+      "Bash(awk 'NR<44 || NR>358' src/pages/referensprojekt.astro)",
+      "Bash(npm install *)",
+      "Bash(curl -s http://localhost:4321/)",
+      "Bash(curl -s http://localhost:4321/design.css)"
     ]
   }
 }

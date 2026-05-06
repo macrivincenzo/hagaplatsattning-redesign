@@ -104,7 +104,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         title: 'Bostadsrätt i innerstan vs villa i ytterområden - vad skiljer?',
         bodyHtml:
           '<p>I innerstadens bostadsrätter ansvarar du för ytskikt och tätskikt, medan föreningen ofta ställer detaljerade krav på bullertider, rivningsanmälan och intyg efter avslutat arbete.</p><p>I villaområden som Bromma och Hässelby har du större frihet, men också fullt ansvar om något blir fel. Därför är BKR-dokumentation lika viktig i villa som i BRF.</p><p>Vi anpassar arbetsmetod, tidplan och avfallshantering utifrån fastighetstyp och adress.</p>',
-        imageSrc: '/haga%20platts%C3%A4ttning%20bild%201.avif',
+        imageSrc: '/hagaplattsattningbild1.avif',
         imageAlt:
           'Badrumsrenovering i bostadsratt i Stockholm med noggrann kakelsattning',
       },
@@ -112,7 +112,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         title: 'Varfor tar badrumsrenovering ofta lite langre tid i centrala Stockholm?',
         bodyHtml:
           '<p>Det ar sallan sjalva kakelsattningen som forlangs - det ar logistiken runtomkring som styr tempo.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Materialbarning via trapphus utan hiss</li><li>Begransade arbetstider i BRF (ofta 07-17 vardagar)</li><li>Bokning av hissskydd, garageplats eller containerplats</li><li>Hardningstid for tätskikt mellan arbetsmoment</li></ul><p>Vi bygger alltid in dessa risker i tidsplanen innan start, sa att du far realistiska deadlines.</p><div style="padding-top:1rem;"><iframe src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv" title="Haga Plattsättning AB - Omdömen på Reco" height="225" style="width:100%;border:0;display:block;overflow:hidden;" data-reactroot loading="lazy"></iframe></div>',
-        imageSrc: '/haga%20platts%C3%A4ttning%20bild%202.avif',
+        imageSrc: '/hagaplattsattningbild2.avif',
         imageAlt:
           'Planering av badrumsrenovering i centrala Stockholm med logistik och material',
         gray: true,

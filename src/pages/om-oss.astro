@@ -40,108 +40,32 @@ import SiteNav from '../components/SiteNav.astro';
     <meta name="geo.region" content="SE-AB" />
     <meta name="geo.placename" content="Stockholm" />
     <meta name="geo.position" content="59.4281;17.9506" />
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: system-ui, -apple-system, sans-serif; }
-
-    </style>
   </head>
   <body>
 
     <SiteNav />
 
-    <!-- ══════════════════════════════════════════
-         OM OSS
-    ══════════════════════════════════════════ -->
-    <style>
-      .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-      .breadcrumb { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem 0; font-size: 0.82rem; color: #888; }
-      .breadcrumb a { color: #555; text-decoration: none; transition: color 0.15s; }
-      .breadcrumb a:hover { color: #0a0a1a; }
-      .breadcrumb span { margin: 0 0.4rem; color: #ccc; }
-      .hero { background: #ffffff; overflow: hidden; border-bottom: 1px solid #e8e8ee; }
-      .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr 1fr; align-items: center; min-height: 480px; gap: 3rem; }
-      .hero-text { padding: 3.5rem 0; }
-      .hero h1 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 800; color: #0a0a1a; line-height: 1.15; margin-bottom: 1.1rem; letter-spacing: -0.02em; }
-      .hero h1 span { color: #444; }
-      .hero-lead { font-size: 1.05rem; color: #444; line-height: 1.7; margin-bottom: 2rem; max-width: 520px; }
-      .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-      .btn-primary { background: #0a0a1a; color: #ffffff; font-weight: 700; font-size: 0.95rem; padding: 0.75rem 1.6rem; border-radius: 7px; text-decoration: none; transition: opacity 0.15s; white-space: nowrap; }
-      .btn-primary:hover { opacity: 0.82; }
-      .btn-ghost { color: #555; font-size: 0.92rem; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
-      .btn-ghost:hover { color: #0a0a1a; }
-      .hero-image { height: 100%; min-height: 360px; position: relative; overflow: hidden; }
-      .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-      .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, #ffffff 0%, transparent 35%); pointer-events: none; }
-      @media (max-width: 800px) {
-        .hero-inner { grid-template-columns: 1fr; min-height: auto; }
-        .hero-image { min-height: 240px; }
-        .hero-image::after { background: linear-gradient(to bottom, transparent 60%, #ffffff 100%); }
-        .hero-text { padding: 2.5rem 0 1.5rem; }
-      }
-      .section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-bottom: 0.6rem; }
-      .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #0a0a1a; margin-bottom: 0.75rem; letter-spacing: -0.02em; line-height: 1.2; }
-      .section-lead { font-size: 1rem; color: #555; max-width: 640px; line-height: 1.7; margin-bottom: 1.5rem; }
-      .outbound-link { color: #1a5a8a; text-decoration: underline; text-decoration-color: rgba(26,90,138,0.3); transition: text-decoration-color 0.15s; }
-      .outbound-link:hover { text-decoration-color: #1a5a8a; }
-      .content-section { padding: 4rem 0; border-top: 1px solid #e8e8ee; background: #fff; }
-      .content-section.alt { background: #f8f8fb; }
-      .prose-block p { font-size: 0.95rem; color: #444; line-height: 1.75; margin-bottom: 1rem; }
-      .prose-block p:last-child { margin-bottom: 0; }
-      .placeholder-note { font-size: 0.92rem; color: #666; font-style: italic; border-left: 3px solid #ccc; padding-left: 1rem; margin-top: 1rem; }
-      .bkr-section { background: #f8f8fb; border-top: 1px solid #e8e8ee; padding: 4rem 0; }
-      .bkr-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 3rem; }
-      .bkr-image { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.1); line-height: 0; }
-      .bkr-image img { width: 100%; height: auto; object-fit: cover; display: block; border-radius: 12px; }
-      .bkr-text h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; color: #0a0a1a; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
-      .bkr-text h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 700; color: #0a0a1a; margin: 2rem 0 0.75rem; letter-spacing: -0.015em; line-height: 1.25; }
-      .bkr-text h3:first-of-type { margin-top: 1.25rem; }
-      .bkr-text p { font-size: 0.95rem; color: #444; line-height: 1.75; margin-bottom: 0.9rem; }
-      .sv-image-wrap { margin: 1.25rem 0 1.5rem; max-width: 160px; line-height: 0; }
-      .sv-image-wrap img { width: 100%; height: auto; display: block; }
-      .tjanst-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 1.25rem; }
-      .tjanst-card { background: #f8f8fb; border: 1px solid #e8e8ee; border-radius: 8px; padding: 1.1rem 1.25rem; text-decoration: none; transition: border-color 0.15s, background 0.15s; display: block; }
-      .tjanst-card:hover { border-color: #c0c0d0; background: #f0f0f8; }
-      .tjanst-card strong { display: block; font-size: 0.92rem; color: #0a0a1a; margin-bottom: 0.3rem; }
-      .tjanst-card span { font-size: 0.84rem; color: #666; line-height: 1.55; }
-      .area-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-      .area-tag { background: #f0f0f8; border: 1px solid #e0e0ee; border-radius: 20px; padding: 0.3rem 0.85rem; font-size: 0.84rem; color: #444; white-space: nowrap; }
-      @media (max-width: 600px) { .tjanst-grid { grid-template-columns: 1fr; } }
-      .faq-section { background: #ffffff; border-top: 1px solid #e8e8ee; padding: 4rem 0 5rem; }
-      .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-      .faq-item { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
-      .faq-item summary { list-style: none; padding: 1.1rem 1.4rem; font-size: 0.92rem; font-weight: 700; color: #0a0a1a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; user-select: none; }
-      .faq-item summary::-webkit-details-marker { display: none; }
-      .faq-item summary::after { content: '+'; font-size: 1.2rem; font-weight: 400; color: #aaa; flex-shrink: 0; transition: transform 0.2s; }
-      .faq-item[open] summary::after { transform: rotate(45deg); }
-      .faq-answer { padding: 0 1.4rem 1.2rem; font-size: 0.87rem; color: #555; line-height: 1.7; border-top: 1px solid #f0f0f5; }
-      .sv-section { background: #f8f8fb; border-top: 1px solid #e8e8ee; padding: 3.5rem 0 4rem; }
-      .sv-inner { max-width: 1060px; margin: 0 auto; padding: 0 1.5rem; display: grid; grid-template-columns: 220px 1fr; gap: 3.5rem; align-items: center; }
-      .sv-logo { display: flex; align-items: center; justify-content: center; }
-      .sv-logo img { width: 100%; max-width: 200px; height: auto; display: block; }
-      .sv-text h2 { margin-bottom: 0.75rem; }
-      .sv-text p { font-size: 0.95rem; color: #444; line-height: 1.75; margin-bottom: 0.9rem; }
-      @media (max-width: 800px) { .bkr-inner { grid-template-columns: 1fr; gap: 2rem; } .sv-inner { grid-template-columns: 1fr; gap: 1.75rem; } .sv-logo { justify-content: flex-start; } .faq-grid { grid-template-columns: 1fr; } }
-    </style>
-
-    <div class="breadcrumb" aria-label="Brödsmulor">
-      <a href="/">Hem</a> <span>›</span>
-      <strong>Om oss</strong>
+    <div class="page-header">
+      <nav class="breadcrumb" aria-label="Brödsmulor">
+        <a href="/">Hem</a> <span>›</span>
+        <strong style="color:var(--ink)">Om oss</strong>
+      </nav>
     </div>
 
-    <section class="hero" aria-label="Om Haga Plattsättning AB">
-      <div class="hero-inner">
-        <div class="hero-text">
-          <h1>Om Haga Plattsättning AB <span>– Certifierad Plattsättare i Stockholm sedan 2021</span></h1>
-          <p class="hero-lead">
+    <section class="s-hero" aria-label="Om Haga Plattsättning AB">
+      <div class="container">
+        <div>
+          <span class="eyebrow">Sedan 2021 · Stockholm</span>
+          <h1 class="h-display" style="margin-top:18px">Om Haga Plattsättning AB <em>– certifierad plattsättare i Stockholm sedan 2021</em></h1>
+          <p class="lede" style="margin-top:22px">
             BKR-behöriga och PER-auktoriserade plattsättare med fokus på dokumentation, BBV och trygghet i varje projekt.
           </p>
           <div class="hero-actions">
-            <a href="/offertforfragan/" class="btn-primary">Begär offert →</a>
-            <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
+            <a href="/offertforfragan/" class="btn btn-primary">Begär offert <span class="arrow">→</span></a>
+            <a href="#faq" class="btn-link">Vanliga frågor ↓</a>
           </div>
         </div>
-        <div class="hero-image">
+        <div class="hero-media">
           <img
             src="/haga%20platts%C3%A4ttning%20bild%205.avif"
             alt="Haga Plattsättning AB – certifierad kakelsättning och badrumsrenovering i Stockholm sedan 2021"
@@ -151,136 +75,167 @@ import SiteNav from '../components/SiteNav.astro';
       </div>
     </section>
 
-    <section class="content-section" aria-labelledby="vilka-ar-vi">
-      <div class="section-inner prose-block">
-        <h2 class="section-title" id="vilka-ar-vi">Vilka är vi</h2>
-        <p>
-          Haga Plattsättning AB grundades 2021 med en tydlig ambition: att utföra kakelsättning och badrumsrenovering i Stockholm med högsta krav på dokumentation och fackmässigt utförande. Vi är ett specialiserat plattsättarföretag — inte ett allmänt byggföretag — med fullt fokus på kakel, klinker och våtrum.
-        </p>
-      </div>
-    </section>
-
-    <section class="bkr-section" aria-labelledby="cert-rubrik">
-      <div class="bkr-inner">
-        <div class="bkr-image">
-          <img
-            src="/behorig-vatrum.avif"
-            alt="BKR-behörig plattsättare och PER-auktoriserat plattsättningsföretag – Haga Plattsättning AB Stockholm"
-            width="580" height="480" loading="lazy"
-          />
-        </div>
-        <div class="bkr-text">
-          <h2 class="section-title" id="cert-rubrik" style="margin-bottom:0.75rem;">Våra certifieringar</h2>
-          <p>
-            Vi är ett av få plattsättningsföretag i Stockholm som innehar både BKR-behörighet och PER-auktorisation. Dessa certifieringar är inte obligatoriska — men de är den starkaste garantin du som kund kan begära.
-          </p>
-
-          <h3>BKR — Byggkeramikrådet</h3>
-          <p>
-            Haga Plattsättning AB är behörigt plattsättningsföretag enligt Byggkeramikrådet (BKR). Det innebär att vi arbetar strikt enligt BBV — Branschregler för Våtrum — och efter varje avslutad badrumsrenovering utfärdar vi ett officiellt kvalitetsdokument (Bilaga A till BBV) som undertecknas elektroniskt med BankID av ansvarig arbetsledare.
-          </p>
-          <p>
-            Varför spelar det roll för dig som kund? Om en vattenskada uppstår och du inte kan visa att renoveringen är fackmässigt dokumenterad kan ditt försäkringsbolag avvisa skadan. BKR-dokumentet är ditt bevis. Det höjer även värdet på din bostad och är ett krav som många bostadsrättsföreningar ställer.
-          </p>
-          <p>
-            <a href="https://www.bkr.se" class="outbound-link" rel="noopener" target="_blank">Läs mer om BKR på bkr.se</a>
-          </p>
-
-          <h3>PER — Plattsättarnas Riksförbund</h3>
-          <p>
-            Vi är även auktoriserade enligt PER — Plattsättarnas Riksförbund. PER-auktorisationen är en frivillig kvalitetscertifiering som kräver dokumenterad erfarenhet, genomgången utbildning i ekonomi, juridik, teknik och kvalitet, samt fortbildning vartannat år.
-          </p>
-          <p>
-            PER-auktorisationen inkluderar en garantifond som träder in och skyddar konsumentens rätt om ett auktoriserat företag inte fullgör sitt åtagande. Det är en extra trygghet utöver vår ansvarsförsäkring.
-          </p>
-
+    <section class="section" aria-labelledby="vilka-ar-vi">
+      <div class="container">
+        <div style="max-width:72ch">
+          <span class="eyebrow section-label">Vilka är vi</span>
+          <h2 class="h-section" id="vilka-ar-vi" style="margin-top:14px">Vilka är vi</h2>
+          <div class="body-prose" style="margin-top:18px">
+            <p>
+              Haga Plattsättning AB grundades 2021 med en tydlig ambition: att utföra kakelsättning och badrumsrenovering i Stockholm med högsta krav på dokumentation och fackmässigt utförande. Vi är ett specialiserat plattsättarföretag — inte ett allmänt byggföretag — med fullt fokus på kakel, klinker och våtrum.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="sv-section" aria-labelledby="saker-vatten-rubrik">
-      <div class="sv-inner">
-        <div class="sv-logo">
-          <img
-            src="/saeker-vatten-rgb-png.avif"
-            alt="Säker Vatten certifiering – Haga Plattsättning anlitar enbart Säker Vatten-certifierade rörmokare vid badrumsrenovering i Stockholm"
-            width="240" height="240" loading="lazy"
-          />
+    <section class="s-twocol gray" aria-labelledby="cert-rubrik">
+      <div class="container">
+        <div>
+          <span class="eyebrow section-label">Våra certifieringar</span>
+          <h2 class="h-section" id="cert-rubrik" style="margin-top:14px">Våra <em>certifieringar</em></h2>
+          <div class="body-prose" style="margin-top:18px">
+            <p>
+              Vi är ett av få plattsättningsföretag i Stockholm som innehar både BKR-behörighet och PER-auktorisation. Dessa certifieringar är inte obligatoriska — men de är den starkaste garantin du som kund kan begära.
+            </p>
+            <h3 class="h-sub" style="margin-top:28px">BKR — Byggkeramikrådet</h3>
+            <p>
+              Haga Plattsättning AB är behörigt plattsättningsföretag enligt Byggkeramikrådet (BKR). Det innebär att vi arbetar strikt enligt BBV — Branschregler för Våtrum — och efter varje avslutad badrumsrenovering utfärdar vi ett officiellt kvalitetsdokument (Bilaga A till BBV) som undertecknas elektroniskt med BankID av ansvarig arbetsledare.
+            </p>
+            <p>
+              Varför spelar det roll för dig som kund? Om en vattenskada uppstår och du inte kan visa att renoveringen är fackmässigt dokumenterad kan ditt försäkringsbolag avvisa skadan. BKR-dokumentet är ditt bevis. Det höjer även värdet på din bostad och är ett krav som många bostadsrättsföreningar ställer.
+            </p>
+            <p>
+              <a href="https://www.bkr.se" rel="noopener" target="_blank" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Läs mer om BKR på bkr.se</a>
+            </p>
+            <h3 class="h-sub" style="margin-top:28px">PER — Plattsättarnas Riksförbund</h3>
+            <p>
+              Vi är även auktoriserade enligt PER — Plattsättarnas Riksförbund. PER-auktorisationen är en frivillig kvalitetscertifiering som kräver dokumenterad erfarenhet, genomgången utbildning i ekonomi, juridik, teknik och kvalitet, samt fortbildning vartannat år.
+            </p>
+            <p>
+              PER-auktorisationen inkluderar en garantifond som träder in och skyddar konsumentens rätt om ett auktoriserat företag inte fullgör sitt åtagande. Det är en extra trygghet utöver vår ansvarsförsäkring.
+            </p>
+          </div>
         </div>
-        <div class="sv-text">
-          <h2 class="section-title" id="saker-vatten-rubrik" style="margin-bottom:0.75rem;">Säker Vatten</h2>
-          <p>
-            Badrumsrenovering kräver i de flesta fall rörmokararbeten — byte av golvbrunn, flytt av avlopp eller VA-anslutningar. Vi anlitar enbart rörmokare som är certifierade enligt Säker Vatten.
-          </p>
-          <p>
-            Säker Vatten är en branschstandard framtagen av VVS-branschen tillsammans med försäkringsbolag för att säkerställa att vatteninstallationer är korrekt utförda. En rörmokare utan Säker Vatten-certifiering kan utföra arbete som inte täcks av din hemförsäkring. Det är ett ansvar vi tar på allvar — du ska aldrig behöva oroa dig för vilket VVS-företag vi anlitar.
-          </p>
-          <p>
-            <a href="https://www.sakervattensverige.se" class="outbound-link" rel="noopener" target="_blank">Läs mer om Säker Vatten på sakervattensverige.se</a>
-          </p>
+        <div>
+          <div class="media-card">
+            <img
+              src="/behorig-vatrum.avif"
+              alt="BKR-behörig plattsättare och PER-auktoriserat plattsättningsföretag – Haga Plattsättning AB Stockholm"
+              width="580" height="480" loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="content-section alt" id="tjanster" aria-labelledby="vara-tjanster">
-      <div class="section-inner prose-block">
-        <h2 class="section-title" id="vara-tjanster">Våra tjänster</h2>
-        <p>
+    <section class="section" style="background:var(--paper)" aria-labelledby="saker-vatten-rubrik">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:center;max-width:1060px;margin:0 auto">
+          <div>
+            <img
+              src="/saeker-vatten-rgb-png.avif"
+              alt="Säker Vatten certifiering – Haga Plattsättning anlitar enbart Säker Vatten-certifierade rörmokare vid badrumsrenovering i Stockholm"
+              width="240" height="240" loading="lazy"
+              style="width:100%;max-width:200px;height:auto"
+            />
+          </div>
+          <div>
+            <span class="eyebrow section-label">Säker Vatten</span>
+            <h2 class="h-section" id="saker-vatten-rubrik" style="margin-top:14px">Säker Vatten</h2>
+            <div class="body-prose" style="margin-top:18px">
+              <p>
+                Badrumsrenovering kräver i de flesta fall rörmokararbeten — byte av golvbrunn, flytt av avlopp eller VA-anslutningar. Vi anlitar enbart rörmokare som är certifierade enligt Säker Vatten.
+              </p>
+              <p>
+                Säker Vatten är en branschstandard framtagen av VVS-branschen tillsammans med försäkringsbolag för att säkerställa att vatteninstallationer är korrekt utförda. En rörmokare utan Säker Vatten-certifiering kan utföra arbete som inte täcks av din hemförsäkring. Det är ett ansvar vi tar på allvar — du ska aldrig behöva oroa dig för vilket VVS-företag vi anlitar.
+              </p>
+              <p>
+                <a href="https://www.sakervattensverige.se" rel="noopener" target="_blank" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Läs mer om Säker Vatten på sakervattensverige.se</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tjanster" style="background:var(--paper-2);padding:var(--section-y) 0" aria-labelledby="vara-tjanster">
+      <div class="container">
+        <span class="eyebrow section-label">Våra tjänster</span>
+        <h2 class="h-section" id="vara-tjanster" style="margin-top:14px">Våra <em>tjänster</em></h2>
+        <p class="section-lead" style="margin-top:18px">
           Vi hjälper dig med hela kedjan från planering till färdigställt våtrumsdokument — välj sida för mer detaljer om process och utförande.
         </p>
-        <div class="tjanst-grid">
-          <a href="/badrumsrenovering-stockholm/" class="tjanst-card">
-            <strong>Badrumsrenovering Stockholm</strong>
-            <span>Komplett renovering med BKR-intyg och garanti.</span>
+        <div class="proj-grid" style="margin-top:32px">
+          <a href="/badrumsrenovering-stockholm/" class="proj-card">
+            <div class="body">
+              <span class="meta">Tjänst</span>
+              <h3>Badrumsrenovering <em>Stockholm</em></h3>
+              <p>Komplett renovering med BKR-intyg och garanti.</p>
+              <span class="more">Läs mer →</span>
+            </div>
           </a>
-          <a href="/kakelsattare-stockholm/" class="tjanst-card">
-            <strong>Kakelsättare Stockholm</strong>
-            <span>Certifierad kakelsättning av kakel och klinker i badrum och kök.</span>
+          <a href="/kakelsattare-stockholm/" class="proj-card">
+            <div class="body">
+              <span class="meta">Tjänst</span>
+              <h3>Kakelsättare <em>Stockholm</em></h3>
+              <p>Certifierad kakelsättning av kakel och klinker i badrum och kök.</p>
+              <span class="more">Läs mer →</span>
+            </div>
           </a>
-          <a href="/koksrenovering-stockholm/" class="tjanst-card">
-            <strong>Köksrenovering Stockholm</strong>
-            <span>Kakel, klinker och stänkskydd i kök med professionellt utförande.</span>
+          <a href="/koksrenovering-stockholm/" class="proj-card">
+            <div class="body">
+              <span class="meta">Tjänst</span>
+              <h3>Köksrenovering <em>Stockholm</em></h3>
+              <p>Kakel, klinker och stänkskydd i kök med professionellt utförande.</p>
+              <span class="more">Läs mer →</span>
+            </div>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="faq-section" id="faq" aria-label="Vanliga frågor om oss">
-      <div class="section-inner">
-        <p class="section-label">Vanliga frågor om oss</p>
-        <h2 class="section-title">Vanliga frågor om oss</h2>
-        <p class="section-lead">Korta svar om BKR, PER, Säker Vatten och hur vi arbetar.</p>
+    <section class="s-faq" id="faq" aria-label="Vanliga frågor om oss">
+      <div class="container">
         <div class="faq-grid">
-          <details class="faq-item">
-            <summary>Vad innebär BKR-behörighet för en plattsättare?</summary>
-            <div class="faq-answer">
-              Det innebär att företaget är behörigt enligt Byggkeramikrådet, arbetar enligt BBV och kan utfärda Bilaga A till BBV med BankID efter badrumsrenovering — dokumentation som försäkringsbolag och många BRF:er kräver vid en skada eller försäljning.
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Vad är PER-auktorisation?</summary>
-            <div class="faq-answer">
-              En frivillig kvalitetscertifiering via Plattsättarnas Riksförbund med krav på utbildning, erfarenhet och fortbildning vartannat år, samt tillgång till en garantifond som skyddar dig om företaget inte fullföljer åtagandet.
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Varför kräver ni att rörmokaren har Säker Vatten?</summary>
-            <div class="faq-answer">
-              VVS-arbeten i våtrum måste vara fackmässigt utförda; Säker Vatten är branschstandarden som samordnar med försäkringsbolag. Utan certifierad installatör riskerar du att arbetet inte täcks av hemförsäkringen.
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Kan jag använda ROT-avdrag för kakelsättning?</summary>
-            <div class="faq-answer">
-              Ja. ROT-avdraget gäller för arbete utfört i din bostad, inklusive kakelsättning och badrumsrenovering. Enligt gällande regler är avdraget 30 % av arbetskostnaden. Vi hanterar ROT-ansökan direkt mot Skatteverket.
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Var arbetar ni?</summary>
-            <div class="faq-answer">
-              Vi arbetar i hela Stockholms län.
-            </div>
-          </details>
+          <div>
+            <span class="eyebrow section-label">Vanliga frågor om oss</span>
+            <h2 class="h-section" style="margin-top:14px">Vanliga frågor om oss</h2>
+            <p class="section-lead" style="margin-top:18px">Korta svar om BKR, PER, Säker Vatten och hur vi arbetar.</p>
+            <a href="/offertforfragan/" class="btn btn-secondary" style="margin-top:24px">Fråga oss direkt <span class="arrow">→</span></a>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Vad innebär BKR-behörighet för en plattsättare?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                Det innebär att företaget är behörigt enligt Byggkeramikrådet, arbetar enligt BBV och kan utfärda Bilaga A till BBV med BankID efter badrumsrenovering — dokumentation som försäkringsbolag och många BRF:er kräver vid en skada eller försäljning.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Vad är PER-auktorisation?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                En frivillig kvalitetscertifiering via Plattsättarnas Riksförbund med krav på utbildning, erfarenhet och fortbildning vartannat år, samt tillgång till en garantifond som skyddar dig om företaget inte fullföljer åtagandet.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Varför kräver ni att rörmokaren har Säker Vatten?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                VVS-arbeten i våtrum måste vara fackmässigt utförda; Säker Vatten är branschstandarden som samordnar med försäkringsbolag. Utan certifierad installatör riskerar du att arbetet inte täcks av hemförsäkringen.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Kan jag använda ROT-avdrag för kakelsättning?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                Ja. ROT-avdraget gäller för arbete utfört i din bostad, inklusive kakelsättning och badrumsrenovering. Enligt gällande regler är avdraget 30 % av arbetskostnaden. Vi hanterar ROT-ansökan direkt mot Skatteverket.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Var arbetar ni?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                Vi arbetar i hela Stockholms län.
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </section>

@@ -56,554 +56,82 @@ const localBusinessJsonLd = {
     <meta name="geo.region" content="SE-AB" />
     <meta name="geo.placename" content="Stockholm" />
     <meta name="geo.position" content="59.4281;17.9506" />
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: system-ui, -apple-system, sans-serif; }
-    </style>
   </head>
   <body>
 
     <SiteNav />
 
-    <!-- ══════════════════════════════════════════
-         HOMEPAGE SECTIONS
-    ══════════════════════════════════════════ -->
-    <style>
-      /* ── SHARED ── */
-      .section-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-      }
-
-      /* ── HERO ── */
-      .hero {
-        position: relative;
-        min-height: min(78vh, 680px);
-        overflow: hidden;
-        border-bottom: 1px solid #e8e8ee;
-        display: flex;
-        align-items: center;
-        padding-top: 84px;
-      }
-      .hero-media {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-      }
-      .hero-media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 38%;
-        display: block;
-      }
-      .hero-overlay {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background:
-          linear-gradient(90deg, rgba(5, 6, 14, 0.7) 0%, rgba(5, 6, 14, 0.5) 34%, rgba(5, 6, 14, 0.2) 56%, rgba(5, 6, 14, 0.08) 100%),
-          linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.16) 35%, rgba(0, 0, 0, 0.34) 100%);
-      }
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 0 1.5rem 3rem;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 2rem;
-      }
-      .hero-text {
-        font-family: Arial, Helvetica, sans-serif;
-        color: #111111;
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid rgba(255, 255, 255, 0.95);
-        border-radius: 20px;
-        backdrop-filter: blur(3px);
-        padding: clamp(1.6rem, 4vw, 2.2rem);
-        max-width: 680px;
-        position: relative;
-      }
-      .hero h1 {
-        font-size: clamp(1.6rem, 3vw, 2.7rem);
-        font-weight: 700;
-        color: #111111;
-        line-height: 1.18;
-        margin-bottom: 0.7rem;
-        letter-spacing: -0.02em;
-      }
-      .hero h1 span { color: #111111; }
-      .hero-lead {
-        font-size: 0.94rem;
-        color: #222222;
-        line-height: 1.58;
-        margin-bottom: 1.25rem;
-        max-width: 560px;
-      }
-      .hero-actions {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-      .btn-primary {
-        background: #111111;
-        border: 1px solid #111111;
-        color: #111111;
-        font-weight: 700;
-        font-size: 0.88rem;
-        padding: 0.72rem 1.3rem;
-        border-radius: 10px;
-        text-decoration: none;
-        transition: transform 0.15s ease, opacity 0.15s ease;
-        white-space: nowrap;
-      }
-      .btn-primary { color: #ffffff; }
-      .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-      .btn-ghost {
-        color: #111111;
-        font-size: 0.88rem;
-        font-weight: 500;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        transition: color 0.15s;
-      }
-      .btn-ghost:hover { color: #000000; }
-      .hero-badges {
-        position: absolute;
-        right: 1.5rem;
-        bottom: 1.2rem;
-        z-index: 3;
-        display: block;
-      }
-      .hero-badge {
-        border-radius: 999px;
-        background: transparent;
-        padding: 0;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.22);
-        line-height: 0;
-      }
-      .hero-badge img {
-        width: 138px;
-        height: auto;
-        display: block;
-      }
-      .hero-badge-mobile {
-        display: none;
-      }
-      @media (max-width: 800px) {
-        .hero {
-          min-height: auto;
-          padding-top: 72px;
-        }
-        .hero-media img {
-          object-position: center;
-        }
-        .hero-overlay {
-          background:
-            linear-gradient(180deg, rgba(5, 6, 14, 0.48) 0%, rgba(5, 6, 14, 0.54) 48%, rgba(5, 6, 14, 0.72) 100%);
-        }
-        .hero-inner {
-          padding: 0 1rem 1.4rem;
-          min-height: calc(100vh - 60px);
-          align-items: end;
-          flex-direction: column;
-          justify-content: flex-end;
-          gap: 1rem;
-        }
-        .hero-text {
-          max-width: 100%;
-          padding: 1.2rem;
-          border-radius: 16px;
-        }
-        .hero h1 {
-          font-size: clamp(1.35rem, 7vw, 2rem);
-          margin-bottom: 0.55rem;
-        }
-        .hero-lead {
-          font-size: 0.86rem;
-          margin-bottom: 1rem;
-        }
-        .hero-actions {
-          width: 100%;
-          gap: 0.7rem;
-        }
-        .btn-primary,
-        .btn-ghost {
-          width: 100%;
-          justify-content: center;
-          border-radius: 10px;
-          min-height: 48px;
-        }
-        .btn-ghost {
-          border: 1px solid rgba(0,0,0,0.22);
-          background: rgba(255,255,255,0.8);
-        }
-        .hero-badges {
-          display: none;
-        }
-        .hero-badge-mobile {
-          display: block;
-          position: static;
-          z-index: 4;
-          align-self: flex-start;
-          margin: 0 0 0.75rem 0.65rem;
-          filter: drop-shadow(0 8px 14px rgba(0,0,0,0.2));
-        }
-        .hero-badge-mobile img {
-          width: 114px;
-          height: auto;
-          display: block;
-        }
-      }
-
-      /* ── FAQ ── */
-      .section-label {
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: #888;
-        margin-bottom: 0.6rem;
-      }
-      .section-title {
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
-        font-weight: 800;
-        color: #0a0a1a;
-        margin-bottom: 0.75rem;
-        letter-spacing: -0.02em;
-        line-height: 1.2;
-      }
-      .section-lead {
-        font-size: 1rem;
-        color: #555;
-        max-width: 560px;
-        line-height: 1.7;
-        margin-bottom: 3rem;
-      }
-      .faq-section {
-        background: #ffffff;
-        border-top: 1px solid #e8e8ee;
-        padding: 5rem 0;
-      }
-      .faq-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-      .faq-item {
-        background: #fff;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-      }
-      .faq-item summary {
-        list-style: none;
-        padding: 1.1rem 1.4rem;
-        font-size: 0.92rem;
-        font-weight: 700;
-        color: #0a0a1a;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-        user-select: none;
-      }
-      .faq-item summary::-webkit-details-marker { display: none; }
-      .faq-item summary::after {
-        content: '+';
-        font-size: 1.2rem;
-        font-weight: 400;
-        color: #aaa;
-        flex-shrink: 0;
-        transition: transform 0.2s;
-      }
-      .faq-item[open] summary::after { transform: rotate(45deg); }
-      .faq-answer {
-        padding: 0 1.4rem 1.2rem;
-        font-size: 0.87rem;
-        color: #555;
-        line-height: 1.7;
-        border-top: 1px solid #f0f0f5;
-      }
-      @media (max-width: 700px) {
-        .faq-grid { grid-template-columns: 1fr; }
-      }
-
-      /* ── BKR SECTION ── */
-      .bkr-section {
-        background: #f8f8fb;
-        border-top: 1px solid #e8e8ee;
-        padding: 5rem 0;
-      }
-      .bkr-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        gap: 4rem;
-      }
-      .bkr-image {
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-        line-height: 0;
-      }
-      .bkr-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        border-radius: 12px;
-      }
-      .bkr-text {}
-      .bkr-text h2 {
-        font-size: clamp(1.5rem, 2.8vw, 2rem);
-        font-weight: 800;
-        color: #0a0a1a;
-        line-height: 1.2;
-        letter-spacing: -0.02em;
-        margin-bottom: 1.1rem;
-      }
-      .bkr-text p {
-        font-size: 0.95rem;
-        color: #444;
-        line-height: 1.75;
-        margin-bottom: 1rem;
-      }
-      .bkr-checklist {
-        list-style: none;
-        margin: 1.5rem 0 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.65rem;
-      }
-      .bkr-checklist li {
-        display: flex;
-        align-items: flex-start;
-        gap: 0.65rem;
-        font-size: 0.92rem;
-        color: #222;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-      .bkr-checklist li::before {
-        content: '✓';
-        color: #2a7a2a;
-        font-weight: 700;
-        font-size: 1rem;
-        flex-shrink: 0;
-        margin-top: 0.05rem;
-      }
-      .bkr-cta {
-        display: inline-block;
-        background: #0a0a1a;
-        color: #fff;
-        font-weight: 700;
-        font-size: 0.92rem;
-        padding: 0.65rem 1.4rem;
-        border-radius: 7px;
-        text-decoration: none;
-        transition: opacity 0.15s;
-      }
-      .bkr-cta:hover { opacity: 0.82; }
-      @media (max-width: 800px) {
-        .bkr-inner {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-        .bkr-image {
-          max-width: 320px;
-          margin: 0 auto;
-        }
-        .bkr-image img {
-          max-height: 220px;
-          object-fit: cover;
-        }
-      }
-
-      /* ── DEEP GUIDE ── */
-      .guide-section { background: #ffffff; border-top: 1px solid #e8e8ee; }
-      .guide-header {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 4rem 1.5rem 0;
-      }
-      .guide-header h2 {
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
-        font-weight: 800;
-        color: #0a0a1a;
-        letter-spacing: -0.02em;
-        line-height: 1.2;
-        margin-bottom: 0.75rem;
-      }
-      .guide-header > p {
-        font-size: 1rem;
-        color: #555;
-        max-width: 640px;
-        line-height: 1.7;
-      }
-      .guide-block {
-        padding: 4rem 0;
-        border-top: 1px solid #e8e8ee;
-        margin-top: 3rem;
-      }
-      .guide-block.gray { background: #f8f8fb; }
-      .guide-block-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-        gap: 4rem;
-      }
-      .guide-block-inner.text-only { grid-template-columns: 1fr; }
-      .guide-block img {
-        width: 100%;
-        border-radius: 10px;
-        display: block;
-        object-fit: cover;
-        height: 360px;
-      }
-      .guide-text h3 {
-        font-size: clamp(1.2rem, 2.4vw, 1.55rem);
-        font-weight: 700;
-        color: #0a0a1a;
-        letter-spacing: -0.015em;
-        line-height: 1.25;
-        margin-bottom: 1rem;
-      }
-      .guide-text p {
-        font-size: 0.95rem;
-        color: #444;
-        line-height: 1.75;
-        margin-bottom: 0.9rem;
-      }
-      .guide-text p:last-child { margin-bottom: 0; }
-      .price-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.88rem;
-        margin: 1.25rem 0;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      .price-table th {
-        background: #0a0a1a;
-        color: #fff;
-        padding: 0.65rem 1rem;
-        text-align: left;
-        font-size: 0.78rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-      .price-table td {
-        padding: 0.6rem 1rem;
-        border-bottom: 1px solid #e8e8ee;
-        color: #333;
-        background: #fff;
-      }
-      .price-table tr:last-child td { border-bottom: none; }
-      .rot-box {
-        background: #f0f7f0;
-        border: 1px solid #c3dfc3;
-        border-radius: 8px;
-        padding: 1rem 1.25rem;
-        font-size: 0.88rem;
-        color: #1a4a1a;
-        line-height: 1.65;
-        margin-top: 1.1rem;
-      }
-      .rot-box strong { display: block; margin-bottom: 0.25rem; font-size: 0.9rem; }
-      @media (max-width: 800px) {
-        .guide-block-inner { grid-template-columns: 1fr; gap: 2rem; }
-        .guide-block img { height: 240px; }
-        .img-first { order: -1; }
-      }
-    </style>
-
-    <!-- ── SECTION 1: HERO ── -->
-    <section class="hero" aria-label="Badrumsrenovering Stockholm – Haga Plattsättning AB">
-      <div class="hero-media">
-        <picture>
-          <source srcset="/publichero-mobile.avif" media="(max-width: 800px)" />
-          <img
-            src="/publichero-desktop.avif"
-            alt="Professionell badrumsrenovering i Stockholm – certifierad kakelsättning av Haga Plattsättning AB"
-            width="2400"
-            height="1350"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </picture>
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="hero-badges" aria-label="Reco-utmärkelser">
-        <div class="hero-badge">
-          <img src="/hagaplattsattningbadge.svg" alt="Reco - Rekommenderat företag två år i rad" width="138" height="138" loading="eager" />
-        </div>
-      </div>
-      <div class="hero-inner">
-        <div class="hero-badge-mobile" aria-hidden="true">
-          <img src="/hagaplattsattningbadge.svg" alt="" width="114" height="114" loading="eager" />
-        </div>
-        <div class="hero-text">
-          <h1>Badrumsrenovering <span>i Stockholm</span></h1>
-          <p class="hero-lead">
+    <!-- ── HERO ── -->
+    <section class="s-hero" aria-label="Badrumsrenovering Stockholm – Haga Plattsättning AB">
+      <div class="container">
+        <div>
+          <span class="eyebrow">Plattsättare i Stockholm · BKR-behörig</span>
+          <h1 class="h-display" style="margin-top:18px">Badrumsrenovering<br /><em>i Stockholm</em></h1>
+          <p class="lede" style="margin-top:22px">
             Certifierat plattsättarföretag i Stockholm. Vi utför professionell badrumsrenovering
             med våtrumsintyg, BKR-certifierat utförande och tydlig dokumentation genom hela projektet.
           </p>
           <div class="hero-actions">
-            <a href="/offertforfragan/" class="btn-primary">Få gratis offert →</a>
-            <a href="#faq" class="btn-ghost">Vanliga frågor ↓</a>
+            <a href="/offertforfragan/" class="btn btn-primary">Få gratis offert <span class="arrow">→</span></a>
+            <a href="#faq" class="btn-link">Vanliga frågor ↓</a>
           </div>
+          <div class="trust-strip">
+            <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            <div class="cell"><div class="num">34<em>+</em></div><div class="label">Verifierade omdömen</div></div>
+            <div class="cell"><div class="num">2<em>år</em></div><div class="label">Rekommenderat på Reco</div></div>
+            <div class="cell"><div class="num"><em>BKR</em></div><div class="label">Behörig plattsättare</div></div>
+          </div>
+        </div>
+        <div class="hero-media">
+          <picture>
+            <source srcset="/publichero-mobile.avif" media="(max-width: 800px)" />
+            <img
+              src="/publichero-desktop.avif"
+              alt="Professionell badrumsrenovering i Stockholm – certifierad kakelsättning av Haga Plattsättning AB"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
+          <span class="reco-badge">
+            <img src="/hagaplattsattningbadge.svg" alt="Reco - Rekommenderat företag två år i rad" width="84" height="84" loading="eager" />
+          </span>
         </div>
       </div>
     </section>
 
-    <!-- ── SECTION 2: BKR-BEHÖRIG ── -->
-    <section class="bkr-section" id="certifiering-kvalitet" aria-label="BKR-behörig plattsättare – Haga Plattsättning AB">
-      <div class="bkr-inner">
+    <!-- ── CERT STRIP ── -->
+    <section class="cert-strip" aria-label="Certifieringar">
+      <span class="item">Behörigt Våtrum</span>
+      <span class="item">Säker Vatten</span>
+      <span class="item">BKR-certifierad</span>
+      <span class="item">F-skatt &amp; försäkrad</span>
+      <span class="item">Kvalitetsdokument</span>
+    </section>
 
-        <div class="bkr-image">
-          <img
-            src="/behorig-vatrum.avif"
-            alt="BKR-behörig plattsättare utför badrumsrenovering i Stockholm – Haga Plattsättning AB"
-            width="580"
-            height="480"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="bkr-text">
-          <p class="section-label">Certifiering &amp; kvalitet</p>
-          <h2>BKR-behörig plattsättare i Stockholm – vi utfärdar kvalitetsdokument</h2>
-          <p>
-            Haga Plattsättning AB är ett BKR-behörigt plattsättningsföretag, vilket innebär att vi
-            arbetar enligt Byggkeramikrådets branschregler för våtrum (BBV) och utfärdar ett officiellt
-            kvalitetsdokument efter varje genomförd badrumsrenovering. Dokumentet undertecknas
-            elektroniskt via BankID av ansvarig arbetsledare och är det enda sättet att dokumentera
-            att arbetet är fackmässigt utfört.
-          </p>
-          <p>
-            BKR-certifiering är branschstandard i Sverige och en viktig trygghet för dig som husägare.
-            Vid en vattenskada kan ditt försäkringsbolag begära dokumentation på att renoveringen är
-            korrekt utförd – utan kvalitetsdokument kan skadan avvisas av försäkringsbolaget.
-            Kvalitetsdokumentet ökar även bostadens värde och är ett krav som många köpare och
-            bostadsrättsföreningar ställer inför en försäljning.
-          </p>
+    <!-- ── BKR / CERTIFIERING ── -->
+    <section class="s-twocol" id="certifiering-kvalitet" aria-label="BKR-behörig plattsättare – Haga Plattsättning AB">
+      <div class="container">
+        <div>
+          <span class="eyebrow section-label">Certifiering &amp; kvalitet</span>
+          <h2 class="h-section" style="margin-top:14px">BKR-behörig plattsättare i Stockholm — vi utfärdar <em>kvalitetsdokument</em>.</h2>
+          <div class="body-prose" style="margin-top:18px;max-width:54ch">
+            <p>
+              Haga Plattsättning AB är ett BKR-behörigt plattsättningsföretag, vilket innebär att vi
+              arbetar enligt Byggkeramikrådets branschregler för våtrum (BBV) och utfärdar ett officiellt
+              kvalitetsdokument efter varje genomförd badrumsrenovering. Dokumentet undertecknas
+              elektroniskt via BankID av ansvarig arbetsledare och är det enda sättet att dokumentera
+              att arbetet är fackmässigt utfört.
+            </p>
+            <p>
+              BKR-certifiering är branschstandard i Sverige och en viktig trygghet för dig som husägare.
+              Vid en vattenskada kan ditt försäkringsbolag begära dokumentation på att renoveringen är
+              korrekt utförd – utan kvalitetsdokument kan skadan avvisas av försäkringsbolaget.
+              Kvalitetsdokumentet ökar även bostadens värde och är ett krav som många köpare och
+              bostadsrättsföreningar ställer inför en försäljning.
+            </p>
+          </div>
           <ul class="bkr-checklist" aria-label="BKR-certifieringens fördelar">
             <li>Behöriga enligt Byggkeramikrådet (BKR)</li>
             <li>Arbetar enligt BBV – Branschregler för Våtrum</li>
@@ -611,28 +139,46 @@ const localBusinessJsonLd = {
             <li>Skyddar dig vid försäkringsskador och vid försäljning av bostad</li>
             <li>Uppfyller krav från bostadsrättsföreningar och banker</li>
           </ul>
-          <a href="/offertforfragan/" class="bkr-cta">Få gratis offert →</a>
+          <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="/offertforfragan/">Få gratis offert <span class="arrow">→</span></a>
+            <a class="btn-link" href="/om-oss/">Läs om hur vi jobbar →</a>
+          </div>
         </div>
-
+        <div>
+          <div class="media-card">
+            <img
+              src="/behorig-vatrum.avif"
+              alt="BKR-behörig plattsättare utför badrumsrenovering i Stockholm – Haga Plattsättning AB"
+              width="580"
+              height="480"
+              loading="lazy"
+            />
+            <div class="stamp">BKR<strong>2018</strong>medlem</div>
+          </div>
+        </div>
       </div>
-      <div class="section-inner" style="padding-top: 2rem;">
+    </section>
+
+    <!-- ── RECO XL WIDGET ── -->
+    <section class="section" style="padding:0 0 var(--section-y)" aria-label="Reco-omdömen">
+      <div class="container">
         <iframe
           src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv"
           title="Haga Plattsättning AB - Omdömen på Reco"
           height="225"
-          style="width:100%;border:0;display:block;overflow:hidden;"
+          style="width:100%;border:0;display:block;overflow:hidden;border-radius:16px;"
           data-reactroot
           loading="lazy"
         ></iframe>
       </div>
     </section>
 
-    <!-- ── SECTION 3: DEEP GUIDE ── -->
+    <!-- ── DEEP GUIDE ── -->
     <section class="guide-section" aria-label="Guide till badrumsrenovering i Stockholm">
 
       <div class="guide-header">
-        <p class="section-label">Komplett guide</p>
-        <h2>Allt du behöver veta om badrumsrenovering i Stockholm</h2>
+        <span class="eyebrow section-label">Komplett guide</span>
+        <h2 class="h-section" style="margin-top:14px">Allt du behöver veta om <em>badrumsrenovering</em> i Stockholm</h2>
         <p>
           Vi hjälper stockholmare att renovera badrum varje dag. Här svarar vi på de vanligaste
           frågorna om vad som ingår, hur lång tid det tar, vad det kostar och vad du behöver
@@ -640,18 +186,18 @@ const localBusinessJsonLd = {
         </p>
       </div>
 
-      <!-- Block 1: Vad ingår — text left, image 1 right -->
+      <!-- Block 1 -->
       <div class="guide-block">
         <div class="guide-block-inner">
           <div class="guide-text">
-            <h3>Vad ingår i en komplett badrumsrenovering?</h3>
+            <h3>Vad ingår i en komplett <em>badrumsrenovering?</em></h3>
             <p>
               En komplett badrumsrenovering i Stockholm innefattar betydligt mer än att bara byta
               kakel. För att renovera badrum på rätt sätt krävs ett noggrant förarbete, rätt material
               och certifierat utförande enligt gällande branschregler.
             </p>
             <p>Så här ser en komplett renovering av badrum ut hos oss:</p>
-            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+            <ul class="bkr-checklist" style="margin-top:18px;">
               <li>Rivning av befintligt kakel, klinker och tätskikt</li>
               <li>Kontroll och förberedelse av underlag och väggar</li>
               <li>Nytt tätskikt (membran) enligt BBV (Branschregler för Våtrum)</li>
@@ -663,7 +209,7 @@ const localBusinessJsonLd = {
               <li>Alla arbeten försäkrade via Svedea försäkring</li>
             </ul>
           </div>
-          <div class="img-first">
+          <div class="guide-image">
             <img
               src="/haga%20platts%C3%A4ttning%20bild%204.avif"
               alt="Komplett badrumsrenovering i Stockholm – kakelsättning och tätskikt av Haga Plattsättning AB"
@@ -675,10 +221,10 @@ const localBusinessJsonLd = {
         </div>
       </div>
 
-      <!-- Block 2: Hur lång tid — image 2 left, text right -->
+      <!-- Block 2 -->
       <div class="guide-block gray">
         <div class="guide-block-inner">
-          <div class="img-first">
+          <div class="guide-image">
             <img
               src="/hagaplatt_15.avif"
               alt="Badrumsrenovering i Stockholm – professionell plattsättning med rätt tidsplan och precision"
@@ -688,12 +234,12 @@ const localBusinessJsonLd = {
             />
           </div>
           <div class="guide-text">
-            <h3>Hur lång tid tar en badrumsrenovering i Stockholm?</h3>
+            <h3>Hur lång tid tar en <em>badrumsrenovering</em> i Stockholm?</h3>
             <p>
               En av de vanligaste frågorna vi får handlar om tidsåtgång. Svaret beror på badrumsyta,
               vad som ska göras och om det krävs VVS-arbeten. Som en generell riktlinje kan du räkna med:
             </p>
-            <ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;">
+            <ul class="bkr-checklist" style="margin-top:14px;margin-bottom:18px;">
               <li>Litet badrum (4–5 kvm): 1–2 veckor</li>
               <li>Normalt badrum (6–8 kvm): 2–3 veckor</li>
               <li>Större badrum eller kombinerat (8–12 kvm): 3–4 veckor</li>
@@ -711,23 +257,25 @@ const localBusinessJsonLd = {
         </div>
       </div>
 
-      <!-- Reco widget — under pricing -->
-      <div style="padding: 0 0 3rem;">
-        <iframe
-          src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv"
-          title="Haga Plattsättning AB - Omdömen på Reco"
-          height="225"
-          style="width:100%;border:0;display:block;overflow:hidden;"
-          data-reactroot
-          loading="lazy"
-        ></iframe>
+      <!-- Reco widget mid-page -->
+      <div class="guide-block">
+        <div class="container">
+          <iframe
+            src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv"
+            title="Haga Plattsättning AB - Omdömen på Reco"
+            height="225"
+            style="width:100%;border:0;display:block;overflow:hidden;border-radius:16px;"
+            data-reactroot
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
 
-      <!-- Block 4: Material — text only -->
+      <!-- Block 4 -->
       <div class="guide-block gray">
         <div class="guide-block-inner text-only">
           <div class="guide-text">
-            <h3>Kakel, klinker och storformat – vad ska man välja vid renovering av badrum?</h3>
+            <h3>Kakel, klinker och storformat — <em>vad ska man välja</em> vid renovering av badrum?</h3>
             <p>
               Ett av de viktigaste valen vid renovering av badrum är vilket material du väljer.
               Kakel badrum används traditionellt på väggar och är lättare att sätta, medan
@@ -744,16 +292,16 @@ const localBusinessJsonLd = {
         </div>
       </div>
 
-      <!-- Block 5: Vad ska man tänka på — text only -->
+      <!-- Block 5 -->
       <div class="guide-block">
         <div class="guide-block-inner text-only">
           <div class="guide-text">
-            <h3>Vad ska man tänka på när man anlitar en badrumsrenoverare i Stockholm?</h3>
+            <h3>Vad ska man tänka på när man <em>anlitar en badrumsrenoverare</em> i Stockholm?</h3>
             <p>
               Det finns många badrumsrenoverare i Stockholm, men alla håller inte samma standard.
               Här är de viktigaste sakerna att kontrollera innan du skriver på ett avtal:
             </p>
-            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+            <ul class="bkr-checklist" style="margin-top:18px;">
               <li><strong>BKR-behörighet</strong> – se till att företaget är behörigt och kan utfärda officiellt kvalitetsdokument</li>
               <li><strong>Våtrumsintyg</strong> – kräv att arbetet avslutas med ett intyg enligt BBV-reglerna</li>
               <li><strong>Tydlig offert</strong> – begär alltid en skriftlig offert med tydlig omfattning och avgränsning</li>
@@ -761,20 +309,20 @@ const localBusinessJsonLd = {
               <li><strong>Referenser</strong> – be om att få se referensprojekt eller läsa verifierade kundrecensioner</li>
               <li><strong>F-skattsedel</strong> – alltid ett krav för seriösa hantverkare</li>
             </ul>
-            <p style="margin-top:1rem;">
+            <p style="margin-top:16px;">
               Haga Plattsättning AB uppfyller samtliga av ovanstående krav. Vi är BKR-behöriga,
               utfärdar kvalitetsdokument och är försäkrade via Svedea.
-              <a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Kontakta oss för en kostnadsfri offert →</a>
+              <a href="/offertforfragan/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kontakta oss för en kostnadsfri offert →</a>
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Block 6: BRF & tillstånd — text only -->
+      <!-- Block 6 -->
       <div class="guide-block gray">
         <div class="guide-block-inner text-only">
           <div class="guide-text">
-            <h3>Badrumsrenovering i bostadsrätt – brf-regler och tillstånd i Stockholm</h3>
+            <h3><em>Badrumsrenovering i bostadsrätt</em> — brf-regler och tillstånd i Stockholm</h3>
             <p>
               Bor du i en bostadsrätt i Stockholm behöver du vanligtvis meddela din
               bostadsrättsförening (brf) innan du påbörjar en badrumsrenovering. I de flesta
@@ -798,90 +346,95 @@ const localBusinessJsonLd = {
 
     </section>
 
-    <!-- ── SECTION 4: FAQ (AEO) ── -->
-    <section class="faq-section" id="faq" aria-label="Vanliga frågor om badrumsrenovering i Stockholm">
-      <div class="section-inner">
-        <p class="section-label">Vanliga frågor</p>
-        <h2 class="section-title">Det du undrar om badrumsrenovering i Stockholm</h2>
-        <p class="section-lead">
-          Svar på de vanligaste frågorna vi får från kunder i Stockholm – baserade på
-          vad folk faktiskt söker på Google.
-        </p>
+    <!-- ── FAQ ── -->
+    <section class="s-faq" id="faq" aria-label="Vanliga frågor om badrumsrenovering i Stockholm">
+      <div class="container">
         <div class="faq-grid">
+          <div>
+            <span class="eyebrow section-label">Vanliga frågor</span>
+            <h2 class="h-section" style="margin-top:14px">Det du <em>undrar</em> om badrumsrenovering i Stockholm</h2>
+            <p class="section-lead" style="margin-top:18px">
+              Svar på de vanligaste frågorna vi får från kunder i Stockholm – baserade på
+              vad folk faktiskt söker på Google.
+            </p>
+            <a href="/offertforfragan/" class="btn btn-secondary" style="margin-top:24px">Fråga oss direkt <span class="arrow">→</span></a>
+          </div>
+          <div class="faq-list">
 
-          <details class="faq-item">
-            <summary>Vad kostar det att renovera ett badrum i Stockholm?</summary>
-            <div class="faq-answer">
-              Renoveringens omfattning varierar beroende på badrumsyta, materialval och vilka moment
-              som ingår. Vi går igenom ditt projekt i detalj och lämnar en tydlig offertförfrågan
-              så att du får rätt upplägg, rätt dokumentation och en trygg process från start till mål.
-            </div>
-          </details>
+            <details class="faq-item">
+              <summary>Vad kostar det att renovera ett badrum i Stockholm?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                Renoveringens omfattning varierar beroende på badrumsyta, materialval och vilka moment
+                som ingår. Vi går igenom ditt projekt i detalj och lämnar en tydlig offertförfrågan
+                så att du får rätt upplägg, rätt dokumentation och en trygg process från start till mål.
+              </div>
+            </details>
 
-          <details class="faq-item">
-            <summary>Vad kostar en kakelsättare i timmen?</summary>
-            <div class="faq-answer">
-              En certifierad kakelsättare arbetar med underlagskontroll, tätskikt, montering och fogning
-              enligt branschregler. För bästa resultat bör du välja en BKR-behörig aktör som kan utfärda
-              våtrumsintyg och dokumentera arbetet korrekt.
-            </div>
-          </details>
+            <details class="faq-item">
+              <summary>Vad kostar en kakelsättare i timmen?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                En certifierad kakelsättare arbetar med underlagskontroll, tätskikt, montering och fogning
+                enligt branschregler. För bästa resultat bör du välja en BKR-behörig aktör som kan utfärda
+                våtrumsintyg och dokumentera arbetet korrekt.
+              </div>
+            </details>
 
-          <details class="faq-item">
-            <summary>Vad kostar plattsättning av badrum per kvadratmeter?</summary>
-            <div class="faq-answer">
-              Plattsättning i badrum påverkas främst av plattstorlek, mönster, underlagets skick och
-              tekniska detaljer som fall mot golvbrunn och nischer. Vi planerar alltid arbetet utifrån
-              badrummets förutsättningar för att säkerställa ett hållbart slutresultat.
-            </div>
-          </details>
+            <details class="faq-item">
+              <summary>Vad kostar plattsättning av badrum per kvadratmeter?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                Plattsättning i badrum påverkas främst av plattstorlek, mönster, underlagets skick och
+                tekniska detaljer som fall mot golvbrunn och nischer. Vi planerar alltid arbetet utifrån
+                badrummets förutsättningar för att säkerställa ett hållbart slutresultat.
+              </div>
+            </details>
 
-          <details class="faq-item">
-            <summary>Är det billigare med våtrumsmatta än kakel?</summary>
-            <div class="faq-answer">
-              Våtrumsmatta och kakel har olika egenskaper. Många väljer kakel och klinker för ett
-              slitstarkt resultat med lång livslängd och stor valfrihet i design. Med korrekt utförande
-              och dokumentation enligt BBV får du ett tryggt och hållbart badrum.
-            </div>
-          </details>
+            <details class="faq-item">
+              <summary>Är det billigare med våtrumsmatta än kakel?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                Våtrumsmatta och kakel har olika egenskaper. Många väljer kakel och klinker för ett
+                slitstarkt resultat med lång livslängd och stor valfrihet i design. Med korrekt utförande
+                och dokumentation enligt BBV får du ett tryggt och hållbart badrum.
+              </div>
+            </details>
 
-          <details class="faq-item">
-            <summary>Är det värt att renovera badrum innan försäljning?</summary>
-            <div class="faq-answer">
-              Ett uppdaterat badrum med korrekt dokumentation upplevs ofta som en tydlig kvalitetssignal
-              vid försäljning. Spekulanter brukar uppskatta moderna ytskikt, god funktion och att
-              renoveringen är fackmässigt utförd.
-            </div>
-          </details>
+            <details class="faq-item">
+              <summary>Är det värt att renovera badrum innan försäljning?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                Ett uppdaterat badrum med korrekt dokumentation upplevs ofta som en tydlig kvalitetssignal
+                vid försäljning. Spekulanter brukar uppskatta moderna ytskikt, god funktion och att
+                renoveringen är fackmässigt utförd.
+              </div>
+            </details>
 
-          <details class="faq-item">
-            <summary>Måste man renovera badrum efter 20 år?</summary>
-            <div class="faq-answer">
-              Det finns ingen lag som kräver renovering efter exakt 20 år, men en badrumsrenovering
-              rekommenderas ofta efter 20–30 år. Tätskiktet och fogar åldras och kan börja läcka,
-              vilket riskerar vattenskador. En besiktning av en certifierad plattsättare kan avgöra
-              om ditt badrum behöver åtgärdas.
-            </div>
-          </details>
+            <details class="faq-item">
+              <summary>Måste man renovera badrum efter 20 år?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                Det finns ingen lag som kräver renovering efter exakt 20 år, men en badrumsrenovering
+                rekommenderas ofta efter 20–30 år. Tätskiktet och fogar åldras och kan börja läcka,
+                vilket riskerar vattenskador. En besiktning av en certifierad plattsättare kan avgöra
+                om ditt badrum behöver åtgärdas.
+              </div>
+            </details>
 
-          <details class="faq-item">
-            <summary>Hur planerar man en smidig badrumsrenovering?</summary>
-            <div class="faq-answer">
-              Börja med en tydlig behovsbild, välj material i god tid och säkerställ att entreprenören
-              kan leverera rätt dokumentation. Med en strukturerad planering blir processen enklare
-              och du minskar risken för onödiga förseningar under projektet.
-            </div>
-          </details>
+            <details class="faq-item">
+              <summary>Hur planerar man en smidig badrumsrenovering?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                Börja med en tydlig behovsbild, välj material i god tid och säkerställ att entreprenören
+                kan leverera rätt dokumentation. Med en strukturerad planering blir processen enklare
+                och du minskar risken för onödiga förseningar under projektet.
+              </div>
+            </details>
 
-          <details class="faq-item">
-            <summary>Vad kostar det att renovera ett kök i Stockholm?</summary>
-            <div class="faq-answer">
-              En köksrenovering med fokus på kakel och klinker planeras utifrån kökets storlek,
-              materialval och tekniska förutsättningar. Kontakta oss för offertförfrågan så går vi
-              igenom rätt upplägg för stänkskydd, köksgolv och detaljer i ditt kök.
-            </div>
-          </details>
+            <details class="faq-item">
+              <summary>Vad kostar det att renovera ett kök i Stockholm?<span class="toggle">+</span></summary>
+              <div class="answer faq-answer">
+                En köksrenovering med fokus på kakel och klinker planeras utifrån kökets storlek,
+                materialval och tekniska förutsättningar. Kontakta oss för offertförfrågan så går vi
+                igenom rätt upplägg för stänkskydd, köksgolv och detaljer i ditt kök.
+              </div>
+            </details>
 
+          </div>
         </div>
       </div>
     </section>
