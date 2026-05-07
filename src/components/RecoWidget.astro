@@ -1,0 +1,107 @@
+---
+export interface Props {
+  size?: 'large' | 'xlarge';
+  bordered?: boolean;
+  className?: string;
+  height?: number;
+  loadStrategy?: 'viewport' | 'idle' | 'interaction';
+}
+
+const {
+  size = 'xlarge',
+  bordered = true,
+  className = '',
+  height = size === 'large' ? 60 : 225,
+  loadStrategy = 'viewport',
+} = Astro.props;
+
+const src = `https://widget.reco.se/v2/venues/4532782/horizontal/${size}?inverted=false&border=${bordered ? 'true' : 'false'}&lang=sv`;
+---
+
+<div class={className} style={`position:relative;min-height:${height}px;`}>
+  <div
+    class="reco-widget-placeholder"
+    aria-hidden="true"
+    style={`height:${height}px;width:100%;border-radius:${size === 'large' ? 0 : 16}px;background:linear-gradient(90deg,#f3f3f3,#fafafa,#f3f3f3);`}
+  ></div>
+  <iframe
+    data-reco-lazy
+    data-src={src}
+    data-load-strategy={loadStrategy}
+    title="Haga Plattsättning AB - Omdömen på Reco"
+    height={height}
+    style={`position:absolute;inset:0;width:100%;border:0;display:block;overflow:hidden;border-radius:${size === 'large' ? 0 : 16}px;opacity:0;transition:opacity .2s ease;`}
+    loading="lazy"
+  ></iframe>
+</div>
+
+<script is:inline>
+  (() => {
+    const activate = (frame) => {
+      if (!frame || frame.dataset.loaded === 'true') return;
+      const src = frame.dataset.src;
+      if (!src) return;
+      frame.dataset.loaded = 'true';
+      frame.src = src;
+      frame.addEventListener('load', () => {
+        frame.style.opacity = '1';
+        const placeholder = frame.previousElementSibling;
+        if (placeholder) placeholder.remove();
+      }, { once: true });
+    };
+
+    const registerFrames = () => {
+      const frames = Array.from(document.querySelectorAll('iframe[data-reco-lazy]'));
+      if (!frames.length) return;
+
+      if (!('IntersectionObserver' in window)) {
+        frames.forEach(activate);
+        return;
+      }
+
+      if (!window.__recoLazyObserver) {
+        window.__recoLazyObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              activate(entry.target);
+              window.__recoLazyObserver.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '250px 0px' });
+      }
+
+      frames.forEach((frame) => {
+        if (frame.dataset.observed === 'true') return;
+        frame.dataset.observed = 'true';
+        const strategy = frame.dataset.loadStrategy;
+
+        if (strategy === 'idle') {
+          setTimeout(() => activate(frame), 8000);
+          return;
+        }
+
+        if (strategy === 'interaction') {
+          const loadOnInteraction = () => {
+            activate(frame);
+            window.removeEventListener('pointerdown', loadOnInteraction, opts);
+            window.removeEventListener('keydown', loadOnInteraction, opts);
+            window.removeEventListener('touchstart', loadOnInteraction, opts);
+            window.removeEventListener('scroll', loadOnInteraction, opts);
+          };
+          const opts = { once: true, passive: true };
+          window.addEventListener('pointerdown', loadOnInteraction, opts);
+          window.addEventListener('keydown', loadOnInteraction, opts);
+          window.addEventListener('touchstart', loadOnInteraction, opts);
+          window.addEventListener('scroll', loadOnInteraction, opts);
+          setTimeout(loadOnInteraction, 15000);
+          return;
+        }
+
+        window.__recoLazyObserver.observe(frame);
+      });
+    };
+
+    window.__recoLazyRegister = registerFrames;
+    registerFrames();
+  })();
+</script>

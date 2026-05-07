@@ -1,6 +1,7 @@
 ---
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteNav from '../components/SiteNav.astro';
+import RecoWidget from '../components/RecoWidget.astro';
 import { BUSINESS } from '../data/business';
 
 const localBusinessJsonLd = {
@@ -21,8 +22,7 @@ const localBusinessJsonLd = {
 <html lang="sv">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
-    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -67,13 +67,13 @@ const localBusinessJsonLd = {
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;1,400&family=Inter:wght@400;500;600&display=swap"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;1,400&family=Inter:wght@400;500;600&display=swap"
       />
     </noscript>
     <link rel="stylesheet" href="/design.css" />
@@ -185,14 +185,7 @@ const localBusinessJsonLd = {
     <!-- ── RECO XL WIDGET ── -->
     <section class="section" style="padding:0 0 var(--section-y)" aria-label="Reco-omdömen">
       <div class="container">
-        <iframe
-          src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv"
-          title="Haga Plattsättning AB - Omdömen på Reco"
-          height="225"
-          style="width:100%;border:0;display:block;overflow:hidden;border-radius:16px;"
-          data-reactroot
-          loading="lazy"
-        ></iframe>
+        <RecoWidget />
       </div>
     </section>
 
@@ -283,14 +276,7 @@ const localBusinessJsonLd = {
       <!-- Reco widget mid-page -->
       <div class="guide-block">
         <div class="container">
-          <iframe
-            src="https://widget.reco.se/v2/venues/4532782/horizontal/xlarge?inverted=false&border=true&lang=sv"
-            title="Haga Plattsättning AB - Omdömen på Reco"
-            height="225"
-            style="width:100%;border:0;display:block;overflow:hidden;border-radius:16px;"
-            data-reactroot
-            loading="lazy"
-          ></iframe>
+          <RecoWidget />
         </div>
       </div>
 

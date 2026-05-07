@@ -1,4 +1,5 @@
 ---
+import RecoWidget from './RecoWidget.astro';
 const path = Astro.url.pathname;
 const isService = [
   '/badrumsrenovering-stockholm/',
@@ -20,15 +21,23 @@ const isHome = path === '/';
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;1,400&family=Inter:wght@400;500;600&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;1,400&family=Inter:wght@400;500;600&display=swap"
+      />
+    </noscript>
     <link rel="stylesheet" href="/design.css" />
   </>
 )}
 
 <div class="reco-bar">
-  <iframe src="https://widget.reco.se/v2/venues/4532782/horizontal/large?inverted=false&border=false&lang=sv" title="Haga Plattsättning AB - Omdömen på Reco" height="60" style="width:100%;border:0;display:block;overflow:hidden;" data-reactroot loading="lazy"></iframe>
+  <RecoWidget size="large" bordered={false} loadStrategy="interaction" />
 </div>
 
 <nav class="site-nav" aria-label="Huvudnavigation">
