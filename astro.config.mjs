@@ -8,7 +8,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/homepageimproved'),
+      filter: (page) => !page.includes('/homepageimproved') && !page.includes('/tack/'),
       i18n: {
         defaultLocale: 'sv',
         locales: { sv: 'sv-SE' },

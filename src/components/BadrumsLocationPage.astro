@@ -94,6 +94,16 @@ const serviceJsonLd = {
     target: 'https://www.hagaplattsattning.se/offertforfragan/',
   },
 };
+
+const relatedLinksIntroBySlug: Record<string, string> = {
+  stockholm: 'Planerar du ett större projekt i Stockholm?',
+  sollentuna: 'Behöver du hjälp i hela norrort från Sollentuna?',
+  solna: 'Ska du jämföra tjänster för projekt i Solna med omnejd?',
+};
+
+const relatedLinksIntro =
+  relatedLinksIntroBySlug[content.slug] ??
+  `Planerar du ett större projekt i ${content.city}?`;
 ---
 
 <html lang="sv">
@@ -281,6 +291,23 @@ const serviceJsonLd = {
             ))}
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label={`Relaterade tjänster i ${content.city}`}>
+      <div class="container" style="max-width:900px">
+        <p class="section-lead" style="margin:0">
+          {relatedLinksIntro} Jämför gärna vår
+          <a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">badrumsrenovering i Stockholm</a>,
+          våra tjänster för
+          <a href="/kakelsattare-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">kakelsättare i Stockholm</a>
+          och
+          <a href="/koksrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">köksrenovering i Stockholm</a>.
+          Du kan även
+          <a href="/referensprojekt/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">se våra referensprojekt</a>
+          innan du
+          <a href="/offertforfragan/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">begär en kostnadsfri offert</a>.
+        </p>
       </div>
     </section>
 
