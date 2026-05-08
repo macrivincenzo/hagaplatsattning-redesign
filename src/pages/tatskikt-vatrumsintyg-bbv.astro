@@ -72,16 +72,30 @@ const faqJsonLd = {
   })),
 };
 
+const PUBLISHED = '2026-05-08';
+const UPDATED = '2026-05-08';
+
 const techArticleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
   headline: 'Tätskikt, våtrumsintyg & BBV — den tekniska guiden från en BKR-behörig plattsättare i Stockholm',
   description:
     'Komplett guide till tätskikt, våtrumsintyg och Branschregler för Våtrum (BBV). Vi förklarar BKR, GVK, regler för tätskikt och vad som krävs för att få ett giltigt våtrumsintyg.',
-  author: { '@type': 'Organization', name: 'Haga Plattsättning AB', url: 'https://www.hagaplattsattning.se/' },
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)' },
+    ],
+  },
   publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
   inLanguage: 'sv-SE',
-  about: ['Tätskikt', 'Våtrumsintyg', 'BBV', 'BKR', 'Badrumsrenovering Stockholm'],
+  about: ['Tätskikt', 'Våtrumsintyg', 'BBV', 'BKR', 'GVK', 'Säker Vatten', 'Badrumsrenovering Stockholm'],
+  audience: { '@type': 'Audience', audienceType: 'Bostadsägare, BRF-styrelser, mäklare i Stockholm' },
+  proficiencyLevel: 'Beginner',
   mainEntityOfPage: 'https://www.hagaplattsattning.se/tatskikt-vatrumsintyg-bbv/',
 };
 
@@ -220,6 +234,31 @@ const breadcrumbJsonLd = {
       </section>
 
       <!-- ══════════════════════════════════════════
+           META + INNEHÅLL — freshness signal + TOC
+      ══════════════════════════════════════════ -->
+      <section aria-label="Innehåll och uppdateringsdatum" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2);">
+        <div class="container" style="padding-top:24px;padding-bottom:24px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between;">
+          <div style="min-width:240px;">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning" style="margin-top:14px;">
+              <ol style="list-style:decimal;padding-left:20px;line-height:1.9;font-size:0.95rem;color:var(--ink-2);">
+                <li><a href="#snabbsvar" style="color:inherit;border-bottom:1px solid var(--line-2);">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#bbv-branschregler" style="color:inherit;border-bottom:1px solid var(--line-2);">BBV och branschregler — hur våtrumsbranschen är organiserad</a></li>
+                <li><a href="#tatskikt" style="color:inherit;border-bottom:1px solid var(--line-2);">Tätskiktet — det viktigaste lagret bakom kaklet</a></li>
+                <li><a href="#vatrumsintyg" style="color:inherit;border-bottom:1px solid var(--line-2);">Våtrumsintyget — så får du dokumentationen rätt</a></li>
+                <li><a href="#kontakt" style="color:inherit;border-bottom:1px solid var(--line-2);">Behöver du våtrumsintyg? Boka kostnadsfri synning</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div style="min-width:220px;text-align:right;font-family:var(--mono);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);line-height:1.8;">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
            SNABBSVAR — quick answers (AI Overview bait)
       ══════════════════════════════════════════ -->
       <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om tätskikt och våtrumsintyg">
@@ -246,7 +285,7 @@ const breadcrumbJsonLd = {
       <!-- ══════════════════════════════════════════
            SECTION A — BBV och branschorganen
       ══════════════════════════════════════════ -->
-      <section class="guide-section" aria-label="BBV och branschregler för våtrum">
+      <section id="bbv-branschregler" class="guide-section" aria-label="BBV och branschregler för våtrum">
         <div class="guide-header">
           <span class="eyebrow section-label">A · Branschen</span>
           <h2 class="h-section" style="margin-top:14px">BBV och branschregler — så är <em>våtrumsbranschen organiserad</em></h2>
@@ -276,7 +315,9 @@ const breadcrumbJsonLd = {
               <p>
                 BBV är inte en lag — det är en branschöverenskommelse. Men i praktiken fungerar den
                 som lag: utan dokumentation enligt BBV är det svårt att få en vattenskada
-                ersatt och svårt att sälja bostaden utan prisreduktion.
+                ersatt och svårt att sälja bostaden utan prisreduktion. Vi ser detta varje vecka
+                i Stockholm — särskilt i bostadsrätter där styrelsen kontrollerar dokumentationen
+                före godkännande.
               </p>
             </div>
             <div class="guide-image">
@@ -343,7 +384,7 @@ const breadcrumbJsonLd = {
       <!-- ══════════════════════════════════════════
            SECTION B — Tätskiktet
       ══════════════════════════════════════════ -->
-      <section class="guide-section" aria-label="Tätskiktet — det vattentäta lagret bakom kaklet">
+      <section id="tatskikt" class="guide-section" aria-label="Tätskiktet — det vattentäta lagret bakom kaklet">
         <div class="guide-header">
           <span class="eyebrow section-label">B · Tätskiktet</span>
           <h2 class="h-section" style="margin-top:14px">Tätskiktet — <em>det viktigaste lagret</em> bakom kaklet</h2>
@@ -437,9 +478,30 @@ const breadcrumbJsonLd = {
       </section>
 
       <!-- ══════════════════════════════════════════
+           MID-PAGE CTA — soft conversion mid-scroll
+      ══════════════════════════════════════════ -->
+      <section aria-label="Boka fuktmätning eller synning" style="background:var(--ink);color:var(--paper);padding:48px 0;">
+        <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;">
+          <div style="max-width:54ch;">
+            <span class="eyebrow section-label" style="color:var(--paper-3);">Misstänker du fuktskada eller dåligt tätskikt?</span>
+            <h2 class="h-sub" style="color:var(--paper);margin-top:14px;">Vi gör <em style="color:var(--accent-soft);">kostnadsfri synning</em> i Stockholm — inga förpliktelser.</h2>
+            <p style="margin-top:14px;color:var(--paper-2);font-size:1rem;line-height:1.6;">
+              En BKR-behörig plattsättare kommer ut, gör en visuell bedömning och fuktmätning där det
+              behövs. Du får en skriftlig rekommendation efter besöket. Behöver du sedan offert
+              skickar vi det — annars är besöket helt kostnadsfritt.
+            </p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:220px;">
+            <a class="btn" href="/offertforfragan/" style="background:var(--accent-soft);color:var(--ink);justify-content:center;font-weight:700;">Boka synning <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348" style="color:var(--paper);text-align:center;">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
            SECTION C — Våtrumsintyget
       ══════════════════════════════════════════ -->
-      <section class="guide-section" aria-label="Våtrumsintyget — kvalitetsdokumentet">
+      <section id="vatrumsintyg" class="guide-section" aria-label="Våtrumsintyget — kvalitetsdokumentet">
         <div class="guide-header">
           <span class="eyebrow section-label">C · Intyget</span>
           <h2 class="h-section" style="margin-top:14px">Våtrumsintyget — så får du <em>dokumentationen rätt</em></h2>
@@ -572,7 +634,7 @@ const breadcrumbJsonLd = {
       <!-- ══════════════════════════════════════════
            CTA — soft conversion
       ══════════════════════════════════════════ -->
-      <section class="s-twocol" aria-label="Boka kostnadsfri synning för våtrumsintyg">
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning för våtrumsintyg">
         <div class="container">
           <div>
             <span class="eyebrow section-label">När du behöver intyg</span>
