@@ -1,0 +1,651 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi utfärdar våtrumsintyg och kvalitetsdokument enligt BBV (Branschregler för Våtrum) efter varje badrumsrenovering.',
+  knowsAbout: [
+    'Tätskikt',
+    'Våtrumsintyg',
+    'BBV — Branschregler för Våtrum',
+    'BKR — Byggkeramikrådet',
+    'GVK — Golvbranschens Våtrumskontroll',
+    'Säker Vatten',
+    'Kvalitetsdokument',
+    'Badrumsrenovering Stockholm',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Vad är BBV (Branschregler för Våtrum)?',
+    a: 'BBV är de tekniska branschregler som styr hur tätskikt och plattsättning ska utföras i svenska våtrum. Reglerna utfärdas av Byggkeramikrådet (BKR) och uppdateras löpande. När en BKR-behörig plattsättare arbetar enligt BBV och fyller i kvalitetsdokumentet får du ett officiellt våtrumsintyg som dokumenterar att arbetet är fackmässigt utfört.',
+  },
+  {
+    q: 'Vilka ger ut branschregler för våtrum i Sverige?',
+    a: 'Två branschorgan ger ut regler. BKR (Byggkeramikrådet) ger ut BBV, som vi och de flesta plattsättare arbetar efter. GVK (Golvbranschens Våtrumskontroll) ger ut Säkra Våtrum, som främst används av golvläggare som arbetar med våtrumsmattor. Båda är godkända av försäkringsbolagen och bostadsrättsföreningar i Stockholm.',
+  },
+  {
+    q: 'Vad är skillnaden på GVK och BKR?',
+    a: 'BKR är keramikbranschens organ — fokus på kakel och klinker. GVK är golvbranschens organ — fokus på våtrumsmattor och plastgolv. Båda utfärdar våtrumsintyg, men intyget gäller bara för det material och det utförande som regleras av respektive organisation. För kakel och klinker i Stockholm är BKR standard.',
+  },
+  {
+    q: 'Vilka regler gäller för tätskikt i badrum?',
+    a: 'Tätskiktet ska monteras på ett godkänt underlag, omfatta hela våtzonen, ha rätt tjocklek och torkas korrekt mellan strykningar. Genomföringar (rör, golvbrunn, eluttag) ska tätas med särskilda manschetter. Allt ska dokumenteras med produktblad, fotodokumentation och egenkontroll innan kakelsättning får påbörjas. Reglerna i sin helhet finns i BBV.',
+  },
+  {
+    q: 'När ska man byta tätskikt i badrum?',
+    a: 'Ett korrekt utfört tätskikt håller normalt 25–30 år. Tätskiktet bör bytas vid synliga skador, vid fuktindikation, vid ombyggnad där underlag ändras, eller om badrummet är äldre än 25 år och du planerar en renovering. Kakel och fog kan se bra ut även när tätskiktet bakom är förbrukat — därför är ålder en bättre indikator än utseende.',
+  },
+  {
+    q: 'Hur vet man om tätskiktet är dåligt?',
+    a: 'Vanliga indikatorer är: missfärgning eller mörka fläckar i fogar (särskilt vid golvbrunn), gungande eller bomma plattor (knacka lätt med nyckel — ihåligt ljud = bomning), mögellukt utan synlig orsak, höjda fuktvärden vid mätning, eller fuktskada i underliggande utrymme (källare, krypgrund). Tätskikt kan vara förbrukat utan synlig skada — fuktmätning av en BKR-behörig är säkraste sättet att veta.',
+  },
+  {
+    q: 'Vad krävs för att få våtrumsintyg?',
+    a: 'Tre saker krävs. För det första: arbetet ska utföras av en BKR-behörig plattsättare (eller GVK-auktoriserad firma för våtrumsmattor). För det andra: arbetet ska följa gällande BBV i alla moment — underlag, tätskikt, plattsättning, fogning. För det tredje: kvalitetsdokumentet ska fyllas i löpande med produkter, datum och egenkontroller, och signeras av ansvarig arbetsledare. Vi signerar med BankID — det ger ett juridiskt giltigt dokument.',
+  },
+  {
+    q: 'Är våtrumsintyg viktigt?',
+    a: 'Ja, av tre skäl. Försäkringsbolaget begär det vid en eventuell vattenskada — utan intyg kan skadan avvisas. Bostadsrättsföreningen kräver det ofta för att godkänna renoveringen. Köparen efterfrågar det vid försäljning, och bankerna kontrollerar det vid bostadsrättsöverlåtelse. I praktiken är våtrumsintyg det enda dokumentet som bevisar att renoveringen är fackmässigt utförd.',
+  },
+  {
+    q: 'När kom kravet på våtrumsintyg?',
+    a: 'BBV i sin nuvarande form har funnits sedan slutet av 1980-talet, men kraven har skärpts i flera omgångar. De senaste större revideringarna omfattar tätskiktets tjocklek, dokumentationskrav och kontrollmoment. Det är därför viktigt att en plattsättare arbetar enligt aktuell BBV — gamla intyg från 90-talet uppfyller inte dagens krav.',
+  },
+  {
+    q: 'Hur länge gäller våtrumsintyget?',
+    a: 'Intyget är ett dokument över att arbetet utfördes korrekt vid den tidpunkt det utfördes — det har ingen "utgångsdatum". Däremot åldras det fysiska tätskiktet, och därför säger intyget inget om badrummets nuvarande skick. Vid försäljning eller försäkringsärende är ålder på arbetet och kompletterande fuktmätning det som avgör — inte enbart att intyget finns.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'Tätskikt, våtrumsintyg & BBV — den tekniska guiden från en BKR-behörig plattsättare i Stockholm',
+  description:
+    'Komplett guide till tätskikt, våtrumsintyg och Branschregler för Våtrum (BBV). Vi förklarar BKR, GVK, regler för tätskikt och vad som krävs för att få ett giltigt våtrumsintyg.',
+  author: { '@type': 'Organization', name: 'Haga Plattsättning AB', url: 'https://www.hagaplattsattning.se/' },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  inLanguage: 'sv-SE',
+  about: ['Tätskikt', 'Våtrumsintyg', 'BBV', 'BKR', 'Badrumsrenovering Stockholm'],
+  mainEntityOfPage: 'https://www.hagaplattsattning.se/tatskikt-vatrumsintyg-bbv/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Tätskikt, våtrumsintyg & BBV',
+      item: 'https://www.hagaplattsattning.se/tatskikt-vatrumsintyg-bbv/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Tätskikt, Våtrumsintyg & BBV – Den Tekniska Guiden | Haga Plattsättning AB</title>
+    <meta
+      name="description"
+      content="Komplett guide till tätskikt, våtrumsintyg och BBV (Branschregler för Våtrum) — skriven av en BKR-behörig plattsättare i Stockholm. 10 frågor som ofta ställs, besvarade på riktigt."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/tatskikt-vatrumsintyg-bbv/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/tatskikt-vatrumsintyg-bbv/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/tatskikt-vatrumsintyg-bbv/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/tatskikt-vatrumsintyg-bbv/" />
+    <meta property="og:title" content="Tätskikt, Våtrumsintyg & BBV – Den Tekniska Guiden" />
+    <meta
+      property="og:description"
+      content="BBV, tätskikt, våtrumsintyg — förklarat av en BKR-behörig plattsättare i Stockholm."
+    />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/behorig-vatrum.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="BKR-behörig plattsättare i Stockholm utför tätskikt enligt BBV" />
+
+    <!-- ── TWITTER / X ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tätskikt, Våtrumsintyg & BBV — guide från BKR-behörig plattsättare" />
+    <meta
+      name="twitter:description"
+      content="Fakta om tätskikt, våtrumsintyg, BBV, BKR och GVK — skrivet av plattsättare i Stockholm."
+    />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/behorig-vatrum.avif" />
+
+    <!-- ── GEO ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplatt_15.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <!-- ── BREADCRUMB ── -->
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Tätskikt, våtrumsintyg &amp; BBV</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════ -->
+      <section class="s-hero" aria-label="Tätskikt, våtrumsintyg och BBV — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Teknisk guide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Tätskikt, våtrumsintyg<br /><em>&amp; BBV</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Tätskikt är det vattentäta lagret bakom kaklet som skyddar fastigheten från fuktskada.
+              Våtrumsintyget dokumenterar att arbetet är utfört enligt BBV — Branschregler för Våtrum,
+              som ges ut av Byggkeramikrådet (BKR). Här svarar vi som BKR-behörig plattsättare i
+              Stockholm på de tio frågor vi får mest om tätskikt och våtrumsintyg.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Få gratis offert <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num"><em>BKR</em></div><div class="label">Behörig plattsättare</div></div>
+              <div class="cell"><div class="num"><em>BBV</em></div><div class="label">Branschregler för Våtrum</div></div>
+              <div class="cell"><div class="num"><em>BankID</em></div><div class="label">Signerat kvalitetsdokument</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplatt_15.avif"
+              alt="BKR-behörig plattsättare i Stockholm utför tätskikt och kakelsättning enligt BBV — Haga Plattsättning AB"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SNABBSVAR — quick answers (AI Overview bait)
+      ══════════════════════════════════════════ -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om tätskikt och våtrumsintyg">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Är våtrumsintyg viktigt?</strong> Ja — det krävs ofta av försäkringsbolag, bostadsrättsförening och köpare.</li>
+                <li><strong>Vad är BBV?</strong> Branschregler för Våtrum, utfärdade av Byggkeramikrådet (BKR). Standard i Sverige för kakel och klinker i våtrum.</li>
+                <li><strong>Hur länge håller ett tätskikt?</strong> Ett korrekt utfört tätskikt håller normalt 25–30 år.</li>
+                <li><strong>Skillnad mellan BKR och GVK?</strong> BKR är keramikbranschens organ (kakel/klinker). GVK är golvbranschens (våtrumsmatta). Båda godkända av försäkringsbolagen.</li>
+                <li><strong>Vad krävs för giltigt intyg?</strong> Behörig plattsättare + arbete enligt BBV + signerat kvalitetsdokument (vi signerar med BankID).</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet — bläddra ner eller använd länkarna i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION A — BBV och branschorganen
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="BBV och branschregler för våtrum">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · Branschen</span>
+          <h2 class="h-section" style="margin-top:14px">BBV och branschregler — så är <em>våtrumsbranschen organiserad</em></h2>
+          <p>
+            Innan vi pratar om tätskikt och intyg är det värt att förstå vem som bestämmer reglerna,
+            och varför två organisationer (BKR och GVK) finns vid sidan av varandra. Det förklarar
+            också varför en seriös plattsättare alltid hänvisar till en specifik branschstandard.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vad är <em>BBV</em> (Branschregler för Våtrum)?</h3>
+              <p>
+                BBV är de tekniska reglerna som styr hur tätskikt och plattsättning ska utföras
+                i svenska våtrum. Reglerna utfärdas av Byggkeramikrådet (BKR) och uppdateras
+                löpande för att hålla jämna steg med nya material, byggsätt och försäkringskrav.
+              </p>
+              <p>
+                Det praktiska värdet av BBV är att det finns en gemensam, kontrollerbar måttstock.
+                När en BKR-behörig plattsättare arbetar enligt BBV och fyller i kvalitetsdokumentet
+                får du ett <strong>officiellt våtrumsintyg</strong> som dokumenterar att arbetet är
+                fackmässigt utfört. Det är samma standard som ditt försäkringsbolag, din bostadsrättsförening
+                och en framtida köpare bedömer renoveringen mot.
+              </p>
+              <p>
+                BBV är inte en lag — det är en branschöverenskommelse. Men i praktiken fungerar den
+                som lag: utan dokumentation enligt BBV är det svårt att få en vattenskada
+                ersatt och svårt att sälja bostaden utan prisreduktion.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/behorig-vatrum.avif"
+                alt="Behörig plattsättare i Stockholm utför våtrumsarbete enligt BBV — Haga Plattsättning AB"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilka <em>ger ut</em> branschregler för våtrum i Sverige?</h3>
+              <p>
+                Två branschorgan ger ut regler för våtrumsarbete:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>BKR (Byggkeramikrådet)</strong> — ger ut <em>BBV (Branschregler för Våtrum)</em>.
+                  Det är keramikbranschens organ och täcker kakel, klinker, sten och liknande hårda
+                  ytmaterial. De flesta plattsättare i Stockholm arbetar enligt BBV.
+                </li>
+                <li>
+                  <strong>GVK (Golvbranschens Våtrumskontroll)</strong> — ger ut <em>Säkra Våtrum</em>.
+                  Det är golvbranschens organ och fokuserar på våtrumsmattor, plastgolv och liknande
+                  mjuka ytmaterial. GVK-firmor monterar oftast inte kakel.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Båda regelverken är godkända av försäkringsbolagen och bostadsrättsföreningar.
+                Skillnaden ligger i vilket material som används — inte i hur "godkänt" intyget är.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är <em>skillnaden</em> på GVK och BKR?</h3>
+              <p>
+                Den enklaste sammanfattningen: <strong>BKR för kakel, GVK för våtrumsmatta</strong>.
+                Båda utfärdar våtrumsintyg, men intyget gäller bara för det material och det
+                utförande som regleras av respektive organ.
+              </p>
+              <p>
+                I praktiken betyder det: om du väljer kakel och klinker i Stockholm är BKR
+                standardvalet. Om du väljer våtrumsmatta är GVK rätt väg. Vissa firmor är
+                certifierade hos båda, men det är inte nödvändigt — vad som spelar roll är att
+                <em>utförandet matchar intygets regelverk</em>.
+              </p>
+              <p style="margin-top:14px">
+                Vill du läsa mer om materialvalet i sig?
+                <a href="/kakelsattare-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår sida om kakel och kakelsättning →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION B — Tätskiktet
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Tätskiktet — det vattentäta lagret bakom kaklet">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · Tätskiktet</span>
+          <h2 class="h-section" style="margin-top:14px">Tätskiktet — <em>det viktigaste lagret</em> bakom kaklet</h2>
+          <p>
+            Tätskiktet är det enda som faktiskt skyddar fastigheten från vattenskada. Kakel,
+            fog och silikon är slitytor — vatten passerar dem snabbare än folk tror. Det är
+            tätskiktet bakom som gör jobbet, och det är därför hela BBV är skrivet runt det.
+          </p>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner">
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_18.avif"
+                alt="Tätskikt monteras i badrum enligt BBV — fotodokumentation från projekt i Stockholm"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+            <div class="guide-text">
+              <h3>Vilka regler gäller för <em>tätskikt</em> i badrum?</h3>
+              <p>BBV ställer specifika krav i flera moment:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Underlaget</strong> ska vara godkänt och dokumenterat före tätskikt påbörjas</li>
+                <li><strong>Tätskiktet</strong> ska omfatta hela våtzonen — inklusive 50 mm upp på vägg från golv</li>
+                <li><strong>Tjocklek och torktid</strong> mellan strykningar måste följa tillverkarens datablad</li>
+                <li><strong>Genomföringar</strong> (rör, golvbrunn, eluttag) ska tätas med särskilda manschetter</li>
+                <li><strong>Egenkontroll</strong> ska utföras och dokumenteras innan kakelsättning får påbörjas</li>
+                <li><strong>Produktblad</strong> för tätskiktssystemet ska bifogas kvalitetsdokumentet</li>
+              </ul>
+              <p style="margin-top:14px">
+                Hela BBV är cirka 80 sidor — det här är de moment som påverkar dig som beställare
+                mest. Vill du läsa originalreglerna går de att hitta hos
+                <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Byggkeramikrådet</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>När ska man <em>byta tätskikt</em> i badrum?</h3>
+              <p>
+                Ett korrekt utfört tätskikt håller normalt <strong>25–30 år</strong>. Det är
+                inte en garantitid — det är en branscherfarenhet baserad på material som monterades
+                under förra generationens regelverk. Nyare system kan hålla längre, men ingen
+                seriös aktör lovar mer än 30 år.
+              </p>
+              <p>Du bör byta tätskikt:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Vid <strong>synlig fuktskada</strong> — missfärgning, mörka fläckar, mögellukt</li>
+                <li>Vid <strong>förhöjd fuktmätning</strong> även om ytan ser hel ut</li>
+                <li>Vid <strong>ombyggnad</strong> där underlaget ändras (flytt av väggar, golvbrunn, dusch)</li>
+                <li>Om badrummet är <strong>äldre än 25 år</strong> och du planerar en renovering</li>
+                <li>Om du <strong>inte vet vilken ålder</strong> det har och saknar kvalitetsdokument</li>
+              </ul>
+              <p style="margin-top:14px">
+                Den vanligaste fällan: kaklet ser perfekt ut, alltså antar man att tätskiktet är
+                fint. Det är fel logik — kakel och fog är slitytor som kan se nya ut även när
+                tätskiktet bakom är förbrukat. <em>Ålder är en bättre indikator än utseende.</em>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur vet man om <em>tätskiktet är dåligt?</em></h3>
+              <p>
+                De vanligaste indikatorerna vi ser i Stockholms-projekt:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Missfärgning eller mörka fläckar i fogarna</strong> — särskilt vid golvbrunn och i hörn</li>
+                <li><strong>Bomma eller gungande plattor</strong> — knacka lätt på kaklet med en nyckel; ihåligt ljud betyder att vidhäftningen släppt</li>
+                <li><strong>Mögellukt</strong> i badrummet eller intilliggande utrymmen, även utan synlig orsak</li>
+                <li><strong>Fuktmätning</strong> som visar förhöjda värden bakom kakel, i vägg eller i bjälklag</li>
+                <li><strong>Fuktskada i utrymmet under</strong> — källare, krypgrund eller granne i lägenhet under</li>
+                <li><strong>Salt- eller kalkutfällningar</strong> i fog — ett tecken på att vatten har vandrat genom konstruktionen</li>
+              </ul>
+              <p style="margin-top:14px">
+                Viktigt att veta: <strong>tätskikt kan vara förbrukat utan synlig skada</strong>.
+                Vi rekommenderar fuktmätning av en BKR-behörig om badrummet är äldre än 20 år
+                eller om du saknar dokumentation — särskilt inför en försäljning eller en större
+                renovering. Det är en liten åtgärd som kan rädda en stor reparation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION C — Våtrumsintyget
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Våtrumsintyget — kvalitetsdokumentet">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Intyget</span>
+          <h2 class="h-section" style="margin-top:14px">Våtrumsintyget — så får du <em>dokumentationen rätt</em></h2>
+          <p>
+            Våtrumsintyget — formellt kvalitetsdokument enligt BBV — är det enda som bevisar att
+            renoveringen är fackmässigt utförd. Här går vi igenom vad som krävs för att intyget
+            ska vara giltigt, varför det spelar roll, och vilka frågor som dyker upp i praktiken.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vad krävs för att <em>få våtrumsintyg?</em></h3>
+              <p>Tre saker måste vara på plats:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>1. BKR-behörig plattsättare.</strong> Eller GVK-auktoriserad firma om
+                  arbetet gäller våtrumsmatta. Behörigheten ska vara aktiv vid utförandet — inte
+                  utgången, vilande eller tidigare.
+                </li>
+                <li>
+                  <strong>2. Arbete enligt gällande BBV.</strong> Alla moment — underlag, tätskikt,
+                  plattsättning, fogning, silikon — ska följa aktuell utgåva av branschreglerna.
+                </li>
+                <li>
+                  <strong>3. Komplett kvalitetsdokument.</strong> Dokumentet fylls i löpande under
+                  projektet med produkter, datum, fotodokumentation och egenkontroller. Det signeras
+                  av ansvarig arbetsledare. <em>Vi signerar med BankID</em> — det ger ett juridiskt
+                  giltigt elektroniskt dokument.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                En vanlig missuppfattning är att intyget är ett separat papper man får i slutet.
+                I praktiken är intyget hela kvalitetsdokumentet — produktblad, foton och
+                egenkontroller är en del av handlingen. Saknas någon del är intyget inte komplett.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_22.avif"
+                alt="Färdigställt badrum i Stockholm med våtrumsintyg och kvalitetsdokument signerat med BankID"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Är <em>våtrumsintyg viktigt?</em></h3>
+              <p>Ja, av tre konkreta skäl:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Försäkringsbolaget</strong> begär dokumentationen vid en eventuell
+                  vattenskada. Utan giltigt intyg kan skadan avvisas eller självrisken höjas
+                  betydligt — i värsta fall står du för hela skadekostnaden själv.
+                </li>
+                <li>
+                  <strong>Bostadsrättsföreningen</strong> kräver det ofta för att godkänna
+                  renoveringen, och utan godkännande kan styrelsen kräva återställning på
+                  din bekostnad.
+                </li>
+                <li>
+                  <strong>Köparen och banken</strong> efterfrågar det vid försäljning. En bostad
+                  utan dokumenterad badrumsrenovering värderas lägre, och bankerna kan kräva
+                  besiktning innan lån beviljas på hela köpesumman.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                I korthet: <strong>intyget är inte en formalitet — det är det enda dokumentet som
+                bevisar att arbetet är gjort rätt.</strong> Utan det är du juridiskt och
+                ekonomiskt utlämnad om något händer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>När kom <em>kravet på våtrumsintyg?</em></h3>
+              <p>
+                BBV i sin nuvarande form har funnits sedan slutet av 1980-talet, men kraven har
+                skärpts i flera omgångar. De senaste större revideringarna har omfattat tätskiktets
+                tjocklek, dokumentationskravens detaljnivå och kontrollmoment.
+              </p>
+              <p>
+                I praktiken betyder det att <strong>ett intyg från 90-talet inte uppfyller dagens
+                krav</strong> — och att en plattsättare som inte arbetar enligt aktuell BBV-utgåva
+                heller inte kan utfärda ett giltigt intyg idag. Det är därför viktigt att fråga
+                vilken utgåva firman arbetar efter, inte bara om de "har behörighet".
+              </p>
+              <p>
+                Om du köpt en bostad där badrummet har ett gammalt intyg är det värt att veta:
+                intyget bevisar att arbetet var korrekt vid utförandet enligt då gällande regler —
+                men det är ingen garanti för att tätskiktet idag är funktionsdugligt.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur länge <em>gäller våtrumsintyget?</em></h3>
+              <p>
+                Intyget har <strong>ingen "utgångsdatum"</strong>. Det är ett dokument över att
+                arbetet utfördes korrekt vid den tidpunkt det utfördes — inte ett kvitto på
+                att tätskiktet är funktionsdugligt idag.
+              </p>
+              <p>
+                Det fysiska tätskiktet däremot åldras. Vid en försäljning eller en
+                försäkringsskada är det <em>ålder på arbetet plus aktuell fuktmätning</em>
+                som avgör — inte enbart att intyget finns. Många säljare blir överraskade
+                av detta: att ha intyg från 1995 är inte samma sak som att ha ett funktionsdugligt
+                badrum 2026.
+              </p>
+              <p>
+                Tumregeln är: ett tätskikt yngre än 15 år, signerat enligt aktuell BBV och
+                med komplett dokumentation, är i regel oproblematiskt. Är arbetet äldre eller
+                dokumentationen ofullständig är fuktmätning den tryggaste vägen framåt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CTA — soft conversion
+      ══════════════════════════════════════════ -->
+      <section class="s-twocol" aria-label="Boka kostnadsfri synning för våtrumsintyg">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du behöver intyg</span>
+            <h2 class="h-section" style="margin-top:14px">Behöver du <em>våtrumsintyg</em> för försäkring, BRF eller försäljning?</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                Vi är BKR-behöriga och utfärdar officiellt kvalitetsdokument enligt BBV efter
+                varje badrumsrenovering. Dokumentet signeras med BankID av ansvarig arbetsledare
+                och är juridiskt giltigt mot försäkringsbolag, bostadsrättsförening och köpare.
+              </p>
+              <p>
+                Behöver du en bedömning av ett befintligt badrum — eller vill ha en kostnadsfri
+                synning inför en planerad renovering? Boka en tid med oss på plats i Stockholm.
+                Vi går igenom vad som behöver göras, hur dokumentationen ska se ut, och ger
+                dig ett tydligt skriftligt offert efter besöket.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Få gratis offert <span class="arrow">→</span></a>
+              <a class="btn-link" href="/om-oss/">Läs om våra certifieringar →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/saeker-vatten-rgb-png.avif"
+                alt="Säker Vatten-certifierad samarbetspartner — Haga Plattsättning AB i Stockholm"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>certifierad</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           INTERNAL LINKS — Läs mer
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och tjänster">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>plattsättning och badrum</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida med komplett process</a></li>
+                <li><a href="/kakelsattare-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakelsättare Stockholm — vad skiljer en behörig från en obehörig</a></li>
+                <li><a href="/koksrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Köksrenovering Stockholm — kakel, klinker och stänkskydd</a></li>
+                <li><a href="/om-oss/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Om Haga Plattsättning AB — våra certifieringar och arbetsmetod</a></li>
+                <li><a href="/referensprojekt/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Referensprojekt — verkliga badrumsrenoveringar i Stockholm</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en teknisk guide till tätskikt, våtrumsintyg och BBV (Branschregler för Våtrum). Skriven av Haga Plattsättning AB — BKR-behörig plattsättare i Stockholm sedan 2021. Innehållet ska ses som vägledning; vid specifika ärenden rekommenderas alltid platsbesök eller kontakt med oss för bedömning."
+    />
+
+    <!-- ── JSON-LD: FAQPage schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <!-- ── JSON-LD: TechArticle schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+
+    <!-- ── JSON-LD: BreadcrumbList schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>
