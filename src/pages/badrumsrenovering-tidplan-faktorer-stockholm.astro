@@ -1,0 +1,823 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-11';
+const UPDATED = '2026-05-11';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi förklarar vilka faktorer som påverkar tidsåtgången för en badrumsrenovering — utan att lova en specifik tidplan, eftersom varje projekt är unikt. Skicka offertförfrågan för en konkret tidsuppskattning.',
+  knowsAbout: [
+    'Badrumsrenovering tidplan faktorer',
+    'Tätskikt härdningstid',
+    'BBV branschregler',
+    'BRF bullertider Stockholm',
+    'Faser i badrumsrenovering',
+    'Förseningar renovering',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Vilka är de viktigaste faktorerna som påverkar tidsåtgången?',
+    a: 'Sex huvudfaktorer styr tidsåtgången: badrummets storlek, omfattning av rivning och underlagsarbete, VVS-omfattning (flytt av rör eller golvbrunn), tätskiktets härdningstid (icke förhandlingsbar enligt tillverkaranvisningar och BBV), BRF-krav på bullertider och tillgänglighet, samt eventuella fynd vid rivning. Av dessa är tätskiktets härdningstid det enda som är fast — resten varierar mellan projekt. Det är därför ingen seriös plattsättare lovar en exakt tidplan utan att först se badrummet.',
+  },
+  {
+    q: 'Vad är tätskiktets härdningstid och varför kan den inte hoppas över?',
+    a: 'Tätskiktet är det vattentäta lagret bakom kaklet. För att fungera måste det härda enligt tillverkarens specifikationer — typiskt mellan strykningar och innan kakelsättning får påbörjas. Dessa tider står på produktbladet och varierar mellan system (folie- eller smörjbart tätskikt), temperatur och luftfuktighet. Att skynda på detta moment är inte förhandlingsbart enligt BBV (Branschregler för Våtrum) — det är fysiskt nödvändigt för att skiktet ska bli vattentätt. Plattsättare som lovar en snabb renovering hoppar i regel över detta moment — och därmed bryter de mot BBV och försäkringsvillkoren.',
+  },
+  {
+    q: 'Vilka faser ingår i en typisk renovering och vilka är tidskritiska?',
+    a: 'En typisk renovering har sju faser: (1) Förberedelse och etablering, (2) rivning av befintligt material, (3) underlagsarbete och VVS-anslutningar, (4) tätskikt med härdningstid, (5) plattsättning, (6) fogning och silikonering, (7) städning och slutdokumentation. Av dessa är fas 4 (tätskiktets härdning) den enda som är tidsfast — den måste få sin tid oavsett hur snabbt plattsättaren arbetar. Faserna 1, 2, 5 och 6 kan effektiviseras med erfaren personal; fas 3 (underlagsarbete och VVS) varierar mest beroende på vad rivningen avslöjar.',
+  },
+  {
+    q: 'Hur påverkar badrummets storlek och format tidsåtgången?',
+    a: 'Storleken påverkar både rivnings- och plattsättningstiden, men inte linjärt. Ett mindre badrum är trångare att jobba i, har fler hörnskärningar per kvadratmeter och har mindre marginaler — vilket gör arbetet långsammare per yta. Ett medelstort badrum är vanligen mest tidseffektivt per kvadratmeter. Format på plattorna är också viktigt: storformat (60×60 cm och uppåt) tar längre tid per platta (transport, kapning, precision) men har färre fogar. Standardformat (15×15, 30×30) går snabbare per platta men kräver fler skärningar.',
+  },
+  {
+    q: 'Hur påverkar VVS-arbete tidplanen?',
+    a: 'VVS är ofta den största variabeln i tidplanen. Ett projekt utan rörflyttningar är förutsägbart: VVS-firman kommer in en dag för demontering och en dag för slutmontering. Vid flytt av rör (blandare, golvbrunn, toalett) krävs ny rördragning, vilket kan kräva flera arbetsmoment som måste passas in i sekvensen mellan rivning och tätskikt. I BRF kräver dessutom alla rörändringar styrelsens tillstånd — vilket är en separat administrativ tidsfaktor som måste ligga klart innan projektet startar.',
+  },
+  {
+    q: 'Hur påverkar BRF-krav, tillstånd och bullertider tidplanen?',
+    a: 'BRF-faktorer är ofta underskattade. Styrelsens tillstånd kan ta upp till en månad enligt Bostadsrätterna. Bullertider styr hur många effektiva arbetstimmar per kalendervecka som finns — en BRF som tillåter vardagar 07–17 men inga lördagar ger ungefär 50 effektiva arbetstimmar/vecka, medan en BRF som även tillåter lördagar 09–15 ger nästan 60. Skillnaden över ett 2–3 veckors projekt kan vara en hel kalendervecka. Granninformation, container­hantering och förvaltarkrav är fast administration som måste ligga klart innan start.',
+  },
+  {
+    q: 'Varför kan en plattsättare inte ge en exakt tidplan i förväg?',
+    a: 'För att det är fysiskt och praktiskt omöjligt att veta innan rivningen. Underlagets exakta skick, VVS-systemets faktiska kondition, eventuella fuktskador eller asbest, och oväntade fastighetsspecifika problem är alla okända fram till första rivningsdagen. En seriös plattsättare ger en "uppskattad tidplan" baserat på platsbesöket — och kommunicerar tydligt vad som kan röra tidplanen åt båda håll. En plattsättare som lovar en exakt tidplan innan rivning gissar — och det är där missnöjda kunder uppstår.',
+  },
+  {
+    q: 'Vad är de vanligaste orsakerna till att projekt drar ut på tiden?',
+    a: 'De fem vanligaste orsakerna vi ser i Stockholms-projekt: (1) Fynd vid rivning — fuktskador, mjuk gips i våtzon, gammalt tätskikt i behov av full ersättning. (2) Sent materialval — kunder som ändrar kakel eller inredning efter projektstart. (3) BRF-administration — sena godkännanden från styrelsen, krångel kring granninformation. (4) VVS-koordination — fördröjda underleverantörer eller saknad tillgänglighet i fastigheten. (5) Leveransfördröjningar — särskilt vid storformat och specialbeställda plattor som har lång leveranstid. Av dessa är (1) och (5) de vanligaste; (1) hanterar vi genom ärlig kommunikation, (5) genom att alltid bekräfta leverans innan projektstart.',
+  },
+  {
+    q: 'Vad ska du fråga om i offerten för att förstå tidplanen?',
+    a: 'Fråga alltid: (1) Hur lång är "uppskattad tidplan" vid normalt utfall? (2) Vad i tidplanen är tidskritiskt (tätskikt) och vad kan förkortas? (3) Vad händer om något oväntat hittas vid rivning — hur kommuniceras det? (4) Vilka bullertider antas i tidplanen — och stämmer det med din BRF? (5) Är det fast eller uppskattad tidplan? (6) Vilka eventuella förseningsorsaker har firman redan flaggat? En seriös offert har tydliga svar på dessa frågor; en otydlig offert har "ungefär 2 veckor" utan vidare specificering.',
+  },
+  {
+    q: 'Vad är skillnaden på en "fast" och "uppskattad" tidplan?',
+    a: 'En "fast tidplan" innebär att firman lovar att vara klar ett visst datum och tar ansvar för förseningar (med eventuella vitesvillkor). Det är ovanligt vid badrumsrenovering eftersom så mycket är okänt innan rivning. En "uppskattad tidplan" innebär att firman ger sitt bästa estimat baserat på platsbesöket och kommunicerar förändringar löpande. Detta är branschstandard och ärlig praxis. Det viktiga är att den uppskattade tidplanen är så detaljerad som möjligt — med datum för varje fas, inte bara "klart om 3 veckor". Hantverkarformuläret 17 ger en bra struktur för hur tidplan ska kommuniceras i avtalet.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Vad påverkar tiden för en badrumsrenovering? — Tidplan­guide från BKR-behörig plattsättare i Stockholm',
+  description:
+    'Komplett guide om vilka faktorer som påverkar tidsåtgången för en badrumsrenovering. Vi förklarar tätskiktets härdningstid, faser, VVS-påverkan, BRF-krav och vanliga förseningsorsaker. Inga tidsslöften ges — för exakt tidsuppskattning krävs platsbesök.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)' },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Badrumsrenovering tidplan',
+    'Tätskikt härdningstid',
+    'BBV branschregler',
+    'BRF bullertider',
+    'Faser badrumsrenovering',
+    'Förseningar projekt',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsägare i Stockholm som planerar badrumsrenovering',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    {
+      '@type': 'CreativeWork',
+      name: 'BKR — Byggkeramikhandboken',
+      url: 'https://www.bkr.se/teknik/byggkeramikhandboken',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'BKR — Branschregler för Våtrum (BBV)',
+      url: 'https://www.bkr.se/regler',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Bostadsrätterna — Ombyggnation i lägenhet',
+      url: 'https://www.bostadsratterna.se/kunskapsbanken/o/ombyggnation-i-lagenhet',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Konsumentverket — Hantverkarformuläret 17',
+      url: 'https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17',
+    },
+  ],
+  mainEntityOfPage:
+    'https://www.hagaplattsattning.se/badrumsrenovering-tidplan-faktorer-stockholm/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Vad påverkar tiden för en badrumsrenovering',
+      item: 'https://www.hagaplattsattning.se/badrumsrenovering-tidplan-faktorer-stockholm/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <title>Vad Påverkar Tiden För En Badrumsrenovering? Tidplan­guide 2026 | Haga Plattsättning Stockholm</title>
+    <meta
+      name="description"
+      content="Vi förklarar exakt vilka faktorer som påverkar tidsåtgången för en badrumsrenovering — utan att lova en exakt tidplan. Tätskikt­ets härdningstid, faser, VVS, BRF-bullertider och vanliga förseningsorsaker. Skicka offertförfrågan för exakt uppskattning."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/badrumsrenovering-tidplan-faktorer-stockholm/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/badrumsrenovering-tidplan-faktorer-stockholm/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/badrumsrenovering-tidplan-faktorer-stockholm/" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/badrumsrenovering-tidplan-faktorer-stockholm/" />
+    <meta property="og:title" content="Vad påverkar tiden för en badrumsrenovering? — Tidplan­guide" />
+    <meta property="og:description" content="Sex faktorer som styr tidsåtgången — förklarat av en BKR-behörig plattsättare. Tätskikt­ets härdningstid, faser, VVS och BRF-krav." />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_13.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Badrumsrenovering i Stockholm — tidplan och faser" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vad påverkar tiden för en badrumsrenovering?" />
+    <meta name="twitter:description" content="Sex faktorer styr tidsåtgången — ärlig guide från BKR-behörig plattsättare i Stockholm." />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_13.avif" />
+
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplatt_13.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Vad påverkar tiden för en badrumsrenovering</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- HERO -->
+      <section class="s-hero" aria-label="Vad påverkar tiden för en badrumsrenovering — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Tidplan­guide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Vad påverkar tiden<br /><em>för en badrumsrenovering?</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Den här guiden förklarar <em>vilka faktorer som påverkar tidsåtgången</em> för en
+              badrumsrenovering — den ger inte ett rakt tidsutfall. Anledningen är teknisk: tätskiktets
+              härdningstid är icke förhandlingsbar, men allt annat varierar mellan projekt. Vill du
+              ha en konkret tidsuppskattning för ditt projekt — skicka en offertförfrågan så
+              uppskattar vi tiden efter ett gratis synningsbesök.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Få tidsuppskattning <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num">6<em>faktorer</em></div><div class="label">Styr tidsåtgången</div></div>
+              <div class="cell"><div class="num">7<em>faser</em></div><div class="label">I en typisk renovering</div></div>
+              <div class="cell"><div class="num"><em>BBV</em></div><div class="label">Härdningstid icke förhandlingsbar</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplatt_13.avif"
+              alt="Badrumsrenovering i Stockholm — planerade faser och tidplan av Haga Plattsättning AB"
+              width="2400" height="1350" loading="eager" fetchpriority="high" decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- META + TOC -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#disclaimer">Viktigt om denna guide — vi ger inga tidlöften</a></li>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#tekniska">De tekniska faktorerna — det som inte går att skynda</a></li>
+                <li><a href="#praktiska">De praktiska faktorerna — det som varierar mest</a></li>
+                <li><a href="#forseningar">Förseningar och hur de hanteras</a></li>
+                <li><a href="#kontakt">Få en konkret tidsuppskattning</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <section id="disclaimer" class="guide-section" aria-label="Viktigt — denna guide ger inga tidslöften">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <div style="background:var(--paper-2);border-left:4px solid var(--accent-soft);padding:20px 24px;border-radius:6px;margin-top:8px">
+                <p style="margin:0;font-weight:600;color:var(--ink)">Viktigt om denna guide</p>
+                <p style="margin-top:10px;font-size:0.97rem;line-height:1.65;color:var(--ink-2)">
+                  Den här guiden förklarar <strong>vilka faktorer som påverkar tidsåtgången</strong>
+                  för en badrumsrenovering — inte en specifik tidplan. Varje renovering är unik
+                  och det är fysiskt omöjligt att lova en exakt tidsåtgång utan att se badrummet
+                  på plats. Vill du ha en konkret tidsuppskattning för <em>ditt</em> projekt —
+                  <a href="/offertforfragan/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">skicka en offertförfrågan</a>
+                  så bokar vi en kostnadsfri synning och du får en realistisk uppskattning inom kort.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SNABBSVAR -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om tidplanen">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Sex faktorer styr tidsåtgången:</strong> storlek, rivning/underlag, VVS-omfattning, härdningstider, BRF-krav, oväntade fynd.</li>
+                <li><strong>Härdningstiden för tätskikt</strong> är den enda fasta faktorn — den följer tillverkarens specifikationer och kan inte hoppas över utan att bryta mot BBV.</li>
+                <li><strong>VVS-omfattningen</strong> är ofta största variabeln — ett projekt utan rörflyttningar går mycket snabbare än ett med flytt av blandare och golvbrunn.</li>
+                <li><strong>BRF-bullertider</strong> kan förlänga projektet med en kalendervecka — kontrollera din förenings regler innan du planerar start.</li>
+                <li><strong>Rivningen avslöjar det dolda</strong> — fukt­skador, mjuk gips eller gammalt tätskikt kan röra tidplanen åt båda håll.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet — bläddra ner eller använd länkarna i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION A — De tekniska faktorerna -->
+      <section id="tekniska" class="guide-section" aria-label="De tekniska faktorerna som inte går att skynda">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · De tekniska faktorerna</span>
+          <h2 class="h-section" style="margin-top:14px">De <em>tekniska faktorerna</em> — det som inte går att skynda</h2>
+          <p>
+            En del av tidsåtgången styrs av fysik och regelverk — den går inte att förhandla.
+            Härdningstiden för tätskikt är det främsta exemplet. Plattsättare som lovar snabba
+            badrumsrenoveringar hoppar i regel över detta moment, vilket bryter mot BBV och
+            försäkringskraven. Här går vi igenom vad som är icke förhandlingsbart.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vilka är de <em>viktigaste faktorerna</em> som påverkar tidsåtgången?</h3>
+              <p>Sex huvudfaktorer styr tidsåtgången:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>1. Badrummets storlek och format</strong> — material- och arbetstid</li>
+                <li><strong>2. Rivning och underlagsarbete</strong> — varierar med vad som hittas</li>
+                <li><strong>3. VVS-omfattning</strong> — rörflyttar tar betydligt längre än utan</li>
+                <li><strong>4. Tätskiktets härdningstid</strong> — fysiskt nödvändig, icke förhandlingsbar</li>
+                <li><strong>5. BRF-krav och bullertider</strong> — effektiv arbetstid per vecka</li>
+                <li><strong>6. Oväntade fynd</strong> — fukt, asbest, försvagad bjälkar — kan förlänga</li>
+              </ul>
+              <p style="margin-top:14px">
+                Av dessa är faktor 4 (härdningstiden) det enda som är fast — resten varierar mellan
+                projekt. Det är därför vi som BKR-behörig plattsättare aldrig lovar en exakt
+                tidsåtgång utan att först se badrummet.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_20.avif"
+                alt="Tätskiktsarbete i badrumsrenovering — härdningstid följs enligt BBV av Haga Plattsättning AB"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är <em>tätskiktets härdningstid</em> och varför kan den inte hoppas över?</h3>
+              <p>
+                Tätskiktet är det vattentäta lagret bakom kaklet — det enda som faktiskt skyddar
+                fastigheten från vattenskada. För att fungera måste det härda enligt tillverkarens
+                specifikationer. Det handlar både om härdningstider mellan strykningar (för smörjbara
+                system) och om torktid innan kakelsättning får påbörjas.
+              </p>
+              <p>Tre saker styr härdningstiden:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Tätskiktssystemet</strong> — varje tillverkare har egna torktider på sina produktblad (Mira, Schönox, Casco, Kerakoll m.fl.)</li>
+                <li><strong>Temperatur och luftfuktighet</strong> — kallt och fuktigt = längre torktid. Detta är fysik.</li>
+                <li><strong>Antalet strykningar</strong> — vissa system kräver två eller tre strykningar med torktid mellan</li>
+              </ul>
+              <p style="margin-top:14px">
+                Att skynda på detta moment är inte ett "knep" — det är ett <em>fel</em> som
+                upptäcks som vattenskada flera år senare. BBV (Branschregler för Våtrum) reglerar
+                detta hårt: korrekt utfört tätskikt enligt tillverkar­anvisningarna är ett krav
+                för giltigt våtrumsintyg. Säker Vatten skriver: <em>"Försäkringsbolagen har i regel
+                fört in krav i sina försäkringsvillkor på utförande enligt etablerade branschregler."</em>
+                Plattsättare som "går runt" härdningstiden gör inte ett snabbjobb — de gör ett
+                ogiltigt jobb.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källor:</strong>
+                <a href="https://www.bkr.se/regler" target="_blank" rel="noopener">BKR — Branschregler för Våtrum (BBV)</a>
+                ·
+                <a href="https://www.bkr.se/teknik/byggkeramikhandboken" target="_blank" rel="noopener">BKR — Byggkeramikhandboken</a>
+                ·
+                <a href="https://sakervatten.se/bygga-ratt/konsumenter/" target="_blank" rel="noopener">Säker Vatten — för konsumenter</a>
+              </div>
+              <p style="margin-top:14px">
+                Mer om tätskikt, BBV och giltiga intyg — se vår
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om tätskikt och våtrumsintyg →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilka <em>faser</em> ingår i en typisk renovering och vilka är tidskritiska?</h3>
+              <p>En typisk renovering har sju faser. Här är vad de innebär:</p>
+              <ol class="bkr-checklist" style="margin-top:14px;list-style:decimal;padding-left:20px">
+                <li>
+                  <strong>Förberedelse och etablering.</strong> Inflyttning av material, skyddstäckning
+                  av angränsande utrymmen, etablering av container eller avfallshantering. <em>Inte
+                  tidskritisk men nödvändig.</em>
+                </li>
+                <li>
+                  <strong>Rivning</strong> av befintligt kakel, klinker, tätskikt och inredning. Tiden
+                  varierar med badrummets storlek och hur välsittande det gamla materialet är. <em>Kan
+                  förkortas med fler personer; kan förlängas vid oväntade fynd.</em>
+                </li>
+                <li>
+                  <strong>Underlagsarbete och VVS-anslutningar.</strong> Bedömning av underlag, ev.
+                  förstärkning eller utbyte, VVS-firmans arbete med rör. <em>Mest variabel fas —
+                  beror helt på vad rivningen avslöjar.</em>
+                </li>
+                <li>
+                  <strong>Tätskikt med härdningstid.</strong> <em>Detta är den tidsfasta fasen.</em>
+                  Strykning, torktid, ev. ny strykning, torktid igen, slutkontroll. Vissa system kräver
+                  också att tätskiktet får härda innan kakelsättning får påbörjas.
+                </li>
+                <li>
+                  <strong>Plattsättning.</strong> Montering av kakel och klinker. Tar längre tid vid
+                  storformat (transport, kapning, precision) och vid komplexa mönster. <em>Förkortbar
+                  med erfaren plattsättare.</em>
+                </li>
+                <li>
+                  <strong>Fogning och silikonering.</strong> Efter att fixmassan härdat (typiskt 24h)
+                  fogas plattorna och rörelsefogar tätas med silikon. <em>Inte tidskritisk men
+                  kvalitetsavgörande.</em>
+                </li>
+                <li>
+                  <strong>Städning och slutdokumentation.</strong> Slutbesiktning, fotodokumentation
+                  av tätskikt, undertecknande av kvalitetsdokument (våtrumsintyg) med BankID, överlämning.
+                  <em>Fast administration.</em>
+                </li>
+              </ol>
+              <p style="margin-top:14px">
+                Av dessa är fas 4 (härdningstid) den enda som är tidsfast. Faserna 1, 2, 5, 6 och 7
+                kan effektiviseras med erfaren personal. Fas 3 är där största variationen ligger —
+                den beror på vad rivningen avslöjar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION B — De praktiska faktorerna -->
+      <section id="praktiska" class="guide-section" aria-label="De praktiska faktorerna som varierar mest">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · De praktiska faktorerna</span>
+          <h2 class="h-section" style="margin-top:14px">De <em>praktiska faktorerna</em> — det som varierar mest</h2>
+          <p>
+            Vid sidan av de tekniska tidsfastheterna finns de praktiska faktorerna som varierar
+            stort mellan projekt. Här är de tre som påverkar mest — och varför ärlig
+            tidsuppskattning kräver att man känner till dem.
+          </p>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur påverkar <em>badrummets storlek och format</em> tidsåtgången?</h3>
+              <p>
+                Storleken påverkar både rivnings- och plattsättningstiden, men inte linjärt. Ett
+                större badrum kräver inte exakt dubbelt så mycket arbetstid som ett halv så stort.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Mycket litet badrum (3–4 m²):</strong> Trångt att jobba i, fler hörnskärningar
+                  per yta, mindre marginaler. <em>Långsammare per kvadratmeter.</em>
+                </li>
+                <li>
+                  <strong>Medelstort badrum (6–8 m²):</strong> Mest tidseffektivt per kvadratmeter.
+                  Tillräckligt utrymme för effektivt arbete utan att vara så stort att tiden växer
+                  proportionellt.
+                </li>
+                <li>
+                  <strong>Stort familjebadrum (10–14 m²):</strong> Längre totaltid men bättre tidsekonomi
+                  per yta. Förberedelse, dokumentation och VVS-tid är ungefär samma oavsett storlek.
+                </li>
+              </ul>
+              <p style="margin-top:14px"><strong>Format på plattorna spelar också roll:</strong></p>
+              <ul class="bkr-checklist" style="margin-top:8px">
+                <li><strong>Standardformat (15×15, 30×30):</strong> Många plattor, många fogar — men varje montering går snabbt.</li>
+                <li><strong>Storformat (60×60 och uppåt):</strong> Tar längre tid per platta (transport, kapning, precision) men färre plattor totalt. Generellt en jämnstor tid totalt sett, men risken vid varje moment är högre — fel skärning på en 1,2 m platta är dyrare.</li>
+                <li><strong>Natursten:</strong> Tar längst tid — kräver särskild fästmassa och behandling.</li>
+              </ul>
+              <p style="margin-top:14px">
+                Mer om material­valet — se vår
+                <a href="/kakel-eller-klinker-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om kakel eller klinker →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur påverkar <em>VVS-arbete</em> tidplanen?</h3>
+              <p>
+                VVS är ofta den största variabeln. Ett projekt utan rörflyttningar är förutsägbart;
+                ett med flera rörflyttningar har många moment som måste koordineras i rätt sekvens.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Inga flyttar (allt på samma plats):</strong> VVS-firman kommer in 1–2 dagar
+                  totalt — en för demontering, en för slutmontering.
+                </li>
+                <li>
+                  <strong>Flytt av blandare:</strong> Ny rördragning kräver att rivning och underlagsarbete
+                  är klart innan VVS-firman kommer in. Lägg till 1–2 dagar.
+                </li>
+                <li>
+                  <strong>Flytt av golvbrunn:</strong> Mer komplext — ny avloppsdragning kräver tillstånd
+                  från BRF (om bostadsrätt) och kan kräva ingrepp i bjälklag. Lägg till 2–4 dagar.
+                </li>
+                <li>
+                  <strong>Flytt av toalett:</strong> Ny avloppsdragning, eventuellt ny vattenanslutning.
+                  Mest komplext bland "standard"-flyttarna.
+                </li>
+                <li>
+                  <strong>Sekvensering:</strong> VVS-firmans arbete måste passas mellan vår rivning och
+                  tätskikt — en koordinationsuppgift som påverkar totaltiden.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Vi koordinerar med vår Säker Vatten-auktoriserade VVS-partner. Vid platsbesöket
+                bedömer vi vilka rörmoment som krävs, och VVS-firman lämnar tidsuppskattning för
+                sin del — som sedan integreras i den totala tidplanen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur påverkar <em>BRF-krav, tillstånd och bullertider</em> tidplanen?</h3>
+              <p>
+                BRF-faktorerna är ofta de mest underskattade. De påverkar inte hur lång den
+                <em>tekniska</em> arbetstiden är, men de påverkar hur många kalenderveckor projektet
+                tar.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Tid för styrelsens tillstånd:</strong> Enligt Bostadsrätterna normalt upp till
+                  en månad. Om du planerar början för "nästa vecka" och inte börjat ansökningsprocessen
+                  än — då har du redan en månads försening innan rivningen ens börjar.
+                </li>
+                <li>
+                  <strong>Bullertider:</strong> En BRF som tillåter vardagar 07–17 utan lördagar ger
+                  ungefär 50 effektiva arbetstimmar per kalendervecka. En BRF som även tillåter lördagar
+                  09–15 ger nästan 60. Skillnaden över ett 2–3 veckors projekt kan vara en hel
+                  kalendervecka.
+                </li>
+                <li>
+                  <strong>Granninformation:</strong> Många föreningar kräver minst en veckas
+                  förvarning till grannar innan bullriga arbeten — det är ett fast tidskrav.
+                </li>
+                <li>
+                  <strong>Container­hantering:</strong> Vissa BRF:er har begränsade tider för
+                  containerhantering — vilket kan kräva flera vändor med mindre fordon och längre
+                  total rivningstid.
+                </li>
+                <li>
+                  <strong>Hisstider och tillgänglighet:</strong> Material måste kunna transporteras
+                  in via hisstider som ofta är reglerade. Material som inte får plats i hissen kräver
+                  bärning i trappor, vilket är arbetsintensivt.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Mer om BRF-processen — se vår
+                <a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om badrumsrenovering i BRF →</a>
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong>
+                <a href="https://www.bostadsratterna.se/kunskapsbanken/o/ombyggnation-i-lagenhet" target="_blank" rel="noopener">Bostadsrätterna — Ombyggnation i lägenhet</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MID-PAGE CTA -->
+      <section class="pillar-mid-cta" aria-label="Få en tidsuppskattning">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">Vill du ha en konkret tidsuppskattning?</span>
+            <h2 class="h-sub">Den här guiden ger inga tidlöften — <em>din offert</em> ger det.</h2>
+            <p>
+              Vi kommer ut på en kostnadsfri synning, bedömer alla sex faktorer i ditt badrum och
+              ger dig en realistisk tidsuppskattning baserat på just dina förutsättningar — inklusive
+              din BRF:s bullertider, eventuella VVS-flyttar och underlagets sannolika skick. Ingen
+              förpliktelse.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Få offert <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION C — Förseningar -->
+      <section id="forseningar" class="guide-section" aria-label="Förseningar och hur de hanteras">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Förseningar & planering</span>
+          <h2 class="h-section" style="margin-top:14px">Förseningar — <em>och hur de hanteras</em></h2>
+          <p>
+            Förseningar är inte alltid plattsättarens fel. De är ofta resultat av oväntade fynd vid
+            rivning, sena materialval från kunden, eller praktiska faktorer som BRF-administration
+            och leveranser. Här är de vanligaste orsakerna och hur ärliga firmor hanterar dem.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Varför kan en plattsättare <em>inte ge en exakt tidplan</em> i förväg?</h3>
+              <p>
+                För att det är fysiskt och praktiskt omöjligt att veta innan rivningen. Det är
+                samma logik som med priset: underlagets exakta skick, VVS-systemets faktiska
+                kondition, eventuella fuktskador eller asbest, och oväntade fastighetsspecifika
+                problem är alla okända fram till första rivningsdagen.
+              </p>
+              <p>
+                En seriös plattsättare ger en <em>uppskattad tidplan</em> baserat på platsbesöket
+                — och kommunicerar tydligt vad som kan röra den åt båda håll. En plattsättare
+                som lovar en exakt tidplan innan rivning gissar — och det är där missnöjda kunder
+                uppstår.
+              </p>
+              <p>
+                <strong>Det här är inte ett problem — det är ärlighet.</strong> En firma som ger
+                en luddig tidplan men sedan kommunicerar löpande är pålitligare än en firma som
+                lovar exakt och sedan ber om förlängning efter att rivningen avslöjat fukt. Vi
+                föredrar den första modellen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är de <em>vanligaste orsakerna</em> till att projekt drar ut på tiden?</h3>
+              <p>De fem vanligaste orsakerna vi ser i Stockholms-projekt:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>1. Fynd vid rivning.</strong> Fuktskador, mjuk gips i våtzon, gammalt
+                  tätskikt i behov av full ersättning, försvagade bjälkar. Vanligast i 70- och
+                  80-tals badrum.
+                </li>
+                <li>
+                  <strong>2. Sena materialval.</strong> Kunder som ändrar kakel eller inredning
+                  efter projektstart skapar leveransluckor och stillestånd. Detta är den
+                  enklaste förseningsorsaken att undvika — bestäm allt material i god tid innan
+                  start.
+                </li>
+                <li>
+                  <strong>3. BRF-administration.</strong> Sena godkännanden från styrelsen,
+                  fördröjda granninformationer, oklara container­tillstånd. Lös detta innan
+                  projektstart.
+                </li>
+                <li>
+                  <strong>4. VVS-koordination.</strong> Fördröjda underleverantörer eller saknad
+                  tillgänglighet i fastigheten kan rubba sekvensen mellan rivning, VVS och
+                  tätskikt.
+                </li>
+                <li>
+                  <strong>5. Leveransfördröjningar.</strong> Särskilt vid storformat och
+                  specialbeställda plattor som har lång leveranstid (4–8 veckor är inte ovanligt
+                  för viss importerad keramik). Bekräfta alltid faktisk leveransdag innan
+                  projektstart bokas.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Av dessa är (1) och (5) de svåraste att undvika; (2), (3) och (4) går att minimera
+                med god planering. Vi flaggar alla dessa risker vid platsbesöket och bygger in
+                rimliga marginaler i tidplanen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad ska du <em>fråga om i offerten</em> för att förstå tidplanen?</h3>
+              <p>När du har offerter framför dig — så här utvärderar du tidsdelen rättvist:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>1. Uppskattad tidplan vid normalt utfall</strong> — hur många arbetsdagar och kalenderveckor?</li>
+                <li><strong>2. Tidskritiska moment</strong> — vad i tidplanen kan inte förkortas (tätskikt)?</li>
+                <li><strong>3. Hantering av oväntade fynd</strong> — hur kommuniceras förändringar?</li>
+                <li><strong>4. Antagna bullertider</strong> — vilka tider antas i tidplanen?</li>
+                <li><strong>5. Fast eller uppskattad tidplan?</strong> — och vilka villkor gäller vid avvikelser?</li>
+                <li><strong>6. Reservtid</strong> — hur mycket marginal finns inbyggd i tidplanen?</li>
+                <li><strong>7. Leveransbekräftelse</strong> — är materialet beställt och bekräftat klart att levereras?</li>
+              </ul>
+              <p style="margin-top:14px">
+                En offert som svarar på dessa frågor är väsentligt bättre än en som bara säger
+                "ungefär 2 veckor". Hantverkarformuläret 17 från Konsumentverket ger en bra
+                struktur för hur tidplan ska kommuniceras i avtalet.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong>
+                <a href="https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17" target="_blank" rel="noopener">Konsumentverket — Hantverkarformuläret 17</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är skillnaden på en <em>"fast" och "uppskattad"</em> tidplan?</h3>
+              <p>Den är viktig att förstå innan du skriver under något kontrakt.</p>
+              <p style="margin-top:14px"><strong>"Fast tidplan" (sällan vid badrumsrenovering):</strong></p>
+              <ul class="bkr-checklist" style="margin-top:8px">
+                <li>Firman lovar att vara klar ett visst datum</li>
+                <li>Tar ansvar för förseningar (med eventuella vitesvillkor)</li>
+                <li>Ovanligt vid badrumsrenovering eftersom så mycket är okänt innan rivning</li>
+                <li>Förekommer främst vid nybyggnationer där alla förutsättningar är kända</li>
+              </ul>
+              <p style="margin-top:14px"><strong>"Uppskattad tidplan" (branschstandard och ärlig praxis):</strong></p>
+              <ul class="bkr-checklist" style="margin-top:8px">
+                <li>Firman ger sitt bästa estimat baserat på platsbesöket</li>
+                <li>Kommunicerar förändringar löpande under projektet</li>
+                <li>Detalj­erad med datum för varje fas, inte bara "klart om 3 veckor"</li>
+                <li>Förseningar dokumenteras med orsak — fynd vid rivning, materialleverans osv.</li>
+                <li>Är vad seriösa firmor erbjuder och vad försäkringsbolag accepterar</li>
+              </ul>
+              <p style="margin-top:14px">
+                <strong>Det viktiga är inte vilken modell som väljs — det är hur tidplanen
+                kommuniceras.</strong> En detaljerad uppskattad tidplan med tydliga kommunikations­principer
+                är värd mer än en fast tidplan utan tydliga villkor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM CTA -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning för tidsuppskattning">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du vill veta tiden</span>
+            <h2 class="h-section" style="margin-top:14px">Boka en <em>kostnadsfri synning</em> i Stockholm</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                Den här guiden förklarar <em>vad som påverkar</em> tidsåtgången — men för en konkret
+                tidsuppskattning för <em>ditt</em> projekt krävs ett platsbesök. Skicka en
+                offertförfrågan så bokar vi en kostnadsfri synning där vi går igenom badrummet,
+                eventuella VVS-flyttar, din BRF:s bullertider och alla andra faktorer som påverkar
+                just din tidplan. Du får en detaljerad uppskattad tidplan i offerten — fas för fas.
+              </p>
+              <p>
+                Vi är BKR-behöriga, arbetar enligt BBV och utfärdar våtrumsintyg signerat med BankID
+                efter varje renovering. Vi finns i hela Stockholmsregionen — Sollentuna, Solna,
+                Sundbyberg, Lidingö, Danderyd, Täby, Nacka, Bromma och fler.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Få exakt offert <span class="arrow">→</span></a>
+              <a class="btn-link" href="/om-oss/">Läs om våra certifieringar →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/behorig-vatrum.avif"
+                alt="BKR-behörig plattsättare i Stockholm — Haga Plattsättning AB utfärdar våtrumsintyg enligt BBV"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>certifierad</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERNAL LINKS -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och tjänster">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>badrumsrenovering i Stockholm</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vad påverkar priset på en badrumsrenovering? — Prisguide</a></li>
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg & BBV — den tekniska guiden</a></li>
+                <li><a href="/renovera-badrum-sjalv-eller-anlita-plattsattare/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Renovera badrum själv eller anlita plattsättare?</a></li>
+                <li><a href="/kakel-eller-klinker-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakel eller klinker? — Skillnaden förklarad</a></li>
+                <li><a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering i BRF Stockholm — tillstånd och process</a></li>
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida</a></li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Källor till regelverk och branschpraxis:
+                <a href="https://www.bkr.se/teknik/byggkeramikhandboken" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">BKR — Byggkeramikhandboken</a> ·
+                <a href="https://www.bkr.se/regler" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">BKR — BBV</a> ·
+                <a href="https://www.bostadsratterna.se/kunskapsbanken/o/ombyggnation-i-lagenhet" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Bostadsrätterna — Ombyggnation</a> ·
+                <a href="https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Hantverkarformuläret 17</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en ärlig guide om vad som påverkar tidsåtgången för en badrumsrenovering — sex faktorer förklarade, tätskiktets härdningstid, faser i en typisk renovering och vanliga förseningsorsaker. Inga tidlöften ges; för konkret tidsuppskattning krävs platsbesök. Skriven av Haga Plattsättning AB, BKR-behörig plattsättare i Stockholm, med källor till Byggkeramikrådet, Bostadsrätterna och Konsumentverket."
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>

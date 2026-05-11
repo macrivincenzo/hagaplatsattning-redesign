@@ -1,0 +1,814 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-11';
+const UPDATED = '2026-05-11';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi förklarar vilka faktorer som påverkar priset på en badrumsrenovering — utan att ge ett rakt pris, eftersom varje projekt är unikt. Skicka en offertförfrågan för exakta siffror.',
+  knowsAbout: [
+    'Badrumsrenovering pris faktorer',
+    'Kostnadsdrivare badrum',
+    'ROT-avdrag 2026',
+    'Hantverkarformuläret',
+    'Jämföra offerter plattsättare',
+    'BRF-kostnader renovering',
+    'VVS-kostnader badrum',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Vilka är de viktigaste faktorerna som påverkar priset på en badrumsrenovering?',
+    a: 'Sju huvudfaktorer styr priset: badrummets storlek, materialval (kakel, klinker, storformat, sten), underlagets skick, omfattning av VVS-arbete, BRF-krav och tillgänglighet, ROT-avdragets påverkan, samt dokumentationskrav (våtrumsintyg). Varje faktor kan röra slutpriset i båda riktningar. Det är därför vi som BKR-behörig plattsättare aldrig ger ett rakt pris utan att först se badrummet på plats.',
+  },
+  {
+    q: 'Hur påverkar badrummets storlek priset?',
+    a: 'Storleken påverkar både materialåtgång och arbetstid — men inte alltid linjärt. Ett mycket litet badrum kan vara dyrare per kvadratmeter eftersom det är trångt att jobba i, kräver fler hörnskärningar och inte ger mängdrabatt på material. Ett medelstort badrum (6–8 m²) är ofta mest pris­effektivt per kvadrat. Stora familjebadrum kostar mer totalt men kan ha bättre kvadratmeter­ekonomi tack vare att förberedelse och dokumentation har en fast baskostnad.',
+  },
+  {
+    q: 'Hur påverkar materialvalet priset?',
+    a: 'Materialvalet är en av de största prisskillnaderna i en badrumsrenovering. Standardkakel i mindre format är det billigaste alternativet; storformat klinker (60×60 cm och uppåt) kräver mer arbete för transport, kapning och precision och kostar mer. Natursten (marmor, kalksten) kräver särskild fästmassa och behandling och är dyrast. Vill du fördjupa dig — se vår guide om kakel eller klinker. Materialvalet styr också halkklass, vattenupptag och slittålighet.',
+  },
+  {
+    q: 'Hur påverkar underlagets skick priset?',
+    a: 'Underlagets skick är den största "okända" faktorn före rivningen. Om det befintliga underlaget är hållfast, plant och fritt från fukt går det att fortsätta direkt med tätskikt. Men i många Stockholms-badrum från 70- och 80-talet upptäcker vi vid rivningen: mjuk gips i våtzon, gammalt tätskikt som måste rivas helt, fuktskador i bjälklag, eller spruckna bjälklag som måste förstärkas. Sådana fynd kan röra om i tidplanen och offerten — och är ett av skälen till att seriösa plattsättare ger en preliminär offert med tydlig markering av vad som är "om underlaget är OK".',
+  },
+  {
+    q: 'Hur påverkar VVS-arbete och stamfrågor totalpriset?',
+    a: 'VVS-arbete är ofta den underskattade kostnaden i badrumsrenovering. Ett "rakt" projekt utan flytt av rör (blandare och toalett på samma plats som tidigare) håller VVS-delen kort. Men om du flyttar blandaren, byter golvbrunn, flyttar toaletten eller berör stammen (sällan, men händer) krävs en Säker Vatten-auktoriserad VVS-firma. Vi koordinerar med vår partner men det är en separat kostnadspost. I BRF kräver dessutom alla rörändringar styrelsens tillstånd — se vår guide om badrumsrenovering i BRF.',
+  },
+  {
+    q: 'Hur påverkar BRF-krav och tillgänglighet priset?',
+    a: 'Tillgängligheten påverkar mer än folk tror. Ett badrum i ett hus med smala trapphus utan hiss innebär extra arbetstid för materialbärning. BRF:er med strikta bullertider (vardagar 07–17, ingen lördagsjobb) kan förlänga projektet med en kalendervecka, vilket ökar arbetskostnaden. Containrar och avfallshantering kräver tillstånd från fastighetsförvaltaren. Försäkringsbevis och dokumentation till styrelsen är fast administration. Inget av detta är dramatiskt — men det är variabler som påverkar slutsumman.',
+  },
+  {
+    q: 'Vad omfattar ROT-avdraget och hur räknar man rätt?',
+    a: 'ROT-avdraget 2026 ger 30 % skattereduktion på arbetskostnaden, upp till 50 000 kr per person och år. Det gäller endast arbete utfört av firma med F-skatt — eget arbete ger inget ROT-avdrag. Avdraget gäller arbete, inte material. På en typisk offert specificeras arbete och material separat, och 30 % av arbetsdelen dras direkt på fakturan. Om både partners i ett hushåll äger bostaden tillsammans kan ROT-avdraget dubbleras till 100 000 kr per år. Detta är en av få "rabatter" som faktiskt påverkar slutpriset på pappret — inte bara förhandlat.',
+  },
+  {
+    q: 'Vad är skillnaden på en seriös offert och ett "ballpark"-pris?',
+    a: 'Ett "ballpark"-pris är en muntlig grov uppskattning som ofta ändras när arbetet börjar — det är där missnöjda kunder kommer ifrån. En seriös offert är skriftlig, baserad på platsbesök, specificerar arbete och material separat, listar vad som ingår och vad som inte ingår, anger ROT-avdragets effekt, och har tydliga villkor för ändringar och tilläggsarbeten. Konsumentverket har tagit fram Hantverkarformuläret tillsammans med branschen — det är den standard en seriös offert bör följa. Vi använder denna logik i alla våra offerter.',
+  },
+  {
+    q: 'Varför kan ingen seriös plattsättare ge ett pris utan att se badrummet?',
+    a: 'För att ingen ärlig plattsättare gissar på rivning. Underlagets skick, gamla VVS-installationer, BRF-stadgar, tillgänglighet och fastighetens skick varierar för mycket. En firma som ger ett "rakt pris" via telefon eller mejl baserat på badrums­ytan har antingen lagt på rejäl marginal för säkerhets skull (och du betalar för okändheten) — eller så ger de ett lågt pris som de sedan kompletterar med tilläggsarbeten när rivningen är klar. Ärlig prissättning kräver platsbesök. Det är gratis hos oss — bara att boka en synning.',
+  },
+  {
+    q: 'Vad ska du fråga efter i offerten för att kunna jämföra rättvist?',
+    a: 'Be alltid att få: (1) Specificering av arbete vs material — så att du kan jämföra äpplen mot äpplen. (2) Tydlig avgränsning — vad ingår, vad ingår inte. (3) Hänvisning till BBV (Branschregler för Våtrum) eller GVK för utförandet. (4) Firmans BKR-behörighet (eller motsvarande) angiven. (5) Försäkringsbevis. (6) ROT-avdragets effekt klart redovisad. (7) Villkor för ändringar och tilläggsarbeten — gärna enligt Hantverkarformuläret. En offert som saknar någon av dessa punkter är inte jämförbar med en som har dem. Lägsta pris är inte alltid lägsta totalsumma.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Vad påverkar priset på en badrumsrenovering i Stockholm? — En ärlig guide om kostnadsdrivare från BKR-behörig plattsättare',
+  description:
+    'Komplett guide om vilka faktorer som påverkar priset på en badrumsrenovering. Vi förklarar storlek, material, underlag, VVS, BRF, ROT-avdrag och hur en seriös offert ska se ut. Inga raka prissiffror — ärlig prissättning kräver platsbesök.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)' },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Badrumsrenovering pris faktorer',
+    'Kostnadsdrivare',
+    'ROT-avdrag',
+    'Hantverkarformuläret',
+    'Jämföra offerter',
+    'BKR',
+    'BBV',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsägare i Stockholm som planerar badrumsrenovering',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    {
+      '@type': 'CreativeWork',
+      name: 'Skatteverket — ROT-avdrag',
+      url: 'https://www.skatteverket.se/privat/skatter/fastigheterochbostad/rotochrutarbete.4.7459477810df5bccdd4800018482.html',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Konsumentverket — Anlita hantverkare',
+      url: 'https://www.konsumentverket.se/varor-och-tjanster/anlita-hantverkare/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Konsumentverket — Hantverkarformuläret 17',
+      url: 'https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'BKR — Branschregler för Våtrum (BBV)',
+      url: 'https://www.bkr.se/regler',
+    },
+  ],
+  mainEntityOfPage:
+    'https://www.hagaplattsattning.se/vad-paverkar-priset-pa-badrumsrenovering-stockholm/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Vad påverkar priset på en badrumsrenovering',
+      item: 'https://www.hagaplattsattning.se/vad-paverkar-priset-pa-badrumsrenovering-stockholm/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <title>Vad Påverkar Priset På En Badrumsrenovering i Stockholm? Ärlig Guide 2026 | Haga Plattsättning</title>
+    <meta
+      name="description"
+      content="Vi förklarar exakt vilka faktorer som påverkar priset på en badrumsrenovering — utan att ge ett rakt pris. Storlek, material, underlag, VVS, BRF, ROT-avdrag och vad en seriös offert ska innehålla. Skicka offertförfrågan för exakta siffror."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" />
+    <meta property="og:title" content="Vad påverkar priset på en badrumsrenovering? — Ärlig guide" />
+    <meta property="og:description" content="Sju faktorer som styr priset på en badrumsrenovering i Stockholm — förklarat av en BKR-behörig plattsättare. Inga prissiffror utan platsbesök." />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_3.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Badrumsrenovering i Stockholm — Haga Plattsättning AB" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vad påverkar priset på en badrumsrenovering?" />
+    <meta name="twitter:description" content="Sju kostnadsdrivare förklarade — ärlig guide från BKR-behörig plattsättare i Stockholm." />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_3.avif" />
+
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplatt_3.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Vad påverkar priset på en badrumsrenovering</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- HERO -->
+      <section class="s-hero" aria-label="Vad påverkar priset på en badrumsrenovering — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Pris­guide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Vad påverkar priset<br /><em>på en badrumsrenovering?</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Den här guiden förklarar <em>vilka faktorer som påverkar priset</em> på en badrumsrenovering
+              i Stockholm — den ger inte ett rakt prisexempel. Anledningen är ärlig: varje badrum är unikt,
+              och ingen seriös plattsättare kan ge ett pris utan att först se rummet på plats. Vill du
+              ha exakta siffror för ditt projekt — skicka en offertförfrågan så går vi igenom det
+              tillsammans efter ett gratis synningsbesök.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Få exakt offert <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num">7<em>faktorer</em></div><div class="label">Styr slutpriset</div></div>
+              <div class="cell"><div class="num">30<em>%</em></div><div class="label">ROT-avdrag på arbete</div></div>
+              <div class="cell"><div class="num"><em>BKR</em></div><div class="label">Behörig plattsättare</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplatt_3.avif"
+              alt="Badrumsrenovering i Stockholm — BKR-behörig plattsättare gör platsbesök och offert"
+              width="2400" height="1350" loading="eager" fetchpriority="high" decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- META + TOC -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#disclaimer">Viktigt om denna guide — vi ger inga raka priser</a></li>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#stora-faktorer">De stora kostnadsdrivarna</a></li>
+                <li><a href="#dolda-faktorer">De dolda faktorer folk missar</a></li>
+                <li><a href="#ekonomi">Den ekonomiska sidan — ROT, offert och rättvis jämförelse</a></li>
+                <li><a href="#kontakt">Få ett exakt pris — boka kostnadsfri synning</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <section id="disclaimer" class="guide-section" aria-label="Viktigt — denna guide ger inga prissiffror">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <div style="background:var(--paper-2);border-left:4px solid var(--accent-soft);padding:20px 24px;border-radius:6px;margin-top:8px">
+                <p style="margin:0;font-weight:600;color:var(--ink)">Viktigt om denna guide</p>
+                <p style="margin-top:10px;font-size:0.97rem;line-height:1.65;color:var(--ink-2)">
+                  Den här guiden förklarar <strong>vilka faktorer som påverkar priset</strong> på
+                  en badrumsrenovering — inte konkreta prissiffror. Varje badrumsrenovering är unik,
+                  och det är omöjligt att ge ett rakt pris eller exakt offert utan att se badrummet
+                  på plats. Vill du ha ett konkret skriftligt offert för <em>ditt</em> projekt —
+                  <a href="/offertforfragan/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">skicka en offertförfrågan</a>
+                  så bokar vi en kostnadsfri synning och du får exakta siffror inom kort.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SNABBSVAR -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om vad som påverkar priset">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Sju faktorer styr priset:</strong> storlek, material, underlagets skick, VVS-omfattning, BRF-krav, ROT-avdrag, och dokumentationsnivå.</li>
+                <li><strong>Den största okändheten</strong> är underlaget — rivningen avslöjar om något måste åtgärdas (fuktskador, mjuk gips, gammalt tätskikt).</li>
+                <li><strong>ROT-avdraget 2026</strong> är 30 % av arbetskostnaden (max 50 000 kr/person/år) — det räknas in i slutpriset direkt på fakturan.</li>
+                <li><strong>Eget arbete</strong> (rivning, demontering, materialinköp) kan sänka totalpriset — men ger inget ROT-avdrag.</li>
+                <li><strong>En seriös offert</strong> är alltid skriftlig, baserad på platsbesök och följer principerna i Konsumentverkets <em>Hantverkarformulär 17</em>.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet — bläddra ner eller använd länkarna i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION A — De stora faktorerna -->
+      <section id="stora-faktorer" class="guide-section" aria-label="De stora kostnadsdrivarna">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · De stora faktorerna</span>
+          <h2 class="h-section" style="margin-top:14px">De <em>stora kostnadsdrivarna</em></h2>
+          <p>
+            Tre faktorer står för ungefär 70 % av prisvariationen mellan olika projekt: storlek,
+            material och underlagets skick. Vi går igenom dem en i taget och vad du bör tänka på.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vilka är de <em>viktigaste faktorerna</em> som påverkar priset?</h3>
+              <p>Sju huvudfaktorer styr priset på en badrumsrenovering:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>1. Badrummets storlek</strong> — material­åtgång och arbetstid</li>
+                <li><strong>2. Materialvalet</strong> — standardkakel, storformat klinker, natursten kostar olika</li>
+                <li><strong>3. Underlagets skick</strong> — den största okändheten innan rivning</li>
+                <li><strong>4. VVS-arbete och stamfrågor</strong> — flytt av rör, golvbrunn, blandare</li>
+                <li><strong>5. BRF-krav och tillgänglighet</strong> — bullertider, hisstider, dokumentation</li>
+                <li><strong>6. ROT-avdrag och hushållskonstellation</strong> — 30 % skattereduktion på arbetskostnaden</li>
+                <li><strong>7. Dokumentationsnivå</strong> — våtrumsintyg, kvalitetsdokument enligt BBV</li>
+              </ul>
+              <p style="margin-top:14px">
+                Varje faktor kan röra slutpriset i båda riktningar. Det är därför vi som BKR-behörig
+                plattsättare aldrig ger ett rakt pris utan att först se badrummet — vi vill inte
+                lova fel summa, och du vill inte få en överraskning halvvägs.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_4.avif"
+                alt="BKR-behörig plattsättare i Stockholm gör platsbesök för exakt offert — Haga Plattsättning AB"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur påverkar <em>badrummets storlek</em> priset?</h3>
+              <p>
+                Storleken påverkar både materialåtgång och arbetstid — men inte alltid linjärt.
+                Du betalar inte exakt dubbelt för ett dubbelt så stort badrum.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Mycket litet badrum (3–4 m²):</strong> Trångt att jobba i, många hörnskärningar,
+                  ingen mängdrabatt på material. <em>Ofta dyrare per kvadratmeter</em> än ett medelstort.
+                </li>
+                <li>
+                  <strong>Medelstort badrum (6–8 m²):</strong> Mest pris­effektivt per kvadratmeter.
+                  Tillräckligt med utrymme för effektivt arbete, mängdrabatt på material börjar slå igenom.
+                </li>
+                <li>
+                  <strong>Stort familjebadrum (10–14 m²):</strong> Högre totalpris men oftast bättre
+                  kvadrat­ekonomi. Fasta kostnader (förberedelse, dokumentation, transport) fördelas
+                  på fler kvadratmeter.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Storleken styr också hur mycket tätskikt, fästmassa, fog och kakel som krävs.
+                Materialkostnaden skalas i regel rätt nära linjärt med ytan — men arbetstiden gör inte
+                det. Förberedelse, etablering, rivning av inredning och dokumentation är ungefär lika
+                arbete oavsett om badrummet är 4 eller 8 kvadratmeter.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur påverkar <em>materialvalet</em> priset?</h3>
+              <p>
+                Materialvalet kan vara den största prisskillnaden i ett projekt. Skillnaden mellan
+                ett enkelt standardkakel och en exklusiv natursten kan vara stor — men ofta är det
+                inte materialet i sig som är dyrast, utan vad det <em>kräver</em> i utförande.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Standardkakel i mindre format (15×15, 20×30):</strong> Billigast både i
+                  inköp och i monteringstid. Många hörnskärningar men varje skärning är enkel.
+                </li>
+                <li>
+                  <strong>Standardklinker i mellanformat (30×30, 45×45):</strong> Något dyrare men
+                  fortfarande snabb montering. Vanligaste valet på badrumsgolv i Sverige.
+                </li>
+                <li>
+                  <strong>Storformat (60×60 och uppåt):</strong> Kräver erfaren plattsättare,
+                  perfekt jämnt underlag och precision i kapning. Materialet är dyrare och arbetet
+                  kostar mer per kvadrat. Men: färre fogar, lugnare uttryck, lättare att städa.
+                </li>
+                <li>
+                  <strong>Natursten (marmor, kalksten, granit):</strong> Kräver särskild fästmassa,
+                  ofta impregnering, och försiktig hantering. Materialet är dyrast och arbetet
+                  ställer högsta krav.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Vill du fördjupa dig i materialvalet — se vår
+                <a href="/kakel-eller-klinker-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om kakel eller klinker →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION B — De dolda faktorerna -->
+      <section id="dolda-faktorer" class="guide-section" aria-label="De dolda faktorerna folk missar">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · Det folk missar</span>
+          <h2 class="h-section" style="margin-top:14px">De <em>dolda faktorerna</em> folk missar</h2>
+          <p>
+            Storlek och material är synliga från start. Det är de andra faktorerna som styr huruvida
+            ett projekt går enligt offert eller drar iväg. Här är de tre som påverkar mest — och som
+            ärlig prissättning kräver platsbesök för att bedöma.
+          </p>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner">
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_5.avif"
+                alt="Rivning i badrumsrenovering avslöjar underlagets skick — Haga Plattsättning AB i Stockholm"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+            <div class="guide-text">
+              <h3>Hur påverkar <em>underlagets skick</em> priset?</h3>
+              <p>
+                Det är vanligen den största okändheten innan rivningen är klar. När du står vid en
+                intakt badrumsvägg vet du inte exakt vad som ligger bakom kaklet. Det är därför
+                offerter ofta har en formulering som "om underlaget bedöms hållfast efter rivning".
+              </p>
+              <p>Vad vi typiskt hittar i Stockholms-badrum, särskilt från 70- och 80-talet:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Mjuk gips i våtzon</strong> — måste bytas till våtrumsgodkänt material</li>
+                <li><strong>Gammalt tätskikt som inte uppfyller dagens krav</strong> — måste rivas helt och byggas om</li>
+                <li><strong>Fuktskada i bjälklag eller väggar</strong> — kräver sanering innan nytt tätskikt</li>
+                <li><strong>Spruckna eller försvagade träbjälkar</strong> — kräver förstärkning</li>
+                <li><strong>Asbest i gammal tätning eller fix</strong> — sällan men hänt, kräver specialhantering</li>
+                <li><strong>Felaktiga genomföringar</strong> — gamla rör eller eldragningar som inte kan döljas</li>
+              </ul>
+              <p style="margin-top:14px">
+                Bra nyhet: i många moderna badrum (efter 1995, korrekt utfört från början) är
+                underlaget i utmärkt skick och inget extra arbete krävs. Det är just därför en
+                ärlig plattsättare alltid lämnar denna del öppen i offerten — och varför vi
+                rekommenderar att läsa noggrant vad som står om "tilläggsarbeten" innan du
+                skriver under något kontrakt.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong>
+                <a href="https://www.bkr.se/regler" target="_blank" rel="noopener">BKR — Branschregler för Våtrum (BBV)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur påverkar <em>VVS-arbete och stamfrågor</em> totalpriset?</h3>
+              <p>
+                VVS är ofta den underskattade kostnaden. Ett "rakt" projekt utan flytt av rör är
+                avsevärt billigare än ett där blandare, toalett eller golvbrunn flyttas. Här är
+                hur det fungerar:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Inga flyttar (allt på samma plats):</strong> Snabbt och förutsägbart VVS-arbete.
+                  Bara demontering och återmontering, samma anslutningar.
+                </li>
+                <li>
+                  <strong>Flytt av blandare:</strong> Ny dragning av tappvattenrör. Kräver Säker
+                  Vatten-auktoriserad firma. Tar tid och kostar extra.
+                </li>
+                <li>
+                  <strong>Flytt av golvbrunn:</strong> Ny avloppsdragning — kräver tillstånd från
+                  BRF (om bostadsrätt) eftersom det är ändring av rör. Kan kräva ingrepp i bjälklag.
+                </li>
+                <li>
+                  <strong>Flytt av toalett:</strong> Ny avloppsdragning, eventuellt ny vattenanslutning.
+                  Mest komplext av "standard"-flyttarna.
+                </li>
+                <li>
+                  <strong>Stam-relaterat arbete:</strong> Ovanligt vid en enskild renovering — stammen
+                  är föreningens ansvar i BRF. Men förekommer vid stambyte-renoveringar eller villor.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Vi koordinerar med vår Säker Vatten-auktoriserade VVS-partner. Vid platsbesöket
+                bedömer vi vad som behövs och VVS-firman lämnar sin del av offerten separat —
+                så du ser exakt vad VVS-delen kostar.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong>
+                <a href="https://sakervatten.se/bygga-ratt/konsumenter/" target="_blank" rel="noopener">Säker Vatten — för konsumenter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur påverkar <em>BRF-krav och tillgänglighet</em> priset?</h3>
+              <p>
+                Det här är variabler folk sällan tänker på — men de kan röra slutpriset märkbart.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Trapphus utan hiss:</strong> Allt material måste bäras upp för hand. Vid
+                  storformat-plattor (som kan väga 30+ kg styck) blir det betydande extra arbetstid.
+                </li>
+                <li>
+                  <strong>Smala trapphus:</strong> Kan kräva att stora plattor delas eller transporteras
+                  via fönster — ytterligare arbete och risk.
+                </li>
+                <li>
+                  <strong>Strikta bullertider i BRF:</strong> Vardagar 07–17 utan lördagar förlänger
+                  projektet med en kalendervecka. Det innebär längre etablering och vidare
+                  arbetstimmar.
+                </li>
+                <li>
+                  <strong>Container­hantering:</strong> Vissa BRF:er kräver tillstånd för container på
+                  gården, har begränsad tid för avfallshantering, eller saknar plats för en container —
+                  vilket kräver flera vändor med mindre fordon.
+                </li>
+                <li>
+                  <strong>Dokumentation till styrelsen:</strong> Anmälan, behörighetsintyg, försäkringsbevis
+                  och slutdokumentation är fast administration som ingår i offerten.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Mer om BRF-processen — se vår
+                <a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om badrumsrenovering i BRF →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MID-PAGE CTA -->
+      <section class="pillar-mid-cta" aria-label="Få ett exakt pris">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">Vill du ha ett exakt pris?</span>
+            <h2 class="h-sub">Den här guiden ger inga prissiffror — <em>din offert</em> får det.</h2>
+            <p>
+              Vi kommer ut på en kostnadsfri synning, går igenom badrummet, lyssnar på vad du vill ha
+              och bedömer alla sju faktorer i din situation. Du får sedan ett tydligt skriftligt offert
+              med arbete, material, ROT-avdrag och tidsram specificerat — och kan jämföra det rättvist
+              med andra plattsättare. Ingen förpliktelse.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Få offert <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION C — Den ekonomiska sidan -->
+      <section id="ekonomi" class="guide-section" aria-label="Den ekonomiska sidan — ROT, offert, jämförelse">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Ekonomi & offert</span>
+          <h2 class="h-section" style="margin-top:14px">Den <em>ekonomiska sidan</em> — ROT, offert och rättvis jämförelse</h2>
+          <p>
+            När du förstår vad som styr prisvariationen återstår det praktiska: ROT-avdragets verkan,
+            hur en seriös offert ska se ut, och hur du faktiskt jämför olika plattsättare på likvärdig
+            grund.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vad omfattar <em>ROT-avdraget</em> och hur räknar man rätt?</h3>
+              <p>
+                ROT-avdraget 2026 är efter den temporära höjningens upphörande åter på 30 % av
+                arbetskostnaden, upp till 50 000 kr per person och år. Det gäller endast arbete utfört
+                av firma med F-skatt — eget arbete ger inget ROT-avdrag.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>30 % skattereduktion</strong> på arbetskostnaden (inte material, inte resor, inte maskinhyra)</li>
+                <li><strong>Max 50 000 kr/person/år</strong> — kan dubbleras till 100 000 kr om båda partners äger bostaden</li>
+                <li><strong>Dras direkt på fakturan</strong> — du betalar 70 % av arbetskostnaden, Skatteverket står för 30 %</li>
+                <li><strong>Kräver bostadsägande</strong> — bostadsrätt, villa eller fritidshus du är ägare av</li>
+                <li><strong>Firman måste ha F-skatt</strong> — vi och alla seriösa plattsättare är F-skattregistrerade</li>
+              </ul>
+              <p style="margin-top:14px">
+                I praktiken betyder det: när du jämför ett "rakt pris" från en plattsättare med
+                ett annat — se till att båda har specificerat ROT-avdraget på samma sätt. Annars
+                kan en lägre offert framstå som lägre på pappret men vara högre netto efter avdraget.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong>
+                <a href="https://www.skatteverket.se/privat/skatter/fastigheterochbostad/rotochrutarbete.4.7459477810df5bccdd4800018482.html" target="_blank" rel="noopener">Skatteverket — ROT-avdrag</a>
+              </div>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_6.avif"
+                alt="Skriftlig offert för badrumsrenovering med ROT-avdrag — Haga Plattsättning AB i Stockholm"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är skillnaden på en <em>seriös offert</em> och ett "ballpark"-pris?</h3>
+              <p>Den är ofta större än folk tror. Här är vad som skiljer:</p>
+              <p style="margin-top:14px"><strong>Ballpark-pris (sällan att lita på):</strong></p>
+              <ul class="bkr-checklist" style="margin-top:8px">
+                <li>Muntligt eller via mejl utan platsbesök</li>
+                <li>"Mellan X och Y kr" utan tydlig avgränsning</li>
+                <li>Inga villkor för tilläggsarbeten</li>
+                <li>Ingen BKR-behörighet eller försäkring redovisad</li>
+                <li>Slutar ofta i tråkiga överraskningar när rivningen är klar</li>
+              </ul>
+              <p style="margin-top:14px"><strong>Seriös offert (som du ska kräva):</strong></p>
+              <ul class="bkr-checklist" style="margin-top:8px">
+                <li>Skriftlig, baserad på platsbesök</li>
+                <li>Arbete och material specificerat separat</li>
+                <li>Tydlig avgränsning — vad ingår, vad ingår inte</li>
+                <li>Hänvisning till BBV (eller GVK) för utförandet</li>
+                <li>Firmans BKR-behörighet angiven</li>
+                <li>Försäkringsbevis bifogas</li>
+                <li>ROT-avdragets effekt klart redovisad</li>
+                <li>Tydliga villkor för ändringar och tilläggsarbeten</li>
+              </ul>
+              <p style="margin-top:14px">
+                Konsumentverket har tagit fram <em>Hantverkarformuläret 17</em> tillsammans med
+                branschen — det är den standard en seriös offert bör följa. Det är en del av
+                Konsumentverkets konsumentskyddsarbete.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källor:</strong>
+                <a href="https://www.konsumentverket.se/varor-och-tjanster/anlita-hantverkare/" target="_blank" rel="noopener">Konsumentverket — Anlita hantverkare</a>
+                ·
+                <a href="https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17" target="_blank" rel="noopener">Konsumentverket — Hantverkarformuläret 17</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Varför kan ingen seriös plattsättare <em>ge ett pris utan att se badrummet?</em></h3>
+              <p>
+                För att ingen ärlig plattsättare gissar på rivningen. Det är där hela skillnaden
+                ligger.
+              </p>
+              <p>
+                En firma som ger ett rakt pris via telefon eller mejl, baserat enbart på badrumsytan
+                och en kort beskrivning, har två val: antingen lägga på rejäl marginal för säkerhets
+                skull (du betalar för okändheten) — eller ge ett lågt pris som de sedan kompletterar
+                med tilläggsarbeten när rivningen är klar och underlaget visat sig vara värre
+                än beräknat.
+              </p>
+              <p>
+                Ärlig prissättning kräver platsbesök. På synningen:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Vi mäter upp badrummet exakt</li>
+                <li>Bedömer underlagets sannolika skick (utan att riva)</li>
+                <li>Identifierar VVS-frågor (flyttar, stam)</li>
+                <li>Frågar om dina material- och designval</li>
+                <li>Diskuterar BRF-krav om bostadsrätt</li>
+                <li>Förklarar hur ROT-avdraget kommer att räknas</li>
+              </ul>
+              <p style="margin-top:14px">
+                Sedan får du en skriftlig offert som speglar exakt ditt projekt. Är något okänt
+                (typiskt underlagets exakta skick) markeras det tydligt — så att inga överraskningar
+                kan uppstå.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad ska du <em>fråga efter i offerten</em> för att jämföra rättvist?</h3>
+              <p>När du har flera offerter framför dig — så här jämför du dem rättvist:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>1. Specificering av arbete vs material</strong> — så att du jämför äpplen mot äpplen</li>
+                <li><strong>2. Tydlig avgränsning</strong> — vad ingår, vad ingår inte (VVS, el, städning, container)</li>
+                <li><strong>3. Hänvisning till BBV eller GVK</strong> för utförandet</li>
+                <li><strong>4. Firmans BKR-behörighet</strong> (eller motsvarande GVK-auktorisation) angiven</li>
+                <li><strong>5. Försäkringsbevis</strong> — ansvarsförsäkring</li>
+                <li><strong>6. ROT-avdragets effekt</strong> klart redovisad</li>
+                <li><strong>7. Villkor för tilläggsarbeten</strong> — helst enligt Hantverkarformuläret</li>
+                <li><strong>8. Tidplan</strong> — uppskattad start och slut (mer i vår tidsguide nedan)</li>
+              </ul>
+              <p style="margin-top:14px">
+                <strong>Viktigt:</strong> Lägsta offerten är inte alltid lägsta totalsumman. En billig
+                offert som saknar avgränsning eller behörighetsangivelse blir oftast dyrast i slutet
+                — antingen via tilläggsfakturor eller via en avvisad försäkringsskada om något går fel.
+              </p>
+              <p>
+                Vill du veta mer om hur du väljer rätt — se vår
+                <a href="/renovera-badrum-sjalv-eller-anlita-plattsattare/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om DIY vs anlita plattsättare →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM CTA -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning för exakt offert">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du vill ha ett exakt pris</span>
+            <h2 class="h-section" style="margin-top:14px">Boka en <em>kostnadsfri synning</em> i Stockholm</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                Den här guiden förklarar <em>vad som påverkar</em> priset — men för ett exakt pris
+                för <em>ditt</em> projekt krävs ett platsbesök. Skicka en offertförfrågan så bokar
+                vi en kostnadsfri synning där vi går igenom badrummet, dina önskemål och alla sju
+                faktorer. Du får ett tydligt skriftligt offert som följer principerna i Konsumentverkets
+                Hantverkarformulär, med ROT-avdraget specificerat och full avgränsning.
+              </p>
+              <p>
+                Vi är BKR-behöriga, arbetar enligt BBV och utfärdar våtrumsintyg signerat med BankID
+                efter varje renovering. Vi finns i hela Stockholmsregionen — Sollentuna, Solna,
+                Sundbyberg, Lidingö, Danderyd, Täby, Nacka, Bromma och fler.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Få exakt offert <span class="arrow">→</span></a>
+              <a class="btn-link" href="/om-oss/">Läs om våra certifieringar →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/behorig-vatrum.avif"
+                alt="BKR-behörig plattsättare i Stockholm — Haga Plattsättning AB utfärdar våtrumsintyg enligt BBV"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>certifierad</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERNAL LINKS -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och tjänster">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>badrumsrenovering i Stockholm</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/badrumsrenovering-tidplan-faktorer-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vad påverkar tiden för en badrumsrenovering? — Tidplan­guide</a></li>
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg & BBV — den tekniska guiden</a></li>
+                <li><a href="/renovera-badrum-sjalv-eller-anlita-plattsattare/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Renovera badrum själv eller anlita plattsättare?</a></li>
+                <li><a href="/kakel-eller-klinker-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakel eller klinker? — Skillnaden förklarad enligt EN 14411</a></li>
+                <li><a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering i BRF Stockholm — tillstånd och process</a></li>
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida</a></li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Källor till regelverk och konsumentinformation:
+                <a href="https://www.skatteverket.se/privat/skatter/fastigheterochbostad/rotochrutarbete.4.7459477810df5bccdd4800018482.html" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Skatteverket — ROT-avdrag</a> ·
+                <a href="https://www.konsumentverket.se/varor-och-tjanster/anlita-hantverkare/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Konsumentverket — Anlita hantverkare</a> ·
+                <a href="https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Hantverkarformuläret 17</a> ·
+                <a href="https://www.bkr.se/regler" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">BKR — BBV</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en ärlig guide om vad som påverkar priset på en badrumsrenovering — sju kostnadsdrivare förklarade, ROT-avdraget, hur en seriös offert ska se ut och hur du jämför rättvist. Inga prissiffror ges; för exakt offert krävs platsbesök. Skriven av Haga Plattsättning AB, BKR-behörig plattsättare i Stockholm, med källor till Skatteverket, Konsumentverket och Byggkeramikrådet."
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>
