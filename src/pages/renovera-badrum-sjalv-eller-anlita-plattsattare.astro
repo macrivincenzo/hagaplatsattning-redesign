@@ -1,0 +1,745 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-11';
+const UPDATED = '2026-05-11';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi förklarar vad du får göra själv i badrumsrenovering — och vad som kräver behörig firma för att intyg, försäkring och ROT-avdrag ska gälla.',
+  knowsAbout: [
+    'Renovera badrum själv',
+    'Kakla badrum själv',
+    'Tätskikt själv',
+    'BKR-behörighet',
+    'Säker Vatten',
+    'ROT-avdrag',
+    'Försäkring badrumsrenovering',
+    'Badrumsrenovering Stockholm',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Får man renovera badrummet själv?',
+    a: 'Ja, men med viktiga begränsningar. Det är tillåtet att riva, demontera och utföra rent kosmetiskt arbete själv. Däremot är el- och gasinstallationer förbjudna i lag att utföra själv (källa: Säker Vatten). Och tätskikt, kakelsättning och VVS-arbete bör utföras av en BKR-behörig respektive Säker Vatten-auktoriserad firma — annars kan du inte få ett giltigt våtrumsintyg, vilket i sin tur påverkar försäkring och försäljning av bostaden.',
+  },
+  {
+    q: 'Vilka moment får jag göra själv, och vilka kräver behörig?',
+    a: 'Som privatperson får du göra rivning, demontering, städning, materialinköp och slutstädning. Du får inte göra elinstallationer eller gasinstallationer (lagförbud). Tätskikt och plattsättning är inte lagförbjudet men kräver BKR-behörighet för att intyg ska vara giltigt. VVS-arbete (stamming, blandare, golvbrunn) kräver Säker Vatten-auktoriserad firma för att uppfylla försäkringsbolagens krav.',
+  },
+  {
+    q: 'Får man göra tätskikt själv i badrum?',
+    a: 'Det finns ingen lag som förbjuder det, men det får praktiska konsekvenser. Endast en BKR-behörig kan utfärda ett giltigt våtrumsintyg enligt BBV (Branschregler för Våtrum). Utan intyg kan en framtida vattenskada avvisas av försäkringsbolaget, och bostadsrättsföreningen kan vägra godkänna renoveringen. Säker Vatten skriver: "Försäkringsbolagen har i regel fört in krav i sina försäkringsvillkor på utförande enligt etablerade branschregler."',
+  },
+  {
+    q: 'Får man lägga kakel och klinker i badrum själv?',
+    a: 'Att lägga kakel och klinker själv är inte olagligt. Problemet är inte plattsättningen i sig — utan att hela tätskikts- och dokumentationskedjan bryts. Om du lägger kakel på ett tätskikt som inte är monterat av BKR-behörig, eller utan korrekt egenkontroll, blir det svårt att få ett giltigt våtrumsintyg. Det påverkar både försäkring vid framtida skada och bostadens värde vid försäljning.',
+  },
+  {
+    q: 'Är det enkelt att kakla själv?',
+    a: 'Tekniskt: nej. En BKR-behörig plattsättare har genomgått utbildning i BBV och har erfarenhet av underlagsbedömning, fallbyggnad mot brunn, hörnlösningar och fogteknik. De vanligaste misstagen vid hemmarenovering är fel fall mot brunn (vatten samlas), otäta genomföringar (vatten rinner bakom kakel), bommad plattsättning (släpper efter 1–3 år) och felaktig silikonfogning. Var och en av dessa kan leda till fuktskada som visar sig först efter flera år.',
+  },
+  {
+    q: 'Vad är det värsta som kan hända om jag gör fel?',
+    a: 'Det värsta scenariot är en vattenskada som upptäcks år efter renoveringen. Eftersom arbetet inte är dokumenterat enligt BBV avvisas skadan av försäkringsbolaget. Du står själv för hela kostnaden — som vid en omfattande vattenskada kan bli flera hundra tusen kronor när bjälklag, väggar och eventuellt grannars utrymmen ska saneras. Detta är inte hypotetiskt; det är så försäkringsvillkoren faktiskt fungerar enligt Säker Vatten.',
+  },
+  {
+    q: 'Vad händer med försäkringen om arbetet inte är fackmässigt?',
+    a: 'Försäkringsbolagen har överlag fört in krav i försäkringsvillkoren på att våtrumsarbete ska vara utfört enligt etablerade branschregler (BBV eller GVK). Saknas våtrumsintyg eller är arbetet bevisligen inte fackmässigt utfört kan: skadan avvisas helt, självrisken höjas avsevärt, eller ersättningen sänkas med betydligt mer än självrisken. Exakta villkor skiljer sig mellan bolag — kontrollera ditt försäkringsbrev.',
+  },
+  {
+    q: 'Kan man kakla över gammalt kakel?',
+    a: 'Det är tekniskt möjligt om underlaget bedöms hållfast och tätskiktet är intakt — men i praktiken är det sällan en bra idé. Du tappar möjligheten att inspektera tätskiktet, badrummet blir mindre, fogen blir hög mot golv och dusch, och du får ingen ny garanti på det underliggande tätskiktet. Vid en eventuell skada är ansvarsfrågan komplicerad: är felet i det gamla eller nya skiktet? För att få ett nytt våtrumsintyg som täcker hela konstruktionen krävs i regel att man tar bort gammalt kakel och bygger upp tätskiktet på nytt.',
+  },
+  {
+    q: 'Kan jag göra delar själv och anlita plattsättare för resten?',
+    a: 'Ja, och det är ofta en bra balans. Vanligast är att kunden gör rivning, demontering, städning och materialinköp själv, och vi går in på de moment som kräver behörighet: tätskikt, kakelsättning, fogning och dokumentation. VVS-arbete koordineras med en Säker Vatten-auktoriserad firma som vi samarbetar med. Det viktiga är att momenten som kräver behörighet faktiskt utförs av behörig — då blir intyget giltigt även om du själv gjort förarbetet.',
+  },
+  {
+    q: 'Hur räknar man rätt — har ROT-avdraget med detta att göra?',
+    a: 'Ja, och det är ofta en faktor folk missar. ROT-avdraget 2026 ger 30 % skattereduktion på arbetskostnaden (max 50 000 kr per person och år) — men endast om arbetet utförs av en firma med F-skatt. Eget arbete ger inget ROT-avdrag alls. När du jämför kostnaden för att "spara pengar" på att göra själv vs. anlita firma, glöm inte att 30 % av arbetskostnaden hos en seriös plattsättare i praktiken bekostas av Skatteverket — inte av dig.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Renovera badrum själv eller anlita plattsättare? — Ärlig guide från BKR-behörig firma i Stockholm',
+  description:
+    'Vad får du göra själv i en badrumsrenovering? Vad kräver BKR-behörig eller Säker Vatten-auktoriserad firma? Konsekvenser för intyg, försäkring och ROT-avdrag — förklarat med källor.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)',
+      },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Renovera badrum själv',
+    'Kakla badrum själv',
+    'Tätskikt själv',
+    'BKR-behörighet',
+    'Säker Vatten',
+    'ROT-avdrag 2026',
+    'Försäkring vattenskada',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsägare i Stockholm som överväger badrumsrenovering',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    { '@type': 'CreativeWork', name: 'Branschregler för Våtrum (BBV)', url: 'https://www.bkr.se/regler' },
+    { '@type': 'CreativeWork', name: 'Säker Vatten — Bygga rätt för konsumenter', url: 'https://sakervatten.se/bygga-ratt/konsumenter/' },
+    { '@type': 'CreativeWork', name: 'Skatteverket — ROT-avdrag', url: 'https://www.skatteverket.se/privat/skatter/fastigheterochbostad/rotochrutarbete.4.7459477810df5bccdd4800018482.html' },
+  ],
+  mainEntityOfPage:
+    'https://www.hagaplattsattning.se/renovera-badrum-sjalv-eller-anlita-plattsattare/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Renovera badrum själv eller anlita plattsättare',
+      item: 'https://www.hagaplattsattning.se/renovera-badrum-sjalv-eller-anlita-plattsattare/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Renovera Badrum Själv Eller Anlita Plattsättare? Ärlig Guide 2026 | Haga Plattsättning AB</title>
+    <meta
+      name="description"
+      content="Vad får du göra själv i en badrumsrenovering — och vad kräver BKR-behörig eller Säker Vatten-auktoriserad firma? Vi förklarar konsekvenserna för intyg, försäkring och ROT-avdrag. Ärlig guide från plattsättare i Stockholm."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/renovera-badrum-sjalv-eller-anlita-plattsattare/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/renovera-badrum-sjalv-eller-anlita-plattsattare/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/renovera-badrum-sjalv-eller-anlita-plattsattare/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/renovera-badrum-sjalv-eller-anlita-plattsattare/" />
+    <meta property="og:title" content="Renovera Badrum Själv Eller Anlita Plattsättare? Ärlig Guide 2026" />
+    <meta property="og:description" content="Vad får du göra själv — och vad kräver behörig firma? Konsekvenser för intyg, försäkring och ROT-avdrag, förklarat med källor." />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_25.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="BKR-behörig plattsättare i Stockholm utför fackmässigt badrumsarbete enligt BBV" />
+
+    <!-- ── TWITTER / X ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Renovera Badrum Själv Eller Anlita Plattsättare?" />
+    <meta name="twitter:description" content="Ärlig guide om vad du får göra själv och vad som kräver BKR-behörig firma. Inkluderar ROT-avdrag och försäkringskonsekvenser." />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_25.avif" />
+
+    <!-- ── GEO ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplatt_25.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Renovera badrum själv eller anlita plattsättare</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════ -->
+      <section class="s-hero" aria-label="Renovera badrum själv eller anlita plattsättare — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Ärlig guide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Renovera badrum själv<br /><em>eller anlita plattsättare?</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Du får göra mycket själv i en badrumsrenovering — men inte allt. Det är inte
+              behörigheten i sig som är poängen, utan vad som händer med våtrumsintyg, försäkring
+              och ROT-avdrag när momenten utförs av rätt eller fel person. Här svarar vi som
+              BKR-behörig plattsättare i Stockholm ärligt på de tio vanligaste frågorna —
+              med källor till BKR, Säker Vatten och Skatteverket.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Få gratis offert <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num"><em>BKR</em></div><div class="label">Behörig plattsättare</div></div>
+              <div class="cell"><div class="num"><em>BBV</em></div><div class="label">Arbetar enligt branschregler</div></div>
+              <div class="cell"><div class="num">30<em>%</em></div><div class="label">ROT-avdrag på arbete</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplatt_25.avif"
+              alt="BKR-behörig plattsättare i Stockholm utför fackmässigt badrumsarbete — Haga Plattsättning AB"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           META + INNEHÅLL — freshness signal + TOC
+      ══════════════════════════════════════════ -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#vad-far-man">Vad får man — och vad får man inte — göra själv?</a></li>
+                <li><a href="#riskerna">De praktiska riskerna med att göra själv</a></li>
+                <li><a href="#smart-kombination">Smart kombination — gör delar själv, anlita för resten</a></li>
+                <li><a href="#kontakt">Boka kostnadsfri synning eller offert</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SNABBSVAR — quick answers (AI Overview bait)
+      ══════════════════════════════════════════ -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om att renovera badrum själv">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Får man renovera badrum själv?</strong> Ja — utom el-, gas- och vissa VVS-moment. Men praktiken är att det också får konsekvenser för intyg och försäkring.</li>
+                <li><strong>Är tätskikt själv lagligt?</strong> Ja — men endast en BKR-behörig kan utfärda giltigt våtrumsintyg enligt BBV.</li>
+                <li><strong>Vad händer med försäkringen?</strong> Försäkringsbolagen har "i regel fört in krav i försäkringsvillkoren på utförande enligt etablerade branschregler" — utan intyg kan skadan avvisas helt.</li>
+                <li><strong>Får jag ROT-avdrag på eget arbete?</strong> Nej. ROT-avdraget 2026 (30 % av arbetskostnaden, max 50 000 kr/person) kräver F-skatt-godkänd firma.</li>
+                <li><strong>Den vanliga balansen:</strong> Du gör rivning, demontering och städning själv. Vi tar tätskikt, plattsättning och dokumentation. Intyget blir giltigt — du sparar pengar utan att riskera försäkringen.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet — bläddra ner eller använd länkarna i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION A — Vad får man göra själv
+      ══════════════════════════════════════════ -->
+      <section id="vad-far-man" class="guide-section" aria-label="Vad får man göra själv i badrumsrenovering">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · Vad är tillåtet</span>
+          <h2 class="h-section" style="margin-top:14px">Vad får man — och vad får man inte — <em>göra själv?</em></h2>
+          <p>
+            Den svenska lagstiftningen är förvånansvärt tydlig på vissa områden och förvånansvärt tyst
+            på andra. Förbuden är enkla att räkna upp; det är de "tillåtna men inte rekommenderade"
+            momenten som skapar de flesta problem i efterhand.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Får man <em>renovera badrummet själv?</em></h3>
+              <p>
+                Korta svaret är ja — med viktiga begränsningar. Som privatperson är du fri att riva,
+                demontera, städa, köpa material och utföra rent kosmetiska moment. Det är fullt lagligt.
+              </p>
+              <p>
+                Däremot finns explicita lagförbud. På Säker Vattens konsumentsida står tydligt:
+                <em>"Det är förbjudet i lag att själv göra el- och gasinstallationer."</em>
+                Det betyder att du inte själv får dra elledningar till nya armaturer, koppla in golvvärme
+                eller hantera gas — det är kriminellt, inte bara olämpligt.
+              </p>
+              <p>
+                Sedan finns en kategori "tillåtna men inte rekommenderade" moment: tätskikt,
+                plattsättning, fogning och vissa VVS-arbeten. De är inte förbjudna att utföra själv,
+                men konsekvenserna för intyg och försäkring är så stora att de i praktiken kräver
+                behörig firma.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong> <a href="https://sakervatten.se/bygga-ratt/konsumenter/" target="_blank" rel="noopener">Säker Vatten — Bygga rätt för konsumenter</a>
+              </div>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_18.avif"
+                alt="Plattsättare i Stockholm utför tätskiktsarbete enligt BBV — fotodokumentation av Haga Plattsättning AB"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilka moment får jag göra själv, och vilka <em>kräver behörig?</em></h3>
+              <p>Här är listan, ärligt indelad:</p>
+              <p style="margin-top:14px"><strong>Det här får du göra själv (lagligt och praktiskt):</strong></p>
+              <ul class="bkr-checklist" style="margin-top:8px">
+                <li>Rivning av befintligt kakel, klinker och inredning</li>
+                <li>Demontering av blandare, toalett, kommod (förutsatt att vatten är avstängt)</li>
+                <li>Städning, sopning och bortforsling av rivningsavfall</li>
+                <li>Inköp av material — kakel, fog, blandare, fast inredning</li>
+                <li>Målning av synliga ytor utanför våtzonen</li>
+              </ul>
+              <p style="margin-top:14px"><strong>Det här är förbjudet i lag att göra själv:</strong></p>
+              <ul class="bkr-checklist" style="margin-top:8px">
+                <li>Elinstallationer — nya armaturer, golvvärme, eluttag</li>
+                <li>Gasinstallationer</li>
+              </ul>
+              <p style="margin-top:14px"><strong>Det här "går" men förstör praktiskt taget intyg och försäkring:</strong></p>
+              <ul class="bkr-checklist" style="margin-top:8px">
+                <li>Tätskikt — kräver BKR-behörig för giltigt våtrumsintyg</li>
+                <li>Plattsättning (kakel/klinker) — eftersom det förseglar tätskiktet</li>
+                <li>VVS-arbete (stamming, golvbrunn, blandarmontering) — kräver Säker Vatten-auktoriserad firma enligt försäkringsbolagens villkor</li>
+              </ul>
+              <p style="margin-top:14px">
+                Den praktiska gränsen är alltså: <em>du får göra allt utom det som skulle vara dolt bakom
+                tätskiktet eller bli en del av installationen.</em>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Får man <em>göra tätskikt själv</em> i badrum?</h3>
+              <p>
+                Det finns inget lagförbud mot att applicera tätskikt själv. Tätskiktssystemen finns
+                att köpa i byggvaruhus och produktbladen är offentliga. Problemet är dokumentationen
+                och kvalitetskontrollen runt arbetet.
+              </p>
+              <p>
+                Enligt BKR (Byggkeramikrådet) får endast en BKR-behörig firma utfärda ett giltigt
+                våtrumsintyg enligt BBV (Branschregler för Våtrum). Behörigheten är inte ett papper man
+                tar i förbifarten — den kräver utbildning, praktisk erfarenhet och regelbunden fortbildning.
+                Säker Vatten skriver tydligt om konsekvenserna:
+                <em>"Försäkringsbolagen har i regel fört in krav i sina försäkringsvillkor på utförande
+                enligt etablerade branschregler."</em>
+              </p>
+              <p>
+                Översätter man det till praktik: utan giltigt intyg kan en vattenskada som upptäcks
+                fem år senare avvisas av försäkringsbolaget — och du står själv för en kostnad som
+                vid omfattande skador (sanering av bjälklag, grannas tak osv.) kan bli mångfaldigt
+                högre än hela renoveringen från början.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källor:</strong>
+                <a href="https://www.bkr.se/om-behorighet" target="_blank" rel="noopener">BKR — Om behörighet</a>
+                ·
+                <a href="https://www.bkr.se/regler" target="_blank" rel="noopener">BKR — Branschregler</a>
+                ·
+                <a href="https://sakervatten.se/bygga-ratt/konsumenter/" target="_blank" rel="noopener">Säker Vatten — för konsumenter</a>
+              </div>
+              <p style="margin-top:16px">
+                Mer om hur våtrumsintyget faktiskt fungerar i praktiken hittar du i vår
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om tätskikt, våtrumsintyg och BBV →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Får man lägga <em>kakel och klinker själv</em> i badrum?</h3>
+              <p>
+                Att lägga kakel och klinker är inte olagligt. En privatperson kan tekniskt köpa
+                kakel, fix och fog, blanda massa och börja sätta. Problemet är inte plattsättningen
+                i sig — utan att den förseglar tätskiktet under, och därmed hela dokumentationskedjan
+                bryts om något moment där under inte är fackmässigt utfört.
+              </p>
+              <p>
+                Om tätskiktet inte är monterat och dokumenterat av BKR-behörig — eller om
+                egenkontroller saknas — blir det praktiskt taget omöjligt att i efterhand få ett
+                giltigt våtrumsintyg. Den behörige plattsättaren kan inte intyga ett arbete som
+                hen inte själv utfört eller kontrollerat.
+              </p>
+              <p>
+                Det här missförstås ofta. Många tänker att en plattsättare kan "komma och godkänna"
+                ett själv-utfört tätskikt. Det stämmer inte. BKR:s regelverk kräver att den
+                behörige själv ansvarar för momenten i kedjan — annars ingen signatur, inget intyg.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           MID-PAGE CTA — soft conversion mid-scroll
+      ══════════════════════════════════════════ -->
+      <section class="pillar-mid-cta" aria-label="Boka rådgivning för smart renoveringsupplägg">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">Vill du dela upp jobbet smart?</span>
+            <h2 class="h-sub">Vi går igenom <em>vad du kan göra själv</em> — och vad vi bör ta.</h2>
+            <p>
+              Boka en kostnadsfri synning i Stockholm så delar vi upp arbetet ärligt: vad du själv
+              kan riva, demontera och förbereda för att spara pengar — och vilka moment vi tar för
+              att intyg, försäkring och ROT-avdrag ska gälla. Inga förpliktelser efter besöket.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Boka synning <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION B — Riskerna
+      ══════════════════════════════════════════ -->
+      <section id="riskerna" class="guide-section" aria-label="Riskerna med att renovera badrum själv">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · Riskerna</span>
+          <h2 class="h-section" style="margin-top:14px">De <em>praktiska riskerna</em> med att göra själv</h2>
+          <p>
+            Det här är inte skräcktaktik. Det är vad som faktiskt händer i praktiken när momenten
+            inte sitter ihop. Vi förklarar de fyra vanligaste konsekvenserna ärligt, så att du
+            kan väga dem mot prisbesparingen.
+          </p>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Är det <em>enkelt att kakla själv?</em></h3>
+              <p>
+                Tekniskt: nej. En BKR-behörig plattsättare har genomgått utbildning i BBV och har
+                erfarenhet av momenten som tar år att finslipa. De fyra vanligaste misstagen
+                vid hemmarenovering, som vi ser när vi kallas in att åtgärda i efterhand:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Fel fall mot golvbrunn.</strong> Vattnet samlas i fel hörn istället för att rinna ut. Märks ofta först när duschen används dagligen.</li>
+                <li><strong>Otäta genomföringar.</strong> Rör, golvbrunn och eluttag tätas med fel manschetter eller utan manschett alls. Vatten rinner bakom kakel utan att synas.</li>
+                <li><strong>Bommad plattsättning.</strong> Otillräckligt med fix bakom plattorna, eller fel fix för materialet. Plattor släpper efter 1–3 år, ofta i hörn och vid dusch.</li>
+                <li><strong>Felaktig silikonfogning.</strong> Silikon mellan kakel och kakel istället för i rörelsefogar, eller utan bottningslist. Spricker upp och släpper in vatten under golvbrunnen.</li>
+              </ul>
+              <p style="margin-top:14px">
+                Var och en av dessa kan leda till en fuktskada som visar sig först efter flera
+                år — då garantierna på materialet löpt ut och försäkringen avvisar med hänvisning till
+                bristande dokumentation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är det <em>värsta som kan hända</em> om jag gör fel?</h3>
+              <p>
+                Det värsta scenariot är inte att kaklet ser fult ut. Det är en vattenskada som
+                upptäcks år efter renoveringen. Då är situationen den här:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Vatten har vandrat genom bjälklaget</strong> i månader eller år. Mögel, röta, behöver saneras.</li>
+                <li><strong>Eventuell granne under</strong> (i lägenhet) har också skador. Hens försäkringsbolag tar regress mot dig.</li>
+                <li><strong>Försäkringsbolaget avvisar din skada</strong> eftersom arbetet inte är dokumenterat enligt BBV. De hänvisar till försäkringsvillkoren som kräver fackmässigt utförande.</li>
+                <li><strong>Du står själv för hela saneringen</strong> — kostnader som i en vanlig BRF-lägenhet i Stockholm vid stor skada kan bli mångfaldigt högre än vad en proffsutförd renovering kostat från början.</li>
+              </ul>
+              <p style="margin-top:14px">
+                Det här är inte ett extremfall. Det är så försäkringssystemet är konstruerat:
+                ersättning kräver dokumentation, dokumentation kräver behörighet. Saknas
+                behörighet — saknas ersättning.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad händer med <em>försäkringen</em> om arbetet inte är fackmässigt?</h3>
+              <p>
+                Säker Vatten skriver det rakt: <em>"Försäkringsbolagen har i regel fört in krav i
+                sina försäkringsvillkor på utförande enligt etablerade branschregler."</em>
+                Branschreglerna här är BBV (för plattsättning och tätskikt) och Säker Vatten
+                (för VVS-installationer).
+              </p>
+              <p>De konkreta konsekvenserna vid en avvisad eller reducerad skada är tre:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Skadan avvisas helt.</strong> Du får ingenting. Hela saneringen är din egen kostnad.</li>
+                <li><strong>Självrisken höjs avsevärt.</strong> Vissa villkor har "extra självrisk" för icke-fackmässigt utfört arbete — kan vara 20–50 % av skadebeloppet.</li>
+                <li><strong>Ersättningen sänks.</strong> Ersättning baseras på "vad det skulle kostat med fackmässig utförande" — men din egna kostnad kan vara väsentligt högre när skadan måste åtgärdas.</li>
+              </ul>
+              <p style="margin-top:14px">
+                Exakta villkor skiljer sig mellan bolag. Vill du veta vad som gäller specifikt för
+                dig — kolla ditt försäkringsbrev eller ring ditt bolag och fråga om
+                "krav på fackmässighet vid våtrumsarbete".
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong> <a href="https://sakervatten.se/bygga-ratt/konsumenter/" target="_blank" rel="noopener">Säker Vatten — för konsumenter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION C — Smart kombination
+      ══════════════════════════════════════════ -->
+      <section id="smart-kombination" class="guide-section" aria-label="Smart kombination av eget arbete och anlitad plattsättare">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Den smarta vägen</span>
+          <h2 class="h-section" style="margin-top:14px">Smart kombination — <em>gör delar själv</em>, anlita för resten</h2>
+          <p>
+            Det är fullt möjligt att hålla nere kostnaden för en badrumsrenovering utan att riskera
+            intyg, försäkring eller ROT-avdrag. Nyckeln är att rita gränsen rätt — och att gränsen
+            inte är där folk tror.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Kan jag <em>göra delar själv</em> och spara pengar?</h3>
+              <p>
+                Ja, och det är ofta en bra balans. Vanligast är att kunden gör momenten som inte
+                kräver behörighet och som i regel utgör betydande arbetstid:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Rivning av befintligt kakel, klinker och inredning</li>
+                <li>Demontering av blandare, toalett, kommod och övrig fast inredning</li>
+                <li>Bortforsling av rivningsavfall (containerhyra)</li>
+                <li>Inköp och leverans av nytt material (kakel, klinker, fog, blandare)</li>
+                <li>Slutstädning efter installationen är klar</li>
+              </ul>
+              <p style="margin-top:14px">
+                Vi går sedan in på momenten där behörigheten faktiskt har juridisk och försäkringsmässig
+                betydelse: tätskikt, plattsättning, fogning, silikonfogning och dokumentation. VVS
+                koordineras med en Säker Vatten-auktoriserad samarbetspartner.
+              </p>
+              <p>
+                Resultatet: intyget blir giltigt, försäkringen står sig, och du sparar reellt på
+                de moment som inte är tidskritiska eller behörighetsbundna.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_27.avif"
+                alt="Färdigställt badrum i Stockholm med våtrumsintyg från Haga Plattsättning AB — kombination av kundens förarbete och fackmässigt utförande"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Kan man <em>kakla över gammalt kakel?</em></h3>
+              <p>
+                Tekniskt: ibland. Praktiskt: sällan klokt. För att kakla över gammalt kakel
+                behöver underlaget vara hållfast (inga bomma plattor), tätskiktet under bedömas
+                som intakt, och fästmassa väljas för den specifika kombinationen.
+              </p>
+              <p>Problemen är dock fyra:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Du <strong>tappar möjligheten att inspektera tätskiktet</strong> — du bygger på något du inte vet skicket av</li>
+                <li>Badrummet <strong>blir mindre</strong> — varje skikt äter centimetrar i ett rum där centimetrar redan är dyra</li>
+                <li>Fogen blir <strong>hög mot golv och dusch</strong> — kosmetiskt och hygieniskt sämre</li>
+                <li>Du får <strong>ingen ny garanti på det underliggande tätskiktet</strong> — vid skada är ansvarsfrågan komplicerad</li>
+              </ul>
+              <p style="margin-top:14px">
+                För att få ett nytt våtrumsintyg som täcker hela konstruktionen krävs i regel att
+                man tar bort gammalt kakel och bygger upp tätskiktet på nytt. Vi rekommenderar
+                sällan kakling över gammalt kakel — det löser sällan grundproblemet och skapar
+                ofta nya.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur räknar man rätt — har <em>ROT-avdraget</em> med detta att göra?</h3>
+              <p>
+                Ja, och det är ofta en avgörande faktor folk missar i kalkylen. ROT-avdraget
+                gäller från och med 1 januari 2026 åter <strong>30 % av arbetskostnaden, upp till
+                50 000 kr per person och år</strong>. Det gäller på material- och arbetsdelade
+                fakturor från firmor med F-skatt.
+              </p>
+              <p>Två viktiga konsekvenser för "själv vs anlita"-kalkylen:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Eget arbete ger inget ROT-avdrag.</strong> Det är endast arbetskostnaden hos en F-skatt-godkänd firma som är avdragsgill.</li>
+                <li><strong>30 % av arbetskostnaden bekostas av Skatteverket.</strong> När du jämför priset för att anlita oss mot "att göra själv", är 30 % av vår arbetskostnad i praktiken inte din kostnad — den dras direkt på fakturan.</li>
+              </ul>
+              <p style="margin-top:14px">
+                Det här svänger ofta kalkylen mer än folk tror. En behörig firma kan kosta mindre
+                netto än man räknat med, samtidigt som intyg, försäkring och garanti finns på plats.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong>
+                <a href="https://www.skatteverket.se/privat/skatter/fastigheterochbostad/rotochrutarbete.4.7459477810df5bccdd4800018482.html" target="_blank" rel="noopener">Skatteverket — ROT-avdrag</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           BOTTOM CTA
+      ══════════════════════════════════════════ -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning för badrumsrenovering">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">Ärlig rådgivning</span>
+            <h2 class="h-section" style="margin-top:14px">Boka en <em>kostnadsfri synning</em> i Stockholm</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                Vi är BKR-behöriga, jobbar enligt BBV och utfärdar våtrumsintyg signerat med BankID
+                efter varje renovering. Tillsammans med vår Säker Vatten-auktoriserade VVS-partner
+                tar vi de moment som påverkar din försäkring och dokumentation — du gör de moment
+                där det är värt att spara pengar.
+              </p>
+              <p>
+                Boka en synning så går vi igenom ditt badrum, vad du själv kan göra, och vad vi
+                bör ta. Du får en skriftlig rekommendation och ett tydligt offert efter besöket.
+                Inga förpliktelser. Vi finns i hela Stockholmsregionen — Sollentuna, Solna,
+                Sundbyberg, Lidingö, Danderyd, Täby, Nacka, Bromma och fler.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Få gratis offert <span class="arrow">→</span></a>
+              <a class="btn-link" href="/om-oss/">Läs om våra certifieringar →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/behorig-vatrum.avif"
+                alt="BKR-behörig plattsättare i Stockholm — Haga Plattsättning AB utfärdar våtrumsintyg enligt BBV"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>certifierad</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           INTERNAL LINKS — Läs mer
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och tjänster">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>plattsättning och badrum</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg & BBV — den tekniska guiden</a></li>
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida med komplett process</a></li>
+                <li><a href="/kakelsattare-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakelsättare Stockholm — vad skiljer en behörig från en obehörig</a></li>
+                <li><a href="/om-oss/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Om Haga Plattsättning AB — våra certifieringar och arbetsmetod</a></li>
+                <li><a href="/referensprojekt/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Referensprojekt — verkliga badrumsrenoveringar i Stockholm</a></li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Källor till regelverk och konsumentinformation:
+                <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Byggkeramikrådet (BKR)</a> ·
+                <a href="https://sakervatten.se/bygga-ratt/konsumenter/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Säker Vatten</a> ·
+                <a href="https://www.skatteverket.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Skatteverket</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en ärlig guide om vad du får göra själv vid badrumsrenovering — och vad som kräver BKR-behörig respektive Säker Vatten-auktoriserad firma. Skriven av Haga Plattsättning AB med källor till BKR, Säker Vatten och Skatteverket. Innehållet ska ses som vägledning; för specifika ärenden, kontakta oss eller ditt försäkringsbolag."
+    />
+
+    <!-- ── JSON-LD: FAQPage schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <!-- ── JSON-LD: TechArticle schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+
+    <!-- ── JSON-LD: BreadcrumbList schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>
