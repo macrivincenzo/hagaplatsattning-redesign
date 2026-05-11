@@ -1,0 +1,809 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-11';
+const UPDATED = '2026-05-11';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi förklarar skillnaden på kakel och klinker — EN 14411-klassificering, PEI, halkklass och storformat — så att du gör rätt materialval i badrum, kök och våtrum.',
+  knowsAbout: [
+    'Kakel',
+    'Klinker',
+    'Skillnad på kakel och klinker',
+    'EN 14411',
+    'PEI-klass',
+    'Halkklass R10 R11',
+    'Storformat kakel',
+    'Granitkeramik',
+    'Plattsättning Stockholm',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Vad är skillnaden på kakel och klinker?',
+    a: 'Kakel är glaserad keramik som tillverkas av lergods med högt vattenupptag (ofta över 10 %), och används i regel på väggar i torra och halv-våta utrymmen. Klinker är pressad och brännd vid högre temperatur, har mycket lågt vattenupptag (under 3 %, för porslins­klinker under 0,5 %) och tål både golv och våta miljöer. Klassificeringen styrs av den europeiska standarden SS EN 14411:2007.',
+  },
+  {
+    q: 'Är klinker och kakel samma sak?',
+    a: 'Nej. Båda är keramiska plattor men de tillverkas av olika lera, bränns vid olika temperaturer och har olika tekniska egenskaper. Klinker (särskilt porslinsklinker, ibland kallad granitkeramik) är tätare, hårdare och tål våtmiljö och hög trafik. Kakel är mjukare, mer porös och i regel ett väggmaterial. Att kalla allt "kakel" är vardagligt språk men inte tekniskt korrekt.',
+  },
+  {
+    q: 'Är klinker hårdare än kakel?',
+    a: 'Ja, klart hårdare. Klinker tillverkas med högre tryck och bränns vid 1 200–1 300 °C jämfört med kakel som ofta bränns vid 1 000–1 150 °C. Resultatet är en tätare struktur med betydligt högre slittålighet (mätt i PEI-klass) och lägre vattenupptag. För golv där plattorna utsätts för gång­trafik och fukt är klinker därför standardvalet.',
+  },
+  {
+    q: 'Vad är EN 14411 och varför spelar vattenupptaget roll?',
+    a: 'SS EN 14411:2007 är den europeiska standarden som klassificerar keramiska plattor efter formningsmetod och vattenupptag. Klass BIa har vattenupptag ≤ 0,5 % (porslins­klinker), klass BIIa har 3–6 % (klinker i bredare bemärkelse), klass BIII har över 10 % (typiskt vägg­kakel). Vattenupptaget styr indirekt hur tät, frostsäker, kemikalietålig och slitstark plattan är — det är därför det är det första värdet att kolla på datablandet.',
+  },
+  {
+    q: 'Vad betyder PEI-klass på en kakelplatta?',
+    a: 'PEI (Porcelain Enamel Institute) är en abrasions­klassificering som mäter ytans slittålighet. Skalan går från PEI 1 (lätt gångtrafik, t.ex. badrum utan skor) till PEI 5 (kraftig offentlig trafik). För ett vanligt badrumsgolv räcker PEI 1–2; för kök, hall eller golv som städas dagligen rekommenderas PEI 3 eller högre. Väggkakel behöver inget PEI-värde eftersom det inte utsätts för slitage.',
+  },
+  {
+    q: 'Vad är halkklass (R-värde) och när krävs den?',
+    a: 'Halkklass enligt DIN 51130 klassificerar friktionen mot skodda fötter, från R9 (låg friktion) till R13 (mycket hög). För badrumsgolv rekommenderas minst R10 i hela rummet och R11 i duschzonen, då vatten på golvet snabbt sänker friktionen. En platta kan vara helt korrekt klassad som klinker enligt EN 14411 men ändå halkig — halkklassen är ett separat värde och bör alltid kontrolleras vid val av golvplatta i våtrum.',
+  },
+  {
+    q: 'Hur stora kakelplattor finns det — och vad är "storformat"?',
+    a: 'Standardformat på kakel har länge varit 15×15 cm och 20×30 cm. Klinker finns vanligen i 15×15, 30×30 och 45×45 cm. Storformat avser plattor från 60×60 cm och uppåt — i moderna Stockholms­badrum är 60×120 cm och 80×80 cm vanliga idag. De största formaten kan vara 1,2×2,4 meter och kräver särskild teknik för transport, kapning och montering. Storformat ger färre fogar, ett lugnare uttryck och underlättar städning.',
+  },
+  {
+    q: 'Vilket material är bäst i badrum — kakel eller klinker?',
+    a: 'Den enkla regeln: klinker på golv, antingen klinker eller kakel på vägg. Klinker på golv för att det tål vatten, gångtrafik och städning över tid. På vägg kan du välja kakel om du vill ha större designvariation och en blank yta, eller klinker för enhetligt uttryck och möjlighet att använda samma platta på golv och vägg (vanligt vid storformat). Tekniskt sett kan klinker användas överallt; kakel ska däremot inte läggas på golv som utsätts för stänk eller pölvatten.',
+  },
+  {
+    q: 'Vilka underlag fungerar för kakelsättning i våtrum?',
+    a: 'I våtrum monteras kakel och klinker på ett tätskikt (folie eller smörjbar massa) som i sin tur sitter på ett godkänt underlag — vanligen våtrumsgips, cementbaserade skivor eller stabilt betongbjälklag. Trägolv och vanlig gips är inte godkänt direkt under tätskikt i våtzon. Alla material­val måste följa BBV (Branschregler för Våtrum) som ges ut av Byggkeramikrådet — annars kan giltigt våtrumsintyg inte utfärdas.',
+  },
+  {
+    q: 'Vilka är nackdelarna med klinker?',
+    a: 'Klinker har tre praktiska nackdelar att känna till: (1) den är hårdare och därmed svårare och dyrare att kapa — kräver diamantblad och vana, (2) den är kallare och hårdare för fötterna än vissa alternativa material — golvvärme rekommenderas i alla klinkerbadrum, (3) släta klinkerytor kan vara halkiga vid vatten — kontrollera alltid R-värdet före köp. Om dessa tre punkter är hanterade är klinker dock det överlägset mest hållbara golvmaterialet för svenska våtrum.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Kakel eller klinker? Skillnaden förklarad enligt EN 14411, PEI och halkklass — guide från BKR-behörig plattsättare i Stockholm',
+  description:
+    'Komplett guide till skillnaden på kakel och klinker. Vi förklarar EN 14411-klassificering, PEI-klasser, halkklass (R10/R11) och storformat — så att du gör rätt materialval för badrum, kök och våtrum i Stockholm.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)',
+      },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Kakel',
+    'Klinker',
+    'Granitkeramik',
+    'EN 14411',
+    'PEI-klassificering',
+    'Halkklass R10 R11',
+    'Storformat',
+    'Badrumsrenovering Stockholm',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsägare och beställare i Stockholm som väljer kakel eller klinker',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    {
+      '@type': 'CreativeWork',
+      name: 'Byggkeramikhandboken — BKR',
+      url: 'https://www.bkr.se/teknik/byggkeramikhandboken',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Branschregler för Våtrum (BBV)',
+      url: 'https://www.bkr.se/regler',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'SS EN 14411:2007 — Keramiska plattor (svensk/europeisk standard)',
+      url: 'https://www.sis.se/produkter/byggnadsmaterial-och-byggnader/byggnadsmaterial/keramiska-byggnadsmaterial/',
+    },
+  ],
+  mainEntityOfPage:
+    'https://www.hagaplattsattning.se/kakel-eller-klinker-stockholm/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Kakel eller klinker i Stockholm',
+      item: 'https://www.hagaplattsattning.se/kakel-eller-klinker-stockholm/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Kakel Eller Klinker? Skillnaden Förklarad 2026 | Haga Plattsättning AB Stockholm</title>
+    <meta
+      name="description"
+      content="Skillnaden på kakel och klinker — förklarad enligt EN 14411, PEI-klass och halkklass av en BKR-behörig plattsättare i Stockholm. Komplett guide med 10 vanliga frågor, källor och Stockholms-baserade kakelbutiker."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/kakel-eller-klinker-stockholm/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/kakel-eller-klinker-stockholm/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/kakel-eller-klinker-stockholm/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/kakel-eller-klinker-stockholm/" />
+    <meta property="og:title" content="Kakel Eller Klinker? Skillnaden Förklarad 2026" />
+    <meta property="og:description" content="EN 14411, PEI-klass och halkklass — guide från BKR-behörig plattsättare i Stockholm. 10 frågor, källor och butikstips." />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_29.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Storformat klinker monterat i badrum i Stockholm av Haga Plattsättning AB" />
+
+    <!-- ── TWITTER / X ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kakel Eller Klinker? Skillnaden Förklarad" />
+    <meta name="twitter:description" content="EN 14411, PEI, halkklass — guide från BKR-behörig plattsättare i Stockholm." />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_29.avif" />
+
+    <!-- ── GEO ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplatt_29.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Kakel eller klinker i Stockholm</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════ -->
+      <section class="s-hero" aria-label="Kakel eller klinker — guide från Haga Plattsättning AB i Stockholm">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Material­guide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Kakel eller klinker?<br /><em>Skillnaden förklarad</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Kakel och klinker ser ofta lika ut, men de är olika material med olika tekniska
+              egenskaper. Skillnaden styrs av den europeiska standarden SS EN 14411:2007 —
+              vattenupptag, hårdhet, PEI-klass och halkklass avgör vad som ska sitta var. Här
+              förklarar vi som BKR-behörig plattsättare i Stockholm skillnaderna ärligt, med
+              källor till Byggkeramikrådets handbok och tips på Stockholm-baserade specialist­butiker.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Få gratis offert <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num"><em>EN</em></div><div class="label">14411-klassificering</div></div>
+              <div class="cell"><div class="num"><em>PEI</em></div><div class="label">1–5 slittålighet</div></div>
+              <div class="cell"><div class="num">R<em>9–13</em></div><div class="label">Halkklass</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplatt_29.avif"
+              alt="Storformat klinker monterat i badrum i Stockholm — BKR-behörig plattsättning av Haga Plattsättning AB"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           META + INNEHÅLL — freshness signal + TOC
+      ══════════════════════════════════════════ -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#grundskillnader">Vad är egentligen skillnaden? — material och tillverkning</a></li>
+                <li><a href="#tekniska-klasser">Tekniska klasser — EN 14411, PEI och halkklass</a></li>
+                <li><a href="#valet">Vilket ska du välja, var och hur?</a></li>
+                <li><a href="#butiker">Var du kan se kakel och klinker i Stockholm</a></li>
+                <li><a href="#kontakt">Behöver du hjälp med materialvalet? Boka synning</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SNABBSVAR
+      ══════════════════════════════════════════ -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om kakel och klinker">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Vad är skillnaden?</strong> Klinker är tätare, hårdare och har lägre vattenupptag (under 3 %). Kakel är mjukare, mer porös (ofta över 10 %) och i regel ett väggmaterial.</li>
+                <li><strong>Vilket på golv?</strong> Klinker. Alltid klinker. Kakel hör inte hemma på våtrumsgolv.</li>
+                <li><strong>Vilket på vägg?</strong> Antingen — välj efter design. Kakel för fler färger och blanka ytor, klinker om du vill ha samma platta som golvet.</li>
+                <li><strong>Halkklass i dusch?</strong> Minst R11 enligt DIN 51130. R10 i övriga delar av badrummet räcker.</li>
+                <li><strong>Storformat?</strong> Plattor från 60×60 cm och uppåt. Ger färre fogar, lugnare uttryck — men kräver erfaren plattsättare.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet — bläddra ner eller använd länkarna i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION A — Grundläggande skillnader
+      ══════════════════════════════════════════ -->
+      <section id="grundskillnader" class="guide-section" aria-label="Grundläggande skillnader på kakel och klinker">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · Grundskillnader</span>
+          <h2 class="h-section" style="margin-top:14px">Vad är <em>egentligen skillnaden?</em></h2>
+          <p>
+            I vardagligt språk används "kakel" som samlingsnamn för allt kaklat — men tekniskt är
+            kakel och klinker två olika material med olika tillverkning, olika egenskaper och olika
+            användningsområden. Att förstå skillnaden är första steget till att välja rätt.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vad är <em>skillnaden</em> på kakel och klinker?</h3>
+              <p>
+                Kakel är glaserad keramik tillverkad av lergods. Det bränns vid relativt låg
+                temperatur (cirka 1 000–1 150 °C) vilket ger en mjuk, porös kropp som glaseras med
+                ett tätt ytskikt. Vattenupptaget är högt — ofta över 10 % — vilket gör materialet
+                lämpligt för väggar och torra utrymmen, inte för utsatt golv.
+              </p>
+              <p>
+                Klinker pressas hårdare, bränns vid högre temperatur (cirka 1 200–1 300 °C) och får
+                en betydligt tätare struktur. Vattenupptaget är under 3 %, och för så kallad
+                porslins­klinker (granitkeramik) under 0,5 %. Resultatet är en hård, tät och
+                frostsäker platta som tål både golvtrafik och våtmiljö.
+              </p>
+              <p>
+                Båda materialen klassificeras enligt den europeiska standarden
+                <a href="https://www.sis.se/produkter/byggnadsmaterial-och-byggnader/byggnadsmaterial/keramiska-byggnadsmaterial/" target="_blank" rel="noopener">SS EN 14411:2007</a>
+                — den som styr vilken klass plattan får och därmed var den får användas.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong>
+                <a href="https://www.bkr.se/teknik/byggkeramikhandboken" target="_blank" rel="noopener">Byggkeramikhandboken — Byggkeramikrådet (BKR)</a>
+              </div>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_12.avif"
+                alt="Närbild på klinker och kakel i ett badrum — skillnad i textur och format synlig"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Är klinker och kakel <em>samma sak?</em></h3>
+              <p>
+                Nej. Båda är keramiska plattor, men tillverkningsprocessen och slutresultatet är
+                tydligt olika. Förenklat:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Kakel:</strong> Lergodsmaterial, lägre bränntemperatur, porös kropp, glaserat ytskikt. Vattenupptag &gt; 10 %. Använd­ningsområde: väggar i torra och halv-våta rum.</li>
+                <li><strong>Klinker:</strong> Pressad keramik, högre bränntemperatur, tät kropp. Vattenupptag 0,5–6 %. Användningsområde: golv, vägg, våtrum, även utomhus.</li>
+                <li><strong>Porslins­klinker / granitkeramik:</strong> Den hårdaste varianten av klinker. Vattenupptag under 0,5 %. Används där absolut bästa hållbarhet krävs.</li>
+              </ul>
+              <p style="margin-top:14px">
+                I dagligt språk räknas kakel ibland in i "klinker"-kategorin och vice versa — men
+                när du läser ett produktblad i en butik och ser klassbeteckningen (BIa, BIIa, BIII)
+                ser du den verkliga skillnaden.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Är klinker <em>hårdare</em> än kakel?</h3>
+              <p>
+                Ja, betydligt. Klinker tillverkas under högre tryck och bränns vid betydligt högre
+                temperatur, vilket ger en tätare och hårdare materialstruktur. Den hårdare ytan gör
+                att klinker har högre slittålighet — mätt enligt PEI-skalan (Porcelain Enamel
+                Institute) — och är därmed lämplig för golv där plattorna utsätts för dagligt slitage.
+              </p>
+              <p>
+                Vägg­kakel anges sällan med PEI-värde eftersom det inte utsätts för slitage. Klinker
+                anges däremot alltid i PEI-klass 1–5 där 5 är högst. För ett vanligt badrumsgolv
+                räcker PEI 1–2 i regel utmärkt; för hall och kök eller större familjebadrum är PEI 3
+                en säkrare nivå.
+              </p>
+              <p>
+                Hårdheten gör också att klinker är svårare att kapa. Det kräver diamantblad och vana
+                — en av flera anledningar till att klinker normalt monteras av en erfaren plattsättare.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION B — Tekniska klasser
+      ══════════════════════════════════════════ -->
+      <section id="tekniska-klasser" class="guide-section" aria-label="Tekniska klassificeringar för kakel och klinker">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · Tekniska klasser</span>
+          <h2 class="h-section" style="margin-top:14px">Tekniska klasser — <em>vad du bör läsa</em> på datablandet</h2>
+          <p>
+            Det är på datablandet — eller på baksidan av kartongen i butiken — som plattans verkliga
+            egenskaper står. Tre värden styr 90 % av materialvalet: vattenupptag (EN 14411), slittålighet
+            (PEI) och halkklass (R-värde enligt DIN 51130). Här är vad de betyder.
+          </p>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner">
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_39.avif"
+                alt="Plattsättare i Stockholm kontrollerar klinkerplattors klassificering före montering"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+            <div class="guide-text">
+              <h3>Vad är <em>EN 14411</em> och varför spelar vattenupptaget roll?</h3>
+              <p>
+                SS EN 14411:2007 är den europeiska standarden som klassificerar keramiska plattor
+                efter formningsmetod och vattenupptag. I praktiken är vattenupptaget det viktigaste
+                värdet att kolla på:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Klass BIa:</strong> vattenupptag ≤ 0,5 % — porslins­klinker, granitkeramik. Tål allt: golv, vägg, våtrum, utomhus, frost.</li>
+                <li><strong>Klass BIb:</strong> 0,5–3 % — klinker. Tål golv och våtrum, oftast inte fri exponering för frost.</li>
+                <li><strong>Klass BIIa:</strong> 3–6 % — mer porös klinker. Inte rekommenderad för utsatt våtgolv.</li>
+                <li><strong>Klass BIII:</strong> &gt; 10 % — typiskt väggkakel. Endast för väggar i torra och halv-våta rum.</li>
+              </ul>
+              <p style="margin-top:14px">
+                Ju lägre vattenupptag, desto bättre tål plattan vatten, frysning, slitage och kemikalier.
+                För badrumsgolv kräver Branschregler för Våtrum (BBV) — utfärdade av Byggkeramikrådet —
+                att plattorna har ett vattenupptag som matchar användningen. Mer om BBV finns i vår
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om tätskikt och våtrumsintyg →</a>
+              </p>
+              <div class="pillar-sources">
+                <strong>Källor:</strong>
+                <a href="https://www.bkr.se/teknik/byggkeramikhandboken" target="_blank" rel="noopener">BKR — Byggkeramikhandboken</a>
+                ·
+                <a href="https://www.bkr.se/regler" target="_blank" rel="noopener">BKR — Branschregler (BBV)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad betyder <em>PEI-klass</em> på en kakelplatta?</h3>
+              <p>
+                PEI är en internationell skala (1 till 5) som mäter ytans abrasions­tålighet — alltså
+                hur mycket slitage från sand, skor och städning plattan klarar utan att tappa glansen
+                eller bli grov.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>PEI 1:</strong> Lätt gångtrafik, t.ex. badrum där man oftast går barfota</li>
+                <li><strong>PEI 2:</strong> Lätt hemtrafik, t.ex. badrum, sovrum, väggar i kök</li>
+                <li><strong>PEI 3:</strong> Medel hemtrafik, t.ex. hall, kök, vardagsrum</li>
+                <li><strong>PEI 4:</strong> Tung hemtrafik och lätt offentlig, t.ex. butiker, kontor</li>
+                <li><strong>PEI 5:</strong> Kraftig offentlig trafik, t.ex. restauranger, köpcentrum</li>
+              </ul>
+              <p style="margin-top:14px">
+                För ett vanligt familje­badrum räcker PEI 1–2. För hall och kök rekommenderas PEI 3
+                eller högre. Notera att PEI bara gäller glaserade plattor — ett oglaserat klinkergolv
+                har en helt annan slittålighets­profil (anges som "icke glaserad").
+              </p>
+              <p>
+                Värt att veta: PEI mäter ytans slittålighet, inte plattans hållfasthet. En PEI 5
+                kakelplatta är fortfarande kakel — den är slittålig men inte nödvändigtvis godkänd
+                för våtrumsgolv. Vattenupptaget enligt EN 14411 styr det.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är <em>halkklass</em> (R-värde) och när krävs den?</h3>
+              <p>
+                Halkklass enligt DIN 51130 mäter friktionen mellan plattan och en skodd fot, på en
+                skala R9 till R13. Standarden är ursprungligen tysk men används brett i Sverige för
+                våtrum, offentliga badrum och våtutrymmen.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>R9:</strong> Låg friktion. Olämpligt för våta golv.</li>
+                <li><strong>R10:</strong> Måttlig friktion. <em>Minimum för badrumsgolv</em> i privat bostad.</li>
+                <li><strong>R11:</strong> Hög friktion. <em>Rekommenderas i duschzonen</em> och i utsatta våtutrymmen.</li>
+                <li><strong>R12:</strong> Mycket hög friktion. Verkstäder, kök, offentliga utrymmen.</li>
+                <li><strong>R13:</strong> Maximal friktion. Industri och våtbearbetning.</li>
+              </ul>
+              <p style="margin-top:14px">
+                En platta kan vara helt korrekt klassad som klinker enligt EN 14411 men ändå vara halkig
+                — halkklassen är ett separat värde och måste kontrolleras separat. Det är vanligt att
+                människor väljer en vacker, slät klinker till badrummet och inser efter installationen
+                att den är hal när golvet är vått. Kontrollera alltid R-värdet före köp.
+              </p>
+              <p>
+                För det barfotade området finns även standarden DIN 51097 (klasserna A, B, C) som
+                används parallellt — i privata badrum är dock R-värdet det som efterfrågas i praktiken.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur stora <em>kakelplattor</em> finns det — och vad är "storformat"?</h3>
+              <p>
+                Plattstorlekar har förändrats dramatiskt de senaste 20 åren. Det som tidigare
+                räknades som stort är idag medelstort, och dagens "stora" plattor är gigantiska
+                jämfört med 90-talets vanliga 15×15 cm-kakel.
+              </p>
+              <p>Ungefär så här ser storleksskalan ut idag:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Mosaik:</strong> 2,5×2,5 cm upp till 5×5 cm. Används för dekor, fall mot brunn, accent­ytor.</li>
+                <li><strong>Standardkakel:</strong> 15×15, 20×30 och 25×33 cm. Klassisk vägg­dimension.</li>
+                <li><strong>Standard­klinker:</strong> 15×15, 30×30 och 45×45 cm. Vanlig badrumsgolv­dimension.</li>
+                <li><strong>Mellanformat:</strong> 30×60, 45×90 och 60×60 cm. Populärt val idag.</li>
+                <li><strong>Storformat:</strong> 60×120, 80×80, 120×120 cm och uppåt — upp till 1,2×2,4 meter.</li>
+              </ul>
+              <p style="margin-top:14px">
+                Storformat (60×60 och uppåt) är det dominerande trendvalet i moderna Stockholms­badrum
+                idag. Färre fogar ger ett lugnare, mer hotell-liknande uttryck och är lättare att
+                hålla rent. Nackdelen är att plattorna är tunga, kräver perfekt jämnt underlag och
+                ställer högre krav på plattsättarens erfarenhet — vid storformat blir varje millimeter
+                fel synlig.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           MID-PAGE CTA
+      ══════════════════════════════════════════ -->
+      <section class="pillar-mid-cta" aria-label="Boka rådgivning om materialval">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">Osäker på materialvalet?</span>
+            <h2 class="h-sub">Vi går igenom <em>klasser, format och passform</em> — på plats i ditt badrum.</h2>
+            <p>
+              Det är svårt att välja kakel och klinker enbart utifrån produkter i en webbutik. Boka
+              en kostnadsfri synning så går vi igenom ditt badrum, ljusinfall, befintligt underlag
+              och dina design­preferenser. Du får en konkret materialrekommendation — och skriftligt
+              offert om du önskar gå vidare.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Boka synning <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION C — Vilket ska du välja?
+      ══════════════════════════════════════════ -->
+      <section id="valet" class="guide-section" aria-label="Vilket ska du välja — kakel eller klinker">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Valet</span>
+          <h2 class="h-section" style="margin-top:14px">Vilket ska du välja — <em>var och hur?</em></h2>
+          <p>
+            När du förstår klassificeringen blir valet enklare. Här är de tre praktiska frågor vi
+            får oftast i Stockholm — och svaren som faktiskt fungerar i praktiken.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vilket material är <em>bäst i badrum</em> — kakel eller klinker?</h3>
+              <p>Den ärliga regeln vi använder själva:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>På golv: klinker.</strong> Alltid. Det är inte ens en diskussionsfråga — vattenupptaget gör kakel olämpligt på våtrumsgolv över tid.</li>
+                <li><strong>På vägg: antingen.</strong> Här handlar det om design. Kakel ger fler färger, blanka ytor, klassiska mindre format. Klinker ger möjlighet att använda samma platta som golvet — vilket är estetiskt sammanhållet och praktiskt enklare.</li>
+                <li><strong>I duschzon (golv): klinker med R11.</strong> Punkt slut. Halkrisken i duschen är reell och bör tas på allvar.</li>
+                <li><strong>Storformat på vägg + samma platta på golv:</strong> Ett av de populäraste valen i nyrenoverade Stockholms­badrum idag. Ger ett lugnt, modernt och tidlöst uttryck.</li>
+              </ul>
+              <p style="margin-top:14px">
+                Undvik den vanliga fällan: att köpa det vackraste på bild utan att kolla EN-klass och
+                R-värde. En vacker matt klinker som "ser ut som betong" kan vara R9 — perfekt på vägg,
+                farlig på duschgolv. Datablanden talar sanningen.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_46.avif"
+                alt="Färdigställt Stockholms­badrum med storformat klinker på golv och vägg — fackmässig plattsättning av Haga Plattsättning AB"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilka <em>underlag</em> fungerar för kakelsättning i våtrum?</h3>
+              <p>
+                I våtrum monteras kakel och klinker ovanpå ett tätskikt — antingen en folie eller en
+                smörjbar massa. Tätskiktet måste i sin tur sitta på ett godkänt underlag. De vanligaste
+                i svenska badrum:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Cementbaserade våtrumsskivor</strong> — det säkraste valet, fungerar nära allt­städes</li>
+                <li><strong>Våtrumsgips</strong> — godkänt i vissa zoner men har begränsningar i duschzon enligt BBV</li>
+                <li><strong>Stabilt betongbjälklag</strong> — gäller om plattorna sitter direkt på golvet</li>
+                <li><strong>Spånskiva och vanlig gips</strong> — <em>är inte godkänt</em> direkt under tätskikt i våtzon</li>
+                <li><strong>Träbjälklag i gamla hus</strong> — kräver särskild förstärkning innan tätskikt får monteras</li>
+              </ul>
+              <p style="margin-top:14px">
+                Underlaget är där de flesta felen i svenska badrum börjar. Det är inte glamoröst arbete,
+                men det är det moment där en BKR-behörig plattsättare gör störst skillnad. Reglerna i
+                detalj står i BBV. Vill du fördjupa dig — se vår
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om tätskikt och våtrumsintyg →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilka är <em>nackdelarna</em> med klinker?</h3>
+              <p>
+                Klinker har många fördelar och få nackdelar — men de tre nackdelarna är värda att
+                känna till innan beslutet:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>1. Svårare och dyrare att kapa.</strong> Klinker, särskilt porslins­klinker,
+                  kräver diamantblad och vana. Hörnskärningar runt rör och nischer är tekniskt krävande
+                  jobb. En oerfaren plattsättare kan slösa mycket material.
+                </li>
+                <li>
+                  <strong>2. Kallare och hårdare under fötterna.</strong> Klinker leder värme bort
+                  från fötterna snabbare än vissa alternativa material. Lösningen är golvvärme,
+                  som vi rekommenderar i alla klinker­badrum i Stockholm. Inte för komfortens skull
+                  ensamt — utan för att fukt torkar snabbare och risken för mögelbildning minskar.
+                </li>
+                <li>
+                  <strong>3. Halkrisk vid våta ytor.</strong> Släta klinker­ytor kan vara halkiga
+                  i kombination med vatten. Det är där halkklassen (R-värdet) blir avgörande —
+                  välj rätt R-klass för rätt zon.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Om dessa tre punkter är hanterade — kunnig plattsättare för kapningen, golvvärme för
+                komforten, rätt R-värde för säkerheten — är klinker det överlägset mest hållbara
+                golvmaterialet för svenska våtrum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           STOCKHOLM RETAILERS — outbound mention
+      ══════════════════════════════════════════ -->
+      <section id="butiker" class="guide-section" aria-label="Stockholm-baserade kakelbutiker">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Inspiration i Stockholm</span>
+              <h2 class="h-section" style="margin-top:14px">Var du kan se <em>kakel och klinker på plats</em></h2>
+              <p>
+                Det är svårt att välja material från en skärm. Ljus, storlek, ytstruktur och färg
+                ser annorlunda ut i fysisk butik än online. Här är tre välkända, specialiserade
+                aktörer i Stockholmsområdet där du kan se sortimentet, känna på plattorna och få
+                råd av butikspersonal. Vi är inte kopplade till någon av dem — de är listade för
+                att de är seriösa specialister med stort sortiment.
+              </p>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li>
+                  <strong><a href="https://www.konradssons.com/vara-butiker/stockholm/" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--ink)">Konradssons Kakel — Bromma</a></strong>
+                  · Specialistkedja med showroom i Bromma. Brett sortiment av kakel, klinker, mosaik
+                  och badrumsinredning. Ofta starkast på lite mer design-orienterade kollektioner.
+                </li>
+                <li>
+                  <strong><a href="https://www.kakelspecialisten.se/butiken" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--ink)">Kakelspecialisten — Årsta</a></strong>
+                  · 2 800 m² butik på Sockenvägen 289 i Årsta. Mycket brett sortiment av kakel,
+                  klinker, granitkeramik och mosaik. Bra för att se många olika format och kvaliteter
+                  bredvid varandra.
+                </li>
+                <li>
+                  <strong><a href="https://www.hoganaskakel.se/butiker/stockholm-bromma/" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--ink)">Höganäs Kakel — Bromma</a></strong>
+                  · Höganäs Kakels största butik. Konsument- och proffsbutik i Bromma med fullt
+                  sortiment. Höganäs är även tillverkare — gott om svensk­designade kollektioner.
+                </li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Tips inför butiksbesök: ta med mått på badrummet, foton på existerande inredning och en
+                klar idé om vilken halkklass du letar efter. Då blir samtalet kortare och svaren mer
+                konkreta. Du är alltid välkommen att höra av dig till oss <em>efter</em> butiksbesöket
+                — då vet vi vad du valt och kan bedöma om plattan passar ditt underlag, fall mot brunn
+                och övriga tekniska förutsättningar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           BOTTOM CTA
+      ══════════════════════════════════════════ -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning för badrumsrenovering">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du valt material</span>
+            <h2 class="h-section" style="margin-top:14px">Boka en <em>kostnadsfri synning</em> i Stockholm</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                När du har en idé om vilket kakel eller vilken klinker du vill ha — eller om du vill
+                ha hjälp innan du köper — kontakta oss för en kostnadsfri synning på plats. Vi går
+                igenom ditt badrum, kontrollerar underlag, fall mot brunn och bedömer vilken
+                EN-klass och R-värde som passar.
+              </p>
+              <p>
+                Vi är BKR-behöriga, arbetar enligt BBV och utfärdar våtrumsintyg signerat med BankID
+                efter varje renovering. Vi finns i hela Stockholmsregionen — Sollentuna, Solna,
+                Sundbyberg, Lidingö, Danderyd, Täby, Nacka, Bromma och fler.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Få gratis offert <span class="arrow">→</span></a>
+              <a class="btn-link" href="/om-oss/">Läs om våra certifieringar →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/behorig-vatrum.avif"
+                alt="BKR-behörig plattsättare i Stockholm — Haga Plattsättning AB utfärdar våtrumsintyg enligt BBV"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>certifierad</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           INTERNAL LINKS — Läs mer
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och tjänster">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>plattsättning och badrum</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg & BBV — den tekniska guiden</a></li>
+                <li><a href="/renovera-badrum-sjalv-eller-anlita-plattsattare/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Renovera badrum själv eller anlita plattsättare?</a></li>
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida</a></li>
+                <li><a href="/kakelsattare-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakelsättare Stockholm — vad skiljer en behörig från en obehörig</a></li>
+                <li><a href="/om-oss/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Om Haga Plattsättning AB — våra certifieringar och arbetsmetod</a></li>
+                <li><a href="/referensprojekt/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Referensprojekt — verkliga badrumsrenoveringar i Stockholm</a></li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Källor till standards och regelverk:
+                <a href="https://www.bkr.se/teknik/byggkeramikhandboken" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Byggkeramikhandboken (BKR)</a> ·
+                <a href="https://www.bkr.se/regler" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">BBV — Branschregler för Våtrum</a> ·
+                <a href="https://www.sis.se/produkter/byggnadsmaterial-och-byggnader/byggnadsmaterial/keramiska-byggnadsmaterial/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">SS EN 14411 — SIS</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en teknisk guide till skillnaden på kakel och klinker — klassificering enligt SS EN 14411, PEI-slittålighet och halkklass enligt DIN 51130. Skriven av Haga Plattsättning AB, BKR-behörig plattsättare i Stockholm, med källor till Byggkeramikrådets handbok och officiella standards. Tre Stockholms-baserade kakelbutiker nämns för att underlätta materialval på plats."
+    />
+
+    <!-- ── JSON-LD: FAQPage schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <!-- ── JSON-LD: TechArticle schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+
+    <!-- ── JSON-LD: BreadcrumbList schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>
