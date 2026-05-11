@@ -1012,6 +1012,7 @@ h1 em,h2 em,h3 em,h4 em{font-style:italic;color:var(--ink-2)}
   margin-top:16px;padding:14px 16px;background:var(--paper-2);
   border-left:3px solid var(--ink-2);border-radius:4px;
   font-size:0.88rem;color:var(--ink-2);line-height:1.6;
+  overflow-wrap:anywhere;
 }
 .pillar-sources strong{color:var(--ink);font-weight:600}
 .pillar-sources a{
@@ -1019,3 +1020,53 @@ h1 em,h2 em,h3 em,h4 em{font-style:italic;color:var(--ink-2)}
   border-bottom:1px solid var(--line-2);
 }
 .pillar-sources a:hover{border-bottom-color:var(--ink)}
+
+/* ─────────────────────────────────────────────────────────────────
+   Mobile safety net — prevent any horizontal overflow on narrow screens
+   Specific fixes for elements that overflow on phones ≤420px
+   ───────────────────────────────────────────────────────────────── */
+
+/* Universal — long Swedish compound words can break inside headings */
+h1,h2,h3,h4,h5,h6{overflow-wrap:anywhere}
+
+/* Breadcrumb — long page titles in <strong> overflow flex container */
+.breadcrumb{min-width:0}
+.breadcrumb>*{min-width:0;max-width:100%}
+.breadcrumb strong{overflow-wrap:anywhere}
+
+/* Trust-strip numbers — text like "7 kap § 12" can overflow narrow cells */
+.trust-strip .num{overflow-wrap:anywhere;min-width:0}
+@media (max-width:420px){
+  .trust-strip .num{font-size:22px;line-height:1.05}
+  .trust-strip .label{font-size:9.5px}
+  .trust-strip .cell{padding:12px 10px}
+}
+
+/* H1 .h-display — reduce on very narrow screens so long titles fit */
+@media (max-width:480px){
+  .h-display{font-size:clamp(30px,8.5vw,40px);line-height:1.04}
+}
+
+/* H2 .h-section — also reduce on small mobile */
+@media (max-width:420px){
+  .h-section,.section-title{font-size:clamp(24px,6.5vw,32px)}
+}
+
+/* .lede paragraph — keep readable but allow wrap */
+.lede{overflow-wrap:break-word}
+
+/* ─────────────────────────────────────────────────────────────────
+   Footer mobile — fix double-tap bug + ensure m-sticky doesn't cover links
+   ───────────────────────────────────────────────────────────────── */
+.footer-grid a{
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:rgba(255,216,74,0.18);
+  display:inline-block;
+  padding:4px 0;
+}
+.footer-grid a:active{color:var(--accent-soft)}
+
+/* Increase body bottom padding on mobile so m-sticky doesn't tap-block footer */
+@media (max-width:680px){
+  body{padding-bottom:110px}
+}

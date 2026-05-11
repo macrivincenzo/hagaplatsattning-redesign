@@ -252,7 +252,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         title: 'Bostadsrätt, radhus eller villa i Sollentuna – olika behov i samma kommun',
         bodyHtml:
           '<p>I Sollentuna är spannet stort mellan föreningar i centrum och villakvarter i ytterdelarna. Bostadstypen styr hur renoveringen bör läggas upp.</p><p>I BRF är process och dokumentation centralt. I radhus och villa blir underlag, ventilation och golvkonstruktion ofta mer avgörande.</p><p>Vi gör alltid en platsanpassad genomgång innan vi ger slutlig projektbild.</p>',
-        imageSrc: '/hagaplatt_16.avif',
+        imageSrc: '/hagaplatt_8.avif',
         imageAlt:
           'Badrumsrenovering i Sollentuna med fokus på bostadsrätt och radhus i norrort',
       },
@@ -260,7 +260,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         title: 'Tidplan i Sollentuna – varför projekt ofta blir mer förutsägbara',
         bodyHtml:
           '<p>Jämfört med innerstan är logistiken ofta enklare i Sollentuna, vilket minskar risken för onödiga stopp.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Enklare angöring för leveranser och avfall</li><li>Kortare transporttid för hantverkare och material</li><li>Mindre risk för parkeringsrelaterade förseningar</li><li>Samma kvalitetskrav på tätskikt och dokumentation som i hela länet</li></ul><p>Vi sätter en realistisk tidplan redan i offertskedet och uppdaterar den löpande under projektet.</p>',
-        imageSrc: '/hagaplatt_17.avif',
+        imageSrc: '/hagaplatt_29.avif',
         imageAlt:
           'Tidsplan för badrumsrenovering i Sollentuna med effektiv logistik och materialflöde',
         gray: true,
@@ -373,12 +373,12 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       ogTitle: 'Badrumsrenovering Solna – Trygg BRF-process',
       ogDescription:
         'Lokalt anpassad sida för Solna: tidsplan, BRF-krav och materialval för 2026.',
-      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_31.avif',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_4.avif',
       ogImageAlt: 'Badrumsrenovering i Solna med modern kakelsättning och dokumenterad kvalitet',
       twitterTitle: 'Badrumsrenovering Solna | Haga Plattsättning AB',
       twitterDescription:
         'Planera badrumsrenovering i Solna med BKR-behörighet och tydliga svar på BRF-frågor.',
-      twitterImage: 'https://www.hagaplattsattning.se/hagaplatt_31.avif',
+      twitterImage: 'https://www.hagaplattsattning.se/hagaplatt_4.avif',
       geoPlacename: 'Solna',
       geoPosition: '59.3600;18.0009',
       latitude: 59.36,
@@ -387,7 +387,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     hero: {
       lead:
         'Planerar du badrumsrenovering i Solna? Vi hjälper dig hela vägen med BRF-anmälan, projektering och plattsättning så att slutresultatet blir både snyggt och försäkringsbart.',
-      imageSrc: '/hagaplatt_31.avif',
+      imageSrc: '/hagaplatt_4.avif',
       imageAlt: 'Nytt badrum i Solna med stilrent kakel och precisionslagd klinker',
     },
     guideHeader: {
@@ -400,14 +400,14 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         title: 'Solnas bostadsmix påverkar hur badrummet bör renoveras',
         bodyHtml:
           '<p>I Solna är det vanligt med bostadsrätter i Frösunda, Huvudsta och runt Arenastaden, samtidigt som det finns villabebyggelse i delar av kommunen.</p><p>I BRF är korrekt underlag till styrelsen avgörande. I villa är teknisk status på underlag, golvfall och befintliga installationer ofta den stora frågan.</p><p>Vi lägger stor vikt vid förbesiktning så att du får en realistisk plan från dag ett.</p>',
-        imageSrc: '/hagaplatt_32.avif',
+        imageSrc: '/hagaplatt_12.avif',
         imageAlt: 'Badrumsrenovering i Solna bostadsrätt med dokumenterad arbetsprocess',
       },
       {
         title: 'Tidplan i Solna – vanliga orsaker till försening och hur de undviks',
         bodyHtml:
           '<p>I Solna ligger många projekt nära city med hög belastning på logistik och leveranser. Med rätt förberedelser blir projektet stabilt.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Samordna tillträde med BRF och förvaltare i god tid</li><li>Säkerställ leveransfönster för material i trånga områden</li><li>Planera rivning och uttorkning utan att stressa tätskiktsmoment</li><li>Ha beslut om kakel, kommod och blandare klara före start</li></ul><p>Vi arbetar med tydliga milstolpar så att du vet exakt var i processen projektet är.</p>',
-        imageSrc: '/hagaplatt_33.avif',
+        imageSrc: '/hagaplatt_39.avif',
         imageAlt: 'Tidsplanering av badrumsrenovering i Solna med fokus på BRF och leveranser',
         gray: true,
         imageFirst: true,
@@ -416,7 +416,7 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         title: 'Planering av badrumsrenovering i Solna 2026',
         bodyHtml:
           '<p>I Solna påverkas projektets omfattning av bostadstyp, underlag och materialval. Vi planerar arbetsordning och dokumentation innan start för en trygg och tydlig process.</p><p style="font-size:0.82rem;color:#777;margin-top:0.6rem;line-height:1.6;">Kontakta oss för offertförfrågan och projektgenomgång.</p>',
-        imageSrc: '/hagaplatt_34.avif',
+        imageSrc: '/hagaplatt_47.avif',
         imageAlt:
           'Planering av badrumsrenovering i Solna med tydlig offertförfrågan',
       },
