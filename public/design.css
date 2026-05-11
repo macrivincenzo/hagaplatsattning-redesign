@@ -1058,15 +1058,55 @@ h1,h2,h3,h4,h5,h6{overflow-wrap:anywhere}
 /* ─────────────────────────────────────────────────────────────────
    Footer mobile — fix double-tap bug + ensure m-sticky doesn't cover links
    ───────────────────────────────────────────────────────────────── */
+.footer-grid li{width:100%}
 .footer-grid a{
+  display:block;
+  width:100%;
+  padding:8px 0;
   touch-action:manipulation;
-  -webkit-tap-highlight-color:rgba(255,216,74,0.18);
-  display:inline-block;
-  padding:4px 0;
+  -webkit-tap-highlight-color:rgba(255,216,74,0.25);
+  cursor:pointer;
 }
-.footer-grid a:active{color:var(--accent-soft)}
+
+/* Scope hover to devices that actually have hover — touch devices skip this
+   entirely, eliminating the iOS Safari tap-to-hover-then-tap-again behavior */
+@media (hover:hover) and (pointer:fine){
+  .footer-grid a:hover{color:var(--accent-soft)}
+}
+@media (hover:none),(pointer:coarse){
+  .footer-grid a:hover{color:rgba(250,250,247,0.85)}
+  .footer-grid a:active{color:var(--accent-soft)}
+}
 
 /* Increase body bottom padding on mobile so m-sticky doesn't tap-block footer */
 @media (max-width:680px){
   body{padding-bottom:110px}
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   AGGRESSIVE mobile safety net — applies to ALL pages, ALL elements
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:768px){
+  *{min-width:0}
+  p,li,a,em,strong,span,div,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
+  a,h1,h2,h3,.breadcrumb strong,.trust-strip .num,.trust-strip .label,
+  .pillar-sources,.pillar-sources a{overflow-wrap:anywhere}
+}
+
+/* Trust-strip labels can be 17+ char Swedish words — reduce letter-spacing */
+@media (max-width:420px){
+  .trust-strip .label{
+    font-size:9px;letter-spacing:0.04em;line-height:1.3;
+    overflow-wrap:anywhere;
+  }
+  .trust-strip .cell{padding:10px 8px}
+}
+
+/* iPhone SE / very narrow screens — bring H1 down enough to actually fit */
+@media (max-width:380px){
+  .h-display{font-size:26px;line-height:1.06;letter-spacing:-0.02em}
+  .h-section,.section-title{font-size:20px;line-height:1.1}
+  .trust-strip .num{font-size:20px}
+  .lede{font-size:0.95rem;line-height:1.55}
+}
+
