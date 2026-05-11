@@ -1058,8 +1058,11 @@ h1,h2,h3,h4,h5,h6{overflow-wrap:anywhere}
 /* ─────────────────────────────────────────────────────────────────
    Footer mobile — fix double-tap bug + ensure m-sticky doesn't cover links
    ───────────────────────────────────────────────────────────────── */
-.footer-grid li{width:100%}
-.footer-grid a{
+/* Scope to TEXT link lists only (.footer-links). Do NOT use .footer-grid a
+   — that selector caught .reco-pill badge wrappers and stretched them into
+   full-width white pills. Badges keep their original .reco-pill inline-flex. */
+.footer-links li{width:100%}
+.footer-links a{
   display:block;
   width:100%;
   padding:8px 0;
@@ -1068,14 +1071,13 @@ h1,h2,h3,h4,h5,h6{overflow-wrap:anywhere}
   cursor:pointer;
 }
 
-/* Scope hover to devices that actually have hover — touch devices skip this
-   entirely, eliminating the iOS Safari tap-to-hover-then-tap-again behavior */
-@media (hover:hover) and (pointer:fine){
-  .footer-grid a:hover{color:var(--accent-soft)}
-}
+/* Touch devices: suppress iOS Safari "tap-to-hover-then-tap-again" behavior
+   by nullifying :hover on touch. Hover effect kept on real-hover devices.
+   Scoped to .footer-links a so the original .footer-grid a:hover (color
+   change only) keeps applying to badges and the CTA button. */
 @media (hover:none),(pointer:coarse){
-  .footer-grid a:hover{color:rgba(250,250,247,0.85)}
-  .footer-grid a:active{color:var(--accent-soft)}
+  .footer-links a:hover{color:rgba(250,250,247,0.85)}
+  .footer-links a:active{color:var(--accent-soft)}
 }
 
 /* Increase body bottom padding on mobile so m-sticky doesn't tap-block footer */
