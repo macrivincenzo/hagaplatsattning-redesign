@@ -1,0 +1,797 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-11';
+const UPDATED = '2026-05-11';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm med stor erfarenhet av BRF-renovering. Vi förklarar vad Bostadsrättslagen säger om badrumsrenovering, vad styrelsen kräver och hur ansvar fördelas mellan dig och föreningen.',
+  knowsAbout: [
+    'Badrumsrenovering bostadsrätt',
+    'BRF Stockholm',
+    'Bostadsrättslagen',
+    'Inre underhåll',
+    'Styrelsens tillstånd',
+    'Ansvarsfördelning bostadsrättsförening',
+    'Vattenskada bostadsrätt',
+    'Bostadsrättstillägg försäkring',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Måste man få tillstånd av BRF för att renovera badrum?',
+    a: 'I de flesta fall, ja. En vanlig badrumsrenovering innebär normalt åtgärder som enligt Bostadsrättslagen 7 kap kräver styrelsens tillstånd — typiskt ändring av golvbrunn, flytt av blandare eller annan "väsentlig förändring av lägenheten". Att enbart byta ytskikt utan rör- eller stamändringar kan i vissa stadgar räknas som anmälan istället för tillstånd. Det säkraste är alltid att kontrollera föreningens stadgar och få ett skriftligt godkännande innan arbetet börjar.',
+  },
+  {
+    q: 'Vad säger lagen — Bostadsrättslagen och stadgarna?',
+    a: 'Bostadsrättslagen (1991:614) 7 kap 12 § slår fast att bostadsrättshavaren på egen bekostnad ska hålla lägenheten i gott skick — det kallas "inre underhåll". Undantaget är rör för avlopp, värme, gas, el och vatten som föreningen försett lägenheten med, om dessa tjänar fler än en lägenhet. Det betyder: ytskikt, fast inredning och tätskikt är ditt ansvar; stammar och bjälklag är föreningens. Föreningens stadgar kan precisera ansvaret men inte utvidga det utöver vad lagen säger.',
+  },
+  {
+    q: 'Vad räknas som "väsentlig förändring" som kräver styrelsens tillstånd?',
+    a: 'Enligt Bostadsrätterna (branschorgan för BRF) kräver följande åtgärder normalt styrelsens tillstånd: ingrepp i bärande konstruktion, installation eller ändring av rör för avlopp, värme, vatten eller gas, ändring av ventilationssystem, åtgärder som påverkar eldstäder eller rökgångar, samt "annan väsentlig förändring av lägenheten". Flytt av golvbrunn, byte av handdukstork som flyttas, eller flytt av blandare räknas i regel som ändring av rör — och kräver alltså tillstånd.',
+  },
+  {
+    q: 'Vad ansvarar du som bostadsrättshavare för?',
+    a: 'Som bostadsrättshavare ansvarar du för det som kallas "inre underhåll" — i praktiken alla ytskikt och fast inredning som inte tjänar fler lägenheter. Det innebär: golv- och väggkakel, tätskikt, kommod, blandare (utöver stam), toalettstol (utöver avloppsrör), badkar, dörrar inne i lägenheten, innerväggar som inte är bärande, vitvaror och fast belysning. Bostadsrätterna sammanfattar det så här: "Medlemmen i bostadsrättsföreningen står för skador inne i lägenheten som parkett, väggar, innertak, köksluckor och kakel (ytskikt)."',
+  },
+  {
+    q: 'Vad ansvarar föreningen för (stammar, bjälklag, golvbrunn)?',
+    a: 'Föreningen ansvarar enligt Bostadsrätterna för "bjälklag, trossbotten, ytterväggar, yttertak, element med mera" — och för stamledningar (rör som tjänar fler än en lägenhet). Praktiskt innebär det: stammar för vatten, avlopp och värme, fasaden, taket, hisschakt, fönster (vanligen), och själva golvbrunnen (men ofta inte gallret eller manschetten omedelbart runt — det varierar med stadgar). Vid ändring av stam eller bärande konstruktion krävs alltid styrelsens tillstånd.',
+  },
+  {
+    q: 'Vem betalar vid vattenskada — du eller föreningen?',
+    a: 'Huvudregeln är: är skadan i ditt ytskikt eller fasta inredning bekostar du den (via hemförsäkring + bostadsrättstillägg). Är skadan i bjälklag, stam eller annat som föreningen ansvarar för betalar föreningen via fastighetsförsäkringen. Bostadsrätterna förklarar undantaget: "Föreningen kan bli ansvarig för samtliga följdskador, alltså i och utanför lägenheten" — om skadan beror på trycksatt tappvattenledning (alltså föreningens stam). I praktiken hanteras större skador ofta gemensamt mellan båda försäkringsbolagen.',
+  },
+  {
+    q: 'Vad är bostadsrättstillägget och varför behöver du det?',
+    a: 'Bostadsrättstillägget är ett tillägg till hemförsäkringen som täcker "fasta delar" i lägenheten — alltså det du juridiskt sett äger (ytskikt, inredning, tätskikt) men som hemförsäkringens grunddel inte täcker. Många föreningar har kollektivt bostadsrättstillägg som omfattar alla medlemmar, medan andra föreningar låter varje medlem teckna det själv. Utan bostadsrättstillägg står du själv för hela kostnaden för att återställa ytskikt och inredning vid en skada — vilket vid en omfattande renovering kan vara mycket pengar. Kontrollera alltid om din förening har kollektivt tillägg, och om inte — teckna det.',
+  },
+  {
+    q: 'Hur ser anmälnings- och tillståndsprocessen ut i en Stockholms-BRF?',
+    a: 'Det varierar mellan föreningar, men typisk process är: (1) Du eller plattsättaren fyller i föreningens renoveringsanmälan med projektbeskrivning, tidsplan och firmans behörighetsbevis. (2) Styrelsen behandlar ärendet — Bostadsrätterna anger att svar normalt kommer inom en månad. (3) Vid godkännande får du skriftligt tillstånd. (4) Innan start informerar du grannarna om bullerperiod. (5) Efter avslutat arbete lämnar du in våtrumsintyg och kvalitetsdokument till styrelsen för arkivering. I många Stockholms-BRF:er är detta numera digitaliserat via förvaltarens portal.',
+  },
+  {
+    q: 'Vilka tider får man arbeta i en BRF i Stockholm?',
+    a: 'Arbetstiderna sätts av föreningens stadgar eller ordningsregler — det finns alltså ingen lag som anger exakta tider. De vanligaste reglerna i Stockholm är: störande arbete (kakling, rivning, borrning) får utföras vardagar 07:00–17:00, ibland 08:00–18:00. Lördagar är ofta tillåtet 09:00–15:00 eller helt förbjudet. Söndagar och röda dagar är i regel helt förbjudet för bullrande arbete. Lugnt inomhusarbete utan buller (städning, måleri) brukar tillåtas bredare. Kontrollera alltid din förenings konkreta regler innan arbetet planeras.',
+  },
+  {
+    q: 'Vad behöver du lämna in till föreningen — och vad gör vi som plattsättare?',
+    a: 'Inför godkännande lämnar du i regel in: ifylld renoveringsanmälan, projektbeskrivning, tidsplan, firmans BKR-behörighetsbevis (och eventuellt Säker Vatten-auktorisation för VVS-partner), försäkringsbevis från firman, och om relevant — ritningar vid större förändringar. Efter avslutat arbete lämnar firman våtrumsintyg och kvalitetsdokument enligt BBV. Som BKR-behörig plattsättare hjälper vi dig med alla dessa dokument: vi tar fram behörighetsbevis, försäkringsintyg, tidsplan och slutdokumentation. Du sköter granninformationen och kommunikationen med styrelsen — vi sköter tekniken.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Badrumsrenovering i bostadsrätt — så fungerar det med BRF i Stockholm. Guide från BKR-behörig plattsättare med Bostadsrättslagen som källa.',
+  description:
+    'Komplett guide till badrumsrenovering i bostadsrätt: Bostadsrättslagen 7 kap, styrelsens tillstånd, ansvarsfördelning mellan medlem och förening, försäkringsfrågan och praktisk process i Stockholms-BRF.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)',
+      },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Badrumsrenovering bostadsrätt',
+    'BRF Stockholm',
+    'Bostadsrättslagen 1991:614',
+    'Inre underhåll',
+    'Styrelsens tillstånd',
+    'Vattenskada ansvar',
+    'Bostadsrättstillägg',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsrättshavare i Stockholm som planerar badrumsrenovering',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    {
+      '@type': 'CreativeWork',
+      name: 'Bostadsrättslag (1991:614)',
+      url: 'https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/bostadsrattslag-1991614_sfs-1991-614/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Bostadsrätterna — Ombyggnation i lägenhet',
+      url: 'https://www.bostadsratterna.se/kunskapsbanken/o/ombyggnation-i-lagenhet',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Bostadsrätterna — Vem betalar för vad och varför',
+      url: 'https://www.bostadsratterna.se/artiklar/2019/vem-betalar-for-vad-och-varfor',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Byggkeramikrådet — Branschregler för Våtrum (BBV)',
+      url: 'https://www.bkr.se/regler',
+    },
+  ],
+  mainEntityOfPage:
+    'https://www.hagaplattsattning.se/badrumsrenovering-bostadsratt-brf-stockholm/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Badrumsrenovering i bostadsrätt — BRF Stockholm',
+      item: 'https://www.hagaplattsattning.se/badrumsrenovering-bostadsratt-brf-stockholm/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Badrumsrenovering i BRF Stockholm — Tillstånd, Ansvar & Process | Haga Plattsättning AB</title>
+    <meta
+      name="description"
+      content="Komplett guide till badrumsrenovering i bostadsrätt i Stockholm. Vi förklarar Bostadsrättslagen, styrelsens tillstånd, ansvarsfördelning mellan dig och föreningen, och vad du behöver lämna in. Med källor till Bostadsrätterna och riksdagen.se."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/badrumsrenovering-bostadsratt-brf-stockholm/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/badrumsrenovering-bostadsratt-brf-stockholm/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/badrumsrenovering-bostadsratt-brf-stockholm/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/badrumsrenovering-bostadsratt-brf-stockholm/" />
+    <meta property="og:title" content="Badrumsrenovering i BRF Stockholm — Tillstånd, Ansvar & Process" />
+    <meta property="og:description" content="Bostadsrättslagen, styrelsens tillstånd, ansvar mellan dig och föreningen — komplett guide från BKR-behörig plattsättare med källor." />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_40.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Badrumsrenovering i bostadsrätt i Stockholm utförd av BKR-behörig plattsättare — Haga Plattsättning AB" />
+
+    <!-- ── TWITTER / X ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Badrumsrenovering i BRF Stockholm — guide med källor" />
+    <meta name="twitter:description" content="Tillstånd, ansvar, försäkring och process — förklarat enligt Bostadsrättslagen och Bostadsrätterna." />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_40.avif" />
+
+    <!-- ── GEO ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplatt_40.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Badrumsrenovering i BRF Stockholm</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════ -->
+      <section class="s-hero" aria-label="Badrumsrenovering i bostadsrätt i Stockholm — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">BRF-guide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Badrumsrenovering<br /><em>i bostadsrätt</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              En badrumsrenovering i bostadsrätt är inte bara teknik — det är också regler.
+              Vad får du göra utan tillstånd? Vad ansvarar du för vid en vattenskada — och vad
+              ansvarar föreningen för? Här svarar vi som BKR-behörig plattsättare i Stockholm på
+              de tio vanligaste frågorna om BRF-badrumsrenovering, med källor till Bostadsrättslagen,
+              Bostadsrätterna och Byggkeramikrådet.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Få gratis offert <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num"><em>BKR</em></div><div class="label">Behörig plattsättare</div></div>
+              <div class="cell"><div class="num"><em>BBV</em></div><div class="label">Branschregler för Våtrum</div></div>
+              <div class="cell"><div class="num">7 kap<em>§ 12</em></div><div class="label">Bostadsrättslagen</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplatt_40.avif"
+              alt="Badrumsrenovering i bostadsrätt i Stockholm — fackmässigt utförande enligt BBV av Haga Plattsättning AB"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           META + INNEHÅLL — freshness signal + TOC
+      ══════════════════════════════════════════ -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#vad-galler">Vad gäller juridiskt? — Lagen och stadgarna</a></li>
+                <li><a href="#ansvar">Ansvarsfördelning — du vs föreningen</a></li>
+                <li><a href="#process">Praktisk process i Stockholms-BRF</a></li>
+                <li><a href="#kontakt">Boka en kostnadsfri synning i ditt badrum</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SNABBSVAR
+      ══════════════════════════════════════════ -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om BRF-badrumsrenovering">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Tillstånd eller anmälan?</strong> En typisk badrumsrenovering kräver styrelsens tillstånd — eftersom rör (golvbrunn, blandare) brukar beröras eller eftersom det räknas som "väsentlig förändring av lägenheten" enligt Bostadsrättslagen.</li>
+                <li><strong>Vad ansvarar du för?</strong> "Inre underhåll" — ytskikt, tätskikt, kakel, fast inredning i lägenheten. Stammar och bjälklag är föreningens.</li>
+                <li><strong>Vid vattenskada?</strong> Du står för skador i ditt ytskikt och din inredning (via hemförsäkring + bostadsrättstillägg). Föreningen för bjälklag, stammar, ytterväggar.</li>
+                <li><strong>Behöver firman vara behörig?</strong> I praktiken ja. De flesta BRF:er kräver BKR-behörighet och våtrumsintyg för godkännande.</li>
+                <li><strong>Bostadsrättstillägget</strong> är försäkringstillägget som täcker dina "fasta delar". Antingen kollektivt via föreningen — eller måste du teckna det själv. Kontrollera vilket.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet — bläddra ner eller använd länkarna i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION A — Vad gäller juridiskt?
+      ══════════════════════════════════════════ -->
+      <section id="vad-galler" class="guide-section" aria-label="Vad gäller juridiskt — Bostadsrättslagen och stadgarna">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · Lagen & stadgarna</span>
+          <h2 class="h-section" style="margin-top:14px">Vad gäller <em>juridiskt?</em></h2>
+          <p>
+            Reglerna för BRF-badrumsrenovering kommer från två källor: Bostadsrättslagen (gemensam
+            för alla bostadsrätter i Sverige) och din egen förenings stadgar. Lagen sätter
+            grundreglerna; stadgarna kan precisera men inte utvidga ansvaret för medlemmen.
+            Här är vad lagen säger — och hur det fungerar i praktiken.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Måste man få <em>tillstånd</em> av BRF för att renovera badrum?</h3>
+              <p>
+                I de flesta fall: ja. En vanlig badrumsrenovering innebär normalt sådana åtgärder
+                som enligt Bostadsrättslagen 7 kap kräver styrelsens tillstånd. Det räcker att en
+                blandare flyttas, en handdukstork ändras eller golvbrunnen byts ut — då rörs
+                installationer som föreningen ansvarar för.
+              </p>
+              <p>
+                Det finns en gråzon: om du <em>enbart</em> byter ytskikt på exakt samma ställe som
+                tidigare, utan att röra rör, stam eller bärande konstruktion, kan vissa stadgar
+                räkna det som en ren anmälan i stället för tillståndsansökan. Men det är ovanligt
+                att en hel badrumsrenovering håller sig inom den ramen.
+              </p>
+              <p>
+                Det säkraste rådet: läs föreningens stadgar och renoveringsregler först. Lämna
+                in en formell ansökan med projektbeskrivning, tidsplan och firmans behörighetsbevis
+                <em>innan</em> arbetet börjar. Får du skriftligt godkännande — då är du trygg.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong>
+                <a href="https://www.bostadsratterna.se/kunskapsbanken/o/ombyggnation-i-lagenhet" target="_blank" rel="noopener">Bostadsrätterna — Ombyggnation i lägenhet</a>
+              </div>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_2.avif"
+                alt="Badrumsrenovering i bostadsrätt i Stockholm — dokumentation och planering enligt BBV"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad säger <em>lagen</em> — Bostadsrättslagen och stadgarna?</h3>
+              <p>
+                Bostadsrättslagen (1991:614) 7 kap 12 § slår fast huvudregeln: bostadsrättshavaren
+                ska på egen bekostnad hålla lägenheten i gott skick. Det kallas <em>inre underhåll</em>
+                och omfattar i princip allt inne i lägenheten — ytskikt, fast inredning, vitvaror,
+                innerdörrar.
+              </p>
+              <p>
+                Men paragrafen innehåller ett viktigt undantag: ansvaret för inre underhåll
+                <em>omfattar inte</em> reparationer av rör för avlopp, värme, gas, el och vatten
+                — om föreningen försett lägenheten med dessa och de tjänar fler än en lägenhet.
+                Det är så stammarna hamnar utanför ditt ansvar.
+              </p>
+              <p>
+                Föreningens stadgar kan precisera ansvaret men inte utvidga det. Det innebär att
+                en stadga som säger "medlemmen ansvarar för alla rör" inte gäller — den krockar
+                med lagen. Däremot kan stadgan ta över <em>föreningens del</em> till föreningens
+                ansvar, t.ex. innebära att föreningen tar ansvar för viss inredning utöver lagens
+                minimikrav.
+              </p>
+              <div class="pillar-sources">
+                <strong>Källor:</strong>
+                <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/bostadsrattslag-1991614_sfs-1991-614/" target="_blank" rel="noopener">Riksdagen — Bostadsrättslag (1991:614)</a>
+                ·
+                <a href="https://lagen.nu/1991:614" target="_blank" rel="noopener">Lagen.nu — Bostadsrättslag (1991:614)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad räknas som <em>"väsentlig förändring"</em> som kräver styrelsens tillstånd?</h3>
+              <p>
+                Enligt Bostadsrätterna — branschorganet för Sveriges bostadsrättsföreningar —
+                kräver följande åtgärder normalt styrelsens tillstånd:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Ingrepp i bärande konstruktion (riva eller flytta bärande vägg)</li>
+                <li>Installation eller ändring av rör för avlopp, värme, vatten eller gas</li>
+                <li>Ändring av ventilationssystem (fläktar, frånluftskanaler)</li>
+                <li>Åtgärder som påverkar eldstäder, rökgångar eller brandskydd</li>
+                <li>"Annan väsentlig förändring av lägenheten"</li>
+              </ul>
+              <p style="margin-top:14px">
+                För badrum är det punkt 2 och punkt 5 som triggar oftast. Flytt av blandare innebär
+                ändring av vattenrör. Flytt av golvbrunn innebär ändring av avloppsrör. Byte av
+                handdukstork från elburen till vattenburen — ändring av värme- eller vattenrör.
+                Alla dessa kräver tillstånd.
+              </p>
+              <p>
+                Styrelsen får enligt Bostadsrätterna bara vägra tillstånd om åtgärden orsakar
+                föreningen <em>påtaglig skada eller olägenhet</em>. Det innebär att om du anlitar en
+                behörig firma och presenterar fullständig dokumentation är det ovanligt att
+                styrelsen nekar — men det är ändå styrelsens beslut, och måste fattas innan
+                arbetet börjar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION B — Ansvarsfördelning
+      ══════════════════════════════════════════ -->
+      <section id="ansvar" class="guide-section" aria-label="Ansvarsfördelning mellan dig och föreningen">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · Ansvar</span>
+          <h2 class="h-section" style="margin-top:14px">Ansvarsfördelning — <em>du vs föreningen</em></h2>
+          <p>
+            Det här är där missförstånden brukar uppstå — och där pengar plötsligt kan handla om
+            tiotusentals kronor vid en vattenskada. Här är vad lagen säger om vem som äger och
+            ansvarar för vad i ditt badrum.
+          </p>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner">
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_10.avif"
+                alt="Detalj av tätskikt och kakel i Stockholms-BRF — ansvarsgräns mellan bostadsrättshavare och förening"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+            <div class="guide-text">
+              <h3>Vad ansvarar du som <em>bostadsrättshavare</em> för?</h3>
+              <p>
+                Som bostadsrättshavare ansvarar du för det som kallas "inre underhåll" — i praktiken
+                allt inne i lägenheten som inte tjänar fler lägenheter. Bostadsrätterna sammanfattar
+                det så här:
+                <em>"Medlemmen i bostadsrättsföreningen står för skador inne i lägenheten som
+                parkett, väggar, innertak, köksluckor och kakel (ytskikt)."</em>
+              </p>
+              <p>I badrummet betyder det konkret:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Kakel och klinker (vägg och golv)</li>
+                <li>Tätskiktet under och bakom kakel</li>
+                <li>Kommod, blandare, toalettstol, badkar, dusch — utöver där stammen tar vid</li>
+                <li>Innerdörrar och innerväggar (om de inte är bärande)</li>
+                <li>Vitvaror och belysningsarmaturer</li>
+                <li>Elinstallation från lägenhetens central och inåt — men själva installationen kräver behörig elektriker</li>
+              </ul>
+              <p style="margin-top:14px">
+                Du ansvarar både för att hålla detta i gott skick och för skador som uppstår — om
+                de inte härrör från föreningens del (t.ex. en stamläcka som rinner in i ditt
+                ytskikt). Det är gränsen mellan "din skada" och "föreningens skada".
+              </p>
+              <div class="pillar-sources">
+                <strong>Källa:</strong>
+                <a href="https://www.bostadsratterna.se/artiklar/2019/vem-betalar-for-vad-och-varfor" target="_blank" rel="noopener">Bostadsrätterna — Vem betalar för vad och varför</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad ansvarar <em>föreningen</em> för (stammar, bjälklag, golvbrunn)?</h3>
+              <p>
+                Föreningen ansvarar enligt Bostadsrätterna för
+                <em>"bjälklag, trossbotten, ytterväggar, yttertak, element med mera"</em> — samt
+                för stamledningar (de gemensamma rör som tjänar fler än en lägenhet).
+              </p>
+              <p>I praktiken äger och ansvarar föreningen för:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Stammar för vatten, avlopp och värme (de "vertikala" rören som går genom huset)</li>
+                <li>Bjälklag (golvet/taket som skiljer dig från grannen ovan/under)</li>
+                <li>Ytterväggar och fasaden</li>
+                <li>Yttertaket</li>
+                <li>Trapphus, hisschakt, gemensamma utrymmen</li>
+                <li>Värmesystemets element och termostater</li>
+                <li>Själva golvbrunnen (men ansvaret för manschett och tätskikt runt brunnen är vanligen medlemmens — variationer mellan föreningar)</li>
+                <li>Fönster (oftast — varierar med stadgar)</li>
+              </ul>
+              <p style="margin-top:14px">
+                Det är där gränsen går. Det är därför en stamrenovering är föreningens beslut och
+                bekostnad, medan ditt badrums-tätskikt är ditt ansvar. Men de två hänger ihop:
+                vid en stam-läckas följdskada inne i ditt ytskikt blir det en
+                blandning av ansvar — och försäkringar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vem betalar vid <em>vattenskada</em> — du eller föreningen?</h3>
+              <p>Huvudregeln, enligt Bostadsrätterna:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Skada i ytskikt eller fast inredning:</strong> du betalar (via hemförsäkring + bostadsrättstillägg)</li>
+                <li><strong>Skada i bjälklag, stam, ytterväggar:</strong> föreningen betalar (via fastighetsförsäkring)</li>
+                <li><strong>Skada från trycksatt tappvattenledning (stamläcka):</strong> Bostadsrätterna skriver: <em>"Föreningen kan bli ansvarig för samtliga följdskador, alltså i och utanför lägenheten."</em></li>
+              </ul>
+              <p style="margin-top:14px">
+                I praktiken hanteras en omfattande vattenskada ofta som ett <em>regress-ärende</em>
+                mellan föreningens fastighetsförsäkring och din hemförsäkring + bostadsrättstillägg.
+                Du behöver inte själv lösa fördelningen — det är försäkringsbolagen som gör det —
+                men du står i mitten och påverkas av båda.
+              </p>
+              <p>
+                Den allra viktigaste rekommendationen: <em>se till att din badrumsrenovering är
+                fackmässigt utförd och dokumenterad enligt BBV.</em> Annars riskerar din del av
+                skadan att avvisas helt — då blir hela kostnaden din. Se vår
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om tätskikt och våtrumsintyg →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är <em>bostadsrättstillägget</em> och varför behöver du det?</h3>
+              <p>
+                Bostadsrättstillägget är ett tillägg till hemförsäkringen som täcker just de delar
+                du juridiskt äger och ansvarar för — alltså inre fasta delar som ytskikt,
+                tätskikt, kakel, kommod och fast inredning. Hemförsäkringens grunddel täcker bara
+                ditt lösa innehåll (möbler, kläder, elektronik). Utan bostadsrättstillägget står
+                du själv för hela återställningen av de fasta delarna vid en skada.
+              </p>
+              <p>Det finns två sätt att vara försäkrad:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Kollektivt bostadsrättstillägg via föreningen:</strong> Många moderna Stockholms-BRF:er tecknar detta tillägg åt alla medlemmar samtidigt. Det är ofta billigare per medlem än att teckna individuellt och täcker alla i föreningen.</li>
+                <li><strong>Individuellt tillägg via din egen hemförsäkring:</strong> Om föreningen inte har kollektivt tillägg måste du själv lägga till det hos ditt försäkringsbolag — ofta för några hundralappar per år.</li>
+              </ul>
+              <p style="margin-top:14px">
+                <strong>Det allra viktigaste:</strong> <em>kontrollera vilket som gäller i din förening
+                innan du genomför en renovering.</em> Är du inte täckt — teckna tillägget innan
+                arbetet börjar. Det är några hundralappar per år som kan rädda hundratusentals
+                vid en skada.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           MID-PAGE CTA
+      ══════════════════════════════════════════ -->
+      <section class="pillar-mid-cta" aria-label="Vi hjälper BRF-medlemmar genom hela processen">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">BRF-renovering i Stockholm</span>
+            <h2 class="h-sub">Vi sköter <em>dokumentationen</em> till styrelsen — du sköter granninformationen.</h2>
+            <p>
+              Som BKR-behörig plattsättare har vi lång erfarenhet av Stockholms-BRF:er och vet
+              vad styrelser och förvaltare brukar kräva. Vi tar fram behörighetsbevis, försäkringsintyg
+              och projektbeskrivning till anmälan; efter avslutat arbete levererar vi våtrumsintyg
+              och kvalitetsdokument signerat med BankID. Boka en kostnadsfri synning så går vi
+              igenom ditt badrum, dina stadgar och vad som behövs.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Boka synning <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION C — Praktisk process
+      ══════════════════════════════════════════ -->
+      <section id="process" class="guide-section" aria-label="Praktisk process i Stockholms-BRF">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Processen</span>
+          <h2 class="h-section" style="margin-top:14px">Praktisk process — <em>steg för steg</em> i Stockholms-BRF</h2>
+          <p>
+            Den juridiska sidan är nu klar. Här är hur det fungerar i praktiken — från första
+            kontakt med styrelsen, via grannens information, till slutdokumentation och arkivering
+            i föreningens system.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Hur ser <em>anmälnings- och tillståndsprocessen</em> ut?</h3>
+              <p>
+                Det varierar mellan föreningar, men typisk Stockholms-BRF-process ser ut så här:
+              </p>
+              <ol class="bkr-checklist" style="margin-top:14px;list-style:decimal;padding-left:20px">
+                <li><strong>Förberedelse:</strong> Du (eller plattsättaren) fyller i föreningens renoveringsanmälan med projektbeskrivning, tidsplan och firmans behörighetsbevis.</li>
+                <li><strong>Inlämning:</strong> Ansökan skickas till styrelsen eller förvaltaren — i många Stockholms-föreningar via digital portal (HSB Portalen, Riksbyggens system, eller egen lösning).</li>
+                <li><strong>Behandling:</strong> Styrelsen behandlar ärendet. Bostadsrätterna anger att svar normalt kommer inom en månad — vissa föreningar har snabbare processer.</li>
+                <li><strong>Beslut:</strong> Skriftligt godkännande (eller avslag med motivering). Spara dokumentet.</li>
+                <li><strong>Granninformation:</strong> Innan start informerar du grannar — typiskt med lapp i trapphuset om bullerperiod och vem som utför arbetet.</li>
+                <li><strong>Arbetet utförs:</strong> Inom överenskomna tider, av behörig firma.</li>
+                <li><strong>Slutdokumentation:</strong> Vi som plattsättare lämnar våtrumsintyg och kvalitetsdokument. Du lämnar dessa till styrelsen för arkivering — viktigt vid framtida försäljning av lägenheten.</li>
+              </ol>
+              <p style="margin-top:14px">
+                Tidsmässigt: om du planerar ordentligt och börjar processen 6–8 veckor innan
+                önskad start brukar timing inte vara ett problem. Det är när folk vill starta
+                "nästa vecka" som det blir bråttom — och bråttom är där fel uppstår.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_47.avif"
+                alt="Färdigställt BRF-badrum i Stockholm — dokumentation och våtrumsintyg överlämnat av Haga Plattsättning AB"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilka <em>tider</em> får man arbeta i en BRF i Stockholm?</h3>
+              <p>
+                Arbetstiderna styrs av föreningens ordningsregler eller stadgar — det finns alltså
+                <em>ingen</em> nationell lag som anger exakta tider. Det betyder att din BRF kan
+                ha hårdare regler än grannförenens. Vanliga ramar i Stockholm:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Störande arbete (kakling, rivning, borrning, vinkelslip):</strong> Vardagar 07:00–17:00 eller 08:00–18:00 är vanligast</li>
+                <li><strong>Lördagar:</strong> Ofta tillåtet 09:00–15:00 — vissa föreningar förbjuder bullrande arbete helt</li>
+                <li><strong>Söndagar och röda dagar:</strong> I regel helt förbjudet för bullrande arbete</li>
+                <li><strong>Tyst inomhusarbete (städning, måleri, dokumentation):</strong> Tillåts oftast bredare än bullrande arbete</li>
+              </ul>
+              <p style="margin-top:14px">
+                Det <em>är</em> ett praktiskt problem — en hel badrumsrenovering tar ofta 2–3 veckor,
+                vilket innebär ungefär 50–75 arbetstimmar under tillåtna fönster. Det är därför
+                vi planerar våra projekt så att rivning och bullriga moment ligger tidigt i veckan,
+                och kakelsättning + fogning (som är tystare) kan göras senare och vid kortare
+                arbetsdagar om så krävs.
+              </p>
+              <p>
+                <strong>Tips:</strong> Läs din förenings ordningsregler eller fråga förvaltaren
+                <em>innan</em> du bestämmer projektets startvecka. En Stockholm-BRF som är extra
+                strikt på lördagar kan förlänga projektet med en hel kalendervecka.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad behöver du <em>lämna in till föreningen</em> — och vad gör vi som plattsättare?</h3>
+              <p>Inför godkännande lämnar du i regel in följande dokument:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Ifylld renoveringsanmälan (föreningens egen blankett eller digital portal)</li>
+                <li>Kort projektbeskrivning — vad ska göras, vilka ytor berörs</li>
+                <li>Tidsplan — start- och slutdatum (cirka)</li>
+                <li>Firmans <strong>BKR-behörighetsbevis</strong></li>
+                <li>VVS-partnerns <strong>Säker Vatten-auktorisation</strong> (om VVS-arbete ingår)</li>
+                <li>Försäkringsbevis från firman (ansvarsförsäkring)</li>
+                <li>Eventuellt ritningar — vid större förändringar (flytt av väggar, ändrad planlösning)</li>
+              </ul>
+              <p style="margin-top:14px">Efter avslutat arbete lämnar firman följande till dig — som du sedan vidarebefordrar till styrelsen:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Våtrumsintyg</strong> (officiellt kvalitetsdokument enligt BBV — signerat med BankID)</li>
+                <li>Produktblad för använt tätskiktssystem</li>
+                <li>Fotodokumentation från tätskiktsmomentet</li>
+                <li>Egenkontroller utförda enligt BBV</li>
+                <li>Faktura med ROT-avdrag specifikat (för din egen redovisning)</li>
+              </ul>
+              <p style="margin-top:14px">
+                Som BKR-behörig plattsättare hjälper vi dig med <em>båda</em> ändar: vi tar fram
+                allt som behövs till anmälan i förväg, och allt som behövs till slutdokumentationen
+                efter avslutat arbete. Du sköter granninformationen och kommunikationen med
+                styrelsen; vi sköter tekniken och dokumentationen. Det gör hela processen
+                förutsägbar — och något du faktiskt kan luta dig tillbaka och låta hända.
+              </p>
+              <p style="margin-top:14px">
+                Mer om vad våtrumsintyg och BBV egentligen är — se vår
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">guide om tätskikt och våtrumsintyg →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           BOTTOM CTA
+      ══════════════════════════════════════════ -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning för BRF-badrumsrenovering">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du planerar i din BRF</span>
+            <h2 class="h-section" style="margin-top:14px">Boka en <em>kostnadsfri synning</em> i Stockholm</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                När du står inför en BRF-badrumsrenovering — kontakta oss för en kostnadsfri synning
+                på plats. Vi går igenom ditt badrum, kollar underlag och förutsättningar, och hjälper
+                dig förstå vilken dokumentation just din förening kräver. Vi har arbetat i många
+                Stockholms-BRF:er i HSB, Riksbyggen och privata förvaltningar — vi vet vad styrelser
+                brukar fråga om.
+              </p>
+              <p>
+                Vi är BKR-behöriga, arbetar enligt BBV och utfärdar våtrumsintyg signerat med BankID
+                efter varje renovering. Vi finns i hela Stockholmsregionen — Sollentuna, Solna,
+                Sundbyberg, Lidingö, Danderyd, Täby, Nacka, Bromma och fler.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Få gratis offert <span class="arrow">→</span></a>
+              <a class="btn-link" href="/om-oss/">Läs om våra certifieringar →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/behorig-vatrum.avif"
+                alt="BKR-behörig plattsättare i Stockholm — Haga Plattsättning AB utfärdar våtrumsintyg enligt BBV"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>certifierad</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           INTERNAL LINKS — Läs mer
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och tjänster">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>badrumsrenovering i Stockholm</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg & BBV — den tekniska guiden</a></li>
+                <li><a href="/renovera-badrum-sjalv-eller-anlita-plattsattare/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Renovera badrum själv eller anlita plattsättare? — Ärlig guide</a></li>
+                <li><a href="/kakel-eller-klinker-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakel eller klinker? Skillnaden förklarad enligt EN 14411</a></li>
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida</a></li>
+                <li><a href="/kakelsattare-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakelsättare Stockholm — vad skiljer en behörig från en obehörig</a></li>
+                <li><a href="/om-oss/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Om Haga Plattsättning AB — våra certifieringar och arbetsmetod</a></li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Källor till lag och branschpraxis:
+                <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/bostadsrattslag-1991614_sfs-1991-614/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Riksdagen — Bostadsrättslag (1991:614)</a> ·
+                <a href="https://www.bostadsratterna.se/kunskapsbanken/o/ombyggnation-i-lagenhet" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Bostadsrätterna — Ombyggnation</a> ·
+                <a href="https://www.bostadsratterna.se/artiklar/2019/vem-betalar-for-vad-och-varfor" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">Vem betalar för vad</a> ·
+                <a href="https://www.bkr.se/regler" target="_blank" rel="noopener" style="color:var(--ink);font-weight:500;border-bottom:1px solid var(--line-2)">BKR — BBV</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en guide till badrumsrenovering i bostadsrätt i Stockholm — Bostadsrättslagens regler, ansvarsfördelning mellan medlem och förening, försäkringsfrågan och praktisk process. Skriven av Haga Plattsättning AB med källor till Bostadsrättslagen (1991:614), Bostadsrätterna och Byggkeramikrådet. Innehållet är vägledning; för specifika ärenden — kontrollera din förenings stadgar och kontakta styrelse eller förvaltare."
+    />
+
+    <!-- ── JSON-LD: FAQPage schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <!-- ── JSON-LD: TechArticle schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+
+    <!-- ── JSON-LD: BreadcrumbList schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>
