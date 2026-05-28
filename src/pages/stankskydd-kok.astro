@@ -1,0 +1,819 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-28';
+const UPDATED = '2026-05-28';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi sätter kakel- och klinkerstänkskydd i kök — hela väggen, bakom spisen eller mellan bänkskiva och överskåp. Vi förklarar material, mått och regler i den här guiden.',
+  knowsAbout: [
+    'Stänkskydd kök',
+    'Kakla stänkskydd',
+    'Kakel kök',
+    'Klinker kök',
+    'Glasstänkskydd',
+    'Köksrenovering Stockholm',
+    'Materialval kök',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Vad är stänkskydd i kök?',
+    a: 'Stänkskydd är det ytmaterial som monteras på köksväggen bakom spis och diskbänk för att skydda väggen mot vatten, fett, värme och stänk. I Sverige är kakel och klinker det vanligaste valet, följt av glas, rostfri plåt och målade specialfärger. Stänkskydd är ett ytskikt — till skillnad från tätskikt i badrum är det inte ett vattentätt system, eftersom kök inte räknas som våtrum enligt BBV (Branschregler för Våtrum).',
+  },
+  {
+    q: 'Vilka material funkar bäst som stänkskydd?',
+    a: 'De fyra vanligaste alternativen är: (1) Kakel och klinker — tåligast, mest flexibelt design­mässigt, lättast att byta enskilda plattor vid skada. (2) Glas — sömlöst utseende, lätt att rengöra, fungerar utmärkt bakom spis. Kräver exakt mått och kan inte enkelt ändras efteråt. (3) Rostfri plåt — industriellt utseende, mycket tåligt mot värme, kräver noggrann fogning vid kanter. (4) Specialmålade ytor (köksfärg eller laminat) — billigast, men sämre tålighet mot fett och rengöring. För en köksrenovering där du vill att stänkskyddet ska hålla i 20+ år är kakel det säkraste valet.',
+  },
+  {
+    q: 'Hur högt ska stänkskyddet vara?',
+    a: 'Standardhöjden är cirka 60 cm — det är typiskt avståndet från bänkskivans överkant till underkant av överskåpen. När väggen är öppen utan överskåp är 60–80 cm vanligt, alternativt helkaklat upp till tak. Bakom spisen är det allt vanligare att kakla högre, eftersom värme och fett stänker högre upp än vid diskbänken. Det viktiga är att stänkskyddet täcker hela ytan där vatten, fett eller värme kan nå väggen — inte bara den synliga delen mellan skåpen.',
+  },
+  {
+    q: 'Hur brett ska stänkskyddet vara — bara bakom spisen eller hela väggen?',
+    a: 'Två linjer är vanliga. Antingen ett separat stänkskydd som bara täcker bredden bakom spisen (oftast 60–90 cm beroende på hällens bredd), eller ett kontinuerligt stänkskydd som löper längs hela arbetsväggen — från ena överskåpsänden till den andra. Det andra alternativet är estetiskt renare och blir lättare att rengöra eftersom det inte finns synliga kanter där smuts samlas. Vid kakling går vi nästan alltid med kontinuerligt stänkskydd, om inte köket har en specifik designanledning till annat.',
+  },
+  {
+    q: 'Är glas eller kakel bäst som stänkskydd?',
+    a: 'Det beror på vad du värderar högst. Glas ger en sömlös, modernyta utan fogar — bra för minimalistiska kök och lätt att torka av. Nackdelen är att glaset måste måttbeställas och inte kan ändras efter installation; vid skada måste hela skivan bytas. Kakel är mer flexibelt — du kan välja format, färg, mönster och kombinera med tegelsticks, fishbone eller storformat. Vid skada byter du en enskild platta. Kakel är också mer värmetåligt än glas bakom induktionshäll. Vi rekommenderar oftast kakel för kök som ska hålla länge; glas för dig som värderar minimal estetik framför flexibilitet.',
+  },
+  {
+    q: 'Behöver man tätskikt bakom kakel i kök?',
+    a: 'Nej — kök räknas inte som våtrum enligt BBV och kräver därför inget tätskikt. Det räcker med en lämplig primer och en bra fästmassa för plattmontering på det aktuella underlaget. Detta är en av de viktigaste skillnaderna mellan badrum och kök rent tekniskt: ett badrum är ett vattentätt system där tätskiktet bakom plattorna är det som skyddar fastigheten; ett kök­stänkskydd är ett ytmaterial som skyddar väggen från stänk men inte mot stående vatten. Vi använder ändå alltid våtrumsklassad fästmassa bakom spisen som en extra säkerhet.',
+  },
+  {
+    q: 'Hur skiljer sig reglerna för kök mot reglerna för badrum?',
+    a: 'Skillnaden är fundamental. Badrum lyder under BBV (Branschregler för Våtrum) eller GVK Säkra Våtrum — det är ett vattentätt system med dokumentationskrav, tätskikt, godkänd plattsättare och officiellt våtrumsintyg. Kök saknar motsvarande branschregelverk eftersom köket inte är ett våtrum. Det betyder dock inte att kvalitetskraven är låga — Konsumentverket, AMA Hus och tillverkarens monteringsanvisningar styr ändå utförandet. Skillnaden är att kök kräver fackmässighet och hållbarhet, medan badrum dessutom kräver branschdokumentation och våtrumsintyg.',
+  },
+  {
+    q: 'Vilka regler gäller för stänkskydd i kök?',
+    a: 'Det finns inga särskilda branschregler för stänkskydd som motsvarar BBV för badrum. Det som gäller är: (1) Fackmässigt utförande enligt AMA Hus och Konsumentverkets vägledning för hantverkartjänster. (2) Tillverkarens monteringsanvisningar för fästmassa, fog, primer och underlag. (3) Plan och hållfast underlag — gips, betong eller äldre underlag som planats. (4) Korrekt fog (cementbaserad i de flesta fall) och silikonfog mellan stänkskydd och bänkskiva. För spisplatsen rekommenderas värmebeständiga material — kakel, glas eller plåt, inte trä eller laminat.',
+  },
+  {
+    q: 'Kan man kakla över befintligt stänkskydd?',
+    a: 'Ibland. Det förutsätter att det befintliga stänkskyddet är plant, hållfast, väl monterat och fritt från glasyr som hindrar vidhäftning. På kakel-på-kakel krävs en glasyrprimer för att fästmassan ska binda. På målade ytor måste färgen vara hållbar och plan. På laminat eller blank metall är det oftast bättre att riva ner befintligt material än att kakla över. Vid platsbesök bedömer vi underlaget genom knackning och visuell kontroll — det är en av flera punkter vi alltid går igenom innan vi offererar.',
+  },
+  {
+    q: 'Hur länge håller ett bra stänkskydd?',
+    a: 'Ett korrekt monterat kakel- eller klinkerstänkskydd håller normalt 20–30 år utan att behöva bytas. Det som åldras snabbast är fogarna och silikonen vid bänkskiva och spis — silikon bör bytas vart 5–10 år för att hindra missfärgning och kvarstående fukt. Själva plattorna håller i praktiken obegränsat så länge underlaget är intakt. Det är en av anledningarna att vi rekommenderar kakel framför glas och målade ytor: livslängd och möjlighet till enskild platt­utbyte vid skada.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Stänkskydd i kök — den kompletta guiden om material, mått och regler från BKR-behörig plattsättare i Stockholm',
+  description:
+    'Komplett guide om stänkskydd i kök: vilket material som passar bäst (kakel, glas, plåt), hur högt och brett det ska vara, vilka regler som gäller, och varför kök inte kräver tätskikt som badrum. Skriven av en BKR-behörig plattsättare i Stockholm.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)' },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Stänkskydd kök',
+    'Kakel kök',
+    'Klinker kök',
+    'Glasstänkskydd',
+    'Köksrenovering',
+    'Materialval kök',
+    'AMA Hus',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsägare i Stockholm som planerar köksrenovering eller stänkskydd',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    {
+      '@type': 'CreativeWork',
+      name: 'Byggkeramikrådet — BKR och BBV (Branschregler för Våtrum)',
+      url: 'https://www.bkr.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Konsumentverket — Anlita hantverkare',
+      url: 'https://www.konsumentverket.se/varor-och-tjanster/anlita-hantverkare/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Konsumentverket — Hantverkarformuläret 17',
+      url: 'https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Boverket — Byggregler (BBR)',
+      url: 'https://www.boverket.se/sv/byggregler/',
+    },
+  ],
+  mainEntityOfPage: 'https://www.hagaplattsattning.se/stankskydd-kok/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Stänkskydd i kök — material, mått & regler',
+      item: 'https://www.hagaplattsattning.se/stankskydd-kok/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Stänkskydd Kök — Material, Mått & Regler | Komplett Guide från BKR-behörig Plattsättare</title>
+    <meta
+      name="description"
+      content="Stänkskydd i kök — komplett guide: kakel, glas eller plåt? Hur högt och brett? Behövs tätskikt? Skriven av en BKR-behörig plattsättare i Stockholm. 10 frågor besvarade — material, mått, regler och hållbarhet."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/stankskydd-kok/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/stankskydd-kok/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/stankskydd-kok/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/stankskydd-kok/" />
+    <meta property="og:title" content="Stänkskydd Kök — Material, Mått & Regler | Komplett Guide" />
+    <meta
+      property="og:description"
+      content="Kakel, glas eller plåt som stänkskydd? Hur högt? Behövs tätskikt? Komplett guide från BKR-behörig plattsättare i Stockholm."
+    />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplattsattningkitchen1.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Stänkskydd i kök — kakel och klinker monterat av Haga Plattsättning AB i Stockholm" />
+
+    <!-- ── TWITTER / X ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Stänkskydd Kök — Material, Mått & Regler" />
+    <meta
+      name="twitter:description"
+      content="Komplett guide om stänkskydd i kök — från BKR-behörig plattsättare i Stockholm."
+    />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplattsattningkitchen1.avif" />
+
+    <!-- ── GEO ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplattsattningkitchen1.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <!-- ── BREADCRUMB ── -->
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Stänkskydd i kök — material, mått &amp; regler</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════ -->
+      <section class="s-hero" aria-label="Stänkskydd i kök — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Köksguide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Stänkskydd i kök<br /><em>— material, mått &amp; regler</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Stänkskyddet är den vägg­yta bakom spis och diskbänk som skyddar köket mot vatten,
+              fett och värme. Här svarar vi som BKR-behörig plattsättare i Stockholm på de tio
+              frågor vi får mest — om materialval (kakel, glas, plåt), om mått (höjd och bredd),
+              om reglerna i kök kontra badrum, och varför kök inte kräver tätskikt på samma sätt
+              som ett våtrum.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Få gratis offert <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num"><em>BKR</em></div><div class="label">Behörig plattsättare</div></div>
+              <div class="cell"><div class="num">60<em>cm</em></div><div class="label">Vanligaste stänkskyddshöjd</div></div>
+              <div class="cell"><div class="num">20–30<em>år</em></div><div class="label">Hållbarhet på kakel</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplattsattningkitchen1.avif"
+              alt="Stänkskydd i kök monterat av BKR-behörig plattsättare i Stockholm — Haga Plattsättning AB"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           META + INNEHÅLL — freshness signal + TOC
+      ══════════════════════════════════════════ -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#material">Materialval — kakel, glas, plåt och målade ytor</a></li>
+                <li><a href="#matt">Mått &amp; placering — höjd, bredd och omfattning</a></li>
+                <li><a href="#regler">Tekniska krav, regler och skillnad mot badrum</a></li>
+                <li><a href="#kontakt">Vill du montera stänkskydd? Boka kostnadsfri synning</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SNABBSVAR — quick answers (AI Overview bait)
+      ══════════════════════════════════════════ -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om stänkskydd i kök">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Vad är stänkskydd?</strong> Ytmaterial på köksväggen bakom spis och diskbänk som skyddar mot vatten, fett och värme.</li>
+                <li><strong>Vilket material är vanligast?</strong> Kakel och klinker är standard i Sverige. Glas och rostfri plåt förekommer ofta bakom spisen.</li>
+                <li><strong>Hur högt ska det vara?</strong> Vanligast 60 cm från bänkskiva till underkant överskåp. Bakom spisen kaklas ofta högre, ibland upp till tak.</li>
+                <li><strong>Behövs tätskikt?</strong> Nej — kök är inte våtrum enligt BBV. Stänkskydd är ytskikt, inte ett vattentätt system.</li>
+                <li><strong>Hur länge håller kakel?</strong> Korrekt monterat kakel- eller klinkerstänkskydd håller normalt 20–30 år; silikonfogar bör bytas vart 5–10 år.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet — bläddra ner eller använd länkarna i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION A — Materialval
+      ══════════════════════════════════════════ -->
+      <section id="material" class="guide-section" aria-label="Materialval för stänkskydd">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · Materialval</span>
+          <h2 class="h-section" style="margin-top:14px">Materialval — <em>kakel, glas, plåt</em> eller målad yta?</h2>
+          <p>
+            Valet av material är den största designmässiga och funktionella beslutspunkten för
+            stänkskyddet. Här går vi igenom de fyra vanligaste alternativen — vad de kostar i
+            arbetstid, hur de åldras, och vilket vi rekommenderar i vilka situationer.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vad är <em>stänkskydd</em> i kök?</h3>
+              <p>
+                Stänkskydd är den vägg­yta bakom spis och diskbänk som skyddar köksväggen mot
+                vatten, fett, värme och stänk. I Sverige är kakel och klinker det vanligaste
+                valet, följt av glas, rostfri plåt och målade specialfärger.
+              </p>
+              <p>
+                Den viktigaste skillnaden mot badrum är denna: <strong>stänkskydd är ett ytmaterial,
+                inte ett vattentätt system</strong>. Ett badrum är ett vattentätt utrymme där tätskiktet
+                bakom plattorna gör jobbet. Ett kök är inte ett våtrum — där räcker det med ett
+                hållbart ytmaterial som tål värme, vatten och fett, monterat på ett plant och
+                fackmässigt utförande­underlag.
+              </p>
+              <p>
+                Det gör inte arbetet mindre noggrant. Tvärtom — utan tätskikt får utförande, fog
+                och silikon ännu mer betydelse, eftersom de är det enda som hindrar vatten från
+                att tränga ner mellan bänkskiva och vägg.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplattsattningkitchen3.avif"
+                alt="Stänkskydd i kök med kakel monterat enligt fackmässigt utförande — projekt i Stockholm"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilka <em>material</em> funkar bäst som stänkskydd?</h3>
+              <p>De fyra vanligaste alternativen, rangordnade efter hur ofta vi monterar dem:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Kakel och klinker</strong> — tåligast totalt sett, mest flexibelt
+                  designmässigt, lättast att byta enskilda plattor vid skada. Standardvalet
+                  i nästan alla svenska kök sedan decennier tillbaka.
+                </li>
+                <li>
+                  <strong>Glas (lackerat eller härdat)</strong> — sömlös yta utan fogar, lätt att
+                  rengöra, fungerar mycket bra bakom spis. Kräver exakt mått, kan inte ändras
+                  efteråt, och vid skada byts hela skivan.
+                </li>
+                <li>
+                  <strong>Rostfri plåt</strong> — industriellt utseende, värmetåligt över både
+                  gas- och induktionshäll, kräver noggrann fogning vid kanter. Vanligast bakom
+                  spisen, inte för hela arbetsväggen.
+                </li>
+                <li>
+                  <strong>Specialmålade ytor och köksfärg</strong> — billigast och snabbast,
+                  men sämre tålighet mot fett och rengöringsmedel. Behöver oftast underhåll
+                  inom 5–10 år.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Vi rekommenderar kakel för kök som ska hålla i 20+ år. Vill du fördjupa dig
+                i materialvalet?
+                <a href="/kakel-eller-klinker-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Läs vår tekniska guide om kakel kontra klinker →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är skillnaden på stänkskydd för spis och stänkskydd för <em>diskbänk?</em></h3>
+              <p>
+                Funktionellt är det samma yta — ett stänkskydd som löper längs hela arbetsväggen.
+                Men kraven är olika. <strong>Bakom spisen</strong> är värmetålighet det viktigaste:
+                kakel, glas och plåt klarar gas-, induktions- och stråmningshäll utan problem.
+                Trä, laminat och vinyltapet ska aldrig placeras direkt bakom en spis.
+              </p>
+              <p>
+                <strong>Bakom diskbänken</strong> är det vatten och fukt som avgör. Här är fogning
+                och silikon mot bänkskivan extra viktigt — silikonfogen är det som hindrar vatten
+                från att tränga ner bakom bänkskivan och in i underliggande skåp.
+              </p>
+              <p>
+                I praktiken sätter vi i de allra flesta projekt samma material längs hela
+                arbetsväggen — det är enklare att rengöra och estetiskt renare. Två olika
+                material gör övergången till en synlig kant som samlar smuts.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Är <em>glas eller kakel</em> bäst som stänkskydd?</h3>
+              <p>Det beror på vad du värderar högst:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Välj glas om:</strong> du vill ha en minimalistisk, fog­fri yta;
+                  köket har en jämn vägg utan in-/utskjutande detaljer; du föredrar enkel rengöring
+                  och accepterar att hela skivan måste bytas vid skada.
+                </li>
+                <li>
+                  <strong>Välj kakel om:</strong> du vill ha designflexibilitet (format, färg,
+                  mönster — fishbone, tegelsticks, storformat, mosaik); möjlighet till
+                  enskild platt­utbyte vid skada; eller helt enkelt det tåligaste alternativet
+                  över tid.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Vi rekommenderar oftast kakel för kök som ska hålla i 20+ år. Glas passar bäst
+                för dig som värderar minimalistisk estetik framför flexibilitet och vill
+                investera i ett material som är dyrare att byta men billigare att underhålla.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION B — Mått och placering
+      ══════════════════════════════════════════ -->
+      <section id="matt" class="guide-section" aria-label="Mått och placering av stänkskydd">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · Mått &amp; placering</span>
+          <h2 class="h-section" style="margin-top:14px">Mått &amp; placering — <em>höjd, bredd och omfattning</em></h2>
+          <p>
+            Det finns inga lagstadgade mått för stänkskydd i kök — men det finns standardlösningar
+            som av god anledning blivit branschpraxis. Här är de mått vi själva använder när vi
+            ritar köksprojekt i Stockholm, och varför.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur <em>högt</em> ska stänkskyddet vara?</h3>
+              <p>
+                Standardhöjden är cirka <strong>60 cm</strong> — det är typiskt avståndet från
+                bänkskivans överkant till underkant av överskåpen. När väggen är öppen utan
+                överskåp blir 60–80 cm vanligt, eller helkaklat upp till tak om köket har en
+                fri arbetsvägg.
+              </p>
+              <p>
+                Bakom spisen är det allt vanligare att kakla högre — minst 70–80 cm, ibland
+                ända upp till tak. Värme, fett och kondens når högre upp än vid diskbänken,
+                och det är estetiskt renare att fortsätta materialet hela vägen upp än att
+                ha en synlig kant precis ovanför spisen.
+              </p>
+              <p>
+                Det viktigaste är inte själva centimetertalet — det är att hela ytan där vatten,
+                fett eller värme kan nå väggen ska täckas. Ett stänkskydd som slutar 5 cm för
+                tidigt är ett funktionellt problem, inte ett estetiskt.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur <em>brett</em> ska stänkskyddet vara — bara bakom spisen eller hela väggen?</h3>
+              <p>Två linjer är vanliga:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Separat stänkskydd bakom spisen</strong> — täcker bredden bakom hällen
+                  (oftast 60–90 cm). Billigare i material men ger en synlig kant där stänkskyddet
+                  slutar. Fungerar i kök där arbetsväggen i övrigt är målad eller har annat
+                  ytmaterial.
+                </li>
+                <li>
+                  <strong>Kontinuerligt stänkskydd</strong> — löper längs hela arbetsväggen från
+                  ena överskåpsänden till den andra. Estetiskt renare, lättare att rengöra,
+                  och funktionellt säkrare eftersom vatten från diskbänken inte kan tränga in
+                  i en kant.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Vid kakling går vi nästan alltid med kontinuerligt stänkskydd, om inte köket
+                har en specifik designanledning till annat. Skillnaden i kakelåtgång är liten
+                jämfört med skillnaden i slutresultat.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur <em>länge håller</em> ett bra stänkskydd?</h3>
+              <p>
+                Ett korrekt monterat kakel- eller klinkerstänkskydd håller normalt
+                <strong>20–30 år</strong> utan att behöva bytas. Det är inte en garantitid —
+                det är branscherfarenhet från projekt där samma plattor sitter kvar efter
+                decennier.
+              </p>
+              <p>
+                Det som åldras snabbast är fogarna och silikonen vid bänkskiva och spis.
+                <strong>Silikonfogar bör bytas vart 5–10 år</strong> för att hindra missfärgning,
+                bakterietillväxt och kvarstående fukt. Själva plattorna håller i praktiken
+                obegränsat så länge underlaget är intakt.
+              </p>
+              <p>
+                Det är en av huvudanledningarna att vi rekommenderar kakel framför glas och
+                målade ytor: livslängd plus möjligheten att byta en enskild platta vid skada,
+                utan att hela installationen måste rivas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           MID-PAGE CTA — soft conversion mid-scroll
+      ══════════════════════════════════════════ -->
+      <section class="pillar-mid-cta" aria-label="Boka platsbesök för stänkskydd">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">Planerar du nytt kök eller stänkskydd?</span>
+            <h2 class="h-sub">Vi gör <em>kostnadsfri synning</em> i Stockholm — inga förpliktelser.</h2>
+            <p>
+              En BKR-behörig plattsättare kommer ut, mäter upp arbetsväggen, bedömer underlaget
+              och går igenom materialval på plats. Du får en skriftlig rekommendation och offert
+              efter besöket. Behöver du sedan offert skickar vi det — annars är besöket helt
+              kostnadsfritt.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Boka synning <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION C — Tekniska krav och regler
+      ══════════════════════════════════════════ -->
+      <section id="regler" class="guide-section" aria-label="Tekniska krav och regler för stänkskydd">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Tekniska krav</span>
+          <h2 class="h-section" style="margin-top:14px">Tekniska krav — <em>regler, underlag och skillnad mot badrum</em></h2>
+          <p>
+            Här är den del som ofta missas i vanliga köksguider: vilka tekniska regler som
+            faktiskt gäller, hur kök skiljer sig från badrum rent regelmässigt, och vad du
+            ska titta efter i en offert för att veta att firman gör jobbet rätt.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Behöver man <em>tätskikt</em> bakom kakel i kök?</h3>
+              <p>
+                <strong>Nej.</strong> Kök räknas inte som våtrum enligt BBV (Branschregler för
+                Våtrum) och kräver därför inget tätskikt. Det räcker med en lämplig primer
+                och en bra fästmassa för plattmontering på det aktuella underlaget — gips,
+                betong eller äldre material som planats och säkrats för vidhäftning.
+              </p>
+              <p>
+                Detta är en av de viktigaste skillnaderna mellan badrum och kök rent tekniskt.
+                Ett badrum är ett vattentätt system där tätskiktet bakom plattorna är det som
+                skyddar fastigheten från fuktskada. Ett kök­stänkskydd är ett ytmaterial som
+                skyddar väggen från stänk, men inte ett system mot stående vatten.
+              </p>
+              <p>
+                Vi använder ändå alltid våtrumsklassad fästmassa bakom spisen som en extra
+                säkerhet — det är inget krav, men ger en mer hållbar konstruktion på lång sikt.
+                Vill du läsa mer om hur tätskikt fungerar i våtrum?
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår tekniska guide om tätskikt och BBV →</a>
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplattsattningkitchen4.avif"
+                alt="Kök med kakel som stänkskydd installerat av BKR-behörig plattsättare i Stockholm"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur skiljer sig reglerna för <em>kök</em> mot reglerna för <em>badrum?</em></h3>
+              <p>Skillnaden är fundamental:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Badrum</strong> lyder under BBV (Branschregler för Våtrum) eller GVK
+                  Säkra Våtrum — det är ett vattentätt system med dokumentationskrav, tätskikt,
+                  BKR-behörig plattsättare (eller GVK-auktoriserad firma) och officiellt
+                  våtrumsintyg som krävs av försäkring och BRF.
+                </li>
+                <li>
+                  <strong>Kök</strong> saknar motsvarande branschregelverk eftersom köket
+                  inte är ett våtrum. Det styrs istället av allmän hantverksstandard:
+                  <a href="https://www.konsumentverket.se/varor-och-tjanster/anlita-hantverkare/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumentverkets vägledning för hantverkartjänster</a>,
+                  AMA Hus, och tillverkarens monteringsanvisningar för fästmassa, fog och underlag.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Det betyder inte att kvalitetskraven är låga — det betyder att kraven inte är
+                kodifierade på samma sätt som i ett våtrum. Skillnaden är att kök kräver
+                fackmässighet och hållbarhet, medan badrum dessutom kräver branschdokumentation
+                och våtrumsintyg.
+              </p>
+              <p>
+                I praktiken: en BKR-behörig plattsättare som monterar stänkskydd i kök
+                arbetar med samma tekniska grund som i ett badrum, minus tätskiktet. Det är
+                en av anledningarna att vi rekommenderar att välja en plattsättare med
+                våtrumsbehörighet även för köksjobb — fackkunskapen är densamma, även om
+                regelverket är annorlunda.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilka <em>regler</em> gäller för stänkskydd i kök?</h3>
+              <p>
+                Det finns inga särskilda branschregler för stänkskydd som motsvarar BBV för
+                badrum. Det som gäller är:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Fackmässigt utförande</strong> enligt AMA Hus och Konsumentverkets
+                  vägledning för hantverkartjänster — det är den juridiska miniminivån för
+                  vilket hantverksarbete som helst.
+                </li>
+                <li>
+                  <strong>Tillverkarens monteringsanvisningar</strong> för fästmassa, fog, primer
+                  och underlag. Att avvika från dessa kan göra garantin ogiltig.
+                </li>
+                <li>
+                  <strong>Plan och hållfast underlag</strong> — gips, betong eller äldre underlag
+                  som planats och säkrats. Vid kakling på gips används våtrumsgips eller
+                  motsvarande klassad skiva.
+                </li>
+                <li>
+                  <strong>Korrekt fog</strong> — cementbaserad fog i de flesta fall, plus
+                  silikonfog i alla rörelse­fogar (mellan stänkskydd och bänkskiva, mellan
+                  stänkskydd och spisens överkant).
+                </li>
+                <li>
+                  <strong>Värmebeständiga material</strong> bakom spisen — kakel, glas eller
+                  plåt klarar samtliga moderna hällar. Trä, laminat och vinyltapet ska
+                  aldrig placeras direkt bakom en spis.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Konsumentverket har också gett ut
+                <a href="https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Hantverkarformuläret 17</a>
+                tillsammans med branschen — det är den standardavtalsmall som en seriös offert
+                bör följa, även för rena köksjobb utan badrumsanknytning.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Kan man <em>kakla över befintligt</em> stänkskydd?</h3>
+              <p>
+                <strong>Ibland.</strong> Det förutsätter att det befintliga stänkskyddet är plant,
+                hållfast, väl monterat och fritt från glasyr som hindrar vidhäftning. Konkret:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Kakel-på-kakel</strong> — fungerar om gamla plattor sitter fast och är
+                  plana. Det krävs en glasyrprimer för att fästmassan ska binda till den hala
+                  ytan. Knacktest på alla plattor är obligatoriskt — bommande plattor ska rivas.
+                </li>
+                <li>
+                  <strong>Målad yta</strong> — fungerar om färgen är hållbar, plan, och inte
+                  bubblar eller flagar. Skåra upp ytan med slipning eller särskild primer.
+                </li>
+                <li>
+                  <strong>Laminat eller blank metall</strong> — sämre underlag. I de flesta fall
+                  rekommenderar vi rivning än kakling över.
+                </li>
+                <li>
+                  <strong>Vinyltapet</strong> — aldrig. Måste rivas innan kakling.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Vid platsbesök bedömer vi underlaget genom knacktest och visuell kontroll —
+                det är en av flera punkter vi alltid går igenom innan vi offererar. En
+                felaktig bedömning av underlaget är den enskilt vanligaste orsaken till
+                att kaklar släpper efter några år.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CTA — soft conversion
+      ══════════════════════════════════════════ -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning för stänkskydd">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du planerar köket</span>
+            <h2 class="h-section" style="margin-top:14px">Vill du ha <em>stänkskydd</em> som håller i 20+ år?</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                Vi är BKR-behöriga och sätter kakel och klinker som stänkskydd, helkaklade
+                arbetsväggar och kombinationer med glas eller plåt. Allt arbete utförs med
+                våtrumsklassad fästmassa bakom spisen och med Hantverkarformulärets standard
+                som grund för offerten — så att du kan jämföra med andra firmor.
+              </p>
+              <p>
+                Behöver du en bedömning av ditt befintliga kök inför renovering — eller vill
+                ha en kostnadsfri synning för ett nytt stänkskydd? Boka en tid på plats i
+                Stockholm. Vi går igenom underlag, materialval och dokumentation, och ger
+                dig ett tydligt skriftligt offert efter besöket.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Få gratis offert <span class="arrow">→</span></a>
+              <a class="btn-link" href="/koksrenovering-stockholm/">Läs om köksrenovering Stockholm →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/hagaplattsatttningkitchen2.avif"
+                alt="Stänkskydd och köksrenovering i Stockholm — projekt utfört av Haga Plattsättning AB"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">Kakel<strong>BKR</strong>behörig</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           INTERNAL LINKS — Läs mer
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och tjänster">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>plattsättning, kök och badrum</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/koksrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Köksrenovering Stockholm — vår tjänstesida med komplett process</a></li>
+                <li><a href="/kakelsattare-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakelsättare Stockholm — vad skiljer en behörig från en obehörig</a></li>
+                <li><a href="/kakel-eller-klinker-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakel eller klinker — teknisk materialguide för kök och badrum</a></li>
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg &amp; BBV — den tekniska guiden om våtrum</a></li>
+                <li><a href="/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vad påverkar priset på en badrumsrenovering — kostnadsdrivare förklarade</a></li>
+                <li><a href="/referensprojekt/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Referensprojekt — verkliga kök och badrum i Stockholm</a></li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Externa källor som vi hänvisar till:
+                <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Byggkeramikrådet (BKR)</a>,
+                <a href="https://www.konsumentverket.se/varor-och-tjanster/anlita-hantverkare/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumentverket — Anlita hantverkare</a>,
+                <a href="https://www.boverket.se/sv/byggregler/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Boverket — Byggregler (BBR)</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en teknisk guide om stänkskydd i kök — material, mått och regler. Skriven av Haga Plattsättning AB, BKR-behörig plattsättare i Stockholm sedan 2021. Innehållet ska ses som vägledning; för bedömning av ett specifikt köksprojekt rekommenderas alltid platsbesök eller kontakt med oss."
+    />
+
+    <!-- ── JSON-LD: FAQPage schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <!-- ── JSON-LD: TechArticle schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+
+    <!-- ── JSON-LD: BreadcrumbList schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>

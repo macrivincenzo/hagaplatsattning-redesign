@@ -12,6 +12,9 @@ const isService = [
   '/badrumsrenovering-nacka/',
   '/kakelsattare-stockholm/',
   '/koksrenovering-stockholm/',
+  '/koksrenovering-taby/',
+  '/koksrenovering-sollentuna/',
+  '/koksrenovering-nacka/',
 ].includes(path);
 const isHome = path === '/';
 ---
@@ -54,6 +57,9 @@ const isHome = path === '/';
           <a href="/badrumsrenovering-stockholm/" role="menuitem">Badrumsrenovering Stockholm</a>
           <a href="/kakelsattare-stockholm/" role="menuitem">Kakelsättare Stockholm</a>
           <a href="/koksrenovering-stockholm/" role="menuitem">Köksrenovering Stockholm</a>
+          <a href="/koksrenovering-taby/" role="menuitem">Köksrenovering Täby</a>
+          <a href="/koksrenovering-sollentuna/" role="menuitem">Köksrenovering Sollentuna</a>
+          <a href="/koksrenovering-nacka/" role="menuitem">Köksrenovering Nacka</a>
         </div>
       </li>
       <li><a href="/referensprojekt/" aria-current={path === '/referensprojekt/' ? 'page' : undefined}>Referensprojekt</a></li>
@@ -75,6 +81,9 @@ const isHome = path === '/';
       <li><a href="/badrumsrenovering-stockholm/">Badrumsrenovering Stockholm</a></li>
       <li><a href="/kakelsattare-stockholm/">Kakelsättare Stockholm</a></li>
       <li><a href="/koksrenovering-stockholm/">Köksrenovering Stockholm</a></li>
+      <li><a href="/koksrenovering-taby/">Köksrenovering Täby</a></li>
+      <li><a href="/koksrenovering-sollentuna/">Köksrenovering Sollentuna</a></li>
+      <li><a href="/koksrenovering-nacka/">Köksrenovering Nacka</a></li>
     </ul>
     <ul role="list">
       <li><a href="/referensprojekt/">Referensprojekt</a></li>

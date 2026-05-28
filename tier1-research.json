@@ -1,0 +1,397 @@
+{
+  "generated_at": "2026-05-28T07:55:26.511Z",
+  "location": "Sweden (2752)",
+  "candidates_by_group": {
+    "vattenskada": [
+      {
+        "keyword": "vattenskada badrum",
+        "volume": 110,
+        "cpc": 2.74,
+        "competition": "LOW",
+        "competition_index": 16
+      },
+      {
+        "keyword": "vattenskada badrum stockholm",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "vattenskada kostnad",
+        "volume": 10,
+        "cpc": null,
+        "competition": "LOW",
+        "competition_index": 11
+      },
+      {
+        "keyword": "vattenskada försäkring badrum",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "vad gör man vid vattenskada i badrum",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "fuktskada badrum",
+        "volume": 210,
+        "cpc": 2.83,
+        "competition": "LOW",
+        "competition_index": 16
+      },
+      {
+        "keyword": "fuktskada badrum stockholm",
+        "volume": 10,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      }
+    ],
+    "rot": [
+      {
+        "keyword": "rot avdrag badrum",
+        "volume": 50,
+        "cpc": null,
+        "competition": "LOW",
+        "competition_index": 15
+      },
+      {
+        "keyword": "rot avdrag badrumsrenovering",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "rot avdrag plattsättare",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "rot avdrag 2026",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "rot avdrag kakelsättare",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      }
+    ],
+    "statusbesiktning": [
+      {
+        "keyword": "statusbesiktning badrum",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "teknisk livslängd badrum",
+        "volume": 110,
+        "cpc": 2.65,
+        "competition": "LOW",
+        "competition_index": 5
+      },
+      {
+        "keyword": "när ska man renovera badrum",
+        "volume": 10,
+        "cpc": null,
+        "competition": "LOW",
+        "competition_index": 0
+      },
+      {
+        "keyword": "hur länge håller ett badrum",
+        "volume": 110,
+        "cpc": 3.93,
+        "competition": "LOW",
+        "competition_index": 6
+      },
+      {
+        "keyword": "när behöver man renovera badrum",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      }
+    ],
+    "ordlista": [
+      {
+        "keyword": "bbv branschregler för våtrum",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "gvk våtrum",
+        "volume": 10,
+        "cpc": null,
+        "competition": "LOW",
+        "competition_index": 1
+      },
+      {
+        "keyword": "bkr behörighet",
+        "volume": 40,
+        "cpc": null,
+        "competition": "LOW",
+        "competition_index": 0
+      },
+      {
+        "keyword": "tätskikt definition",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "fall till brunn badrum",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      }
+    ],
+    "vatrumsmatta": [
+      {
+        "keyword": "våtrumsmatta vs kakel",
+        "volume": 10,
+        "cpc": null,
+        "competition": "MEDIUM",
+        "competition_index": 44
+      },
+      {
+        "keyword": "våtrumsmatta eller kakel",
+        "volume": 70,
+        "cpc": 0.54,
+        "competition": "MEDIUM",
+        "competition_index": 46
+      },
+      {
+        "keyword": "kakel eller våtrumsmatta",
+        "volume": 70,
+        "cpc": 0.54,
+        "competition": "MEDIUM",
+        "competition_index": 46
+      },
+      {
+        "keyword": "plastmatta badrum",
+        "volume": 2400,
+        "cpc": 0.46,
+        "competition": "HIGH",
+        "competition_index": 100
+      },
+      {
+        "keyword": "våtrumsmatta pris",
+        "volume": 90,
+        "cpc": 0.41,
+        "competition": "HIGH",
+        "competition_index": 100
+      }
+    ],
+    "sakerVatten": [
+      {
+        "keyword": "säker vatten badrum",
+        "volume": 140,
+        "cpc": 0.74,
+        "competition": "MEDIUM",
+        "competition_index": 50
+      },
+      {
+        "keyword": "säker vatten installation",
+        "volume": 20,
+        "cpc": null,
+        "competition": "LOW",
+        "competition_index": 8
+      },
+      {
+        "keyword": "vvs badrum stockholm",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "rörmokare badrum stockholm",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      }
+    ],
+    "kakelsattareCities": [
+      {
+        "keyword": "kakelsättare sollentuna",
+        "volume": 30,
+        "cpc": null,
+        "competition": "LOW",
+        "competition_index": 7
+      },
+      {
+        "keyword": "kakelsättare solna",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "kakelsättare täby",
+        "volume": 170,
+        "cpc": 1.02,
+        "competition": "HIGH",
+        "competition_index": 100
+      },
+      {
+        "keyword": "kakelsättare lidingö",
+        "volume": 10,
+        "cpc": 3.65,
+        "competition": "HIGH",
+        "competition_index": 89
+      },
+      {
+        "keyword": "kakelsättare danderyd",
+        "volume": 10,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "kakelsättare nacka",
+        "volume": 30,
+        "cpc": 1.44,
+        "competition": "HIGH",
+        "competition_index": 86
+      },
+      {
+        "keyword": "kakelsättare sundbyberg",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "plattsättare sollentuna",
+        "volume": 50,
+        "cpc": 8.17,
+        "competition": "HIGH",
+        "competition_index": 70
+      },
+      {
+        "keyword": "plattsättare solna",
+        "volume": 50,
+        "cpc": 4.67,
+        "competition": "LOW",
+        "competition_index": 29
+      },
+      {
+        "keyword": "plattsättare täby",
+        "volume": 50,
+        "cpc": 7.17,
+        "competition": "MEDIUM",
+        "competition_index": 44
+      }
+    ],
+    "koksrenoveringCities": [
+      {
+        "keyword": "köksrenovering sollentuna",
+        "volume": 40,
+        "cpc": 6.54,
+        "competition": "MEDIUM",
+        "competition_index": 61
+      },
+      {
+        "keyword": "köksrenovering solna",
+        "volume": 50,
+        "cpc": null,
+        "competition": "LOW",
+        "competition_index": 11
+      },
+      {
+        "keyword": "köksrenovering täby",
+        "volume": 110,
+        "cpc": 20.58,
+        "competition": "LOW",
+        "competition_index": 32
+      },
+      {
+        "keyword": "köksrenovering nacka",
+        "volume": 90,
+        "cpc": null,
+        "competition": "LOW",
+        "competition_index": 23
+      },
+      {
+        "keyword": "köksrenovering lidingö",
+        "volume": 70,
+        "cpc": 10.9,
+        "competition": "HIGH",
+        "competition_index": 100
+      },
+      {
+        "keyword": "kakla kök stockholm",
+        "volume": 0,
+        "cpc": null,
+        "competition": null,
+        "competition_index": null
+      },
+      {
+        "keyword": "stänkskydd kök",
+        "volume": 5400,
+        "cpc": 0.33,
+        "competition": "HIGH",
+        "competition_index": 100
+      }
+    ]
+  },
+  "paa_by_head_term": {
+    "vattenskada badrum": [
+      "Vad kostar det att åtgärda ett vattenskadat badrum?",
+      "När täcker inte försäkringen vattenskada?",
+      "Vad ersätter försäkringsbolaget vid vattenskada?",
+      "Kan man få vattenskada i badrummet?"
+    ],
+    "rot avdrag badrum": [
+      "Hur funkar Rut och Rot-avdrag?",
+      "Vad kostar det att renovera ett badrum?",
+      "Vilka intyg ska man få vid badrumsrenovering?",
+      "Vems ansvar rot-avdrag?"
+    ],
+    "statusbesiktning badrum": [
+      "Vad kostar en slutbesiktning av badrum?",
+      "Måste man besikta badrum?",
+      "Vad innebär en statusbesiktning?",
+      "Hur besiktigar man ett badrum?"
+    ],
+    "våtrumsmatta vs kakel": [
+      "Är det billigare med våtrumsmatta än kakel?",
+      "Vad är bäst, klinker eller våtrumsmatta?",
+      "Hur länge håller våtrumsmatta i badrum?",
+      "Vad är dyrast i en badrumsrenovering?"
+    ],
+    "kakelsättare sollentuna": [],
+    "köksrenovering sollentuna": [
+      "Vad kostar det att renovera ett kök på 20 kvm?",
+      "Är det värt att renovera kök innan försäljning?",
+      "Hur renoverar man ett kök billigt?",
+      "Vad kostar en snickare för ett kök?"
+    ],
+    "säker vatten badrum": [
+      "Måste man ha säkert vattenintyg?",
+      "Var får jag placera en serviceöppning säkert vatten?",
+      "Vad innebär säker vatteninstallation?",
+      "Vilka regler gäller för våtrum?"
+    ]
+  }
+}

@@ -1,0 +1,786 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-28';
+const UPDATED = '2026-05-28';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi förklarar skillnaden mellan plastmatta (våtrumsmatta) och kakel i badrum — branschregler, livslängd, underhåll och vad du bör välja utifrån din situation.',
+  knowsAbout: [
+    'Plastmatta badrum',
+    'Våtrumsmatta',
+    'Kakel badrum',
+    'Klinker badrum',
+    'BBV Branschregler för Våtrum',
+    'GVK Säkra Våtrum',
+    'Tätskikt',
+    'Badrumsrenovering Stockholm',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Vad är skillnaden på plastmatta och kakel i badrum?',
+    a: 'Plastmatta (också kallad våtrumsmatta) är ett kontinuerligt mjukt ytmaterial som svetsas i skarvar och fungerar som både ytskikt och en del av tätsystemet. Kakel och klinker är hårt ytmaterial som monteras med fästmassa ovanpå ett separat tätskikt. De två lösningarna styrs av olika branschregler: kakel av BBV (Byggkeramikrådet/BKR) och våtrumsmatta av GVK Säkra Våtrum. Båda är godkända av försäkringsbolagen och bostadsrättsföreningar i Stockholm — skillnaden ligger i utseende, livslängd, underhåll och hur underlaget måste se ut.',
+  },
+  {
+    q: 'Vilket är billigare — plastmatta eller kakel?',
+    a: 'Plastmatta är generellt billigare än kakel både i material och arbetstid. Skälen är tre: materialet i sig kostar mindre per kvadratmeter, arbetet är snabbare (matta läggs i större ytor utan fogning), och det kräver färre underbehandlingar. Hur stor prisskillnaden faktiskt blir i ditt projekt beror på badrummets storlek, underlagets skick, vald matt-/kakelkvalitet och om VVS måste flyttas. Vi ger inte raka prissiffror utan platsbesök — varje badrum är unikt — men i en jämförande offert är skillnaden ofta betydande på mindre badrum och mindre märkbar på stora.',
+  },
+  {
+    q: 'Hur länge håller plastmatta jämfört med kakel?',
+    a: 'Plastmatta har en teknisk livslängd på normalt 10–20 år beroende på kvalitet, slitage och hur väl skarvarna håller. Kakel och klinker håller normalt 25–30 år eller mer — så länge tätskiktet bakom är funktionsdugligt. Båda är dock beroende av tätskiktet/tätsystemet, som åldras parallellt. Det innebär att kakel ofta håller "längre" rent ytmässigt, men att hela badrummet behöver besiktas och eventuellt renoveras efter 25–30 år oavsett ytmaterial.',
+  },
+  {
+    q: 'Vad är bäst — klinker eller våtrumsmatta?',
+    a: 'Det beror på vad du värderar högst. Klinker är tåligast totalt sett, mest flexibelt designmässigt, lättast att rengöra fläckvis och behåller utseende längre. Våtrumsmatta är snabbare och billigare att installera, mjukare under fötterna, varmare att stå på och har inga fogar där smuts kan samlas. För en långsiktig investering rekommenderar vi klinker; för en snabb och prisvärd renovering där badrummet kanske renoveras igen om 10–15 år är våtrumsmatta ett rimligt val. Båda är fackmässigt accepterade när de utförs enligt sina respektive branschregler.',
+  },
+  {
+    q: 'Vad är skillnaden på BKR och GVK?',
+    a: 'BKR (Byggkeramikrådet) är keramikbranschens organ och ger ut BBV — Branschregler för Våtrum — som styr kakel, klinker och sten i våtrum. GVK (Golvbranschens Våtrumskontroll) är golvbranschens organ och ger ut Säkra Våtrum, som styr våtrumsmattor och plastgolv. Båda regelverken är godkända av försäkringsbolagen och bostadsrättsföreningar — skillnaden är vilket material som regleras. En BKR-behörig plattsättare arbetar enligt BBV; en GVK-auktoriserad firma arbetar enligt Säkra Våtrum. Vissa firmor är certifierade hos båda, men det är inte nödvändigt — det som spelar roll är att utförandet matchar intygets regelverk.',
+  },
+  {
+    q: 'Är plastmatta lika säker som kakel mot vattenskada?',
+    a: 'Korrekt monterade och i nyskick är båda lösningarna jämbördigt säkra — det är därför båda har eget branschregelverk och båda accepteras av försäkringsbolagen. Skillnaden visar sig över tid. Plastmatta har skarvar som svetsas, och en svag svetsskarv är den vanligaste felkällan vid våtrumsmatta. Kakelsidan har tätskiktet bakom plattorna som en separat barriär — om en fog spricker eller silikonen åldras når vattnet ändå tätskiktet, inte väggen direkt. Statistiskt har båda systemen liknande skadefrekvens när de utförs enligt branschreglerna. Risken ligger i okvalificerat utförande — inte i valet av material.',
+  },
+  {
+    q: 'Kan man lägga kakel ovanpå plastmatta?',
+    a: 'Nej, inte fackmässigt. Plastmatta är ett mjukt ytmaterial som inte uppfyller kraven på underlag för kakel enligt BBV — fästmassan får ingen pålitlig vidhäftning, och rörelser i mattan kan göra att fogar spricker eller plattor släpper. Vid byte från våtrumsmatta till kakel ska gammal matta rivas ner till underlag, befintligt tätskikt avlägsnas, underlaget bedömas och nytt tätskikt monteras enligt BBV. Det är ett större jobb än "lägga kakel på golvet" — och en av anledningarna att en konvertering från matta till kakel ofta blir en hel renovering.',
+  },
+  {
+    q: 'Vilket material är lättast att underhålla?',
+    a: 'Plastmatta är något lättare i daglig städning eftersom det inte finns fogar där smuts samlas. Kakel kräver fogvård — silikonfogar bör bytas vart 5–10 år, och cementfogar kan behöva impregneras eller fogfräsas om de börjar missfärgas efter många år. Däremot är kakel lättare att rengöra fläckvis vid hårdare smuts, och plastmatta är känsligare för repor, brännmärken och kemiska medel. Båda kräver lite underhåll — men av olika typ.',
+  },
+  {
+    q: 'Vilket material är bäst för halksäkerhet?',
+    a: 'Båda klarar halksäkerhetskraven om man väljer rätt produkt. Plastmatta levereras normalt med inbyggd halksäker yta och behöver inte separat halkklassning — det är inbyggt i produkten. Klinker måste väljas med rätt halkklass: R10 räcker för vanligt badrumsgolv, R11 rekommenderas i duschzonen, och stora plattor kräver särskild fall till brunn för att leda vattnet rätt. Vill du fördjupa dig i halkklasser och materialval — se vår tekniska guide om kakel kontra klinker.',
+  },
+  {
+    q: 'Varför väljs kakel i de flesta moderna badrum i Stockholm?',
+    a: 'Tre huvudskäl. För det första: livslängden — kakel håller väsentligt längre och passar därför långsiktiga investeringar i bostadsrätter och villor. För det andra: värdebehållning vid försäljning — mäklare och köpare värderar klinker- och kakelbadrum högre än våtrumsmatta, särskilt i Stockholms bostadsrättsmarknad. För det tredje: design — kakel ger fler material- och formvariationer. Plastmatta är vanligare i hyresrätter, uthyrningsobjekt och projekt där snabb och kostnadseffektiv renovering går före långsiktighet. Det är inte en fråga om vad som är "rätt" — det är en fråga om vad som passar din situation.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Plastmatta eller kakel i badrum? — Den ärliga jämförelsen från en BKR-behörig plattsättare i Stockholm',
+  description:
+    'Komplett jämförelse mellan plastmatta (våtrumsmatta) och kakel i badrum — branschregler (BBV vs GVK), livslängd, pris, underhåll, halksäkerhet och vad du bör välja utifrån din situation. Skriven av en BKR-behörig plattsättare i Stockholm.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)' },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Plastmatta badrum',
+    'Våtrumsmatta',
+    'Kakel badrum',
+    'Klinker badrum',
+    'BBV',
+    'GVK',
+    'Tätskikt',
+    'Halksäkerhet badrum',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsägare i Stockholm som ska välja mellan plastmatta och kakel i badrum',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    {
+      '@type': 'CreativeWork',
+      name: 'Byggkeramikrådet — BKR och BBV (Branschregler för Våtrum)',
+      url: 'https://www.bkr.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'GVK — Golvbranschens Våtrumskontroll',
+      url: 'https://www.gvk.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Säker Vatten — branschregler för VVS i våtrum',
+      url: 'https://www.sakervatten.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Konsumentverket — Anlita hantverkare',
+      url: 'https://www.konsumentverket.se/varor-och-tjanster/anlita-hantverkare/',
+    },
+  ],
+  mainEntityOfPage: 'https://www.hagaplattsattning.se/plastmatta-eller-kakel-badrum/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Plastmatta eller kakel i badrum — ärlig jämförelse',
+      item: 'https://www.hagaplattsattning.se/plastmatta-eller-kakel-badrum/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Plastmatta eller Kakel i Badrum? — Ärlig Jämförelse 2026 | Haga Plattsättning</title>
+    <meta
+      name="description"
+      content="Plastmatta (våtrumsmatta) eller kakel i badrum? Ärlig jämförelse från en BKR-behörig plattsättare i Stockholm — branschregler (BBV vs GVK), livslängd, pris, underhåll, halksäkerhet. 10 frågor besvarade."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/plastmatta-eller-kakel-badrum/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/plastmatta-eller-kakel-badrum/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/plastmatta-eller-kakel-badrum/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/plastmatta-eller-kakel-badrum/" />
+    <meta property="og:title" content="Plastmatta eller Kakel i Badrum? — Ärlig Jämförelse" />
+    <meta
+      property="og:description"
+      content="BBV vs GVK, livslängd, pris, underhåll — komplett jämförelse mellan plastmatta och kakel av BKR-behörig plattsättare i Stockholm."
+    />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/badrumsrenoveringstockholm.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Kakelbadrum i Stockholm — Haga Plattsättning AB jämför plastmatta och kakel" />
+
+    <!-- ── TWITTER / X ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Plastmatta eller Kakel i Badrum? — Ärlig Jämförelse" />
+    <meta
+      name="twitter:description"
+      content="BBV vs GVK, livslängd, pris, underhåll — komplett jämförelse från BKR-behörig plattsättare i Stockholm."
+    />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/badrumsrenoveringstockholm.avif" />
+
+    <!-- ── GEO ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/badrumsrenoveringstockholm.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <!-- ── BREADCRUMB ── -->
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Plastmatta eller kakel i badrum — ärlig jämförelse</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════ -->
+      <section class="s-hero" aria-label="Plastmatta eller kakel i badrum — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Materialjämförelse · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Plastmatta eller kakel<br /><em>i badrum?</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Plastmatta (våtrumsmatta) och kakel är de två vanligaste lösningarna i svenska
+              badrum. De styrs av olika branschregler — kakel av BBV (BKR) och våtrumsmatta
+              av GVK Säkra Våtrum — men båda är godkända av försäkringsbolagen och
+              bostadsrättsföreningar. Här gör vi som BKR-behörig plattsättare i Stockholm
+              en ärlig jämförelse: vad skillnaden faktiskt är, hur du väljer rätt för din
+              situation, och varför vi rekommenderar vad vi rekommenderar.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Få gratis offert <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num">25–30<em>år</em></div><div class="label">Livslängd kakel</div></div>
+              <div class="cell"><div class="num">10–20<em>år</em></div><div class="label">Livslängd plastmatta</div></div>
+              <div class="cell"><div class="num"><em>BBV/GVK</em></div><div class="label">Båda regelverken godkända</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/badrumsrenoveringstockholm.avif"
+              alt="Kakelbadrum i Stockholm — Haga Plattsättning AB jämför plastmatta och kakel"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           META + INNEHÅLL — freshness signal + TOC
+      ══════════════════════════════════════════ -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#skillnaden">Skillnaden tekniskt — material, system och branschregler</a></li>
+                <li><a href="#hallbarhet">Hållbarhet, pris och underhåll — vad du faktiskt får</a></li>
+                <li><a href="#valet">Hur väljer du? — beslutsguide utifrån din situation</a></li>
+                <li><a href="#kontakt">Behöver du hjälp att välja? Boka kostnadsfri synning</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SNABBSVAR — quick answers (AI Overview bait)
+      ══════════════════════════════════════════ -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om plastmatta och kakel">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Vad är skillnaden?</strong> Plastmatta är mjukt och kontinuerligt ytmaterial (regleras av GVK). Kakel är hårt ytmaterial med separat tätskikt bakom (regleras av BBV/BKR).</li>
+                <li><strong>Vilket håller längst?</strong> Kakel håller normalt 25–30 år; plastmatta 10–20 år.</li>
+                <li><strong>Vilket är billigare?</strong> Plastmatta är generellt billigare i både material och arbete — vi ger inga raka siffror utan platsbesök.</li>
+                <li><strong>Vilket är säkrast mot vattenskada?</strong> Båda är jämbördigt säkra när de utförs enligt sina respektive branschregler. Risken ligger i utförandet, inte materialvalet.</li>
+                <li><strong>Vilket väljs oftast i Stockholm?</strong> Kakel i bostadsrätter och villor; plastmatta i hyresrätter och uthyrningsobjekt.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet — bläddra ner eller använd länkarna i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION A — Skillnaden tekniskt
+      ══════════════════════════════════════════ -->
+      <section id="skillnaden" class="guide-section" aria-label="Skillnaden mellan plastmatta och kakel">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · Skillnaden tekniskt</span>
+          <h2 class="h-section" style="margin-top:14px">Skillnaden tekniskt — <em>material, system och branschregler</em></h2>
+          <p>
+            Den största missuppfattningen är att valet mellan plastmatta och kakel handlar om
+            "billigt eller fint". Det handlar egentligen om två olika tekniska system, två
+            olika branschorgan, och två olika sätt att hantera vatten i ett våtrum. Här går
+            vi igenom skillnaden på riktigt.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vad är <em>skillnaden</em> på plastmatta och kakel i badrum?</h3>
+              <p>
+                Plastmatta (också kallad våtrumsmatta) är ett kontinuerligt mjukt ytmaterial
+                som svetsas i skarvar och fungerar som <strong>både ytskikt och en del av
+                tätsystemet</strong>. Mattan är själv vattentät — det finns inget separat
+                tätskikt bakom.
+              </p>
+              <p>
+                Kakel och klinker är hårt ytmaterial som monteras med fästmassa ovanpå
+                <strong>ett separat tätskikt</strong>. Tätskiktet bakom plattorna är det som
+                gör fastigheten vattentät; kakel och fog är slitytor. Vatten passerar dem
+                snabbare än folk tror, och det är därför tätskiktet bakom är så viktigt.
+              </p>
+              <p>
+                De två systemen styrs av olika branschregler:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Kakel</strong> regleras av
+                  <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">BBV (Branschregler för Våtrum)</a>
+                  som ges ut av Byggkeramikrådet (BKR).
+                </li>
+                <li>
+                  <strong>Våtrumsmatta</strong> regleras av
+                  <a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säkra Våtrum</a>
+                  som ges ut av Golvbranschens Våtrumskontroll (GVK).
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Båda är godkända av försäkringsbolagen och bostadsrättsföreningar i Stockholm.
+                Skillnaden ligger i utseende, livslängd, underhåll och hur underlaget måste se ut.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_18.avif"
+                alt="Tätskikt och plattsättning enligt BBV i badrum — Haga Plattsättning AB jämför med våtrumsmatta"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är skillnaden på <em>BKR och GVK?</em></h3>
+              <p>
+                Båda är branschorgan för våtrum, men de täcker olika material:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>BKR (Byggkeramikrådet)</strong> är keramikbranschens organ och ger ut
+                  BBV — Branschregler för Våtrum. Reglerna styr kakel, klinker och sten i våtrum.
+                  En BKR-behörig plattsättare arbetar enligt BBV och utfärdar våtrumsintyg efter
+                  varje arbete.
+                </li>
+                <li>
+                  <strong>GVK (Golvbranschens Våtrumskontroll)</strong> är golvbranschens organ och
+                  ger ut Säkra Våtrum. Reglerna styr våtrumsmattor och plastgolv. En GVK-auktoriserad
+                  firma arbetar enligt Säkra Våtrum och utfärdar motsvarande intyg.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Båda regelverken är godkända av försäkringsbolagen och bostadsrättsföreningar.
+                Vissa firmor är certifierade hos båda, men det är inte nödvändigt — det som
+                spelar roll är att utförandet matchar intygets regelverk. Vill du läsa mer
+                om branschorganen och våtrumsintyget?
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår tekniska guide om tätskikt, våtrumsintyg och BBV →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Är plastmatta lika <em>säker</em> som kakel mot vattenskada?</h3>
+              <p>
+                <strong>Korrekt monterade och i nyskick är båda lösningarna jämbördigt säkra</strong>
+                — det är därför båda har eget branschregelverk och båda accepteras av
+                försäkringsbolagen. Skillnaden visar sig över tid.
+              </p>
+              <p>
+                Plastmatta har skarvar som svetsas, och en svag svetsskarv är den vanligaste
+                felkällan i ett våtrumsmattabadrum. Kakelsidan har tätskiktet bakom plattorna
+                som en separat barriär — om en fog spricker eller silikonen åldras når vattnet
+                ändå tätskiktet, inte väggen direkt. Det är ett "redundant" system med två
+                skyddslager.
+              </p>
+              <p>
+                Statistiskt har båda systemen liknande skadefrekvens när de utförs enligt
+                branschreglerna och inspekteras regelbundet. <em>Risken ligger i okvalificerat
+                utförande</em> — inte i valet av material. En obehörig plattsättare som inte
+                följer BBV är farligare än en GVK-auktoriserad firma som följer Säkra Våtrum,
+                och tvärtom.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION B — Hållbarhet, pris, underhåll
+      ══════════════════════════════════════════ -->
+      <section id="hallbarhet" class="guide-section" aria-label="Hållbarhet pris och underhåll">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · Vad du får</span>
+          <h2 class="h-section" style="margin-top:14px">Hållbarhet, pris och underhåll — <em>vad du faktiskt får</em></h2>
+          <p>
+            När branschreglerna är likvärdiga handlar valet om livslängd, kostnad och hur
+            mycket underhåll du orkar med. Här är skillnaden i siffror där det är möjligt
+            — och i resonemang där det inte går att ge raka tal utan platsbesök.
+          </p>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner">
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_22.avif"
+                alt="Färdigställt kakelbadrum i Stockholm — projekt utfört av Haga Plattsättning AB"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+            <div class="guide-text">
+              <h3>Hur länge <em>håller</em> plastmatta jämfört med kakel?</h3>
+              <p>
+                Riktvärden från branschen:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Kakel och klinker:</strong> normalt 25–30 år eller mer, så länge tätskiktet bakom är funktionsdugligt</li>
+                <li><strong>Plastmatta / våtrumsmatta:</strong> normalt 10–20 år beroende på kvalitet, slitage och svetsskarvens skick</li>
+              </ul>
+              <p style="margin-top:14px">
+                Båda är dock beroende av tätskiktet eller tätsystemet, som åldras parallellt.
+                Det innebär att <strong>kakel ofta håller "längre" rent ytmässigt, men att
+                hela badrummet behöver besiktas och eventuellt renoveras efter 25–30 år</strong>
+                oavsett ytmaterial.
+              </p>
+              <p>
+                Det är en av anledningarna att vi rekommenderar fuktmätning av badrum äldre
+                än 20 år, oavsett om de har plastmatta eller kakel. Mer om det i vår guide
+                om tätskikt och våtrumsintyg.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilket är <em>billigare</em> — plastmatta eller kakel?</h3>
+              <p>
+                Plastmatta är generellt billigare än kakel i en badrumsrenovering. Det beror
+                på tre saker:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Materialkostnad</strong> — våtrumsmatta kostar mindre per kvadratmeter än kakel av motsvarande kvalitet</li>
+                <li><strong>Arbetstid</strong> — matta läggs i större kontinuerliga ytor, kakel kräver platta-för-platta-arbete med fogning</li>
+                <li><strong>Underbehandling</strong> — kakel kräver separat tätskikt, primer och plana underlag i större grad än våtrumsmatta</li>
+              </ul>
+              <p style="margin-top:14px">
+                Hur stor prisskillnaden faktiskt blir i ditt projekt beror på badrummets storlek,
+                underlagets skick, vald matt-/kakelkvalitet och om VVS måste flyttas. Vi ger inte
+                raka prissiffror utan platsbesök — varje badrum är unikt. Vill du veta mer om
+                vad som driver priset?
+                <a href="/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår guide om vad som påverkar priset på en badrumsrenovering →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilket är lättast att <em>underhålla?</em></h3>
+              <p>
+                Båda har sina underhållsbehov — bara av olika typ:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Plastmatta</strong> är något lättare i daglig städning eftersom det
+                  inte finns fogar där smuts samlas. Är dock känsligare för repor, brännmärken
+                  och starka kemiska medel. Svetsskarvar bör inspekteras vart 5–10 år.
+                </li>
+                <li>
+                  <strong>Kakel</strong> kräver fogvård — silikonfogar bör bytas vart 5–10 år
+                  och cementfogar kan behöva impregneras eller fogfräsas om de börjar missfärgas
+                  efter många år. Däremot är kakel lättare att rengöra fläckvis vid hårdare
+                  smuts och tål kemiska medel bättre.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Båda kräver lite underhåll — men av olika typ. Vill du läsa mer om materialvalet
+                inom kakelfamiljen?
+                <a href="/kakel-eller-klinker-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår guide om kakel kontra klinker →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilket material är bäst för <em>halksäkerhet?</em></h3>
+              <p>Båda klarar halksäkerhetskraven om man väljer rätt produkt:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Plastmatta</strong> levereras normalt med inbyggd halksäker yta —
+                  det är inbyggt i produkten. Du behöver inte separat halkklassning.
+                </li>
+                <li>
+                  <strong>Klinker</strong> måste väljas med rätt halkklass: R10 räcker för
+                  vanligt badrumsgolv, R11 rekommenderas i duschzonen, och stora plattor
+                  kräver särskild fall till brunn för att leda vattnet rätt.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Många tror att klinker per definition är "halare" än våtrumsmatta — det stämmer
+                inte. En klinker med rätt halkklass är minst lika säker som en våtrumsmatta.
+                Skillnaden ligger i att halksäkerhet i klinker är ett aktivt designval, medan
+                det är standard i våtrumsmatta.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           MID-PAGE CTA — soft conversion mid-scroll
+      ══════════════════════════════════════════ -->
+      <section class="pillar-mid-cta" aria-label="Boka platsbesök för materialval">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">Osäker på vilket material som passar dig?</span>
+            <h2 class="h-sub">Vi gör <em>kostnadsfri synning</em> i Stockholm — inga förpliktelser.</h2>
+            <p>
+              En BKR-behörig plattsättare kommer ut, mäter upp badrummet, bedömer underlaget
+              och går igenom för- och nackdelar med både kakel och plastmatta för just ditt
+              utrymme. Du får en skriftlig rekommendation och offert efter besöket. Vi rekommenderar
+              det material som faktiskt passar din situation — inte det vi vill sälja.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Boka synning <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION C — Hur väljer du?
+      ══════════════════════════════════════════ -->
+      <section id="valet" class="guide-section" aria-label="Hur väljer du mellan plastmatta och kakel">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Valet</span>
+          <h2 class="h-section" style="margin-top:14px">Hur väljer du? — <em>beslutsguide utifrån din situation</em></h2>
+          <p>
+            Det finns inget "rätt" svar — det finns rätt svar för din situation. Här är hur vi
+            själva tänker när vi möter kunder i Stockholm och ska rekommendera ett material
+            framför ett annat.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är <em>bäst</em> — klinker eller våtrumsmatta?</h3>
+              <p>Det beror på vad du värderar högst:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Klinker</strong> är tåligast totalt sett, mest flexibelt designmässigt,
+                  lättast att rengöra fläckvis och behåller utseende längre. Vinner på långsiktig
+                  ekonomi och värdebehållning vid försäljning.
+                </li>
+                <li>
+                  <strong>Våtrumsmatta</strong> är snabbare och billigare att installera, mjukare
+                  under fötterna, varmare att stå på och har inga fogar där smuts kan samlas.
+                  Vinner på initial investering och komfort.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                <strong>För en långsiktig investering rekommenderar vi klinker</strong> — det är
+                också standardvalet i 8 av 10 bostadsrätter i Stockholm vi renoverar. För en
+                snabb och prisvärd renovering där badrummet kanske renoveras igen om 10–15 år,
+                eller där badrummet är uthyrningsobjekt, är våtrumsmatta ett rimligt val.
+              </p>
+              <p>
+                Båda är fackmässigt accepterade när de utförs enligt sina respektive branschregler.
+                Vi är öppna med att vi är BKR-behöriga och inte installerar våtrumsmatta — men
+                det betyder inte att vi avråder från det. Det betyder bara att vi rekommenderar
+                en GVK-auktoriserad firma om du landar i det valet.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Varför väljs <em>kakel</em> i de flesta moderna badrum i Stockholm?</h3>
+              <p>Tre huvudskäl:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Livslängd</strong> — kakel håller väsentligt längre och passar därför
+                  långsiktiga investeringar i bostadsrätter och villor.
+                </li>
+                <li>
+                  <strong>Värdebehållning vid försäljning</strong> — mäklare och köpare värderar
+                  klinker- och kakelbadrum högre än våtrumsmatta, särskilt i Stockholms
+                  bostadsrättsmarknad. Skillnaden är märkbar på objekt över 4–5 MSEK.
+                </li>
+                <li>
+                  <strong>Design och flexibilitet</strong> — kakel ger fler material- och
+                  formvariationer: storformat, mosaik, naturmaterial, fishbone, mönster.
+                  Våtrumsmatta är begränsad till de mönster och färger tillverkaren erbjuder.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Plastmatta är vanligare i hyresrätter, uthyrningsobjekt och projekt där snabb
+                och kostnadseffektiv renovering går före långsiktighet. Det är inte en fråga
+                om vad som är "rätt" — det är en fråga om vad som passar din situation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Kan man lägga <em>kakel ovanpå plastmatta?</em></h3>
+              <p>
+                <strong>Nej, inte fackmässigt.</strong> Plastmatta är ett mjukt ytmaterial som
+                inte uppfyller kraven på underlag för kakel enligt BBV — fästmassan får ingen
+                pålitlig vidhäftning, och rörelser i mattan kan göra att fogar spricker eller
+                plattor släpper.
+              </p>
+              <p>
+                Vid byte från våtrumsmatta till kakel ska:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Gammal matta rivas ner till underlag</li>
+                <li>Befintligt tätskikt (under mattan) avlägsnas</li>
+                <li>Underlaget bedömas, plansläckas och säkras för vidhäftning</li>
+                <li>Nytt tätskikt monteras enligt BBV med fotodokumentation</li>
+                <li>Kakel monteras med BBV-godkänd fästmassa och fogas korrekt</li>
+              </ul>
+              <p style="margin-top:14px">
+                Det är ett större jobb än "lägga kakel på golvet" — och en av anledningarna att
+                en konvertering från matta till kakel ofta blir en hel badrumsrenovering. Det
+                är också skälet att vi rekommenderar platsbesök för att bedöma omfattning och
+                ge en realistisk offert.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CTA — soft conversion
+      ══════════════════════════════════════════ -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning för materialval">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du står inför valet</span>
+            <h2 class="h-section" style="margin-top:14px">Behöver du <em>hjälp</em> att välja rätt material?</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                Vi är BKR-behöriga och installerar kakel och klinker enligt BBV. Vi installerar
+                inte våtrumsmatta — men vi rekommenderar ärligt utifrån din situation. Om
+                våtrumsmatta passar bättre för ditt projekt säger vi det, och hänvisar till
+                en GVK-auktoriserad samarbetspartner.
+              </p>
+              <p>
+                Boka en kostnadsfri synning hos oss i Stockholm. Vi kommer ut, mäter upp,
+                bedömer underlaget och går igenom dina alternativ. Du får skriftlig
+                rekommendation och offert efter besöket — utan förpliktelser.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Få gratis offert <span class="arrow">→</span></a>
+              <a class="btn-link" href="/om-oss/">Läs om våra certifieringar →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/behorig-vatrum.avif"
+                alt="BKR-behörig plattsättare i Stockholm — Haga Plattsättning AB jämför plastmatta och kakel"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>behörig</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           INTERNAL LINKS — Läs mer
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och tjänster">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>badrum, kakel och våtrum</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg &amp; BBV — den tekniska guiden om våtrum</a></li>
+                <li><a href="/kakel-eller-klinker-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakel eller klinker — teknisk materialguide för kök och badrum</a></li>
+                <li><a href="/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vad påverkar priset på en badrumsrenovering — kostnadsdrivare förklarade</a></li>
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida med komplett process</a></li>
+                <li><a href="/kakelsattare-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Kakelsättare Stockholm — vad skiljer en behörig från en obehörig</a></li>
+                <li><a href="/referensprojekt/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Referensprojekt — verkliga badrumsrenoveringar i Stockholm</a></li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Externa källor som vi hänvisar till:
+                <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Byggkeramikrådet (BKR)</a>,
+                <a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">GVK — Golvbranschens Våtrumskontroll</a>,
+                <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten</a>,
+                <a href="https://www.konsumentverket.se/varor-och-tjanster/anlita-hantverkare/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumentverket — Anlita hantverkare</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en ärlig jämförelse mellan plastmatta (våtrumsmatta) och kakel i badrum — branschregler, livslängd, pris, underhåll och halksäkerhet. Skriven av Haga Plattsättning AB, BKR-behörig plattsättare i Stockholm sedan 2021. Innehållet ska ses som vägledning; för bedömning av ett specifikt projekt rekommenderas alltid platsbesök eller kontakt med oss."
+    />
+
+    <!-- ── JSON-LD: FAQPage schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <!-- ── JSON-LD: TechArticle schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+
+    <!-- ── JSON-LD: BreadcrumbList schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>

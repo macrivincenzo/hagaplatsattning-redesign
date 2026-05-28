@@ -1,0 +1,832 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-28';
+const UPDATED = '2026-05-28';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi koordinerar med Säker Vatten-auktoriserad VVS-firma vid badrumsrenovering — så att VVS-installationen följer Säker Vattens branschregler och badrummet i sin helhet uppfyller BBV och försäkringskrav.',
+  knowsAbout: [
+    'Säker Vatten badrum',
+    'Säker Vatten installation',
+    'Säker Vatten intyg',
+    'VVS branschregler våtrum',
+    'BBV',
+    'Branschauktorisation VVS',
+    'Serviceöppning',
+    'Badrumsrenovering Stockholm',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Vad är Säker Vatten?',
+    a: 'Säker Vatten är ett branschregelverk för VVS-installation i Sverige, utfärdat av branschorganet Säker Vatten AB. Regelverket — Säker Vatten-installation 2021 (eller senare utgåva) — beskriver hur ledningssystem för vatten ska monteras, dras och dokumenteras för att minimera risken för vattenskada. VVS-firmor som följer reglerna kan ansöka om branschauktorisation och utfärdar Säker Vatten-intyg efter utfört arbete. Tillsammans med BBV (Byggkeramikrådets Branschregler för Våtrum) och GVK Säkra Våtrum utgör Säker Vatten den fullständiga regelboken för svenska våtrum.',
+  },
+  {
+    q: 'Vad innebär en Säker Vatten-installation?',
+    a: 'En Säker Vatten-installation är en VVS-installation utförd av en branschauktoriserad VVS-firma enligt Säker Vattens tekniska regler. Det betyder bland annat: rörledningar dragna i särskilda installationszoner, vattenmätarskåp och avstängningsventiler på rätt plats, läckagesäkrade anslutningar, dokumenterad serviceöppning vid skarvar i dolt läge, och ett signerat installationsintyg efter avslutat arbete. Försäkringsbolagen ser Säker Vatten-installation som standard för att ersätta vattenskador i moderna badrum.',
+  },
+  {
+    q: 'Måste man ha Säker Vatten-intyg?',
+    a: 'Det är inget lagkrav, men i praktiken nödvändigt i flera situationer. Försäkringsbolagen kräver i regel dokumentation av fackmässigt VVS-utförande för att ersätta en vattenskada — Säker Vatten-intyg är den standardiserade formen av sådan dokumentation. Bostadsrättsföreningar kräver ofta intyg vid ombyggnad som berör stammar eller anslutningar. Vid bostadsförsäljning efterfrågas det av köpare. Konsumenternas Försäkringsbyrå rekommenderar att alltid begära Säker Vatten-intyg vid VVS-arbete — utan det kan ersättningen avvisas eller självrisken höjas.',
+  },
+  {
+    q: 'Vilka regler gäller för VVS i våtrum?',
+    a: 'Tre regelverk styr våtrumsinstallation i Sverige: (1) Säker Vatten — VVS-delen, regleras av Säker Vatten AB; (2) BBV — kakelsidan, regleras av Byggkeramikrådet (BKR); (3) GVK Säkra Våtrum — våtrumsmatta-sidan, regleras av Golvbranschens Våtrumskontroll. Boverkets byggregler (BBR) ger den juridiska ramen genom byggregelverket. Alla tre branschregelverk är accepterade av försäkringsbolagen — men de gäller olika delar av badrumssystemet. Säker Vatten gäller rör och anslutningar; BBV/GVK gäller tätskikt och ytmaterial.',
+  },
+  {
+    q: 'Vad är skillnaden på Säker Vatten och BBV?',
+    a: 'De gäller olika delar av badrumsbygget. Säker Vatten reglerar VVS-installationen — rör, anslutningar, ventiler, vattenmätare och allt som transporterar vatten. BBV (Branschregler för Våtrum) reglerar plattsättningen — tätskikt, kakel, klinker, fästmassa och fogning. Båda är nödvändiga för ett komplett våtrum: en VVS-installation utan tätskikt skyddar inte fastigheten; ett tätskikt utan korrekt VVS bakom är värdelöst om en anslutning brister. Det är därför Säker Vatten-firma och BKR-behörig plattsättare normalt arbetar tillsammans på samma projekt.',
+  },
+  {
+    q: 'Var får jag placera en serviceöppning enligt Säker Vatten?',
+    a: 'Säker Vatten kräver att alla skarvar i vatten- och avloppsledningar som ligger i dolt läge ska vara åtkomliga för inspektion och underhåll. Praktiskt betyder det att en serviceöppning (åtkomstlucka) måste placeras vid varje sådan skarv. Reglerna anger att serviceöppningen ska vara tillräckligt stor för åtkomst och placerad så att skarven kan inspekteras utan att riva väggar eller golv. Den exakta placeringen styrs av husets konstruktion, ledningsdragningen och tillverkarens produktanvisningar för rörsystemet. Detta är ett av många detaljkrav som en branschauktoriserad VVS-firma kan utföreffektivt.',
+  },
+  {
+    q: 'Vad är en branschauktorisation enligt Säker Vatten?',
+    a: 'Branschauktorisation enligt Säker Vatten innebär att VVS-firman har dokumenterat att den följer Säker Vattens regelverk och har certifierad personal med rätt kompetens. Auktorisationen utfärdas av Säker Vatten AB efter granskning, och firman får då rätt att utfärda Säker Vatten-intyg efter utfört arbete. Det är denna auktorisation som ger intyget juridisk tyngd mot försäkringsbolag och bostadsrättsföreningar. När du anlitar VVS-firma för badrumsarbete — kontrollera alltid att firman är branschauktoriserad och inte enbart "Säker Vatten-utbildad".',
+  },
+  {
+    q: 'Vad händer om VVS-arbete inte är utfört enligt Säker Vatten?',
+    a: 'Försäkringsbolaget kan avvisa skadan eller höja självrisken betydligt enligt Konsumenternas Försäkringsbyrå. Vid vattenskada är dokumenterat fackmässigt VVS-utförande ett av de första saker försäkringsbolaget kontrollerar — utan Säker Vatten-intyg är ersättningsrätten osäker. Bostadsrättsföreningen kan kräva återställning på din bekostnad om VVS-arbetet skett utan styrelsens godkännande och dokumentation. Vid bostadsförsäljning får bostaden ofta lägre värdering om VVS saknar dokumentation. I korthet: det är inte värt risken att anlita obehörig VVS — sparingen är liten i jämförelse med konsekvenserna.',
+  },
+  {
+    q: 'Hur hänger Säker Vatten ihop med tätskikt och kakelsättning?',
+    a: 'De är samordnade men separata branschregler. Säker Vatten styr VVS-delen; BBV styr tätskikt + kakel. I praktiken arbetar VVS-firman först (montering av rör, anslutningar, golvbrunn), sedan tar plattsättaren över (underlagsbehandling, tätskikt, kakel, fogning). Plattsättaren tätar omkring genomföringar (rör, golvbrunn) enligt BBV — det är gränssnittet där båda regelverken möts. Saknar du Säker Vatten-intyg på VVS:en kan vi som BKR-behörig plattsättare ändå utfärda BBV-våtrumsintyg på vår del — men det totala badrummet är då inte komplett dokumenterat mot försäkringsbolaget.',
+  },
+  {
+    q: 'Kan en plattsättare göra VVS-arbete?',
+    a: 'Nej, inte fackmässigt. Plattsättning och VVS är två separata yrkesområden med egna branschauktorisationer. En plattsättare är specialist på underlag, tätskikt, kakel och fogning enligt BBV — VVS-installation, anslutningar och rördragning kräver Säker Vatten-auktoriserad VVS-installatör. Vi koordinerar med en Säker Vatten-auktoriserad VVS-partner vid alla projekt där VVS-arbete behövs, så att både Säker Vatten-intyget och BBV-våtrumsintyget kommer på plats. Att försöka kombinera båda yrkena i en firma är sällan en bra lösning — varje del kräver fokus och certifiering för att vara försäkringsmässigt giltig.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Säker Vatten i badrum — VVS-reglerna förklarade av en BKR-behörig plattsättare i Stockholm',
+  description:
+    'Komplett guide om Säker Vatten i badrum — vad regelverket innebär, branschauktorisation, intyg, serviceöppning och hur Säker Vatten samverkar med BBV och tätskikt. Skriven av en BKR-behörig plattsättare i Stockholm med källor till Säker Vatten, BKR, Boverket och Konsumenternas Försäkringsbyrå.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)' },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Säker Vatten badrum',
+    'Säker Vatten installation',
+    'Säker Vatten intyg',
+    'VVS branschregler',
+    'Branschauktorisation VVS',
+    'BBV',
+    'Serviceöppning',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsägare i Stockholm som planerar badrumsrenovering med VVS-arbete',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    {
+      '@type': 'CreativeWork',
+      name: 'Säker Vatten AB — branschregler för VVS-installation',
+      url: 'https://www.sakervatten.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Byggkeramikrådet — BKR och BBV (Branschregler för Våtrum)',
+      url: 'https://www.bkr.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'GVK — Golvbranschens Våtrumskontroll (Säkra Våtrum)',
+      url: 'https://www.gvk.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Boverket — Byggregler (BBR)',
+      url: 'https://www.boverket.se/sv/byggregler/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'VVS Företagen — branschorganet för VVS-företag i Sverige',
+      url: 'https://www.vvsforetagen.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Konsumenternas Försäkringsbyrå — Hemförsäkring och vattenskador',
+      url: 'https://www.konsumenternas.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Vattenskadecentrum — Vattenskadeundersökningen (årlig branschrapport)',
+      url: 'https://www.vattenskadecentrum.se/',
+    },
+  ],
+  mainEntityOfPage: 'https://www.hagaplattsattning.se/saker-vatten-badrum/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Säker Vatten i badrum — VVS-reglerna förklarade',
+      item: 'https://www.hagaplattsattning.se/saker-vatten-badrum/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Säker Vatten i Badrum — VVS-reglerna Förklarade | Haga Plattsättning AB</title>
+    <meta
+      name="description"
+      content="Säker Vatten i badrum — vad regelverket innebär, branschauktorisation, intyg och serviceöppning. Förklarat av en BKR-behörig plattsättare i Stockholm. Med källor till Säker Vatten, BKR, Boverket och Konsumenternas Försäkringsbyrå."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/saker-vatten-badrum/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/saker-vatten-badrum/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/saker-vatten-badrum/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/saker-vatten-badrum/" />
+    <meta property="og:title" content="Säker Vatten i Badrum — VVS-reglerna Förklarade" />
+    <meta
+      property="og:description"
+      content="Säker Vatten + BBV — det fullständiga regelverket för svenska våtrum. Komplett guide från BKR-behörig plattsättare i Stockholm."
+    />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_10.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Säker Vatten-koordinerad VVS-installation och plattsättning i Stockholm" />
+
+    <!-- ── TWITTER / X ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Säker Vatten i Badrum — VVS-reglerna Förklarade" />
+    <meta
+      name="twitter:description"
+      content="Säker Vatten + BBV — det fullständiga regelverket. Guide av BKR-behörig plattsättare i Stockholm."
+    />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_10.avif" />
+
+    <!-- ── GEO ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplatt_10.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <!-- ── BREADCRUMB ── -->
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Säker Vatten i badrum — VVS-reglerna förklarade</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════ -->
+      <section class="s-hero" aria-label="Säker Vatten i badrum — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Regelguide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Säker Vatten<br /><em>i badrum</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Säker Vatten är det branschregelverk som styr VVS-installation i svenska
+              våtrum — utfärdat av
+              <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten AB</a>.
+              Tillsammans med BBV (kakel-sidan) och GVK (våtrumsmatta-sidan) utgör det den
+              kompletta regelboken för badrumsbygge i Sverige. Här förklarar vi — som
+              BKR-behörig plattsättare som arbetar med Säker Vatten-auktoriserade VVS-partners —
+              vad reglerna innebär i praktiken, hur Säker Vatten samverkar med BBV, och vad
+              du behöver veta som beställare.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Boka platsbesök <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num"><em>BKR</em></div><div class="label">Behörig plattsättare</div></div>
+              <div class="cell"><div class="num"><em>Säker Vatten</em></div><div class="label">VVS-koordinering</div></div>
+              <div class="cell"><div class="num"><em>BBV</em></div><div class="label">Tätskikt enligt branschregler</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplatt_10.avif"
+              alt="Säker Vatten-koordinerad VVS och plattsättning i Stockholm — Haga Plattsättning AB"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           META + INNEHÅLL — freshness signal + TOC
+      ══════════════════════════════════════════ -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#vad-ar-det">Vad är Säker Vatten? — regelverket och branschen</a></li>
+                <li><a href="#reglerna">Reglerna i praktiken — intyg, serviceöppning, auktorisation</a></li>
+                <li><a href="#tillsammans">Säker Vatten + BBV — våtrummets fullständiga regelverk</a></li>
+                <li><a href="#kontakt">Behöver du badrumsrenovering med Säker Vatten? Boka platsbesök</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SNABBSVAR — quick answers (AI Overview bait)
+      ══════════════════════════════════════════ -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om Säker Vatten i badrum">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Vad är Säker Vatten?</strong> Branschregelverket för VVS-installation i svenska våtrum. Källa: <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten AB</a>.</li>
+                <li><strong>Måste man ha intyg?</strong> Inget lagkrav, men i praktiken nödvändigt för försäkring, BRF och försäljning.</li>
+                <li><strong>Skillnad mot BBV?</strong> Säker Vatten = VVS-delen. BBV = tätskikt och kakel. Båda behövs för ett komplett våtrum.</li>
+                <li><strong>Kan en plattsättare göra VVS?</strong> Nej — det är två separata yrkesområden med egna auktorisationer. Vi koordinerar med Säker Vatten-partner.</li>
+                <li><strong>Vad är en serviceöppning?</strong> Åtkomstlucka som krävs vid varje skarv i dolt läge — för inspektion och underhåll.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet med källhänvisningar i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION A — Vad är Säker Vatten?
+      ══════════════════════════════════════════ -->
+      <section id="vad-ar-det" class="guide-section" aria-label="Vad är Säker Vatten">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · Regelverket</span>
+          <h2 class="h-section" style="margin-top:14px">Vad är Säker Vatten? — <em>regelverket och branschen</em></h2>
+          <p>
+            Innan vi går in på praktiska detaljer är det värt att förstå vad Säker Vatten
+            faktiskt är som branschorgan och som regelverk, och hur det förhåller sig till
+            de övriga reglerna för våtrum i Sverige.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vad är <em>Säker Vatten?</em></h3>
+              <p>
+                Säker Vatten är ett <strong>branschregelverk för VVS-installation</strong> i
+                Sverige, utfärdat av branschorganet
+                <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten AB</a>.
+                Regelverket — Säker Vatten-installation 2021 (eller senare utgåva) — beskriver
+                hur ledningssystem för vatten ska monteras, dras och dokumenteras för att
+                minimera risken för vattenskada.
+              </p>
+              <p>
+                VVS-firmor som följer reglerna kan ansöka om <strong>branschauktorisation</strong>
+                hos Säker Vatten AB. Auktoriserade firmor får rätt att utfärda Säker
+                Vatten-intyg efter utfört arbete — det dokument som försäkringsbolag, BRF
+                och köpare kräver vid ombyggnad eller försäljning.
+              </p>
+              <p>
+                Tillsammans med
+                <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">BBV</a>
+                (Byggkeramikrådets Branschregler för Våtrum) och
+                <a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">GVK Säkra Våtrum</a>
+                utgör Säker Vatten den fullständiga regelboken för svenska våtrum. Boverkets
+                byggregler (BBR) ger den juridiska ramen genom byggregelverket.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/behorig-vatrum.avif"
+                alt="Säker Vatten och BBV samordnas i badrumsrenovering — BKR-behörig plattsättare i Stockholm"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vilka <em>regler</em> gäller för VVS i våtrum?</h3>
+              <p>Tre branschregelverk styr våtrumsinstallation i Sverige:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Säker Vatten</strong> — VVS-delen. Regleras av
+                  <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten AB</a>.
+                  Gäller rör, anslutningar, ventiler, vattenmätare och allt som transporterar vatten.
+                </li>
+                <li>
+                  <strong>BBV — Branschregler för Våtrum</strong> — kakelsidan. Regleras av
+                  <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Byggkeramikrådet (BKR)</a>.
+                  Gäller tätskikt, kakel, klinker, fästmassa och fogning.
+                </li>
+                <li>
+                  <strong>GVK Säkra Våtrum</strong> — våtrumsmatta-sidan. Regleras av
+                  <a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Golvbranschens Våtrumskontroll</a>.
+                  Gäller våtrumsmattor och plastgolv.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Den juridiska ramen ges av
+                <a href="https://www.boverket.se/sv/byggregler/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Boverkets byggregler (BBR)</a> —
+                men det är branschregelverken som tillämpas i praktiken vid varje
+                badrumsrenovering. Alla tre är accepterade av försäkringsbolagen, men de
+                gäller olika delar av badrumssystemet.
+              </p>
+              <p>
+                <a href="https://www.vvsforetagen.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">VVS Företagen</a>
+                är branschorganet för svenska VVS-företag och samverkar med Säker Vatten AB
+                kring auktorisations- och utbildningsfrågor.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är <em>skillnaden</em> på Säker Vatten och BBV?</h3>
+              <p>
+                De gäller olika delar av badrumsbygget:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Säker Vatten reglerar VVS-installationen</strong> — rör, anslutningar,
+                  ventiler, vattenmätare, golvbrunnsanslutning och allt som leder vatten in
+                  i eller ut ur badrummet.
+                </li>
+                <li>
+                  <strong>BBV reglerar plattsättningen</strong> — tätskikt, kakel, klinker,
+                  fästmassa och fogning. Tätskiktet är vad som gör badrummet vattentätt.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Båda är nödvändiga för ett komplett våtrum: <em>en VVS-installation utan
+                tätskikt skyddar inte fastigheten; ett tätskikt utan korrekt VVS bakom är
+                värdelöst om en anslutning brister</em>. Det är därför Säker Vatten-firma och
+                BKR-behörig plattsättare normalt arbetar tillsammans på samma projekt — vi
+                bidrar var och en med vår del av regelverket.
+              </p>
+              <p>
+                Vill du läsa mer om BBV-sidan i detalj?
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår tekniska guide om tätskikt, våtrumsintyg och BBV →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION B — Reglerna i praktiken
+      ══════════════════════════════════════════ -->
+      <section id="reglerna" class="guide-section" aria-label="Säker Vatten i praktiken">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · I praktiken</span>
+          <h2 class="h-section" style="margin-top:14px">Reglerna i praktiken — <em>intyg, serviceöppning och auktorisation</em></h2>
+          <p>
+            Det är när reglerna ska tillämpas på verkliga projekt som detaljerna spelar
+            roll. Här går vi igenom de tre vanligaste praktiska frågorna: vad ett Säker
+            Vatten-intyg är, hur en serviceöppning ska placeras, och vad branschauktorisation
+            faktiskt innebär.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad innebär en <em>Säker Vatten-installation?</em></h3>
+              <p>
+                En Säker Vatten-installation är en VVS-installation utförd av en
+                branschauktoriserad VVS-firma enligt Säker Vattens tekniska regler. I praktiken
+                innebär det:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Rörledningar dragna i särskilda installationszoner</strong> — separat från elinstallation</li>
+                <li><strong>Vattenmätarskåp och avstängningsventiler</strong> på rätt plats och åtkomliga</li>
+                <li><strong>Läckagesäkrade anslutningar</strong> — ofta med särskilda kopplingar och dokumenterade prestanda</li>
+                <li><strong>Dokumenterad serviceöppning</strong> vid skarvar i dolt läge — för inspektion och underhåll</li>
+                <li><strong>Signerat installationsintyg</strong> efter avslutat arbete — det dokument försäkringsbolaget kontrollerar</li>
+              </ul>
+              <p style="margin-top:14px">
+                <a href="https://www.konsumenternas.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumenternas Försäkringsbyrå</a>
+                bekräftar att försäkringsbolagen ser Säker Vatten-installation som standard
+                för att ersätta vattenskador i moderna badrum. Vattenskador är enligt
+                <a href="https://www.vattenskadecentrum.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vattenskadecentrum</a>
+                en av de vanligaste fastighetsskadorna i Sverige — och dokumentation av VVS
+                är ett av de första saker försäkringsbolaget kontrollerar vid skadeärende.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Måste man ha <em>Säker Vatten-intyg?</em></h3>
+              <p>
+                Det är <strong>inget lagkrav</strong> — men i praktiken nödvändigt i flera
+                situationer:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Försäkringsbolagen</strong> kräver dokumentation av fackmässigt
+                  VVS-utförande för att ersätta en vattenskada. Säker Vatten-intyg är
+                  standardformen av sådan dokumentation. Utan intyg kan ersättningen avvisas
+                  eller självrisken höjas betydligt, enligt Konsumenternas Försäkringsbyrå.
+                </li>
+                <li>
+                  <strong>Bostadsrättsföreningar</strong> kräver ofta intyg vid ombyggnad som
+                  berör stammar eller anslutningar, eftersom föreningen ansvarar för
+                  fastighetens stammar och vill säkerställa fackmässig hantering.
+                </li>
+                <li>
+                  <strong>Vid bostadsförsäljning</strong> efterfrågas det av köpare och deras
+                  besiktningsmän — saknad dokumentation är en vanlig grund för prisförhandling.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                I korthet: intyget är inte en formalitet — det är det dokument som bevisar
+                att VVS-arbetet är fackmässigt utfört och dokumenterat. Utan det är du
+                juridiskt och ekonomiskt utlämnad om något händer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Var får jag placera en <em>serviceöppning</em> enligt Säker Vatten?</h3>
+              <p>
+                Säker Vatten kräver att <strong>alla skarvar i vatten- och avloppsledningar
+                som ligger i dolt läge</strong> ska vara åtkomliga för inspektion och
+                underhåll. Praktiskt betyder det att en serviceöppning (åtkomstlucka) måste
+                placeras vid varje sådan skarv.
+              </p>
+              <p>Reglerna anger:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Storlek</strong> — tillräckligt stor för åtkomst och inspektion</li>
+                <li><strong>Placering</strong> — så att skarven kan inspekteras utan att riva väggar eller golv</li>
+                <li><strong>Märkning</strong> — bör vara synlig eller dokumenterad så att skarvens läge är känt</li>
+                <li><strong>Produktanvisningar</strong> — exakt placering styrs också av husets konstruktion, ledningsdragningen och tillverkarens produktanvisningar för rörsystemet</li>
+              </ul>
+              <p style="margin-top:14px">
+                Detta är ett av många detaljkrav som en branschauktoriserad VVS-firma kan
+                hantera effektivt. För dig som beställare räcker det att veta att <em>en
+                Säker Vatten-firma alltid ska kunna förklara var serviceöppningarna sitter
+                och varför</em> — det är en del av deras dokumentationsplikt.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är en <em>branschauktorisation</em> enligt Säker Vatten?</h3>
+              <p>
+                Branschauktorisation innebär att VVS-firman har <strong>dokumenterat att den
+                följer Säker Vattens regelverk</strong> och har certifierad personal med rätt
+                kompetens. Auktorisationen utfärdas av
+                <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten AB</a>
+                efter granskning av firmans rutiner, utbildning och tidigare arbeten.
+              </p>
+              <p>
+                Auktoriserade firmor får rätt att <strong>utfärda Säker Vatten-intyg</strong>
+                efter avslutat arbete. Det är denna auktorisation som ger intyget juridisk
+                tyngd mot försäkringsbolag och bostadsrättsföreningar.
+              </p>
+              <p>
+                När du anlitar VVS-firma för badrumsarbete — kontrollera alltid att firman är
+                <strong>branschauktoriserad</strong> och inte enbart "Säker Vatten-utbildad".
+                Det är auktorisationen som ger intyget värde, inte enskild personals utbildning.
+                Säker Vatten AB har en sökbar lista över alla auktoriserade firmor på sin
+                webbplats.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           MID-PAGE CTA — soft conversion mid-scroll
+      ══════════════════════════════════════════ -->
+      <section class="pillar-mid-cta" aria-label="Boka badrumsrenovering med Säker Vatten">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">Planerar du badrumsrenovering med VVS-arbete?</span>
+            <h2 class="h-sub">Vi koordinerar <em>Säker Vatten + BBV</em> i samma projekt.</h2>
+            <p>
+              Som BKR-behörig plattsättare ansvarar vi för tätskikt och kakelsättning enligt
+              BBV. För VVS-delen koordinerar vi med en Säker Vatten-auktoriserad partner.
+              Det ger ett badrum med både Säker Vatten-intyg och våtrumsintyg — den fullständiga
+              dokumentationen som försäkringsbolag och bostadsrättsförening efterfrågar.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Boka platsbesök <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION C — Säker Vatten + BBV
+      ══════════════════════════════════════════ -->
+      <section id="tillsammans" class="guide-section" aria-label="Säker Vatten och BBV samverkan">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Tillsammans</span>
+          <h2 class="h-section" style="margin-top:14px">Säker Vatten + BBV — <em>våtrummets fullständiga regelverk</em></h2>
+          <p>
+            Ett tekniskt komplett badrum kräver båda regelverken. Här går vi igenom hur
+            de samverkar i praktiken, vad som händer om en del saknas, och varför vi som
+            plattsättare aldrig själva tar på oss VVS-arbetet.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Hur hänger <em>Säker Vatten</em> ihop med tätskikt och kakelsättning?</h3>
+              <p>
+                De är samordnade men separata branschregler. Säker Vatten styr VVS-delen;
+                BBV styr tätskikt + kakel. I praktiken arbetar de två yrkesgrupperna i en
+                bestämd ordning:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>1. VVS-firman först</strong> — montering av rör, anslutningar och
+                  golvbrunn enligt Säker Vatten
+                </li>
+                <li>
+                  <strong>2. Plattsättaren tar över</strong> — underlagsbehandling, tätskikt,
+                  kakelsättning och fogning enligt BBV
+                </li>
+                <li>
+                  <strong>3. Tätskiktet förseglar runt VVS-genomföringar</strong> — rör och
+                  golvbrunn tätas in i tätskiktet med särskilda manschetter
+                </li>
+                <li>
+                  <strong>4. Båda yrkesgrupperna utfärdar sina intyg</strong> — Säker Vatten-intyg
+                  från VVS-firman + BBV-våtrumsintyg från plattsättaren
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Tätningen omkring genomföringar är <strong>gränssnittet där båda regelverken
+                möts</strong>. Det är där fel oftast uppstår om de två yrkesgrupperna inte
+                samordnas — en otät manschett gör att vatten kan tränga in mellan tätskikt
+                och rörgenomföring även om både VVS och tätskikt i sig är korrekt utförda.
+              </p>
+              <p>
+                Saknar du Säker Vatten-intyg på VVS:en kan vi som BKR-behörig plattsättare
+                ändå utfärda BBV-våtrumsintyg på vår del — men det totala badrummet är då
+                inte komplett dokumenterat mot försäkringsbolaget.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/saeker-vatten-rgb-png.avif"
+                alt="Säker Vatten-koordinerad VVS och plattsättning enligt BBV i Stockholm"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Kan en <em>plattsättare</em> göra VVS-arbete?</h3>
+              <p>
+                <strong>Nej, inte fackmässigt.</strong> Plattsättning och VVS är två separata
+                yrkesområden med egna branschauktorisationer:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Plattsättare</strong> är specialist på underlag, tätskikt, kakel
+                  och fogning enligt BBV
+                </li>
+                <li>
+                  <strong>VVS-installatör</strong> är specialist på rör, anslutningar och
+                  installationer enligt Säker Vatten
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Vi koordinerar med en Säker Vatten-auktoriserad VVS-partner vid alla projekt
+                där VVS-arbete behövs, så att både Säker Vatten-intyget och BBV-våtrumsintyget
+                kommer på plats. <em>Att försöka kombinera båda yrkena i en firma är sällan
+                en bra lösning</em> — varje del kräver fokus och certifiering för att vara
+                försäkringsmässigt giltig.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad händer om VVS-arbete <em>inte är utfört enligt Säker Vatten?</em></h3>
+              <p>Det får konsekvenser i tre situationer:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Vid vattenskada</strong> kan försäkringsbolaget avvisa skadan eller
+                  höja självrisken betydligt enligt
+                  <a href="https://www.konsumenternas.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumenternas Försäkringsbyrå</a>.
+                  Dokumenterat fackmässigt VVS-utförande är ett av de första saker
+                  försäkringsbolaget kontrollerar.
+                </li>
+                <li>
+                  <strong>I bostadsrätt</strong> kan föreningen kräva återställning på din
+                  bekostnad om VVS-arbetet skett utan styrelsens godkännande och utan
+                  dokumentation.
+                </li>
+                <li>
+                  <strong>Vid bostadsförsäljning</strong> får bostaden ofta lägre värdering om
+                  VVS saknar dokumentation. Köpare och deras besiktningsmän efterfrågar
+                  intyget rutinmässigt.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                I korthet: <strong>det är inte värt risken att anlita obehörig VVS</strong> —
+                besparingen är liten i jämförelse med konsekvenserna vid en eventuell skada
+                eller försäljning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CTA — soft conversion
+      ══════════════════════════════════════════ -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka badrumsrenovering med koordinerad VVS och plattsättning">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du behöver hjälp</span>
+            <h2 class="h-section" style="margin-top:14px">Behöver du <em>komplett dokumentation</em> — både Säker Vatten och BBV?</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                Vi är BKR-behöriga och utför tätskikt och kakelsättning enligt BBV. För
+                VVS-delen koordinerar vi med en Säker Vatten-auktoriserad partner som
+                utfärdar Säker Vatten-intyg efter sitt arbete.
+              </p>
+              <p>
+                Resultatet är ett badrum med <strong>båda intygen på plats</strong> — den
+                fullständiga dokumentationen som försäkringsbolag, bostadsrättsförening och
+                framtida köpare efterfrågar. Vill du veta mer? Boka en kostnadsfri synning
+                hos oss i Stockholm. Vi förklarar vad just ditt projekt kräver innan vi
+                offererar.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Få gratis offert <span class="arrow">→</span></a>
+              <a class="btn-link" href="/om-oss/">Läs om våra certifieringar →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/hagaplatt_18.avif"
+                alt="Tätskikt och VVS samordnas enligt BBV och Säker Vatten — projekt i Stockholm"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>behörig</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           INTERNAL LINKS + SOURCES — Läs mer
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och källor">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>våtrum, BBV och badrumsrenovering</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg &amp; BBV — den tekniska guiden om kakelsidan</a></li>
+                <li><a href="/fuktskada-vattenskada-badrum/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Fuktskada &amp; vattenskada i badrum — försäkring, ansvar och åtgärder</a></li>
+                <li><a href="/hur-lange-haller-ett-badrum/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Hur länge håller ett badrum — teknisk livslängd för VVS, tätskikt och kakel</a></li>
+                <li><a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering i BRF Stockholm — föreningens roll vid VVS- och tätskikts­arbete</a></li>
+                <li><a href="/plastmatta-eller-kakel-badrum/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Plastmatta eller kakel i badrum — BBV vs GVK Säkra Våtrum</a></li>
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida med komplett process</a></li>
+              </ul>
+              <span class="eyebrow section-label" style="margin-top:32px;display:block">Källor &amp; vidare läsning</span>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten AB</a> — branschorganet som utfärdar Säker Vatten-regelverket och auktoriserar VVS-firmor</li>
+                <li><a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Byggkeramikrådet (BKR)</a> — ger ut BBV (Branschregler för Våtrum) för kakelsidan</li>
+                <li><a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">GVK — Golvbranschens Våtrumskontroll</a> — ger ut Säkra Våtrum för våtrumsmatta</li>
+                <li><a href="https://www.boverket.se/sv/byggregler/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Boverket — Byggregler (BBR)</a> — den juridiska ramen för byggnation</li>
+                <li><a href="https://www.vvsforetagen.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">VVS Företagen</a> — branschorganet för svenska VVS-företag</li>
+                <li><a href="https://www.konsumenternas.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumenternas Försäkringsbyrå</a> — försäkringskrav på VVS-dokumentation</li>
+                <li><a href="https://www.vattenskadecentrum.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vattenskadecentrum</a> — årlig Vattenskadeundersökning med statistik</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en guide om Säker Vatten i badrum — VVS-regelverket, branschauktorisation, intyg och hur Säker Vatten samverkar med BBV och tätskikt. Skriven av Haga Plattsättning AB, BKR-behörig plattsättare i Stockholm sedan 2021. Alla påståenden är källbelagda till Säker Vatten AB, BKR, GVK, Boverket, VVS Företagen, Konsumenternas Försäkringsbyrå och Vattenskadecentrum. Vi utför inte VVS-arbete själva — vi koordinerar med Säker Vatten-auktoriserad partner."
+    />
+
+    <!-- ── JSON-LD: FAQPage schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <!-- ── JSON-LD: TechArticle schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+
+    <!-- ── JSON-LD: BreadcrumbList schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>

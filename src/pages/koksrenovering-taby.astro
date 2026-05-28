@@ -1,0 +1,458 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import RecoWidget from '../components/RecoWidget.astro';
+import { BUSINESS } from '../data/business';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'Köksrenovering i Täby med kakelsättning, stänkskydd och köksgolv i klinker. BKR-behörig plattsättare med erfarenhet av villor, radhus och bostadsrätter i Täby kommun.',
+  knowsAbout: [
+    'Köksrenovering Täby',
+    'Kakelsättning Täby',
+    'Stänkskydd kök',
+    'Köksgolv klinker',
+    'Plattsättning Täby',
+    'BKR-behörighet',
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Köksrenovering Täby – Kakel &amp; Plattsättning för Villor &amp; BRF | Haga Plattsättning AB</title>
+    <meta name="description" content="Köksrenovering i Täby med professionell kakelsättning. Stänkskydd, klinkergolv och helkaklade arbetsväggar i villor, radhus och bostadsrätter. BKR-behörig plattsättare. Begär offert." />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/koksrenovering-taby/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/koksrenovering-taby/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/koksrenovering-taby/" />
+    <meta property="og:title" content="Köksrenovering Täby – Kakel & Plattsättning för Villor & BRF" />
+    <meta property="og:description" content="Köksrenovering i Täby — kakel, klinker, stänkskydd. BKR-behörig plattsättare med lokal erfarenhet av villor och radhus." />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplattsattningkitchen1.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Köksrenovering Täby – kakelsättning av stänkskydd och köksgolv" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Köksrenovering Täby – Haga Plattsättning AB" />
+    <meta name="twitter:description" content="Professionell köksrenovering med kakelsättning i Täby. Villor, radhus och BRF." />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplattsattningkitchen1.avif" />
+
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Täby" />
+    <meta name="geo.position" content="59.4439;18.0689" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplattsattningkitchen1.avif" fetchpriority="high" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Tjänster <span>›</span>
+      <strong>Köksrenovering Täby</strong>
+    </div>
+
+    <!-- ── HERO ── -->
+    <section class="s-hero" aria-label="Köksrenovering Täby – Haga Plattsättning AB">
+      <div class="container">
+        <div>
+          <span class="eyebrow">Plattsättare i Täby</span>
+          <h1 class="h-display" style="margin-top:18px">Köksrenovering<br /><em>i Täby</em></h1>
+          <p class="lede" style="margin-top:22px">
+            Täby är en av Stockholmsregionens mest villatäta kommuner — och köket är där de
+            flesta renoveringar börjar. Vi på Haga Plattsättning AB utför professionell
+            kakelsättning i kök i Täby, med samma BKR-behöriga utförande som i våra
+            badrumsprojekt. Stänkskydd, klinkergolv och helkaklade arbetsväggar — anpassat
+            efter villan, radhuset eller bostadsrätten.
+          </p>
+          <div class="hero-actions">
+            <a href="/offertforfragan/" class="btn btn-primary">Begär offert för köksrenovering <span class="arrow">→</span></a>
+            <a href="#faq" class="btn-link">Vanliga frågor ↓</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img
+            src="/hagaplattsattningkitchen1.avif"
+            alt="Köksrenovering Täby – professionell kakelsättning av stänkskydd och köksgolv"
+            width="2400" height="1350" loading="eager" fetchpriority="high"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: STÄNKSKYDD ── -->
+    <section class="bkr-section" aria-label="Stänkskydd i kök – kakel kontra glas">
+      <div class="bkr-inner">
+        <div class="bkr-image">
+          <img
+            src="/behorig-vatrum.avif"
+            alt="Stänkskydd i kakel monterat av BKR-behörig kakelsättare i kök i Täby"
+            width="580" height="480" loading="lazy"
+          />
+        </div>
+        <div class="bkr-text">
+          <p class="section-label">Stänkskydd</p>
+          <h2>Stänkskydd i kakel eller glas – vad passar ditt Täby-kök?</h2>
+          <p>
+            Stänkskyddet är kökets mest synliga kakelyta — det binder ihop bänkskiva, skåp
+            och helhetskänsla. I Täby ser vi en stark trend mot kakel framför glas, eftersom
+            det ger fler design­möjligheter och bättre värdebehållning vid en framtida försäljning.
+            <a href="https://www.maklarsamfundet.se/" target="_blank" rel="noopener" class="outbound-link">Mäklarsamfundet</a>
+            anger kök som en av de två renoveringar som tydligast påverkar slutpriset på
+            en bostad.
+          </p>
+          <p>
+            <strong>Kakelstänkskydd</strong> ger flexibilitet i format och färg — storformat
+            klinker i moderna villor, klassiskt metrokakel i radhus från 70-talet, eller
+            handgjorda zellige-plattor i nyare BRF-kök i Täby Centrum. Kakel är tåligt mot
+            värme och fett, enkelt att rengöra och håller i decennier med rätt fog.
+          </p>
+          <p>
+            <strong>Glasstänkskydd</strong> ger en slät, fogfri yta som är snabb att torka av.
+            Nackdelen är begränsade designval, längre ledtid vid specialmått och att repor
+            syns tydligare. Vill du fördjupa dig i materialvalet?
+            <a href="/stankskydd-kok/" style="color:#0a0a1a;font-weight:600;">Se vår kompletta guide om stänkskydd i kök →</a>
+          </p>
+          <ul class="bkr-checklist" aria-label="Fördelar med kakelstänkskydd">
+            <li>Obegränsade designmöjligheter – mönster, färger och format</li>
+            <li>Tål hög värme och fett utan att missfärgas</li>
+            <li>Enskilda plattor kan bytas vid skada utan att riva hela ytan</li>
+            <li>Värdebevarande vid bostadsförsäljning (enligt Mäklarsamfundet)</li>
+          </ul>
+          <a href="/offertforfragan/" class="bkr-cta">Få offert på stänkskydd →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: DEEP GUIDE — TÄBY-FOCUSED ── -->
+    <section class="guide-section" aria-label="Guide till köksrenovering i Täby">
+
+      <div class="guide-header">
+        <p class="section-label">Guide: Köksrenovering Täby</p>
+        <h2>Kakelsättning i kök — Täbys bostadstyper och vad de kräver</h2>
+        <p>
+          Täbys bostadsbestånd består av en stor andel villor och radhus från 60- till 90-talet,
+          kompletterat med nyare bostadsrätter runt Täby Centrum och Roslags-Näsby. Olika
+          bostadstyper kräver olika upplägg vid köksrenovering — här går vi igenom de tre
+          vanligaste typprojekten.
+        </p>
+      </div>
+
+      <!-- Block 1: Villor och radhus -->
+      <div class="guide-block">
+        <div class="guide-block-inner">
+          <div class="guide-text">
+            <h3>Villor och radhus i Täby — helkaklade arbetsväggar</h3>
+            <p>
+              Täbys villor och radhus har ofta större kök än Stockholms innerstadslägenheter,
+              och vi ser en tydlig trend mot <strong>helkaklade arbetsväggar</strong> — från
+              bänkskiva ända upp till tak. Det ger ett sömlöst intryck och eliminerar den
+              synliga kanten där traditionellt stänkskydd slutar.
+            </p>
+            <p>
+              I villor med öppen planlösning fungerar storformat klinker i ljusa, mattbehandlade
+              nyanser särskilt bra. Färre fogar ger ett öppnare intryck, och de större plattorna
+              är lättare att hålla rena i ett kök som ofta också är social mötesplats.
+            </p>
+            <p>
+              För köksgolv rekommenderar vi klinker med halkklassificering R10 eller högre.
+              Det ger tillräckligt grepp även vid spill, utan att ytan känns skrovlig under
+              fötterna. Vill du se materialval i mer detalj?
+              <a href="/kakel-eller-klinker-stockholm/" style="color:#0a0a1a;font-weight:600;">Se vår tekniska guide om kakel kontra klinker →</a>.
+            </p>
+          </div>
+          <div class="img-before-text-mobile">
+            <img
+              src="/hagaplattsattningkitchen3.avif"
+              alt="Köksrenovering Täby villa — helkaklad arbetsvägg med storformat klinker"
+              width="580" height="360" loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 2: BRF-kök i Täby Centrum -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner">
+          <div class="img-first">
+            <img
+              src="/hagaplattsattningkitchen4.avif"
+              alt="Köksrenovering bostadsrätt Täby – BRF-anmälan och kakelsättning"
+              width="580" height="360" loading="lazy"
+            />
+          </div>
+          <div class="guide-text">
+            <h3>BRF-kök i Täby — anmälan och samordning</h3>
+            <p>
+              I Täbys bostadsrättsföreningar — särskilt i nyare områden runt Täby Centrum
+              och Galoppfältet — gäller samma princip som i hela Sverige: köket räknas
+              normalt inte som våtrum, men styrelsen kan ändå ha regler för anmälan vid
+              ombyggnad.
+            </p>
+            <p>
+              <strong>Anmälningsplikt:</strong> Flytt av vattenanslutningar, dragning av nya
+              elinstallationer eller ingrepp i bärande konstruktion kräver i regel anmälan
+              till styrelsen. Enbart byte av kakel på befintlig vägg brukar inte kräva
+              anmälan — men kontrollera alltid stadgarna i din specifika förening.
+            </p>
+            <p>
+              <strong>VVS-ingrepp:</strong> Om diskbänken flyttas, om en ny kran installeras
+              eller om avloppet dras om, krävs en
+              <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" class="outbound-link">Säker Vatten-auktoriserad VVS-installatör</a>.
+              Vi koordinerar med vår VVS-partner i Täby/Stockholmsregionen.
+            </p>
+            <div class="rot-box">
+              <strong>ROT-avdrag är 30 % av arbetskostnaden</strong>
+              ROT kan användas för berättigade arbeten vid köksrenovering enligt
+              <a href="https://www.skatteverket.se/foretag/skatterochavdrag/rotochrut" target="_blank" rel="noopener" class="outbound-link">Skatteverkets regler</a>.
+              Vi hanterar ROT-ansökan åt dig.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 3: Materialval -->
+      <div class="guide-block">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Populära kakelval för kök i Täby 2026</h3>
+            <p>
+              Vad vi ser i Täby-projekt just nu — baserat på de senaste 12 månadernas
+              kundval i Täby kommun:
+            </p>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li><strong>Storformat 60×120 cm (betonglook)</strong> — populärt i moderna villor och nyare BRF</li>
+              <li><strong>Storformat 60×60 cm i ljus marmoroptik</strong> — i exklusivare villor med öppen planlösning</li>
+              <li><strong>Metrokakel 7,5×15 cm</strong> — tidlös klassiker som passar både modernt och traditionellt</li>
+              <li><strong>Handgjort zellige-kakel</strong> — i mindre BRF-kök där väggytan blir karaktär</li>
+              <li><strong>Klinker i mörk grafitton</strong> — på köksgolv för att dölja slitage i högbruks-kök</li>
+            </ul>
+            <p>
+              Materialvalet beror på köksdesignen, befintlig inredning och hur kraftigt
+              köket används. Vi ger konkreta materialråd i samband med offerten — efter
+              kostnadsfritt hembesök i Täby.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reco widget -->
+      <div style="padding: 0 0 3rem;">
+        <RecoWidget />
+      </div>
+
+      <!-- Block 4: Projektplanering -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Så planerar du köksrenoveringen — checklista för Täby</h3>
+            <p>
+              En köksrenovering involverar flera hantverkargrupper. Vår rekommenderade ordning:
+            </p>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li><strong>1. Skiss och materialval:</strong> Bestäm layout innan du kontaktar hantverkare</li>
+              <li><strong>2. BRF-anmälan</strong> om du bor i bostadsrätt — skicka in i god tid</li>
+              <li><strong>3. VVS och el</strong> — flytt av anslutningar sker innan kakelarbete</li>
+              <li><strong>4. Kakelsättning</strong> — stänkskydd och golv läggs efter VVS/el</li>
+              <li><strong>5. Köksmontage</strong> — skåp och bänkskiva monteras på den färdigkaklade ytan</li>
+              <li><strong>6. Slutdetaljer</strong> — silikonfog, avslutningslister, eluttag, slutstädning</li>
+            </ul>
+            <p>
+              Vi koordinerar momenten med dina övriga hantverkare. Du kan anlita oss enbart
+              för kakeldelen — eller låta oss samordna hela köksrenoveringen i Täby.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 5: Konsumenttips -->
+      <div class="guide-block">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Konsumenttips — undvik fallgropar vid köksrenovering</h3>
+            <p>
+              Enligt
+              <a href="https://www.hallakonsument.se/varor-och-tjanster/infor-att-anlita-hantverkare/" target="_blank" rel="noopener" class="outbound-link">Hallå konsument (Konsumentverket)</a>
+              har du som privatperson ett starkt skydd vid hantverkstjänster. De viktigaste
+              tipsen:
+            </p>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li>Kräv skriftlig offert med specificerat arbetsomfång, tidplan och betalningsvillkor</li>
+              <li>Kontrollera F-skattsedel och relevant behörighet (BKR för plattsättning)</li>
+              <li>Begär ansvarsförsäkringsbevis innan arbetet börjar</li>
+              <li>Betala aldrig mer än 30 % i förskott</li>
+              <li>Dokumentera befintligt skick med foton innan rivning</li>
+              <li>Be om referenser från projekt i Täby eller närområde</li>
+            </ul>
+            <p>
+              Vi erbjuder alltid skriftlig offert enligt
+              <a href="https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17" target="_blank" rel="noopener" class="outbound-link">Konsumentverkets Hantverkarformulär 17</a>.
+              Haga Plattsättning AB har F-skattsedel, ansvarsförsäkring och BKR-behörighet.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="faq-section" id="faq" aria-label="Vanliga frågor om köksrenovering i Täby">
+      <div class="section-inner">
+        <p class="section-label">Vanliga frågor</p>
+        <h2 class="section-title">Frågor om köksrenovering i Täby</h2>
+        <p class="section-lead">
+          Svar på vanliga frågor om kakelarbeten i kök, BRF-regler, planering och materialval —
+          med Täby-specifik kontext där det är relevant.
+        </p>
+        <div class="faq-grid">
+
+          <details class="faq-item">
+            <summary>Utför ni köksrenovering i hela Täby kommun?</summary>
+            <div class="faq-answer">
+              Ja, vi utför kakelarbete i kök i hela Täby — från villor i Hägernäs och
+              Roslags-Näsby till radhus i Skarpäng och bostadsrätter runt Täby Centrum.
+              Vi har vår bas i Sollentuna, vilket gör att vi snabbt kan ta oss till
+              projekt i Täby.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Hur lång tid tar det att kakla stänkskyddet i köket?</summary>
+            <div class="faq-answer">
+              Ett stänkskydd i standardkök (ca 2–4 m²) tar normalt 1–2 arbetsdagar
+              inklusive rivning av befintligt material, underlagsbehandling, montering
+              och fogning. Helkaklade arbetsväggar i större Täby-villor kan ta upp till
+              en vecka beroende på format och omfattning.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Behöver jag tätskikt i köket?</summary>
+            <div class="faq-answer">
+              Nej, köket klassas normalt inte som våtrum och kräver inte tätskikt enligt
+              BBV. Undantaget är om du installerar golvbrunn i köket — då gäller våtrumskrav.
+              Vi använder ändå alltid våtrumsklassad fästmassa bakom spisen som extra säkerhet.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Gäller ROT-avdrag vid köksrenovering i Täby?</summary>
+            <div class="faq-answer">
+              Ja. ROT-avdrag är 30 % av arbetskostnaden enligt Skatteverkets regler för
+              berättigade arbeten i permanentbostad. Det gäller oavsett kommun. Material
+              omfattas inte. Vi hanterar ansökan direkt mot Skatteverket åt dig.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Vilken typ av klinker passar bäst som köksgolv i en Täby-villa?</summary>
+            <div class="faq-answer">
+              Vi rekommenderar klinker med halkklassificering R10 eller högre i matt eller
+              halvmatt utförande. Storformat (60×60 cm) ger ett modernt intryck med färre
+              fogar — populärt val i Täby. Undvik högblanka golv i köket — de blir hala
+              vid spill.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kan ni lägga klinker direkt på befintligt köksgolv?</summary>
+            <div class="faq-answer">
+              I vissa fall — om underlaget är stabilt, plant och bärigt. Det höjer golvnivån
+              med 10–15 mm, vilket kan påverka dörröppningar och trösklar. Vi bedömer
+              det vid hembesöket i Täby.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Måste jag anmäla köksrenoveringen till min BRF i Täby?</summary>
+            <div class="faq-answer">
+              Om renoveringen berör vatten, avlopp eller bärande konstruktion ska du anmäla
+              det till styrelsen. Enbart byte av kakel/stänkskydd utan VVS-ingrepp kräver
+              normalt ingen anmälan — men kontrollera alltid med din specifika förening.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Samarbetar ni med köksmontörer och snickare i Täby?</summary>
+            <div class="faq-answer">
+              Ja, vi har ett nätverk av köksmontörer, snickare och elektriker i
+              Stockholmsregionen — flera med erfarenhet av Täby-projekt. Du kan anlita
+              oss enbart för kakeldelen, eller låta oss koordinera hela köksrenoveringen.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BREADCRUMB JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hem", "item": "https://www.hagaplattsattning.se/" },
+        { "@type": "ListItem", "position": 2, "name": "Tjänster" },
+        { "@type": "ListItem", "position": 3, "name": "Köksrenovering Täby", "item": "https://www.hagaplattsattning.se/koksrenovering-taby/" }
+      ]
+    }
+    </script>
+
+    <!-- ── FAQPage JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Utför ni köksrenovering i hela Täby kommun?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, vi utför kakelarbete i kök i hela Täby — villor i Hägernäs och Roslags-Näsby, radhus i Skarpäng, och bostadsrätter runt Täby Centrum. Vår bas ligger i Sollentuna." } },
+        { "@type": "Question", "name": "Hur lång tid tar det att kakla stänkskyddet i köket?", "acceptedAnswer": { "@type": "Answer", "text": "Standardkök (2–4 m²) tar 1–2 arbetsdagar. Helkaklade arbetsväggar i större villor kan ta upp till en vecka." } },
+        { "@type": "Question", "name": "Behöver jag tätskikt i köket?", "acceptedAnswer": { "@type": "Answer", "text": "Nej, köket klassas normalt inte som våtrum. Undantaget är om du installerar golvbrunn — då gäller våtrumskrav." } },
+        { "@type": "Question", "name": "Gäller ROT-avdrag vid köksrenovering i Täby?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. ROT-avdraget är 30 % av arbetskostnaden enligt Skatteverkets regler för berättigade arbeten i permanentbostad. Gäller oavsett kommun." } },
+        { "@type": "Question", "name": "Vilken klinker passar bäst som köksgolv i Täby-villa?", "acceptedAnswer": { "@type": "Answer", "text": "Klinker med halkklassificering R10+ i matt eller halvmatt utförande. Storformat (60×60 cm) är populärt i Täby för det öppna intrycket." } },
+        { "@type": "Question", "name": "Måste jag anmäla köksrenoveringen till min BRF i Täby?", "acceptedAnswer": { "@type": "Answer", "text": "Vid vatten-, avlopps- eller bärande ingrepp: ja. Vid enbart kakelbyte: normalt inte. Kontrollera alltid stadgarna i din förening." } }
+      ]
+    }
+    </script>
+
+    <!-- ── Service JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.hagaplattsattning.se/koksrenovering-taby/#service",
+      "name": "Köksrenovering Täby",
+      "serviceType": "Köksrenovering",
+      "provider": { "@id": "https://www.hagaplattsattning.se/#business" },
+      "areaServed": { "@type": "City", "name": "Täby" },
+      "url": "https://www.hagaplattsattning.se/koksrenovering-taby/",
+      "potentialAction": {
+        "@type": "RequestQuoteAction",
+        "target": "https://www.hagaplattsattning.se/offertforfragan/"
+      }
+    }
+    </script>
+
+    <!-- ── LocalBusiness JSON-LD ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+    <SiteFooter
+      pageFocus="Köksrenovering i Täby — kakelsättning, stänkskydd och klinkergolv i villor, radhus och bostadsrätter. BKR-behörig plattsättare med lokal erfarenhet av Täby kommun."
+    />
+
+  </body>
+</html>

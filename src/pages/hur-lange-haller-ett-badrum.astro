@@ -1,0 +1,848 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-28';
+const UPDATED = '2026-05-28';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi gör fuktmätning och statusbedömning av badrum — när det är dags att renovera, vad teknisk livslängd innebär, och hur en statusbesiktning fungerar.',
+  knowsAbout: [
+    'Teknisk livslängd badrum',
+    'Statusbesiktning badrum',
+    'Fuktmätning badrum',
+    'När renovera badrum',
+    'BBV',
+    'GVK',
+    'Säker Vatten',
+    'Badrumsrenovering Stockholm',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Hur länge håller ett badrum tekniskt?',
+    a: 'Ett fackmässigt utfört badrum håller normalt 25–30 år innan en större renovering behövs. Det är dock badrummets svagaste komponent som styr när det är dags — vanligtvis tätskiktet bakom kakel eller våtrumsmattan. BKR (Byggkeramikrådet) anger 25–30 år som teknisk livslängd för moderna tätskikt enligt BBV, och GVK (Golvbranschens Våtrumskontroll) anger 10–20 år för våtrumsmattor. VVS-stammar kan i sig hålla 50 år eller mer, men en kombinerad bedömning av tätskikt, ytmaterial, VVS-installationer och ventilation styr när helrenovering blir nödvändig.',
+  },
+  {
+    q: 'Måste man renovera badrum efter 20 år?',
+    a: 'Inte automatiskt — men efter 20 år är det rimligt att göra en statusbesiktning eller fuktmätning. Tätskiktet kan vara förbrukat utan synlig skada, och ett gammalt tätskikt som släpper är den vanligaste orsaken till vattenskador i svenska bostäder enligt Vattenskadecentrums årliga undersökning. Vi rekommenderar fuktmätning av en BKR-behörig plattsättare för badrum äldre än 20 år, särskilt inför försäljning, övertagande eller större renovering. Det är en liten åtgärd som kan rädda en stor reparation.',
+  },
+  {
+    q: 'Vad är teknisk livslängd för tätskikt?',
+    a: 'BKR anger 25–30 år som teknisk livslängd för moderna tätskiktssystem enligt BBV. Nyare folietätskikt och rollade system kan hålla i den övre delen av spannet under goda förhållanden; äldre vävtätskikt från 80- och 90-talet håller ofta kortare. Livslängden påverkas också av ventilation, dagligt slitage, kvalitet på utförandet och om silikonfogarna underhållits. Ett tätskikt har inget garanterat utgångsdatum — det åldras kontinuerligt och inspektion eller fuktmätning är det enda sättet att verifiera att det fortfarande fungerar.',
+  },
+  {
+    q: 'Vad är teknisk livslängd för VVS-installationer i badrum?',
+    a: 'Det beror på vilken installation. Rörstammar i fastigheten håller normalt 50 år eller mer enligt Säker Vatten (branschorganet för VVS-installation). Anslutningar, blandare, golvbrunn och tätningar inne i badrummet har kortare livslängd — vanligen 15–30 år beroende på kvalitet och belastning. När du renoverar badrum byts ofta blandare, golvbrunn och anslutningar samtidigt med tätskiktet, även om stamledningarna lämnas orörda. För arbeten som berör stammarna krävs alltid Säker Vatten-auktoriserad VVS-firma.',
+  },
+  {
+    q: 'Vad innebär en statusbesiktning av badrum?',
+    a: 'En statusbesiktning är en okulär och teknisk bedömning av badrummets skick — utan rivning. Den dokumenterar tätskiktets ålder och visuella skick, fuktvärden i material och konstruktion, status på fogar och silikon, eventuella bomma plattor, ventilation och VVS-installationer. Besiktning utförs ofta av en branschauktoriserad besiktningsfirma (exempelvis Anticimex) eller av en BKR-behörig plattsättare med fuktmätningsutrustning. Resultatet är en skriftlig rapport som används vid bostadsförsäljning, vid övertagande av bostadsrätt eller som beslutsunderlag inför renovering.',
+  },
+  {
+    q: 'Hur besiktigar man ett badrum?',
+    a: 'Besiktning sker i fyra steg: (1) okulär kontroll av tätskiktets synliga delar, fogar, silikon, plattor och eventuella tecken på fukt; (2) fuktmätning med kalibrerat instrument i golv, väggar och vid genomföringar — visar förhöjda värden även när ytan ser hel ut; (3) knacktest för att hitta bomma plattor (lossad vidhäftning); (4) skriftlig rapport som dokumenterar nuvarande skick och rekommendation framåt. Vid bostadsrättsöverlåtelse är besiktning frivillig men starkt rekommenderad av Mäklarsamfundet — det är dolda fel i badrum som oftast leder till tvister efter köpet.',
+  },
+  {
+    q: 'Måste man besikta badrum?',
+    a: 'Det finns inget lagkrav på besiktning av badrum, varken vid normalt boende eller vid försäljning. Däremot finns starka praktiska skäl: vid försäljning är det ofta köparen som kräver besiktning innan handpenning betalas, och Mäklarsamfundet rekommenderar besiktning av äldre badrum för att undvika dolda fel-tvister efter köpet. Vid en bostadsrättsöverlåtelse kan bostadsrättsföreningen kräva att tätskiktets status är dokumenterad. Försäkringsbolagen kräver dokumentation enligt BBV (våtrumsintyg) för att ersätta en vattenskada — utan dokumentation kan ersättningen avvisas eller självrisken höjas.',
+  },
+  {
+    q: 'Vilka tecken visar att badrummet behöver renoveras?',
+    a: 'De vanligaste indikatorerna: missfärgade fogar (särskilt vid golvbrunn och hörn), bomma plattor (ihåligt ljud vid knacktest), mögellukt även när badrummet är torrt, salt- eller kalkutfällningar i fogar, förhöjda fuktvärden vid mätning, fuktskada i utrymmet under, och fogar/silikon som inte underhållits på över 10 år. Folkhälsomyndigheten varnar för hälsoeffekter av mögel i bostäder, så fuktindikatorer bör alltid utredas. Mer i vår guide om fuktskada och vattenskada.',
+  },
+  {
+    q: 'Påverkar badrummets ålder bostadens värde vid försäljning?',
+    a: 'Ja, betydligt. Mäklare värderar generellt bostäder med renoverade eller nyligen besiktigade badrum högre än bostäder med äldre badrum, eftersom köparen annars måste ta höjd för en kommande renovering. Mäklarsamfundet anger badrum och kök som de två renoveringar som tydligast påverkar slutpriset på en bostad. Skillnaden är särskilt märkbar på Stockholms bostadsrättsmarknad, där köpare ofta gör tekniska besiktningar och förhandlar pris efter resultatet. Ett dokumenterat tätskikt med våtrumsintyg är värdebevarande — det är inte en kostnad utan en investering.',
+  },
+  {
+    q: 'När är det dags att renovera badrummet?',
+    a: 'Tre situationer talar för renovering: (1) tätskiktet är 25 år eller äldre och badrummet har inte besiktats — risken för vattenskada är då förhöjd; (2) statusbesiktning eller fuktmätning visar förhöjda värden eller utförd skada; (3) ditt badrum är yngre men har synliga problem (bomma plattor, mögellukt, missfärgade fogar) som inte går att åtgärda lokalt. Är badrummet under 15 år och saknar visuella tecken är fuktmätning inte normalt nödvändig. Inför försäljning rekommenderar vi alltid besiktning av äldre badrum, oavsett synligt skick — det är där dolda fel-tvister oftast uppstår.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Hur länge håller ett badrum? — Teknisk livslängd, statusbesiktning och tecken på renoveringsbehov',
+  description:
+    'Komplett guide om badrummets tekniska livslängd, statusbesiktning och när det är dags att renovera. Med källor till BKR, GVK, Säker Vatten, Vattenskadecentrum, Mäklarsamfundet och Folkhälsomyndigheten.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)' },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Teknisk livslängd badrum',
+    'Statusbesiktning badrum',
+    'Tätskikt livslängd',
+    'VVS-stammar livslängd',
+    'Fuktmätning',
+    'BBV',
+    'Mäklarsamfundet',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsägare i Stockholm som överväger renovering, försäljning eller besiktning',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    {
+      '@type': 'CreativeWork',
+      name: 'Byggkeramikrådet — BKR och BBV (Branschregler för Våtrum)',
+      url: 'https://www.bkr.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'GVK — Golvbranschens Våtrumskontroll (Säkra Våtrum)',
+      url: 'https://www.gvk.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Säker Vatten — branschregler för VVS-installation',
+      url: 'https://www.sakervatten.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Vattenskadecentrum — Vattenskadeundersökningen (årlig branschrapport)',
+      url: 'https://www.vattenskadecentrum.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Mäklarsamfundet — branschorgan för svenska fastighetsmäklare',
+      url: 'https://www.maklarsamfundet.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Anticimex — besiktning av bostäder i Sverige',
+      url: 'https://www.anticimex.com/sv-se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Folkhälsomyndigheten — Fukt och mögel i bostäder',
+      url: 'https://www.folkhalsomyndigheten.se/livsvillkor-levnadsvanor/miljohalsa-och-halsoskydd/inomhusmiljo-allmanna-lokaler-och-platser/fukt-och-mogel/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Konsumenternas Försäkringsbyrå — Hemförsäkring och vattenskador',
+      url: 'https://www.konsumenternas.se/',
+    },
+  ],
+  mainEntityOfPage: 'https://www.hagaplattsattning.se/hur-lange-haller-ett-badrum/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Hur länge håller ett badrum — teknisk livslängd & statusbesiktning',
+      item: 'https://www.hagaplattsattning.se/hur-lange-haller-ett-badrum/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Hur Länge Håller Ett Badrum? — Teknisk Livslängd &amp; Statusbesiktning | Haga Plattsättning</title>
+    <meta
+      name="description"
+      content="Hur länge håller ett badrum? Teknisk livslängd för tätskikt och VVS, statusbesiktning, och när det är dags att renovera. Komplett guide från BKR-behörig plattsättare i Stockholm — med källor till BKR, GVK, Mäklarsamfundet och Vattenskadecentrum."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/hur-lange-haller-ett-badrum/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/hur-lange-haller-ett-badrum/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/hur-lange-haller-ett-badrum/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/hur-lange-haller-ett-badrum/" />
+    <meta property="og:title" content="Hur Länge Håller Ett Badrum? — Teknisk Livslängd & Statusbesiktning" />
+    <meta
+      property="og:description"
+      content="Teknisk livslängd för tätskikt, VVS och kakel — komplett guide med källor till BKR, GVK och Mäklarsamfundet."
+    />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_27.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Färdigt badrum i Stockholm — BKR-behörig plattsättare bedömer teknisk livslängd" />
+
+    <!-- ── TWITTER / X ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hur Länge Håller Ett Badrum? — Teknisk Livslängd & Besiktning" />
+    <meta
+      name="twitter:description"
+      content="Teknisk livslängd, statusbesiktning och tecken på renoveringsbehov — guide av BKR-behörig plattsättare i Stockholm."
+    />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_27.avif" />
+
+    <!-- ── GEO ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplatt_27.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <!-- ── BREADCRUMB ── -->
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Hur länge håller ett badrum — teknisk livslängd &amp; statusbesiktning</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════ -->
+      <section class="s-hero" aria-label="Hur länge håller ett badrum — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Teknisk guide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Hur länge håller<br /><em>ett badrum?</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Ett fackmässigt utfört badrum håller normalt 25–30 år innan en större renovering
+              behövs — men det är badrummets svagaste komponent som styr när det är dags.
+              Vanligen tätskiktet. Här går vi igenom teknisk livslängd för tätskikt, VVS och
+              ytmaterial, vad en statusbesiktning innebär, och vilka tecken som visar att det
+              är dags att agera. Alla siffror är källbelagda till
+              <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">BKR</a>,
+              <a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">GVK</a>,
+              <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten</a>
+              och
+              <a href="https://www.vattenskadecentrum.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vattenskadecentrum</a>.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Boka fuktmätning <span class="arrow">→</span></a>
+              <a href="#snabbsvar" class="btn-link">Hoppa till frågorna ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num">25–30<em>år</em></div><div class="label">Tätskikt (BKR)</div></div>
+              <div class="cell"><div class="num">10–20<em>år</em></div><div class="label">Våtrumsmatta (GVK)</div></div>
+              <div class="cell"><div class="num">50+<em>år</em></div><div class="label">VVS-stammar (Säker Vatten)</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplatt_27.avif"
+              alt="Färdigt badrum i Stockholm — BKR-behörig plattsättare bedömer teknisk livslängd och status"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           META + INNEHÅLL — freshness signal + TOC
+      ══════════════════════════════════════════ -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#livslangd">Teknisk livslängd — tätskikt, VVS och ytmaterial</a></li>
+                <li><a href="#statusbesiktning">Statusbesiktning — vad, när och hur</a></li>
+                <li><a href="#tecken">Tecken &amp; beslut — när är det dags att renovera</a></li>
+                <li><a href="#kontakt">Behöver du bedömning? Boka fuktmätning eller statusbesiktning</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SNABBSVAR — quick answers (AI Overview bait)
+      ══════════════════════════════════════════ -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om badrummets livslängd">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Hur länge håller ett badrum?</strong> Normalt 25–30 år — det är tätskiktet som oftast åldras först.</li>
+                <li><strong>Måste man renovera efter 20 år?</strong> Nej — men fuktmätning eller statusbesiktning rekommenderas. Källa: <a href="https://www.vattenskadecentrum.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vattenskadecentrum</a>.</li>
+                <li><strong>Teknisk livslängd tätskikt?</strong> 25–30 år för kakel/klinker enligt <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">BKR</a>; 10–20 år för våtrumsmatta enligt <a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">GVK</a>.</li>
+                <li><strong>Måste man besikta?</strong> Inget lagkrav, men <a href="https://www.maklarsamfundet.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Mäklarsamfundet</a> rekommenderar besiktning vid försäljning av äldre badrum.</li>
+                <li><strong>Påverkar ålder bostadsvärdet?</strong> Ja — badrum och kök är de två renoveringar som tydligast påverkar slutpris vid försäljning.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet med källhänvisningar i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION A — Teknisk livslängd
+      ══════════════════════════════════════════ -->
+      <section id="livslangd" class="guide-section" aria-label="Teknisk livslängd för badrum">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · Teknisk livslängd</span>
+          <h2 class="h-section" style="margin-top:14px">Teknisk livslängd — <em>tätskikt, VVS och ytmaterial</em></h2>
+          <p>
+            Ett badrum består av flera komponenter med olika teknisk livslängd. Det är den
+            komponent som åldras snabbast — nästan alltid tätskiktet — som styr när badrummet
+            i sin helhet behöver renoveras. Här är livslängden för varje del, källbelagd till
+            respektive branschorgan.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Hur <em>länge</em> håller ett badrum tekniskt?</h3>
+              <p>
+                Ett fackmässigt utfört badrum håller <strong>normalt 25–30 år</strong> innan
+                en större renovering behövs. Det är dock badrummets <em>svagaste komponent</em>
+                som styr när det är dags — vanligtvis tätskiktet bakom kakel eller våtrumsmattan.
+              </p>
+              <p>
+                Riktvärden från branschorganen:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Tätskikt under kakel/klinker:</strong> 25–30 år enligt
+                  <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">BKR (Byggkeramikrådet)</a>
+                </li>
+                <li>
+                  <strong>Våtrumsmatta:</strong> 10–20 år enligt
+                  <a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">GVK (Golvbranschens Våtrumskontroll)</a>
+                </li>
+                <li>
+                  <strong>VVS-stammar (rörstammar):</strong> 50+ år enligt
+                  <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten</a>
+                </li>
+                <li>
+                  <strong>Anslutningar, blandare, golvbrunn:</strong> 15–30 år beroende på kvalitet och belastning
+                </li>
+                <li>
+                  <strong>Silikonfogar:</strong> 5–10 år — bör bytas regelbundet för att hindra missfärgning och fukt
+                </li>
+                <li>
+                  <strong>Cementfogar i kakel:</strong> 25+ år vid normalt underhåll; kan impregneras eller fogfräsas
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                En kombinerad bedömning av tätskikt, ytmaterial, VVS-installationer och
+                ventilation styr när helrenovering blir nödvändig. <strong>Det räcker att en
+                komponent är vid livslängdens slut</strong> — tätskiktet är nästan alltid den
+                komponenten.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_2.avif"
+                alt="Tätskikt och plattsättning i badrum — BKR-behörig plattsättare i Stockholm bedömer livslängd"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är teknisk <em>livslängd för tätskikt?</em></h3>
+              <p>
+                <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">BKR</a>
+                anger <strong>25–30 år</strong> som teknisk livslängd för moderna tätskiktssystem
+                enligt BBV. Spannet styrs av flera faktorer:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Tätskiktets typ</strong> — nyare folietätskikt och rollade system håller normalt i den övre delen av spannet</li>
+                <li><strong>Underlagets skick</strong> vid montering — rörelser i underlaget förkortar livslängden</li>
+                <li><strong>Ventilation</strong> — god frånluft minskar fuktbelastningen och förlänger tätskiktets liv</li>
+                <li><strong>Dagligt slitage</strong> — högbruksbadrum åldras snabbare än sällan-använda</li>
+                <li><strong>Kvalitet på utförandet</strong> — fackmässig montering enligt BBV är förutsättning för 25–30 år</li>
+                <li><strong>Underhåll av silikonfogar</strong> — försummade fogar släpper in fukt som åldrar tätskiktet bakom</li>
+              </ul>
+              <p style="margin-top:14px">
+                Äldre vävtätskikt från 80- och 90-talet håller ofta kortare än dagens system.
+                Ett tätskikt har <strong>inget garanterat utgångsdatum</strong> — det åldras
+                kontinuerligt, och inspektion eller fuktmätning är det enda sättet att verifiera
+                att det fortfarande fungerar. Vill du fördjupa dig i tätskiktets tekniska detaljer?
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår tekniska guide om tätskikt, våtrumsintyg och BBV →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är teknisk livslängd för <em>VVS-installationer</em> i badrum?</h3>
+              <p>Det beror på vilken installation det handlar om:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Rörstammar i fastigheten</strong> håller normalt <strong>50 år eller mer</strong>
+                  enligt
+                  <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten</a>
+                  — branschorganet för VVS-installation
+                </li>
+                <li>
+                  <strong>Anslutningar, blandare, golvbrunn, tätningar</strong> har kortare
+                  livslängd — vanligen 15–30 år beroende på kvalitet och belastning
+                </li>
+                <li>
+                  <strong>Vattenmätare och avstängningsventiler</strong> rekommenderas bytas
+                  vid renovering — de är slitdelar med betydligt kortare livslängd
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                När du renoverar badrum byts ofta blandare, golvbrunn och anslutningar
+                samtidigt med tätskiktet, även om stamledningarna lämnas orörda. Detta är
+                en vanlig tumregel: renovera <em>allt som har samma livslängd som tätskiktet</em>,
+                men låt fastighetens långlivade stamledningar vara så länge de är intakta.
+              </p>
+              <p>
+                För arbeten som berör stammarna krävs <strong>alltid Säker Vatten-auktoriserad
+                VVS-firma</strong> — vi koordinerar med vår partner när VVS-arbete behövs.
+                Bostadsrättsföreningar kräver i regel också styrelsens godkännande för
+                stamarbete. Mer i vår guide om badrumsrenovering i BRF.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION B — Statusbesiktning
+      ══════════════════════════════════════════ -->
+      <section id="statusbesiktning" class="guide-section" aria-label="Statusbesiktning av badrum">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · Statusbesiktning</span>
+          <h2 class="h-section" style="margin-top:14px">Statusbesiktning — <em>vad, när och hur</em></h2>
+          <p>
+            En statusbesiktning är det praktiska sättet att veta var i livscykeln ditt badrum
+            är — utan att riva. Här går vi igenom vad besiktningen omfattar, när den
+            rekommenderas, och vad rapporten ska innehålla för att vara användbar mot
+            försäkringsbolag, bostadsrättsförening och eventuell köpare.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad <em>innebär</em> en statusbesiktning av badrum?</h3>
+              <p>
+                En statusbesiktning är en <strong>okulär och teknisk bedömning</strong> av
+                badrummets skick — utan rivning. Besiktningen dokumenterar:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Tätskiktets ålder och visuella skick</li>
+                <li>Fuktvärden i material och konstruktion, mätt med kalibrerat instrument</li>
+                <li>Status på fogar, silikon och eventuella bomma plattor</li>
+                <li>Ventilation och dess funktion</li>
+                <li>VVS-installationer — synlig status på blandare, golvbrunn, anslutningar</li>
+                <li>Eventuella indikatorer på fuktskada i intilliggande utrymmen</li>
+              </ul>
+              <p style="margin-top:14px">
+                Besiktning utförs ofta av en branschauktoriserad besiktningsfirma — exempelvis
+                <a href="https://www.anticimex.com/sv-se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Anticimex</a>
+                eller motsvarande — eller av en BKR-behörig plattsättare med fuktmätningsutrustning.
+                Resultatet är en <strong>skriftlig rapport</strong> som används vid
+                bostadsförsäljning, vid övertagande av bostadsrätt eller som beslutsunderlag
+                inför renovering.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur <em>besiktigar</em> man ett badrum?</h3>
+              <p>Besiktning sker i fyra steg:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>1. Okulär kontroll</strong> av tätskiktets synliga delar, fogar,
+                  silikon, plattor och eventuella tecken på fukt (missfärgning, mögellukt,
+                  salt- eller kalkutfällningar)
+                </li>
+                <li>
+                  <strong>2. Fuktmätning</strong> med kalibrerat instrument i golv, väggar och
+                  vid genomföringar — visar förhöjda värden även när ytan ser hel ut
+                </li>
+                <li>
+                  <strong>3. Knacktest</strong> för att hitta bomma plattor (lossad vidhäftning) —
+                  ihåligt ljud betyder att fästmassan släppt
+                </li>
+                <li>
+                  <strong>4. Skriftlig rapport</strong> som dokumenterar nuvarande skick,
+                  fuktvärden och rekommendation framåt
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Vid bostadsrättsöverlåtelse är besiktning frivillig men starkt rekommenderad
+                av <a href="https://www.maklarsamfundet.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Mäklarsamfundet</a> —
+                det är dolda fel i badrum som oftast leder till tvister efter köpet. Vid
+                tvist kan ärendet i förlängningen prövas av Allmänna reklamationsnämnden (ARN).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Måste man <em>besikta</em> badrum?</h3>
+              <p>
+                <strong>Det finns inget lagkrav</strong> på besiktning av badrum — varken vid
+                normalt boende eller vid försäljning. Däremot finns starka praktiska skäl:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Vid försäljning</strong> är det ofta köparen som kräver besiktning
+                  innan handpenning betalas. Mäklarsamfundet rekommenderar besiktning av
+                  äldre badrum för att undvika dolda fel-tvister efter köpet.
+                </li>
+                <li>
+                  <strong>Vid bostadsrättsöverlåtelse</strong> kan föreningen kräva att
+                  tätskiktets status är dokumenterad innan styrelsen godkänner överlåtelsen.
+                </li>
+                <li>
+                  <strong>Vid försäkringsskada</strong> kräver försäkringsbolagen dokumentation
+                  enligt BBV (våtrumsintyg) för att ersätta en vattenskada. Utan dokumentation
+                  kan ersättningen avvisas eller självrisken höjas — enligt
+                  <a href="https://www.konsumenternas.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumenternas Försäkringsbyrå</a>.
+                </li>
+                <li>
+                  <strong>Vid eget köp</strong> är besiktning det enda sättet att verifiera
+                  påståenden från säljaren om badrummets skick.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                I korthet: besiktning är frivillig juridiskt men <em>i praktiken nödvändig</em>
+                i många situationer. Kostnaden för en besiktning är liten i jämförelse med
+                kostnaden för en oupptäckt skada.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           MID-PAGE CTA — soft conversion mid-scroll
+      ══════════════════════════════════════════ -->
+      <section class="pillar-mid-cta" aria-label="Boka fuktmätning eller statusbedömning">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">Är ditt badrum 20+ år gammalt?</span>
+            <h2 class="h-sub">Vi gör <em>fuktmätning och statusbedömning</em> i Stockholm.</h2>
+            <p>
+              En BKR-behörig plattsättare kommer ut, gör fuktmätning med kalibrerat instrument,
+              visuell bedömning och knacktest. Du får en skriftlig rapport efter besöket som
+              dokumenterar skicket — användbar inför försäljning, vid övertagande, eller som
+              beslutsunderlag för renovering.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Boka bedömning <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION C — Tecken & beslut
+      ══════════════════════════════════════════ -->
+      <section id="tecken" class="guide-section" aria-label="Tecken på renoveringsbehov och beslut">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Tecken &amp; beslut</span>
+          <h2 class="h-section" style="margin-top:14px">Tecken &amp; beslut — <em>när är det dags att renovera</em></h2>
+          <p>
+            Det finns två sätt att avgöra om badrummet behöver renoveras: tekniska tecken (vad
+            du kan se och mäta) och livssituation (varför du gör det just nu). Här går vi
+            igenom båda — med källor till Folkhälsomyndigheten, Vattenskadecentrum och
+            Mäklarsamfundet.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vilka <em>tecken</em> visar att badrummet behöver renoveras?</h3>
+              <p>De vanligaste indikatorerna vi ser i Stockholms-projekt:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Missfärgade fogar</strong> — särskilt vid golvbrunn, hörn och i duschzonen</li>
+                <li><strong>Bomma plattor</strong> — ihåligt ljud vid knacktest, tecken på lossad vidhäftning</li>
+                <li><strong>Mögellukt</strong> även när badrummet är torrt</li>
+                <li><strong>Salt- eller kalkutfällningar i fogar</strong> — vatten vandrar genom konstruktionen</li>
+                <li><strong>Förhöjda fuktvärden</strong> vid mätning, även när ytan ser hel ut</li>
+                <li><strong>Fuktskada i utrymmet under</strong> badrummet (källare, krypgrund eller granne)</li>
+                <li><strong>Fogar och silikon</strong> som inte underhållits på över 10 år</li>
+                <li><strong>Försämrad ventilation</strong> — kvarvarande fukt i luften efter dusch</li>
+              </ul>
+              <p style="margin-top:14px">
+                <a href="https://www.folkhalsomyndigheten.se/livsvillkor-levnadsvanor/miljohalsa-och-halsoskydd/inomhusmiljo-allmanna-lokaler-och-platser/fukt-och-mogel/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Folkhälsomyndigheten</a>
+                varnar för hälsoeffekter av mögel i bostäder — luftvägsbesvär, allergiska
+                reaktioner och försämrad inomhusmiljö. Fuktindikatorer bör <em>alltid</em>
+                utredas. Mer i vår guide om
+                <a href="/fuktskada-vattenskada-badrum/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">fuktskada och vattenskada i badrum →</a>.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_40.avif"
+                alt="Färdigt renoverat badrum i Stockholm med dokumenterat tätskikt och våtrumsintyg"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Måste man renovera badrum efter <em>20 år?</em></h3>
+              <p>
+                <strong>Inte automatiskt</strong> — men efter 20 år är det rimligt att göra
+                en statusbesiktning eller fuktmätning. Tätskiktet kan vara förbrukat utan synlig
+                skada, och ett gammalt tätskikt som släpper är den vanligaste orsaken till
+                vattenskador i svenska bostäder enligt
+                <a href="https://www.vattenskadecentrum.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vattenskadecentrums</a>
+                årliga undersökning.
+              </p>
+              <p>
+                Vi rekommenderar fuktmätning av en BKR-behörig plattsättare för badrum äldre
+                än 20 år, särskilt:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Inför försäljning — visar köparen att badrummet är dokumenterat</li>
+                <li>Vid övertagande av bostad — verifiera påståenden från säljaren</li>
+                <li>Inför större renovering — undvika att hitta dolda problem efter rivning</li>
+                <li>Vid misstanke om fukt — alltid bättre att veta tidigt</li>
+              </ul>
+              <p style="margin-top:14px">
+                Det är en liten åtgärd som kan rädda en stor reparation. Kostnaden för
+                fuktmätning är låg i jämförelse med kostnaden för en oupptäckt vattenskada
+                som vandrat in i bjälklag eller hos granne.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Påverkar badrummets <em>ålder</em> bostadens värde vid försäljning?</h3>
+              <p>
+                <strong>Ja, betydligt.</strong> Mäklare värderar generellt bostäder med
+                renoverade eller nyligen besiktigade badrum högre än bostäder med äldre badrum,
+                eftersom köparen annars måste ta höjd för en kommande renovering.
+              </p>
+              <p>
+                <a href="https://www.maklarsamfundet.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Mäklarsamfundet</a>
+                — branschorganet för svenska fastighetsmäklare — anger badrum och kök som de
+                två renoveringar som tydligast påverkar slutpriset på en bostad.
+              </p>
+              <p>
+                Skillnaden är särskilt märkbar på <strong>Stockholms bostadsrättsmarknad</strong>,
+                där köpare ofta gör tekniska besiktningar och förhandlar pris efter resultatet.
+                Ett dokumenterat tätskikt med våtrumsintyg är värdebevarande — det är inte en
+                kostnad utan en investering inför försäljning.
+              </p>
+              <p>
+                Vill du läsa mer om vad som påverkar priset på en badrumsrenovering, och om
+                ROT-avdrag, hantverkarformulär och seriösa offerter?
+                <a href="/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår guide om kostnadsdrivare →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>När är det <em>dags</em> att renovera badrummet?</h3>
+              <p>Tre situationer talar för renovering:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Tätskiktet är 25 år eller äldre</strong> och badrummet har inte
+                  besiktats. Risken för vattenskada är då förhöjd — börja med statusbesiktning
+                  innan ni beslutar omfattning.
+                </li>
+                <li>
+                  <strong>Statusbesiktning eller fuktmätning visar problem</strong> — förhöjda
+                  värden, dokumenterad skada, eller flera samverkande indikatorer.
+                </li>
+                <li>
+                  <strong>Synliga problem som inte går att åtgärda lokalt</strong> — bomma
+                  plattor, kraftiga missfärgade fogar, mögellukt eller fuktskada i intilliggande
+                  utrymmen.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Är badrummet <strong>under 15 år och saknar visuella tecken</strong> är
+                fuktmätning normalt inte nödvändig. Inför försäljning rekommenderar vi
+                däremot alltid besiktning av äldre badrum, oavsett synligt skick — det är
+                där dolda fel-tvister oftast uppstår enligt Mäklarsamfundet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CTA — soft conversion
+      ══════════════════════════════════════════ -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning eller statusbedömning">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du behöver bedömning</span>
+            <h2 class="h-section" style="margin-top:14px">Vill du veta <em>var i livscykeln</em> ditt badrum är?</h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                Vi är BKR-behöriga och gör fuktmätning, statusbedömning och rekommendation
+                framåt — på plats i Stockholm. Efter besöket får du en skriftlig rapport med
+                fuktvärden, status på tätskikt och fogar, och en bedömning av kvarvarande
+                teknisk livslängd.
+              </p>
+              <p>
+                Rapporten är användbar vid <strong>försäljning, övertagande, försäkringsärende
+                eller som beslutsunderlag inför renovering</strong>. Behöver du sedan offert
+                för renovering skickar vi det enligt BBV, med dokumenterat våtrumsintyg signerat
+                med BankID.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Boka bedömning <span class="arrow">→</span></a>
+              <a class="btn-link" href="/om-oss/">Läs om våra certifieringar →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/hagaplatt_46.avif"
+                alt="Badrum med dokumenterad teknisk status — Haga Plattsättning AB i Stockholm"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>behörig</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           INTERNAL LINKS + SOURCES — Läs mer
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och källor">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>tätskikt, fukt och renovering</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg &amp; BBV — den tekniska guiden om våtrum</a></li>
+                <li><a href="/fuktskada-vattenskada-badrum/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Fuktskada &amp; vattenskada i badrum — tecken, försäkring och åtgärder</a></li>
+                <li><a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering i BRF Stockholm — föreningens roll vid renovering</a></li>
+                <li><a href="/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vad påverkar priset på en badrumsrenovering — kostnadsdrivare förklarade</a></li>
+                <li><a href="/plastmatta-eller-kakel-badrum/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Plastmatta eller kakel i badrum — branschregler och materialval</a></li>
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida med komplett process</a></li>
+              </ul>
+              <span class="eyebrow section-label" style="margin-top:32px;display:block">Källor &amp; vidare läsning</span>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Byggkeramikrådet (BKR)</a> — ger ut BBV (Branschregler för Våtrum); anger 25–30 år för tätskikt</li>
+                <li><a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">GVK — Golvbranschens Våtrumskontroll</a> — ger ut Säkra Våtrum; anger 10–20 år för våtrumsmatta</li>
+                <li><a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten</a> — branschregler för VVS-installation; anger 50+ år för rörstammar</li>
+                <li><a href="https://www.vattenskadecentrum.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vattenskadecentrum</a> — ger ut årlig Vattenskadeundersökning med statistik</li>
+                <li><a href="https://www.maklarsamfundet.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Mäklarsamfundet</a> — branschorgan för svenska fastighetsmäklare</li>
+                <li><a href="https://www.anticimex.com/sv-se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Anticimex</a> — besiktningsfirma med riksomfattande verksamhet</li>
+                <li><a href="https://www.folkhalsomyndigheten.se/livsvillkor-levnadsvanor/miljohalsa-och-halsoskydd/inomhusmiljo-allmanna-lokaler-och-platser/fukt-och-mogel/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Folkhälsomyndigheten</a> — fukt och mögel i bostäder, hälsoeffekter</li>
+                <li><a href="https://www.konsumenternas.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumenternas Försäkringsbyrå</a> — försäkringskrav på dokumentation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en guide om badrummets tekniska livslängd, statusbesiktning och tecken på renoveringsbehov. Skriven av Haga Plattsättning AB, BKR-behörig plattsättare i Stockholm sedan 2021. Alla siffror och påståenden är källbelagda till BKR, GVK, Säker Vatten, Vattenskadecentrum, Mäklarsamfundet och Folkhälsomyndigheten. Innehållet ska ses som vägledning; för specifik bedömning rekommenderas alltid platsbesök eller kontakt med oss."
+    />
+
+    <!-- ── JSON-LD: FAQPage schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <!-- ── JSON-LD: TechArticle schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+
+    <!-- ── JSON-LD: BreadcrumbList schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>

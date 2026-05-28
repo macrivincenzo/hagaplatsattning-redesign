@@ -1,0 +1,821 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import { BUSINESS } from '../data/business';
+
+const PUBLISHED = '2026-05-28';
+const UPDATED = '2026-05-28';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'BKR-behörig plattsättare i Stockholm. Vi gör fuktmätning, akutbedömning och återställning efter vattenskada i badrum — enligt BBV och med våtrumsintyg som krävs av försäkringsbolag och bostadsrättsförening.',
+  knowsAbout: [
+    'Vattenskada badrum',
+    'Fuktskada badrum',
+    'Fuktmätning badrum',
+    'Vattenskada försäkring',
+    'BBV',
+    'GVK',
+    'Säker Vatten',
+    'Badrumsrenovering Stockholm',
+  ],
+};
+
+const faqs = [
+  {
+    q: 'Vad är skillnaden på fuktskada och vattenskada i badrum?',
+    a: 'En vattenskada är en akut händelse — en trasig anslutning, en spräckt vattenledning, en läckande golvbrunn eller ett trasigt tätskikt som släpper genom större mängder vatten på kort tid. En fuktskada är en gradvis försämring av material och konstruktion på grund av långvarig fuktexponering — ofta osynlig till en början, men över tid leder den till mögel, försämrat tätskikt och i värsta fall till en vattenskada. Båda regleras av samma branschregler (BBV via Byggkeramikrådet, GVK Säkra Våtrum) och båda kan vara försäkringsärenden. Vattenskador är enligt Vattenskadecentrums årliga undersökning en av de vanligaste fastighetsskadorna i Sverige.',
+  },
+  {
+    q: 'Hur vet man om man har en vattenskada i badrummet?',
+    a: 'De vanligaste tecknen är: missfärgning eller mörka fläckar i fogar (särskilt vid golvbrunn och hörn), bomma plattor (knacka lätt med en nyckel — ihåligt ljud betyder att vidhäftningen släppt), mögellukt utan synlig orsak, höjda fuktvärden vid mätning, eller fuktskada i utrymmet under badrummet (källare, krypgrund, granne under). Tätskikt kan vara förbrukat utan synlig skada — därför rekommenderar vi fuktmätning av en BKR-behörig plattsättare vid badrum äldre än 20 år eller om dokumentation saknas. Mer i vår guide om tätskikt och våtrumsintyg.',
+  },
+  {
+    q: 'Vad är de vanligaste tecknen på fuktskada i badrum?',
+    a: 'Fukt visar sig ofta först i fogarna och silikonen — missfärgning, sprickor, mögelflisor och kvarvarande vätska efter dusch är tidiga indikatorer. Senare följer bomma plattor (lossad vidhäftning), salt- eller kalkutfällningar i fogarna (visar att vatten vandrar genom konstruktionen), mögellukt även när badrummet är torrt, och förhöjda fuktvärden vid mätning. Folkhälsomyndigheten varnar för hälsoeffekter av mögel i bostäder — så bör fuktindikatorer alltid utredas, inte ignoreras.',
+  },
+  {
+    q: 'Vad ersätter försäkringsbolaget vid vattenskada?',
+    a: 'Det varierar mellan försäkringsbolag och försäkringstyp, men huvudregeln enligt Konsumenternas Försäkringsbyrå är att hemförsäkringen ersätter plötsliga och oförutsedda vattenskador — exempelvis när en anslutning brister eller en maskin läcker. Försäkringen ersätter däremot inte skador som beror på bristfälligt utförande, åldersförslitning eller brist på underhåll. Det är därför våtrumsintyg och dokumentation enligt BBV i praktiken är ett försäkringskrav: utan dokumenterat fackmässigt utförande kan försäkringsbolaget avvisa skadan eller höja självrisken betydligt.',
+  },
+  {
+    q: 'När täcker inte försäkringen vattenskada?',
+    a: 'Försäkringen täcker normalt inte: (1) skador på grund av åldersförslitning — gamla tätskikt och slitna anslutningar är fastighetsägarens ansvar, (2) bristfälligt utförande utan giltigt våtrumsintyg, (3) långsam fuktskada som borde ha upptäckts vid normalt underhåll, (4) skador från obehörigt utförd installation. Konsumenternas Försäkringsbyrå rekommenderar att alltid begära skriftlig motivering vid avslag — många avslag går att överklaga om utförandet faktiskt var fackmässigt. Vid tvist kan ärendet prövas av Allmänna reklamationsnämnden (ARN) eller försäkringsnämnden hos respektive bolag.',
+  },
+  {
+    q: 'Vem är ansvarig för en vattenskada i en bostadsrätt?',
+    a: 'Ansvarsfördelningen mellan bostadsrättshavaren och föreningen styrs av bostadsrättslagen och föreningens stadgar. Huvudregeln enligt branschorganet Bostadsrätterna är att medlemmen ansvarar för ytskikt och inredning ("det som ligger på insidan") medan föreningen ansvarar för stomme, stammar och fastighetens konstruktion. I praktiken betyder det att medlemmen oftast ansvarar för tätskikt, kakel och våtrumsutrustning, medan föreningen ansvarar för rörstammar och fastighetens bärande delar. Vid vattenskada ska alltid både föreningen och försäkringsbolaget meddelas omedelbart — fördröjning kan påverka ersättningen.',
+  },
+  {
+    q: 'Vad kostar det att åtgärda ett vattenskadat badrum?',
+    a: 'Det går inte att ge ett rakt pris utan platsbesök — varje skada är unik. Kostnaden styrs av skadans omfattning (lokal eller hela badrummet), hur långt fukten vandrat (är bjälklag och konstruktion påverkade?), om VVS måste åtgärdas, vad försäkringsbolaget täcker, och om en helrenovering är nödvändig eller om en lokal åtgärd räcker. Många vattenskador slutar med en hel badrumsrenovering eftersom omfattningen ofta är större än vad som syns på ytan. Vi gör platsbesök och fuktmätning innan vi offererar — så att både du och försäkringsbolaget får en korrekt bild av åtgärdens omfattning.',
+  },
+  {
+    q: 'Hur lång tid tar det att åtgärda en vattenskada?',
+    a: 'Det beror på skadans omfattning. En lokal åtgärd kan vara klar relativt snabbt; en hel badrumsrenovering efter vattenskada är ett betydligt större projekt eftersom rivning, uttorkning, tätskikt och återställning enligt BBV alla har egna momenttider. Tätskikt har dessutom härdningstider som inte går att forcera — det är fysik, inte planering. Vi ger inga raka tidplaner utan platsbesök, men en realistisk tidplan får du efter besöket tillsammans med offerten.',
+  },
+  {
+    q: 'Kan man förebygga vattenskador i badrum?',
+    a: 'Ja, till stor del. De viktigaste förebyggande åtgärderna är: (1) regelbunden inspektion av silikonfogar — byt vart 5–10 år, (2) fuktmätning av badrum äldre än 20 år, (3) snabb åtgärd av små problem (missfärgade fogar, bomma plattor) innan de blir större, (4) fackmässig installation vid alla VVS-arbeten enligt Säker Vattens branschregler, (5) statusbesiktning vid bostadsförsäljning eller vid övertagande av lägenhet. BKR och GVK rekommenderar båda regelbunden okulär inspektion av tätsystemet — det är den billigaste försäkringen mot framtida skador.',
+  },
+  {
+    q: 'Vad ska man göra först vid en akut vattenskada?',
+    a: 'Fyra steg, i ordning: (1) stäng av vattnet — antingen vid huvudkran eller vid den aktuella stigarledningen, (2) säkra det som inte är skadat — flytta möbler, mattor och elektronik från vattnet, (3) anmäl skadan till försäkringsbolag och, vid bostadsrätt, till föreningen omedelbart. Fördröjning kan påverka ersättningen, (4) dokumentera med foton innan något åtgärdas — försäkringsbolaget behöver bilder som visar omfattningen. Försök inte själv riva eller åtgärda — det kan göra skadan svårare att ersätta. Ring istället en BKR-behörig plattsättare eller branschauktoriserad firma som kan göra akutbedömning.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const techArticleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline:
+    'Fuktskada & vattenskada i badrum — komplett guide från en BKR-behörig plattsättare i Stockholm',
+  description:
+    'Komplett guide om fuktskada och vattenskada i badrum: hur du känner igen tecknen, vad försäkringen täcker, vem som är ansvarig i bostadsrätt, och vad du ska göra vid akut skada. Skriven av en BKR-behörig plattsättare i Stockholm med källor till Vattenskadecentrum, Konsumenternas Försäkringsbyrå och Bostadsrätterna.',
+  author: {
+    '@type': 'Organization',
+    name: 'Haga Plattsättning AB',
+    url: 'https://www.hagaplattsattning.se/',
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Byggkeramikrådets våtrumsintyg (BKR-behörighet)' },
+    ],
+  },
+  publisher: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: 'sv-SE',
+  about: [
+    'Vattenskada badrum',
+    'Fuktskada badrum',
+    'Fuktmätning',
+    'Vattenskada försäkring',
+    'BRF-ansvar vattenskada',
+    'BBV',
+    'Säker Vatten',
+    'Konsumenternas Försäkringsbyrå',
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Bostadsägare i Stockholm med vattenskada eller fuktskada i badrum',
+  },
+  proficiencyLevel: 'Beginner',
+  citation: [
+    {
+      '@type': 'CreativeWork',
+      name: 'Vattenskadecentrum — Vattenskadeundersökningen (årlig branschrapport)',
+      url: 'https://www.vattenskadecentrum.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Konsumenternas Försäkringsbyrå — Hemförsäkring och vattenskador',
+      url: 'https://www.konsumenternas.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Svensk Försäkring — branschorgan för försäkringsbolagen',
+      url: 'https://www.svenskforsakring.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Bostadsrätterna — ansvarsfördelning bostadsrätt och förening',
+      url: 'https://www.bostadsratterna.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Byggkeramikrådet — BKR och BBV (Branschregler för Våtrum)',
+      url: 'https://www.bkr.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Säker Vatten — branschregler för VVS i våtrum',
+      url: 'https://www.sakervatten.se/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Folkhälsomyndigheten — Fukt och mögel i bostäder',
+      url: 'https://www.folkhalsomyndigheten.se/livsvillkor-levnadsvanor/miljohalsa-och-halsoskydd/inomhusmiljo-allmanna-lokaler-och-platser/fukt-och-mogel/',
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Allmänna reklamationsnämnden (ARN) — försäkringstvister',
+      url: 'https://www.arn.se/',
+    },
+  ],
+  mainEntityOfPage: 'https://www.hagaplattsattning.se/fuktskada-vattenskada-badrum/',
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Guider' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Fuktskada & vattenskada i badrum',
+      item: 'https://www.hagaplattsattning.se/fuktskada-vattenskada-badrum/',
+    },
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.ico" sizes="any" />
+    <link rel="icon" href="/Hagaplattsattning.favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Fuktskada &amp; Vattenskada i Badrum — Guide med Källor | Haga Plattsättning AB</title>
+    <meta
+      name="description"
+      content="Fuktskada eller vattenskada i badrum? Komplett guide om hur du känner igen tecknen, vad försäkringen täcker, ansvar i bostadsrätt och vad du ska göra vid akut skada. Skriven av BKR-behörig plattsättare i Stockholm — alla källor angivna."
+    />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/fuktskada-vattenskada-badrum/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/fuktskada-vattenskada-badrum/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.hagaplattsattning.se/fuktskada-vattenskada-badrum/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/fuktskada-vattenskada-badrum/" />
+    <meta property="og:title" content="Fuktskada & Vattenskada i Badrum — Komplett Guide" />
+    <meta
+      property="og:description"
+      content="Hur känner du igen tecknen, vad täcker försäkringen, vem är ansvarig i BRF? Komplett guide med källor till Vattenskadecentrum, Konsumenternas Försäkringsbyrå och Bostadsrätterna."
+    />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplatt_29.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="BKR-behörig plattsättare i Stockholm gör fuktmätning och bedömning av badrum" />
+
+    <!-- ── TWITTER / X ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fuktskada & Vattenskada i Badrum — Guide med Källor" />
+    <meta
+      name="twitter:description"
+      content="Tecken, försäkring, BRF-ansvar och akuta åtgärder — komplett guide av BKR-behörig plattsättare i Stockholm."
+    />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplatt_29.avif" />
+
+    <!-- ── GEO ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplatt_29.avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="/design.css" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <!-- ── BREADCRUMB ── -->
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Guider <span>›</span>
+      <strong>Fuktskada &amp; vattenskada i badrum</strong>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════ -->
+      <section class="s-hero" aria-label="Fuktskada och vattenskada i badrum — Haga Plattsättning AB">
+        <div class="container">
+          <div>
+            <span class="eyebrow">Skadeguide · BKR-behörig</span>
+            <h1 class="h-display" style="margin-top:18px">
+              Fuktskada &amp; vattenskada<br /><em>i badrum</em>
+            </h1>
+            <p class="lede" style="margin-top:22px">
+              Vattenskador är enligt
+              <a href="https://www.vattenskadecentrum.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vattenskadecentrums</a>
+              årliga undersökning en av de vanligaste fastighetsskadorna i Sverige — och majoriteten
+              sker i våtrum. Den här guiden förklarar hur du känner igen tecknen, vad
+              försäkringen täcker, vem som är ansvarig i en bostadsrätt, och vad du ska göra
+              vid akut skada. Alla påståenden är källbelagda till Vattenskadecentrum,
+              Konsumenternas Försäkringsbyrå, Bostadsrätterna, BKR och Folkhälsomyndigheten.
+            </p>
+            <div class="hero-actions">
+              <a href="/offertforfragan/" class="btn btn-primary">Boka fuktmätning <span class="arrow">→</span></a>
+              <a href="tel:0739133348" class="btn-link">Ring 073-913 33 48 ↓</a>
+            </div>
+            <div class="trust-strip">
+              <div class="cell"><div class="num"><em>BKR</em></div><div class="label">Behörig plattsättare</div></div>
+              <div class="cell"><div class="num"><em>Fukt­mätning</em></div><div class="label">Snabb bedömning</div></div>
+              <div class="cell"><div class="num"><em>BBV</em></div><div class="label">Återställning enligt branschregler</div></div>
+              <div class="cell"><div class="num">4,9<em>/5</em></div><div class="label">Reco-betyg</div></div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="/hagaplatt_29.avif"
+              alt="BKR-behörig plattsättare i Stockholm gör fuktmätning och bedömning av badrum — Haga Plattsättning AB"
+              width="2400"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           META + INNEHÅLL — freshness signal + TOC
+      ══════════════════════════════════════════ -->
+      <section class="pillar-meta-strip" aria-label="Innehåll och uppdateringsdatum">
+        <div class="container">
+          <div class="meta-toc">
+            <span class="eyebrow section-label">Innehåll på sidan</span>
+            <nav aria-label="Innehållsförteckning">
+              <ol>
+                <li><a href="#snabbsvar">Snabbsvar — det viktigaste på 30 sekunder</a></li>
+                <li><a href="#identifiera">Identifiera — hur du känner igen fukt- och vattenskador</a></li>
+                <li><a href="#forsakring">Försäkring &amp; ansvar — vad gäller i hem och bostadsrätt</a></li>
+                <li><a href="#atgarder">Åtgärder &amp; återställning — vad händer efter besiktningen</a></li>
+                <li><a href="#kontakt">Akut vattenskada? Boka fuktmätning eller akutbedömning</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="meta-info">
+            <div>Senast uppdaterad <time datetime={UPDATED}>{UPDATED}</time></div>
+            <div>Författare · Haga Plattsättning AB</div>
+            <div>Granskat av · BKR-behörig plattsättare</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SNABBSVAR — quick answers (AI Overview bait)
+      ══════════════════════════════════════════ -->
+      <section id="snabbsvar" class="guide-section" aria-label="Snabba svar om fuktskada och vattenskada">
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Snabbsvar</span>
+              <h2 class="h-section" style="margin-top:14px">Det viktigaste på <em>30 sekunder</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><strong>Skillnad fuktskada / vattenskada?</strong> Vattenskada är akut och plötslig; fuktskada är långsam försämring över tid. Båda kan vara försäkringsärenden.</li>
+                <li><strong>Vanligaste tecknen?</strong> Missfärgade fogar, bomma plattor, mögellukt, salt-/kalkutfällningar, förhöjda fuktvärden.</li>
+                <li><strong>Täcker försäkringen?</strong> Plötsliga vattenskador ja; åldersförslitning och bristfälligt utförande nej. Källa: <a href="https://www.konsumenternas.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumenternas Försäkringsbyrå</a>.</li>
+                <li><strong>Vem ansvarar i BRF?</strong> Medlemmen för ytskikt/inredning, föreningen för stomme/stammar. Källa: <a href="https://www.bostadsratterna.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Bostadsrätterna</a>.</li>
+                <li><strong>Akut skada — vad gör jag?</strong> Stäng av vattnet → säkra det som inte är skadat → anmäl till försäkring och förening → dokumentera med foto.</li>
+              </ul>
+              <p style="margin-top:18px;font-size:0.92rem;color:var(--ink-3)">
+                Hela guiden nedan går på djupet med källhänvisningar i varje sektion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION A — Identifiera
+      ══════════════════════════════════════════ -->
+      <section id="identifiera" class="guide-section" aria-label="Identifiera fuktskada och vattenskada">
+        <div class="guide-header">
+          <span class="eyebrow section-label">A · Identifiera</span>
+          <h2 class="h-section" style="margin-top:14px">Identifiera — <em>hur du känner igen fukt- och vattenskador</em></h2>
+          <p>
+            De flesta vattenskador i badrum syns inte direkt — de avslöjar sig först när
+            skadan redan har vandrat. Här går vi igenom skillnaden på fuktskada och
+            vattenskada, vanliga tecken, och varför fuktmätning är den viktigaste
+            tidiga indikatorn.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vad är <em>skillnaden</em> på fuktskada och vattenskada?</h3>
+              <p>
+                En <strong>vattenskada</strong> är en akut händelse — en trasig anslutning, en
+                spräckt vattenledning, en läckande golvbrunn eller ett trasigt tätskikt som
+                släpper genom större mängder vatten på kort tid. Det är ofta synligt
+                omedelbart och anmäls direkt till försäkringsbolaget.
+              </p>
+              <p>
+                En <strong>fuktskada</strong> är en gradvis försämring av material och
+                konstruktion på grund av långvarig fuktexponering — ofta osynlig till en
+                början, men över tid leder den till mögel, försämrat tätskikt och i värsta
+                fall till en vattenskada. Fuktskador upptäcks oftast genom okulär kontroll,
+                mätning eller vid renovering — sällan av den boende själv.
+              </p>
+              <p>
+                Båda regleras av samma branschregler:
+                <a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">BBV via Byggkeramikrådet</a>
+                för kakel och
+                <a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">GVK Säkra Våtrum</a>
+                för våtrumsmatta. Båda kan vara försäkringsärenden — men hanteras olika av
+                försäkringsbolaget. Enligt
+                <a href="https://www.vattenskadecentrum.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vattenskadecentrums</a>
+                årliga undersökning är vattenskador en av de vanligaste fastighetsskadorna i
+                Sverige — och majoriteten av dem sker i våtrum.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_8.avif"
+                alt="Badrum i Stockholm där BKR-behörig plattsättare gör fuktbedömning — Haga Plattsättning AB"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur <em>vet man</em> om man har en vattenskada i badrummet?</h3>
+              <p>De vanligaste indikatorerna vi ser i Stockholms-projekt:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Missfärgning eller mörka fläckar i fogar</strong> — särskilt vid golvbrunn, i hörn och i duschzonen</li>
+                <li><strong>Bomma eller gungande plattor</strong> — knacka lätt med en nyckel; ihåligt ljud betyder att vidhäftningen släppt</li>
+                <li><strong>Mögellukt</strong> i badrummet eller intilliggande utrymmen, även utan synlig orsak</li>
+                <li><strong>Förhöjda fuktvärden vid mätning</strong> — den säkraste indikatorn, eftersom fukt kan finnas utan synlig skada</li>
+                <li><strong>Fuktskada i utrymmet under</strong> — källare, krypgrund eller granne i lägenheten under</li>
+                <li><strong>Salt- eller kalkutfällningar i fogar</strong> — visar att vatten har vandrat genom konstruktionen</li>
+              </ul>
+              <p style="margin-top:14px">
+                <strong>Tätskikt kan vara förbrukat utan synlig skada.</strong> Vi rekommenderar
+                fuktmätning av en BKR-behörig plattsättare vid badrum äldre än 20 år eller om
+                dokumentation saknas — särskilt inför försäljning eller större renovering. Vill
+                du läsa mer om tätskiktets livslängd och tecknen på att det är förbrukat?
+                <a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår tekniska guide om tätskikt, våtrumsintyg och BBV →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad är de vanligaste tecknen på <em>fuktskada</em> i badrum?</h3>
+              <p>
+                Fukt visar sig först i fogarna och silikonen — missfärgning, sprickor, mögelflisor
+                och kvarvarande vätska efter dusch är tidiga indikatorer. Senare följer:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Bomma plattor (lossad vidhäftning)</li>
+                <li>Salt- eller kalkutfällningar i fogar (vatten vandrar genom konstruktionen)</li>
+                <li>Mögellukt även när badrummet är torrt</li>
+                <li>Förhöjda fuktvärden vid mätning</li>
+                <li>Missfärgning i tak eller väggar nära duschzonen</li>
+                <li>Försämrad ventilation / dålig avluftning som ökar fuktbelastningen</li>
+              </ul>
+              <p style="margin-top:14px">
+                <a href="https://www.folkhalsomyndigheten.se/livsvillkor-levnadsvanor/miljohalsa-och-halsoskydd/inomhusmiljo-allmanna-lokaler-och-platser/fukt-och-mogel/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Folkhälsomyndigheten</a>
+                varnar för hälsoeffekter av mögel i bostäder — bland annat luftvägsbesvär,
+                allergiska reaktioner och försämrad inomhusmiljö. Av den anledningen bör fuktindikatorer
+                alltid utredas, inte ignoreras. Tidig åtgärd är billigare och hälsosammare än en
+                full vattenskada flera år senare.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION B — Försäkring & ansvar
+      ══════════════════════════════════════════ -->
+      <section id="forsakring" class="guide-section" aria-label="Försäkring och ansvar vid vattenskada">
+        <div class="guide-header">
+          <span class="eyebrow section-label">B · Försäkring &amp; ansvar</span>
+          <h2 class="h-section" style="margin-top:14px">Försäkring &amp; ansvar — <em>vad gäller i hem och bostadsrätt</em></h2>
+          <p>
+            Den enskilt vanligaste frågan vi får är "täcker försäkringen?". Svaret beror på
+            skadetyp, dokumentation och boendeform. Här är reglerna sammanfattade — med
+            källor till Konsumenternas Försäkringsbyrå, Svensk Försäkring och Bostadsrätterna.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad <em>ersätter försäkringsbolaget</em> vid vattenskada?</h3>
+              <p>
+                Det varierar mellan försäkringsbolag och försäkringstyp, men huvudregeln enligt
+                <a href="https://www.konsumenternas.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumenternas Försäkringsbyrå</a>
+                — den statligt finansierade rådgivningsbyrån för försäkringsfrågor — är att
+                hemförsäkringen ersätter <strong>plötsliga och oförutsedda vattenskador</strong>.
+                Exempel: en anslutning brister, en diskmaskin eller tvättmaskin läcker, en
+                vattenslang spricker.
+              </p>
+              <p>
+                Försäkringen ersätter <strong>däremot inte</strong>:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>Skador på grund av åldersförslitning — gamla tätskikt och slitna anslutningar är fastighetsägarens ansvar</li>
+                <li>Bristfälligt utförande utan giltigt våtrumsintyg</li>
+                <li>Långsam fuktskada som borde ha upptäckts vid normalt underhåll</li>
+                <li>Skador från obehörigt utförd installation (t.ex. en VVS-installation utan Säker Vatten-auktorisering)</li>
+              </ul>
+              <p style="margin-top:14px">
+                Det är därför våtrumsintyg och dokumentation enligt BBV i praktiken är ett
+                försäkringskrav: <em>utan dokumenterat fackmässigt utförande kan försäkringsbolaget
+                avvisa skadan eller höja självrisken betydligt</em>.
+                <a href="https://www.svenskforsakring.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Svensk Försäkring</a>
+                — försäkringsbolagens branschorgan — bekräftar att dokumentation enligt branschregler
+                är central för bedömning av ersättningsrätt.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>När <em>täcker inte försäkringen</em> vattenskada?</h3>
+              <p>
+                De vanligaste avslagsgrunderna enligt Konsumenternas Försäkringsbyrå är:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Åldersförslitning</strong> — material som är förbrukat på grund av ålder, inte plötsligt</li>
+                <li><strong>Bristfälligt utförande</strong> — saknas våtrumsintyg eller utfört av obehörig firma</li>
+                <li><strong>Underlåtenhet</strong> — skadan borde ha upptäckts och åtgärdats tidigare vid normalt underhåll</li>
+                <li><strong>Obehörig installation</strong> — VVS utförd av annan än Säker Vatten-auktoriserad firma</li>
+                <li><strong>Felaktig användning</strong> — t.ex. ej godkänd anslutning av maskin</li>
+              </ul>
+              <p style="margin-top:14px">
+                Konsumenternas Försäkringsbyrå rekommenderar att alltid <strong>begära skriftlig
+                motivering vid avslag</strong> — många avslag går att överklaga om utförandet
+                faktiskt var fackmässigt och dokumenterat. Vid tvist kan ärendet prövas av
+                <a href="https://www.arn.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Allmänna reklamationsnämnden (ARN)</a>
+                eller försäkringsnämnden hos respektive bolag.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vem är <em>ansvarig</em> för en vattenskada i en bostadsrätt?</h3>
+              <p>
+                Ansvarsfördelningen mellan bostadsrättshavaren och föreningen styrs av
+                bostadsrättslagen och föreningens stadgar. Huvudregeln enligt
+                <a href="https://www.bostadsratterna.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Bostadsrätterna</a>
+                — branschorganet för Sveriges bostadsrättsföreningar — är:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Medlemmen ansvarar för:</strong> ytskikt, inredning och allt på
+                  "insidan" — tätskikt, kakel, klinker, fog, silikon, blandare, toalett, tvättställ
+                </li>
+                <li>
+                  <strong>Föreningen ansvarar för:</strong> stomme, stammar och fastighetens
+                  bärande delar — rörstammar, bjälklag, ventilation
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                I praktiken betyder det att <strong>medlemmen oftast ansvarar för tätskikt
+                och kakel</strong>, medan föreningen ansvarar för rörstammarna. Stadgarna kan
+                dock skilja sig — kontrollera alltid den specifika föreningens stadgar.
+              </p>
+              <p>
+                Vid vattenskada ska <strong>alltid både föreningen och försäkringsbolaget
+                meddelas omedelbart</strong> — fördröjning kan påverka ersättningen. Vill du
+                läsa mer om badrumsrenovering specifikt i bostadsrätt?
+                <a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår guide om badrumsrenovering i BRF Stockholm →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           MID-PAGE CTA — soft conversion mid-scroll
+      ══════════════════════════════════════════ -->
+      <section class="pillar-mid-cta" aria-label="Boka fuktmätning eller akutbedömning">
+        <div class="container">
+          <div class="mid-cta-text">
+            <span class="eyebrow section-label">Misstänker du fuktskada eller har akut vattenskada?</span>
+            <h2 class="h-sub">Vi gör <em>fuktmätning och akutbedömning</em> i Stockholm.</h2>
+            <p>
+              En BKR-behörig plattsättare kommer ut, mäter fukt med kalibrerat instrument,
+              gör visuell bedömning och dokumenterar omfattningen — det material du behöver
+              för försäkringsbolaget och bostadsrättsföreningen. Behöver du sedan offert för
+              återställning skickar vi det enligt BBV. Annars får du en skriftlig rapport
+              efter besöket.
+            </p>
+          </div>
+          <div class="mid-cta-actions">
+            <a class="btn" href="/offertforfragan/">Boka fuktmätning <span class="arrow">→</span></a>
+            <a class="btn-link" href="tel:0739133348">073-913 33 48</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           SECTION C — Åtgärder & återställning
+      ══════════════════════════════════════════ -->
+      <section id="atgarder" class="guide-section" aria-label="Åtgärder och återställning vid vattenskada">
+        <div class="guide-header">
+          <span class="eyebrow section-label">C · Åtgärder</span>
+          <h2 class="h-section" style="margin-top:14px">Åtgärder &amp; återställning — <em>vad händer efter besiktningen</em></h2>
+          <p>
+            När fuktmätning och bedömning är klar finns två vägar: lokal åtgärd eller hel
+            renovering. Här går vi igenom vilket som blir aktuellt när, hur försäkringen
+            koordineras, och vilka steg du ska följa vid en akut skada.
+          </p>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner">
+            <div class="guide-text">
+              <h3>Vad ska man <em>göra först</em> vid en akut vattenskada?</h3>
+              <p>Fyra steg, i ordning:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>1. Stäng av vattnet</strong> — antingen vid huvudkran eller vid den
+                  aktuella stigarledningen. I bostadsrätt sitter ofta avstängningskran vid
+                  fastighetens stigarledning på vinden eller i källaren.
+                </li>
+                <li>
+                  <strong>2. Säkra det som inte är skadat</strong> — flytta möbler, mattor,
+                  elektronik och kläder från vattnet. Skydda gränsande ytor.
+                </li>
+                <li>
+                  <strong>3. Anmäl skadan</strong> till försäkringsbolag och, vid bostadsrätt,
+                  till föreningen <em>omedelbart</em>. Fördröjning kan påverka ersättningen.
+                </li>
+                <li>
+                  <strong>4. Dokumentera med foton</strong> innan något åtgärdas — försäkringsbolaget
+                  behöver bilder som visar omfattningen och ursprunget.
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                <strong>Försök inte själv riva eller åtgärda skadan</strong> — det kan göra
+                skadan svårare att ersätta och försvåra försäkringsbolagets bedömning. Ring
+                istället en BKR-behörig plattsättare eller branschauktoriserad firma som kan
+                göra akutbedömning och samordna med försäkringsbolaget.
+              </p>
+            </div>
+            <div class="guide-image">
+              <img
+                src="/hagaplatt_15.avif"
+                alt="Färdig återställning efter vattenskada i Stockholm — BKR-behörig plattsättare med våtrumsintyg"
+                width="580" height="360" loading="lazy" decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Vad <em>kostar</em> det att åtgärda ett vattenskadat badrum?</h3>
+              <p>
+                Det går inte att ge ett rakt pris utan platsbesök — varje skada är unik. Kostnaden
+                styrs av flera faktorer:
+              </p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li><strong>Skadans omfattning</strong> — lokal eller hela badrummet</li>
+                <li><strong>Hur långt fukten vandrat</strong> — är bjälklag och konstruktion påverkade?</li>
+                <li><strong>Om VVS måste åtgärdas</strong> — kräver Säker Vatten-auktoriserad firma</li>
+                <li><strong>Vad försäkringsbolaget täcker</strong> — och vad du eventuellt får stå för själv</li>
+                <li><strong>Om en helrenovering är nödvändig</strong> eller om en lokal åtgärd räcker</li>
+              </ul>
+              <p style="margin-top:14px">
+                Många vattenskador slutar med en hel badrumsrenovering eftersom omfattningen
+                ofta är större än vad som syns på ytan. Vi gör platsbesök och fuktmätning
+                <em>innan</em> vi offererar — så att både du och försäkringsbolaget får en
+                korrekt bild av åtgärdens omfattning. Vill du fördjupa dig i vad som påverkar
+                priset på en badrumsrenovering generellt?
+                <a href="/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår guide om kostnadsdrivare →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Hur lång <em>tid</em> tar det att åtgärda en vattenskada?</h3>
+              <p>
+                Det beror på skadans omfattning. En lokal åtgärd kan vara klar relativt snabbt;
+                en hel badrumsrenovering efter vattenskada är ett betydligt större projekt
+                eftersom rivning, uttorkning, tätskikt och återställning enligt BBV alla har
+                egna momenttider.
+              </p>
+              <p>
+                <strong>Tätskikt har dessutom härdningstider som inte går att forcera</strong> —
+                det är fysik, inte planering. Härdning sker enligt tillverkarens datablad och
+                kan inte snabbas på utan att äventyra hela tätsystemet.
+              </p>
+              <p>
+                Vi ger inga raka tidplaner utan platsbesök, men en realistisk tidplan får du
+                efter besöket tillsammans med offerten. Vill du läsa mer om vad som påverkar
+                tiden för en badrumsrenovering?
+                <a href="/badrumsrenovering-tidplan-faktorer-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Se vår guide om vad som påverkar tidplanen →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-block gray">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <h3>Kan man <em>förebygga</em> vattenskador i badrum?</h3>
+              <p>Ja, till stor del. De viktigaste förebyggande åtgärderna:</p>
+              <ul class="bkr-checklist" style="margin-top:14px">
+                <li>
+                  <strong>Regelbunden inspektion av silikonfogar</strong> — byt vart 5–10 år
+                  för att hindra missfärgning och kvarstående fukt
+                </li>
+                <li>
+                  <strong>Fuktmätning av badrum äldre än 20 år</strong> — särskilt inför
+                  försäljning, övertagande eller större renovering
+                </li>
+                <li>
+                  <strong>Snabb åtgärd av små problem</strong> — missfärgade fogar, bomma plattor
+                  och mögellukt blir större problem om de ignoreras
+                </li>
+                <li>
+                  <strong>Fackmässig installation</strong> vid alla VVS-arbeten enligt
+                  <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vattens branschregler</a>
+                </li>
+                <li>
+                  <strong>Statusbesiktning vid bostadsförsäljning</strong> eller vid övertagande
+                  av lägenhet — fångar dolda fel innan de blir ditt ansvar
+                </li>
+                <li>
+                  <strong>Bra ventilation</strong> — fungerande frånluft minskar fuktbelastningen
+                  i badrummet och förlänger tätskiktets liv
+                </li>
+              </ul>
+              <p style="margin-top:14px">
+                Både BKR och GVK rekommenderar regelbunden okulär inspektion av tätsystemet —
+                det är den billigaste försäkringen mot framtida skador. Vi gör fuktmätning
+                och statusbedömning som en del av en kostnadsfri synning i Stockholm.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CTA — soft conversion
+      ══════════════════════════════════════════ -->
+      <section id="kontakt" class="s-twocol" aria-label="Boka kostnadsfri synning eller fuktmätning">
+        <div class="container">
+          <div>
+            <span class="eyebrow section-label">När du behöver hjälp</span>
+            <h2 class="h-section" style="margin-top:14px">Akut <em>vattenskada</em> eller misstänkt <em>fuktskada?</em></h2>
+            <div class="body-prose" style="margin-top:18px;max-width:54ch">
+              <p>
+                Vi är BKR-behöriga och utför fuktmätning, akutbedömning och återställning
+                enligt BBV. Efter besöket får du en skriftlig rapport med foto och fuktvärden —
+                det dokument du behöver för att anmäla skadan till försäkringsbolag eller
+                bostadsrättsförening.
+              </p>
+              <p>
+                Återställning av tätskikt och kakel utförs enligt BBV med dokumenterat
+                kvalitetsdokument och våtrumsintyg signerat med BankID — som krävs av både
+                försäkring och förening efter en skada. Vi koordinerar med Säker Vatten-auktoriserad
+                VVS-partner när VVS-arbete behövs.
+              </p>
+            </div>
+            <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/offertforfragan/">Boka fuktmätning <span class="arrow">→</span></a>
+              <a class="btn-link" href="tel:0739133348">073-913 33 48 →</a>
+            </div>
+          </div>
+          <div>
+            <div class="media-card">
+              <img
+                src="/saeker-vatten-rgb-png.avif"
+                alt="Säker Vatten-koordinerad återställning efter vattenskada — Haga Plattsättning AB i Stockholm"
+                width="580" height="480" loading="lazy" decoding="async"
+              />
+              <div class="stamp">BBV<strong>BKR</strong>behörig</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           INTERNAL LINKS + SOURCES — Läs mer
+      ══════════════════════════════════════════ -->
+      <section class="guide-section" aria-label="Läs mer — relaterade guider och källor">
+        <div class="guide-block">
+          <div class="guide-block-inner text-only">
+            <div class="guide-text">
+              <span class="eyebrow section-label">Läs vidare</span>
+              <h2 class="h-section" style="margin-top:14px">Mer om <em>tätskikt, ansvar och återställning</em></h2>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="/tatskikt-vatrumsintyg-bbv/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Tätskikt, våtrumsintyg &amp; BBV — den tekniska guiden om våtrum</a></li>
+                <li><a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering i BRF Stockholm — föreningens roll och styrelsens krav</a></li>
+                <li><a href="/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vad påverkar priset på en badrumsrenovering — kostnadsdrivare förklarade</a></li>
+                <li><a href="/badrumsrenovering-tidplan-faktorer-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vad påverkar tidplanen för en badrumsrenovering — momenttider och härdning</a></li>
+                <li><a href="/plastmatta-eller-kakel-badrum/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Plastmatta eller kakel i badrum — branschregler och materialval</a></li>
+                <li><a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Badrumsrenovering Stockholm — vår tjänstesida med komplett process</a></li>
+              </ul>
+              <span class="eyebrow section-label" style="margin-top:32px;display:block">Källor &amp; vidare läsning</span>
+              <ul class="bkr-checklist" style="margin-top:18px">
+                <li><a href="https://www.vattenskadecentrum.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Vattenskadecentrum</a> — branschorgan, ger ut årlig Vattenskadeundersökning med statistik</li>
+                <li><a href="https://www.konsumenternas.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Konsumenternas Försäkringsbyrå</a> — statligt finansierad rådgivning kring försäkring</li>
+                <li><a href="https://www.svenskforsakring.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Svensk Försäkring</a> — försäkringsbolagens branschorgan</li>
+                <li><a href="https://www.bostadsratterna.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Bostadsrätterna</a> — branschorganet för Sveriges bostadsrättsföreningar</li>
+                <li><a href="https://www.bkr.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Byggkeramikrådet (BKR)</a> — ger ut BBV (Branschregler för Våtrum)</li>
+                <li><a href="https://www.gvk.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">GVK — Golvbranschens Våtrumskontroll</a> — ger ut Säkra Våtrum</li>
+                <li><a href="https://www.sakervatten.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Säker Vatten</a> — branschregler för VVS-installation i våtrum</li>
+                <li><a href="https://www.folkhalsomyndigheten.se/livsvillkor-levnadsvanor/miljohalsa-och-halsoskydd/inomhusmiljo-allmanna-lokaler-och-platser/fukt-och-mogel/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Folkhälsomyndigheten</a> — fukt och mögel i bostäder, hälsoeffekter</li>
+                <li><a href="https://www.arn.se/" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">Allmänna reklamationsnämnden (ARN)</a> — tvistlösning vid avslagna försäkringsärenden</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <SiteFooter
+      pageFocus="Den här sidan är en guide om fuktskada och vattenskada i badrum — tecken, försäkring, BRF-ansvar och akutåtgärder. Skriven av Haga Plattsättning AB, BKR-behörig plattsättare i Stockholm sedan 2021. Alla påståenden är källbelagda till Vattenskadecentrum, Konsumenternas Försäkringsbyrå, Bostadsrätterna och Folkhälsomyndigheten. Innehållet ska ses som vägledning; vid akut skada eller specifika ärenden rekommenderas alltid platsbesök eller kontakt med oss."
+    />
+
+    <!-- ── JSON-LD: FAQPage schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <!-- ── JSON-LD: TechArticle schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(techArticleJsonLd)} />
+
+    <!-- ── JSON-LD: BreadcrumbList schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    <!-- ── JSON-LD: LocalBusiness schema ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>

@@ -1,0 +1,438 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import RecoWidget from '../components/RecoWidget.astro';
+import { BUSINESS } from '../data/business';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'Köksrenovering i Nacka med kakelsättning, stänkskydd och köksgolv i klinker. BKR-behörig plattsättare med erfarenhet av villor, radhus och nya BRF i Sickla, Saltsjö-Boo och övriga Nacka.',
+  knowsAbout: [
+    'Köksrenovering Nacka',
+    'Kakelsättning Nacka',
+    'Stänkskydd kök',
+    'Köksgolv klinker',
+    'Plattsättning Nacka',
+    'BKR-behörighet',
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <title>Köksrenovering Nacka – Kakel &amp; Plattsättning för Villor &amp; BRF | Haga Plattsättning AB</title>
+    <meta name="description" content="Köksrenovering i Nacka med professionell kakelsättning. Stänkskydd, klinkergolv och helkaklade arbetsväggar i villor, radhus och nyare bostadsrätter i Sickla, Saltsjö-Boo och övriga Nacka. BKR-behörig plattsättare." />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/koksrenovering-nacka/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/koksrenovering-nacka/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/koksrenovering-nacka/" />
+    <meta property="og:title" content="Köksrenovering Nacka – Kakel & Plattsättning för Villor & BRF" />
+    <meta property="og:description" content="Köksrenovering i Nacka — kakel, klinker, stänkskydd. BKR-behörig plattsättare med erfarenhet av Sickla, Saltsjö-Boo och hela Nacka kommun." />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/hagaplattsattningkitchen4.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Köksrenovering Nacka – kakelsättning av stänkskydd och köksgolv" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Köksrenovering Nacka – Haga Plattsättning AB" />
+    <meta name="twitter:description" content="Professionell köksrenovering med kakelsättning i Nacka. Sickla, Saltsjö-Boo och hela Nacka kommun." />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/hagaplattsattningkitchen4.avif" />
+
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Nacka" />
+    <meta name="geo.position" content="59.3097;18.1632" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hagaplattsattningkitchen4.avif" fetchpriority="high" />
+  </head>
+  <body>
+    <SiteNav />
+
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Tjänster <span>›</span>
+      <strong>Köksrenovering Nacka</strong>
+    </div>
+
+    <!-- ── HERO ── -->
+    <section class="s-hero" aria-label="Köksrenovering Nacka – Haga Plattsättning AB">
+      <div class="container">
+        <div>
+          <span class="eyebrow">Plattsättare i Nacka</span>
+          <h1 class="h-display" style="margin-top:18px">Köksrenovering<br /><em>i Nacka</em></h1>
+          <p class="lede" style="margin-top:22px">
+            Nacka är en av Stockholmsregionens mest expansiva kommuner — med ett bostadsbestånd
+            som spänner från äldre villor i Saltsjö-Boo och Älta till nyproducerade
+            bostadsrätter i Sickla och Nacka Strand. Vi på Haga Plattsättning AB utför
+            professionell kakelsättning i kök i hela Nacka kommun, med samma BKR-behöriga
+            utförande som i våra badrumsprojekt.
+          </p>
+          <div class="hero-actions">
+            <a href="/offertforfragan/" class="btn btn-primary">Begär offert för köksrenovering <span class="arrow">→</span></a>
+            <a href="#faq" class="btn-link">Vanliga frågor ↓</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img
+            src="/hagaplattsattningkitchen4.avif"
+            alt="Köksrenovering Nacka – professionell kakelsättning av stänkskydd och köksgolv"
+            width="2400" height="1350" loading="eager" fetchpriority="high"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: STÄNKSKYDD ── -->
+    <section class="bkr-section" aria-label="Stänkskydd i kök – kakel kontra glas">
+      <div class="bkr-inner">
+        <div class="bkr-image">
+          <img
+            src="/behorig-vatrum.avif"
+            alt="Stänkskydd i kakel monterat av BKR-behörig kakelsättare i kök i Nacka"
+            width="580" height="480" loading="lazy"
+          />
+        </div>
+        <div class="bkr-text">
+          <p class="section-label">Stänkskydd</p>
+          <h2>Stänkskydd i kakel eller glas — vad passar ditt Nacka-kök?</h2>
+          <p>
+            Stänkskyddet är kökets mest synliga kakelyta. I Nacka ser vi två tydliga riktningar:
+            i nyare BRF-områden som Sickla och Nacka Strand domineras valet av modernt storformat
+            och industriellt utseende; i äldre villor i Saltsjö-Boo och Älta är klassiskt
+            metrokakel eller handgjort zellige-kakel mer populärt.
+            <a href="https://www.maklarsamfundet.se/" target="_blank" rel="noopener" class="outbound-link">Mäklarsamfundet</a>
+            anger kök som en av de två renoveringar som tydligast påverkar slutpriset vid en
+            framtida försäljning — särskilt i Nackas växande bostadsmarknad.
+          </p>
+          <p>
+            <strong>Kakelstänkskydd</strong> ger oändliga designmöjligheter, tål värme och fett
+            utan att missfärgas, och enskilda plattor kan bytas vid skada utan att hela ytan
+            rivs.
+          </p>
+          <p>
+            <strong>Glasstänkskydd</strong> ger en slät, fogfri yta men har begränsade
+            designval. Vill du fördjupa dig i materialvalet?
+            <a href="/stankskydd-kok/" style="color:#0a0a1a;font-weight:600;">Se vår kompletta guide om stänkskydd i kök →</a>
+          </p>
+          <ul class="bkr-checklist" aria-label="Fördelar med kakelstänkskydd">
+            <li>Obegränsade designmöjligheter — mönster, färger och format</li>
+            <li>Tål hög värme och fett utan att missfärgas</li>
+            <li>Enskilda plattor kan bytas vid skada utan att riva hela ytan</li>
+            <li>Värdebevarande vid bostadsförsäljning (enligt Mäklarsamfundet)</li>
+          </ul>
+          <a href="/offertforfragan/" class="bkr-cta">Få offert på stänkskydd →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: DEEP GUIDE — NACKA-FOCUSED ── -->
+    <section class="guide-section" aria-label="Guide till köksrenovering i Nacka">
+
+      <div class="guide-header">
+        <p class="section-label">Guide: Köksrenovering Nacka</p>
+        <h2>Kakelsättning i kök — Nackas bostadstyper och vad de kräver</h2>
+        <p>
+          Nacka har genomgått stora förändringar de senaste 15 åren — Sickla har vuxit från
+          industriområde till bostads- och kontorscentrum, och nya BRF-projekt har byggts
+          längs hela centrala Nacka. Samtidigt finns det stora villabestånd i Saltsjö-Boo,
+          Älta, Boo och Saltsjöbaden. Här går vi igenom de tre vanligaste typprojekten.
+        </p>
+      </div>
+
+      <!-- Block 1: Nyproducerade BRF i Sickla & Nacka Strand -->
+      <div class="guide-block">
+        <div class="guide-block-inner">
+          <div class="guide-text">
+            <h3>Nyare BRF i Sickla och Nacka Strand</h3>
+            <p>
+              I Nackas nyproducerade bostadsrätter — Sickla, Nacka Strand, Kvarnholmen — är
+              köken oftast moderna med öppen planlösning mot vardagsrum. Storformat klinker
+              (60×60 cm eller 60×120 cm) i ljusa nyanser dominerar valet, eftersom det binder
+              ihop kök och allrum visuellt.
+            </p>
+            <p>
+              <strong>BRF-regler:</strong> Nyare föreningar har ofta tydliga stadgar för
+              ombyggnad. Anmälningsplikt gäller vid vatten- eller avloppsingrepp, men
+              normalt inte vid enbart kakelbyte. Kontrollera alltid stadgarna i din specifika
+              förening.
+            </p>
+            <p>
+              <strong>VVS-ingrepp:</strong> Vid flytt av diskbänk eller ny kran krävs en
+              <a href="https://www.sakervatten.se/" target="_blank" rel="noopener" class="outbound-link">Säker Vatten-auktoriserad VVS-installatör</a>.
+              Vi koordinerar med vår partner och tar med oss BRF-anmälan vid behov.
+            </p>
+          </div>
+          <div class="img-before-text-mobile">
+            <img
+              src="/hagaplattsattningkitchen1.avif"
+              alt="Köksrenovering BRF Sickla Nacka — storformat klinker i öppet kök"
+              width="580" height="360" loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 2: Villor i Saltsjö-Boo, Boo, Älta -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner">
+          <div class="img-first">
+            <img
+              src="/hagaplattsattningkitchen3.avif"
+              alt="Köksrenovering villa Saltsjö-Boo Nacka — helkaklad arbetsvägg med klinker"
+              width="580" height="360" loading="lazy"
+            />
+          </div>
+          <div class="guide-text">
+            <h3>Villor i Saltsjö-Boo, Boo, Älta och Saltsjöbaden</h3>
+            <p>
+              Nackas villaområden är blandade i ålder — allt från 30-talsvillor med små
+              ursprungliga kök till nyare radhus med öppen planlösning. I äldre villor ser
+              vi ofta <strong>fullskaliga köksrenoveringar</strong> där kakeldelen är en del
+              av en större ombyggnad: helkaklad arbetsvägg, klinkergolv och eventuellt
+              våtrumsmatta i intilliggande tvättstuga.
+            </p>
+            <p>
+              För köksgolv rekommenderar vi klinker med halkklassificering R10 eller högre,
+              i matt eller halvmatt utförande. Mer i vår
+              <a href="/kakel-eller-klinker-stockholm/" style="color:#0a0a1a;font-weight:600;">tekniska guide om kakel kontra klinker</a>.
+            </p>
+            <div class="rot-box">
+              <strong>ROT-avdrag är 30 % av arbetskostnaden</strong>
+              ROT kan användas för berättigade arbeten vid köksrenovering enligt
+              <a href="https://www.skatteverket.se/foretag/skatterochavdrag/rotochrut" target="_blank" rel="noopener" class="outbound-link">Skatteverkets regler</a>.
+              Vi hanterar ROT-ansökan åt dig.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 3: Materialval -->
+      <div class="guide-block">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Populära kakelval för kök i Nacka 2026</h3>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li><strong>Storformat 60×120 cm (betonglook)</strong> — i moderna BRF i Sickla och Nacka Strand</li>
+              <li><strong>Storformat 60×60 cm i marmoroptik</strong> — i större villakök med öppen planlösning</li>
+              <li><strong>Metrokakel 7,5×15 cm</strong> — klassiker i Älta-villor och äldre radhus</li>
+              <li><strong>Handgjort zellige-kakel</strong> — i äldre villor och nyrenoverade BRF i Saltsjöbaden</li>
+              <li><strong>Klinker R10+ på golv</strong> — slitstark och halksäker för dagligt bruk</li>
+            </ul>
+            <p>
+              Vi ger konkreta materialråd i samband med offerten — efter kostnadsfritt hembesök
+              i Nacka kommun.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reco widget -->
+      <div style="padding: 0 0 3rem;">
+        <RecoWidget />
+      </div>
+
+      <!-- Block 4: Projektplanering -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Så planerar du köksrenoveringen — checklista för Nacka</h3>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li><strong>1. Skiss och materialval</strong> — bestäm layout innan du kontaktar hantverkare</li>
+              <li><strong>2. BRF-anmälan</strong> om du bor i bostadsrätt — skicka in i god tid</li>
+              <li><strong>3. VVS och el</strong> — flytt av anslutningar sker innan kakelarbete</li>
+              <li><strong>4. Kakelsättning</strong> — stänkskydd och golv läggs efter VVS/el</li>
+              <li><strong>5. Köksmontage</strong> — skåp och bänkskiva monteras på den färdigkaklade ytan</li>
+              <li><strong>6. Slutdetaljer</strong> — silikonfog, avslutningslister, eluttag, slutstädning</li>
+            </ul>
+            <p>
+              Vi koordinerar momenten med dina övriga hantverkare. Du kan anlita oss enbart
+              för kakeldelen — eller låta oss samordna hela köksrenoveringen i Nacka.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 5: Konsumenttips -->
+      <div class="guide-block">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Konsumenttips — undvik fallgropar vid köksrenovering</h3>
+            <p>
+              Enligt
+              <a href="https://www.hallakonsument.se/varor-och-tjanster/infor-att-anlita-hantverkare/" target="_blank" rel="noopener" class="outbound-link">Hallå konsument (Konsumentverket)</a>
+              har du som privatperson ett starkt skydd vid hantverkstjänster:
+            </p>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li>Kräv skriftlig offert med specificerat arbetsomfång, tidplan och betalningsvillkor</li>
+              <li>Kontrollera F-skattsedel och relevant behörighet (BKR för plattsättning)</li>
+              <li>Begär ansvarsförsäkringsbevis innan arbetet börjar</li>
+              <li>Betala aldrig mer än 30 % i förskott</li>
+              <li>Dokumentera befintligt skick med foton innan rivning</li>
+              <li>Be om referenser från projekt i Nacka eller närområde</li>
+            </ul>
+            <p>
+              Vi erbjuder alltid skriftlig offert enligt
+              <a href="https://publikationer.konsumentverket.se/produkter-och-tjanster/boende-och-hantverkstjanster/bo-2017-03-hantverkarformularet-17" target="_blank" rel="noopener" class="outbound-link">Konsumentverkets Hantverkarformulär 17</a>.
+              Haga Plattsättning AB har F-skattsedel, ansvarsförsäkring och BKR-behörighet.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="faq-section" id="faq" aria-label="Vanliga frågor om köksrenovering i Nacka">
+      <div class="section-inner">
+        <p class="section-label">Vanliga frågor</p>
+        <h2 class="section-title">Frågor om köksrenovering i Nacka</h2>
+        <p class="section-lead">
+          Svar på vanliga frågor om kakelarbeten i kök — med Nacka-specifik kontext där det
+          är relevant.
+        </p>
+        <div class="faq-grid">
+
+          <details class="faq-item">
+            <summary>Utför ni köksrenovering i hela Nacka kommun?</summary>
+            <div class="faq-answer">
+              Ja, vi utför kakelarbete i kök i hela Nacka — från nya BRF i Sickla, Nacka Strand
+              och Kvarnholmen till villor i Saltsjö-Boo, Boo, Älta och Saltsjöbaden. Vi har
+              vår bas i Sollentuna men reser regelbundet till projekt i Nacka.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Hur lång tid tar det att kakla stänkskyddet i köket?</summary>
+            <div class="faq-answer">
+              Ett stänkskydd i standardkök (ca 2–4 m²) tar normalt 1–2 arbetsdagar
+              inklusive rivning, underlagsbehandling, montering och fogning. Helkaklade
+              arbetsväggar i större villor kan ta upp till en vecka.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Behöver jag tätskikt i köket?</summary>
+            <div class="faq-answer">
+              Nej, köket klassas normalt inte som våtrum och kräver inte tätskikt enligt
+              BBV. Undantaget är om du installerar golvbrunn — då gäller våtrumskrav.
+              Vi använder ändå alltid våtrumsklassad fästmassa bakom spisen som extra säkerhet.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Gäller ROT-avdrag vid köksrenovering i Nacka?</summary>
+            <div class="faq-answer">
+              Ja. ROT-avdrag är 30 % av arbetskostnaden enligt Skatteverkets regler för
+              berättigade arbeten i permanentbostad. Gäller oavsett kommun. Material
+              omfattas inte. Vi hanterar ansökan direkt mot Skatteverket åt dig.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Vilken klinker passar bäst som köksgolv i en Nacka-villa?</summary>
+            <div class="faq-answer">
+              Klinker med halkklassificering R10+ i matt eller halvmatt utförande. Storformat
+              (60×60 cm) ger ett modernt intryck med färre fogar. För äldre villor i Saltsjö-Boo
+              fungerar även smalformat och mönsterkakel bra.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kan ni lägga klinker direkt på befintligt köksgolv?</summary>
+            <div class="faq-answer">
+              I vissa fall — om underlaget är stabilt, plant och bärigt. Det höjer golvnivån
+              med 10–15 mm, vilket kan påverka dörröppningar och trösklar. Vi bedömer det
+              vid hembesöket.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Måste jag anmäla köksrenoveringen till min BRF i Nacka?</summary>
+            <div class="faq-answer">
+              Vid vatten-, avlopps- eller bärande ingrepp ja. Vid enbart kakelbyte normalt
+              inte — men kontrollera alltid stadgarna i din specifika förening. Nyare
+              föreningar i Sickla och Nacka Strand har ofta tydligare stadgar.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Samarbetar ni med köksmontörer och snickare i Nacka?</summary>
+            <div class="faq-answer">
+              Ja, vi har ett nätverk av köksmontörer, snickare, elektriker och Säker
+              Vatten-auktoriserade VVS-installatörer i Stockholmsregionen — flera med
+              Nacka-erfarenhet. Du kan anlita oss enbart för kakeldelen eller för
+              helhetsprojektet.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BREADCRUMB JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hem", "item": "https://www.hagaplattsattning.se/" },
+        { "@type": "ListItem", "position": 2, "name": "Tjänster" },
+        { "@type": "ListItem", "position": 3, "name": "Köksrenovering Nacka", "item": "https://www.hagaplattsattning.se/koksrenovering-nacka/" }
+      ]
+    }
+    </script>
+
+    <!-- ── FAQPage JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Utför ni köksrenovering i hela Nacka kommun?", "acceptedAnswer": { "@type": "Answer", "text": "Ja — från BRF i Sickla, Nacka Strand och Kvarnholmen till villor i Saltsjö-Boo, Boo, Älta och Saltsjöbaden. Vår bas ligger i Sollentuna." } },
+        { "@type": "Question", "name": "Hur lång tid tar det att kakla stänkskyddet?", "acceptedAnswer": { "@type": "Answer", "text": "Standardkök (2–4 m²) tar 1–2 arbetsdagar. Helkaklade arbetsväggar i större villor kan ta upp till en vecka." } },
+        { "@type": "Question", "name": "Behöver jag tätskikt i köket?", "acceptedAnswer": { "@type": "Answer", "text": "Nej, köket klassas normalt inte som våtrum. Undantaget är om du installerar golvbrunn — då gäller våtrumskrav." } },
+        { "@type": "Question", "name": "Gäller ROT-avdrag vid köksrenovering i Nacka?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. ROT-avdraget är 30 % av arbetskostnaden enligt Skatteverkets regler. Gäller oavsett kommun." } },
+        { "@type": "Question", "name": "Vilken klinker passar bäst som köksgolv i Nacka-villa?", "acceptedAnswer": { "@type": "Answer", "text": "Klinker med halkklassificering R10+ i matt eller halvmatt utförande. Storformat (60×60 cm) är populärt; smalformat passar äldre villor." } },
+        { "@type": "Question", "name": "Måste jag anmäla köksrenoveringen till min BRF i Nacka?", "acceptedAnswer": { "@type": "Answer", "text": "Vid vatten-, avlopps- eller bärande ingrepp: ja. Vid enbart kakelbyte: normalt inte. Kontrollera alltid stadgarna." } }
+      ]
+    }
+    </script>
+
+    <!-- ── Service JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.hagaplattsattning.se/koksrenovering-nacka/#service",
+      "name": "Köksrenovering Nacka",
+      "serviceType": "Köksrenovering",
+      "provider": { "@id": "https://www.hagaplattsattning.se/#business" },
+      "areaServed": { "@type": "City", "name": "Nacka" },
+      "url": "https://www.hagaplattsattning.se/koksrenovering-nacka/",
+      "potentialAction": {
+        "@type": "RequestQuoteAction",
+        "target": "https://www.hagaplattsattning.se/offertforfragan/"
+      }
+    }
+    </script>
+
+    <!-- ── LocalBusiness JSON-LD ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+    <SiteFooter
+      pageFocus="Köksrenovering i Nacka — kakelsättning, stänkskydd och klinkergolv i villor, radhus och bostadsrätter. BKR-behörig plattsättare med erfarenhet av Sickla, Saltsjö-Boo och hela Nacka kommun."
+    />
+
+  </body>
+</html>
