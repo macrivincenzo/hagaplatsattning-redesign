@@ -10,6 +10,11 @@ const isService = [
   '/badrumsrenovering-danderyd/',
   '/badrumsrenovering-taby/',
   '/badrumsrenovering-nacka/',
+  '/plattsattare-stockholm/',
+  '/plattsattare-sollentuna/',
+  '/plattsattare-taby/',
+  '/plattsattare-nacka/',
+  '/plattsattare-bromma/',
   '/kakelsattare-stockholm/',
   '/koksrenovering-stockholm/',
   '/koksrenovering-taby/',
@@ -55,6 +60,7 @@ const isHome = path === '/';
         <a href="/badrumsrenovering-stockholm/" aria-haspopup="true" aria-current={isService ? 'page' : undefined}>Tjänster</a>
         <div class="dropdown-menu" role="menu">
           <a href="/badrumsrenovering-stockholm/" role="menuitem">Badrumsrenovering Stockholm</a>
+          <a href="/plattsattare-stockholm/" role="menuitem">Plattsättare Stockholm</a>
           <a href="/kakelsattare-stockholm/" role="menuitem">Kakelsättare Stockholm</a>
           <a href="/koksrenovering-stockholm/" role="menuitem">Köksrenovering Stockholm</a>
           <a href="/koksrenovering-taby/" role="menuitem">Köksrenovering Täby</a>
@@ -79,6 +85,7 @@ const isHome = path === '/';
     <span class="mobile-section">Tjänster</span>
     <ul role="list">
       <li><a href="/badrumsrenovering-stockholm/">Badrumsrenovering Stockholm</a></li>
+      <li><a href="/plattsattare-stockholm/">Plattsättare Stockholm</a></li>
       <li><a href="/kakelsattare-stockholm/">Kakelsättare Stockholm</a></li>
       <li><a href="/koksrenovering-stockholm/">Köksrenovering Stockholm</a></li>
       <li><a href="/koksrenovering-taby/">Köksrenovering Täby</a></li>

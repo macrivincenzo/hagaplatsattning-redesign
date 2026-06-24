@@ -1,0 +1,534 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+import RecoWidget from '../components/RecoWidget.astro';
+import { BUSINESS } from '../data/business';
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description:
+    'Plattsättare i Stockholm – BKR-behörigt plattsättarföretag. Professionell plattsättning av golv och vägg i badrum, kök och våtrum med våtrumsintyg och kvalitetsdokument.',
+  knowsAbout: [
+    'Plattsättare Stockholm',
+    'Plattsättning',
+    'Kakelsättning',
+    'Plattsättare badrum',
+    'Golv och vägg',
+    'Klinker och natursten',
+    'Våtrumsintyg',
+    'BKR-behörighet',
+  ],
+};
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Plattsättare Stockholm – BKR-behörigt Plattsättarföretag | Haga Plattsättning AB</title>
+    <meta name="description" content="Söker du en plattsättare i Stockholm? Haga Plattsättning AB är ett BKR-behörigt plattsättarföretag med 4.9/5 på Reco. Plattsättning av golv och vägg i badrum, kök och våtrum med våtrumsintyg. Begär kostnadsfri offert." />
+    <link rel="canonical" href="https://www.hagaplattsattning.se/plattsattare-stockholm/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://www.hagaplattsattning.se/plattsattare-stockholm/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content="https://www.hagaplattsattning.se/plattsattare-stockholm/" />
+    <meta property="og:title" content="Plattsättare Stockholm – BKR-behörigt Plattsättarföretag | Haga Plattsättning AB" />
+    <meta property="og:description" content="BKR-behörig plattsättare i Stockholm. Plattsättning av golv och vägg i badrum, kök och våtrum med våtrumsintyg. Begär gratis offert." />
+    <meta property="og:image" content="https://www.hagaplattsattning.se/haga%20platts%C3%A4ttning%20bild%203.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Plattsättare Stockholm – Haga Plattsättning AB utför professionell plattsättning" />
+
+    <!-- ── TWITTER / X CARD ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Plattsättare Stockholm – Haga Plattsättning AB" />
+    <meta name="twitter:description" content="BKR-behörig plattsättare i Stockholm. Plattsättning i badrum, kök och våtrum med våtrumsintyg." />
+    <meta name="twitter:image" content="https://www.hagaplattsattning.se/haga%20platts%C3%A4ttning%20bild%203.avif" />
+
+    <!-- ── GEO / LOCAL ── -->
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content="Stockholm" />
+    <meta name="geo.position" content="59.3293;18.0686" />
+  </head>
+  <body>
+
+    <SiteNav />
+
+    <!-- ══════════════════════════════════════════
+         PLATTSÄTTARE STOCKHOLM – SERVICE/HUB PAGE
+    ══════════════════════════════════════════ -->
+
+    <!-- ── BREADCRUMB ── -->
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Tjänster <span>›</span>
+      <strong>Plattsättare Stockholm</strong>
+    </div>
+
+    <!-- ── SECTION 1: HERO ── -->
+    <section class="s-hero" aria-label="Plattsättare Stockholm – Haga Plattsättning AB">
+      <div class="container">
+        <div>
+          <span class="eyebrow">Plattsättare i Stockholm</span>
+          <h1 class="h-display" style="margin-top:18px">Plattsättare<br /><em>i Stockholm</em></h1>
+          <p class="lede" style="margin-top:22px">
+            Att anlita rätt plattsättare i Stockholm avgör hela slutresultatet – och inte minst
+            tryggheten om något skulle gå fel. Vi på Haga Plattsättning AB är ett BKR-behörigt
+            plattsättarföretag som utför plattsättning av golv och vägg i badrum, kök och våtrum,
+            med dokumenterad kvalitet och våtrumsintyg.
+          </p>
+          <div class="hero-actions">
+            <a href="/offertforfragan/" class="btn btn-primary">Begär kostnadsfri offert <span class="arrow">→</span></a>
+            <a href="#faq" class="btn-link">Vanliga frågor ↓</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img
+            src="/hagaplatt_15.avif"
+            alt="Plattsättare i Stockholm lägger storformatklinker i badrum – Haga Plattsättning AB"
+            width="2400"
+            height="1350"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CERT STRIP ── -->
+    <section class="cert-strip" aria-label="Certifieringar">
+      <span class="item">Behörigt Våtrum</span>
+      <span class="item">Säker Vatten</span>
+      <span class="item">BKR-certifierad</span>
+      <span class="item">F-skatt &amp; försäkrad</span>
+      <span class="item">Kvalitetsdokument</span>
+    </section>
+
+    <!-- ── SECTION 2: BKR – BEHÖRIG VS OBEHÖRIG ── -->
+    <section class="bkr-section" aria-label="BKR-behörig plattsättare – vad skiljer behörig från obehörig">
+      <div class="bkr-inner">
+        <div class="bkr-image">
+          <img
+            src="/behorig-vatrum.avif"
+            alt="Behörig plattsättare i Stockholm visar BKR-certifikat för våtrumsarbete"
+            width="580" height="480" loading="lazy"
+          />
+        </div>
+        <div class="bkr-text">
+          <p class="section-label">Behörighet &amp; certifiering</p>
+          <h2>Vad skiljer en behörig plattsättare från en obehörig?</h2>
+          <p>
+            BKR-behörighet är branschens kvalitetsstämpel för plattsättare som arbetar i våtrum.
+            Behörigheten utfärdas av
+            <a href="https://www.bkr.se/om-behorighet" target="_blank" rel="noopener" class="outbound-link">Byggkeramikrådet (BKR)</a>
+            och förutsätter dokumenterad utbildning, praktisk erfarenhet och löpande fortbildning.
+            Behörigheten är frivillig enligt lag – men i praktiken krävs den av försäkringsbolag,
+            bostadsrättsföreningar och byggherrar i Stockholm.
+          </p>
+          <p>
+            En obehörig plattsättare kan rent tekniskt utföra ett arbete – men utan BKR-behörighet
+            kan inget giltigt kvalitetsdokument utfärdas. Konsekvensen blir konkret vid en framtida
+            vattenskada: då saknar du den dokumentation som försäkringsbolagen kräver för att
+            godkänna skaderegleringen.
+          </p>
+          <div class="warning-box">
+            <strong>⚠ Så verifierar du plattsättaren innan du skriver avtal:</strong>
+            Be alltid om plattsättarens BKR-behörighetsnummer och kontrollera det direkt på bkr.se.
+            Fråga också efter referensprojekt, giltig F-skattsedel och ansvarsförsäkring.
+          </div>
+          <ul class="bkr-checklist" aria-label="Vad en BKR-behörig plattsättare innebär">
+            <li>Kan utfärda kvalitetsdokument som alla svenska försäkringsbolag godkänner</li>
+            <li>Arbetar enligt <a href="https://www.boverket.se/sv/PBL-kunskapsbanken/regler-om-byggande/boverkets-byggregler/fuktsakerhet/badrum-och-andra-vatrum" target="_blank" rel="noopener" class="outbound-link">Boverkets byggregler</a> för våtrum</li>
+            <li>Följer <a href="https://www.bkr.se" target="_blank" rel="noopener" class="outbound-link">BBV – Byggkeramikrådets branschregler för våtrum</a></li>
+            <li>Dokumenterar varje steg – från tätskikt till slutkontroll</li>
+          </ul>
+          <a href="/offertforfragan/" class="bkr-cta">Kontakta BKR-behörig plattsättare →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: DEEP GUIDE ── -->
+    <section class="guide-section" aria-label="Guide – anlita plattsättare i Stockholm">
+
+      <div class="guide-header">
+        <p class="section-label">Guide: Plattsättare Stockholm</p>
+        <h2>Allt du behöver veta innan du anlitar en plattsättare i Stockholm</h2>
+        <p>
+          Plattsättare och kakelsättare är samma yrke – begreppen används omväxlande i branschen.
+          Nedan går vi igenom vad en plattsättare faktiskt gör, hur arbetet planeras, vilka
+          certifieringar som gäller och hur du gör ett tryggt val i Stockholm.
+        </p>
+      </div>
+
+      <!-- Block 1: Vad gör en plattsättare — text left, image right -->
+      <div class="guide-block">
+        <div class="guide-block-inner">
+          <div class="guide-text">
+            <h3>Vad gör en plattsättare? – Golv, vägg och våtrum</h3>
+            <p>
+              En plattsättare gör betydligt mer än att fästa plattor på en yta. Yrket bygger på
+              djup kunskap om underlagsberedning, tätskiktsinstallation, materialkännedom och
+              exakt geometri. I Stockholm, där beståndet sträcker sig från sekelskifteshus till
+              nyproduktion, ställs mycket varierande krav på hantverkaren.
+            </p>
+            <p>
+              <strong>Underarbetet</strong> är ofta det som avgör resultatet: avjämning av golv,
+              kontroll av fall mot golvbrunn och – i våtrum – applicering av tätskikt. Tätskiktet
+              är den kritiska barriären mot fukt och måste utföras enligt
+              <a href="https://www.boverket.se/sv/PBL-kunskapsbanken/regler-om-byggande/boverkets-byggregler/fuktsakerhet/badrum-och-andra-vatrum" target="_blank" rel="noopener" class="outbound-link">Boverkets föreskrifter</a>
+              och BBV.
+            </p>
+            <p>
+              <strong>Själva plattsättningen</strong> omfattar utsättning, kapning, montering,
+              fogning och silikontätning – på både golv och vägg, i kakel, klinker, mosaik och
+              natursten. Vid storformat krävs specialverktyg och ett mycket jämnt underlag.
+            </p>
+            <p>
+              Letar du specifikt efter kakelarbete kan du läsa om vår tjänst som
+              <a href="/kakelsattare-stockholm/" style="color:#0a0a1a;font-weight:600;">kakelsättare i Stockholm</a>,
+              och planerar du ett helt rum kan du se vår
+              <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">badrumsrenovering i Stockholm</a>.
+            </p>
+          </div>
+          <div class="img-before-text-mobile">
+            <img
+              src="/hagaplattsattningbild.avif"
+              alt="Plattsättare i Stockholm monterar storformatkakel med precisionsteknik"
+              width="580" height="360" loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 2: Plattsättare vs kakelsättare — image left, text right -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner">
+          <div class="img-first">
+            <img
+              src="/hagaplattsattningbild3.avif"
+              alt="Professionell plattsättning i Stockholm med fokus på underlag och kvalitet"
+              width="580" height="360" loading="lazy"
+            />
+          </div>
+          <div class="guide-text">
+            <h3>Plattsättare eller kakelsättare – vad är skillnaden?</h3>
+            <p>
+              Det finns ingen skillnad i praktiken. "Plattsättare" är den formella yrkestiteln,
+              medan "kakelsättare" är vanligare i dagligt tal. Båda monterar kakel, klinker, mosaik
+              och natursten på golv och vägg – och båda kan vara BKR-behöriga.
+            </p>
+            <p>
+              I Stockholm används ofta "plattsättare" för helheten – golv, vägg och våtrum – medan
+              "kakelsättare" syftar mer på väggkakel. Oavsett titel är det behörigheten,
+              dokumentationen och referenserna du ska kontrollera, inte ordvalet.
+            </p>
+            <div class="rot-box">
+              <strong>ROT-avdraget för godkända arbeten är 30 % av arbetskostnaden.</strong>
+              ROT gäller för berättigade arbeten i bostaden och hanteras av utföraren enligt
+              Skatteverkets regler. Vi hanterar
+              <a href="https://www.skatteverket.se/privat/fastigheterochbostad/rotochrutarbete" target="_blank" rel="noopener" class="outbound-link">ROT-ansökan via Skatteverket</a>
+              åt dig.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 3: Hitta rätt plattsättare — text left, image right -->
+      <div class="guide-block">
+        <div class="guide-block-inner">
+          <div class="guide-text">
+            <h3>Så hittar du en seriös plattsättare i Stockholm</h3>
+            <p>
+              Stockholmsmarknaden har hundratals plattsättarföretag. Att skilja seriösa
+              hantverkare från oseriösa handlar om att ställa rätt frågor och kontrollera rätt
+              saker innan du skriver på. Här är en konkret checklista:
+            </p>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li><strong>BKR-behörighet:</strong> kontrollera behörighetsnumret på <a href="https://www.bkr.se/om-behorighet" target="_blank" rel="noopener" class="outbound-link">bkr.se</a></li>
+              <li><strong>F-skattsedel:</strong> kontrollera att företaget är godkänt för F-skatt</li>
+              <li><strong>Ansvarsförsäkring:</strong> be om försäkringsbevis och kontrollera att det täcker arbetet</li>
+              <li><strong>Referenser:</strong> be om minst tre referensbilder eller -kontakter i Stockholmsområdet</li>
+              <li><strong>Skriftlig offert:</strong> en professionell plattsättare lämnar alltid en specificerad offert med tydligt arbetsomfång</li>
+            </ul>
+            <p>
+              <a href="https://www.hallakonsument.se/varor-och-tjanster/infor-att-anlita-hantverkare/" target="_blank" rel="noopener" class="outbound-link">Hallå konsuments guide för att anlita hantverkare</a>
+              ger mer om avtal, reklamationsrätt och vad som gäller enligt Konsumenttjänstlagen.
+            </p>
+            <p style="margin-top:1rem;">
+              <a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Begär en kostnadsfri offert från oss →</a>
+            </p>
+          </div>
+          <div>
+            <img
+              src="/hagaplattsattningbild4.avif"
+              alt="Verifierad plattsättare i Stockholm kontrollerar tätskikt innan montering"
+              width="580" height="360" loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Reco widget -->
+      <div style="padding: 0 0 3rem;">
+        <RecoWidget />
+      </div>
+
+      <!-- Block 4: Varför går det inte att prisa på förhand — text only, gray (price reframe) -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Varför en seriös plattsättare sällan kan ge ett exakt pris direkt</h3>
+            <p>
+              Många vill ha ett fast pris per kvadratmeter redan vid första kontakten. Problemet är
+              att slutkostnaden för plattsättning styrs av faktorer som inte syns förrän rummet är
+              undersökt – och ibland inte förrän rivningen är gjord.
+            </p>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li><strong>Underlagets skick:</strong> sneda eller skadade ytor kräver avjämning innan plattsättning</li>
+              <li><strong>Tätskikt och fall:</strong> våtrum kräver korrekt fall mot golvbrunn och dokumenterat tätskikt</li>
+              <li><strong>Plattformat:</strong> storformat och mosaik tar olika lång tid och kräver olika teknik</li>
+              <li><strong>Dolda fel:</strong> fukt, gamla rör eller dåligt underarbete kan upptäckas först vid rivning</li>
+              <li><strong>BRF-krav:</strong> föreningens regler kan påverka arbetsordning och dokumentation</li>
+            </ul>
+            <p>
+              Därför ger vi alltid en offert efter att vi sett förutsättningarna – det är mer
+              transparent och skyddar dig mot överraskningar. Vill du förstå vad som påverkar
+              kostnaden kan du läsa vår guide
+              <a href="/vad-paverkar-priset-pa-badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">vad som påverkar priset på en badrumsrenovering</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 5: Material — text only -->
+      <div class="guide-block">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Kakel, klinker, mosaik och natursten – vad din plattsättare bör gå igenom</h3>
+            <p>
+              Materialvalet påverkar både utseende, funktion och arbetsinsats. En erfaren
+              plattsättare i Stockholm guidar dig genom alternativen utifrån hur utrymmet används.
+            </p>
+            <p>
+              <strong>Kakel vs klinker:</strong> kakel är glaserat och används främst på vägg –
+              lätt att rengöra och finns i många färger. Klinker är hårdare, tål mer slitage och
+              används primärt på golv. Läs mer i vår guide
+              <a href="/kakel-eller-klinker-stockholm/" style="color:#0a0a1a;font-weight:600;">kakel eller klinker</a>.
+            </p>
+            <p>
+              <strong>Storformat:</strong> ger ett öppet uttryck med få fogar, men kräver perfekt
+              planhet i underlaget och högre precision. <strong>Mosaik:</strong> används ofta i
+              duschzoner för bättre fall mot golvbrunn och halkskydd, men är mer tidskrävande.
+              <strong>Natursten:</strong> kräver särskild behandling och kunskap om ytskydd.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 6: Areas served — text only, gray (internal linking hub) -->
+      <div class="guide-block gray">
+        <div class="guide-block-inner text-only">
+          <div class="guide-text">
+            <h3>Plattsättare i hela Stockholmsregionen</h3>
+            <p>
+              Med kontor i Sollentuna arbetar vi som plattsättare i hela Stockholm med omnejd –
+              från innerstaden till norrort, Roslagen, Lidingö och söderort. Vi anpassar logistik,
+              arbetstider och dokumentation efter fastighetstyp och kommun.
+            </p>
+            <ul class="bkr-checklist" style="margin-top:0.75rem;">
+              <li><strong>Norrort:</strong> <a href="/plattsattare-sollentuna/" style="color:#0a0a1a;font-weight:600;">plattsättare Sollentuna</a>, <a href="/plattsattare-taby/" style="color:#0a0a1a;font-weight:600;">plattsättare Täby</a></li>
+              <li><strong>Söderort &amp; öster:</strong> <a href="/plattsattare-nacka/" style="color:#0a0a1a;font-weight:600;">plattsättare Nacka</a></li>
+              <li><strong>Västerort:</strong> <a href="/plattsattare-bromma/" style="color:#0a0a1a;font-weight:600;">plattsättare Bromma</a></li>
+              <li><strong>Badrum i din kommun:</strong> <a href="/badrumsrenovering-lidingo/" style="color:#0a0a1a;font-weight:600;">Lidingö</a>, <a href="/badrumsrenovering-danderyd/" style="color:#0a0a1a;font-weight:600;">Danderyd</a>, <a href="/badrumsrenovering-solna/" style="color:#0a0a1a;font-weight:600;">Solna</a></li>
+            </ul>
+            <p>
+              Bor du i en bostadsrätt hjälper vi dig även med hela
+              <a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:#0a0a1a;font-weight:600;">BRF-processen i Stockholm</a>
+              – från renoveringsanmälan till kvalitetsdokument.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── SECTION 4: FAQ ── -->
+    <section class="faq-section" id="faq" aria-label="Vanliga frågor om plattsättare i Stockholm">
+      <div class="section-inner">
+        <p class="section-label">Vanliga frågor</p>
+        <h2 class="section-title">Vanliga frågor om plattsättare i Stockholm</h2>
+        <p class="section-lead">
+          Svar på de vanligaste frågorna vi får från kunder som söker en plattsättare i
+          Stockholmsområdet.
+        </p>
+        <div class="faq-grid">
+
+          <details class="faq-item">
+            <summary>Vad är skillnaden mellan en plattsättare och en kakelsättare?</summary>
+            <div class="faq-answer">
+              Det finns ingen skillnad – det är samma yrke. "Plattsättare" är den formella
+              yrkestiteln och "kakelsättare" är vanligare i dagligt tal. Båda monterar kakel,
+              klinker, mosaik och natursten på golv och vägg.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Hur vet jag om en plattsättare är BKR-behörig?</summary>
+            <div class="faq-answer">
+              Be plattsättaren om sitt BKR-behörighetsnummer och kontrollera det på bkr.se. Alla
+              behöriga företag finns i Byggkeramikrådets offentliga register. Haga Plattsättning AB
+              är BKR-behöriga och visar gärna vår certifiering vid förfrågan.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Vad ingår i en plattsättares arbete i ett badrum?</summary>
+            <div class="faq-answer">
+              I våtrum ingår normalt underlagsberedning, avjämning, tätskikt enligt BBV, montering
+              av kakel och klinker på golv och vägg, fogning, silikontätning och dokumenterad
+              egenkontroll. Rör- och elarbeten utförs av auktoriserade samarbetspartners.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Måste plattsättaren samarbeta med en VVS-firma?</summary>
+            <div class="faq-answer">
+              Ja. Vid arbeten som berör vattenledningar, avlopp eller golvbrunnar krävs en Säker
+              Vatten-auktoriserad VVS-installatör – en plattsättare får inte utföra rörarbete. Vi
+              samordnar auktoriserade VVS- och elfirmor åt dig.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Vad kostar det att anlita en plattsättare i Stockholm?</summary>
+            <div class="faq-answer">
+              Kostnaden styrs av underlagets skick, plattformat, ytan och eventuella dolda fel som
+              kan visa sig vid rivning. Därför lämnar vi en offert efter att vi sett
+              förutsättningarna – det är mer transparent än ett pris på måfå. Du kan dra ROT-avdrag
+              med 30 % av arbetskostnaden enligt Skatteverkets regler.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Arbetar ni i hela Stockholm?</summary>
+            <div class="faq-answer">
+              Ja. Vi utgår från Sollentuna och arbetar som plattsättare i hela Stockholmsregionen –
+              innerstaden, norrort, söderort och kranskommunerna. Vi har separata sidor för bland
+              annat Sollentuna, Täby, Nacka och Bromma.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kan en plattsättare hjälpa mig välja kakel och klinker?</summary>
+            <div class="faq-answer">
+              Ja, en erfaren plattsättare ger råd om format, färgsättning, fog och ytbehandling
+              utifrån hur utrymmet används – allt från storformat på vägg till halksäker klinker på
+              golv. Vi går igenom materialval i samband med offerten.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Lägger ni även klinker och kakel i kök?</summary>
+            <div class="faq-answer">
+              Ja, vi utför plattsättning i kök – stänkskydd, hela väggar och golv. Kök är
+              icke-våtrum vilket förenklar processen (inget tätskikt krävs), men samma krav på
+              precision och finish gäller. Läs mer om vår köksrenovering i Stockholm.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BREADCRUMB JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hem", "item": "https://www.hagaplattsattning.se/" },
+        { "@type": "ListItem", "position": 2, "name": "Tjänster" },
+        { "@type": "ListItem", "position": 3, "name": "Plattsättare Stockholm", "item": "https://www.hagaplattsattning.se/plattsattare-stockholm/" }
+      ]
+    }
+    </script>
+
+    <!-- ── Review JSON-LD ── -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": { "@type": "LocalBusiness", "@id": "https://www.hagaplattsattning.se/#business", "name": "Haga Plattsättning AB" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Edit W" },
+        "datePublished": "2026-04-08",
+        "reviewBody": "Otroligt bra upplevelse, de visade stort engagemang i vårt projekt redan från start. Riktigt hög precision i plattsättning och när något inte blev perfekt så gjorde de på eget initiativ om det. Slutresultatet blev helt enligt överenskommelse.",
+        "publisher": { "@type": "Organization", "name": "Reco.se" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": { "@type": "LocalBusiness", "@id": "https://www.hagaplattsattning.se/#business", "name": "Haga Plattsättning AB" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Adam K, VD Rikets Projektutveckling AB" },
+        "datePublished": "2025-11-08",
+        "reviewBody": "Vi på Rikets Projektutveckling AB har anlitat Haga Plattsättning AB som underentreprenör vid flera tillfällen och kan varmt rekommendera dem. Arbetet präglas av högsta kvalitet, noggrannhet och pålitlighet.",
+        "publisher": { "@type": "Organization", "name": "Reco.se" }
+      }
+    ]
+    </script>
+
+    <!-- ── FAQPage JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Vad är skillnaden mellan en plattsättare och en kakelsättare?", "acceptedAnswer": { "@type": "Answer", "text": "Det finns ingen skillnad – det är samma yrke. Plattsättare är den formella yrkestiteln och kakelsättare är vanligare i dagligt tal. Båda monterar kakel, klinker, mosaik och natursten på golv och vägg." } },
+        { "@type": "Question", "name": "Hur vet jag om en plattsättare är BKR-behörig?", "acceptedAnswer": { "@type": "Answer", "text": "Be plattsättaren om sitt BKR-behörighetsnummer och kontrollera det på bkr.se. Alla behöriga företag finns i Byggkeramikrådets offentliga register." } },
+        { "@type": "Question", "name": "Vad ingår i en plattsättares arbete i ett badrum?", "acceptedAnswer": { "@type": "Answer", "text": "I våtrum ingår underlagsberedning, avjämning, tätskikt enligt BBV, montering av kakel och klinker på golv och vägg, fogning, silikontätning och dokumenterad egenkontroll. Rör- och elarbeten utförs av auktoriserade samarbetspartners." } },
+        { "@type": "Question", "name": "Måste plattsättaren samarbeta med en VVS-firma?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Vid arbeten som berör vattenledningar, avlopp eller golvbrunnar krävs en Säker Vatten-auktoriserad VVS-installatör. En plattsättare får inte utföra rörarbete." } },
+        { "@type": "Question", "name": "Vad kostar det att anlita en plattsättare i Stockholm?", "acceptedAnswer": { "@type": "Answer", "text": "Kostnaden styrs av underlagets skick, plattformat, ytan och eventuella dolda fel som kan visa sig vid rivning. Vi lämnar en offert efter att vi sett förutsättningarna. ROT-avdrag kan dras med 30 % av arbetskostnaden enligt Skatteverkets regler." } },
+        { "@type": "Question", "name": "Arbetar ni i hela Stockholm?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Vi utgår från Sollentuna och arbetar som plattsättare i hela Stockholmsregionen – innerstaden, norrort, söderort och kranskommunerna." } },
+        { "@type": "Question", "name": "Kan en plattsättare hjälpa mig välja kakel och klinker?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, en erfaren plattsättare ger råd om format, färgsättning, fog och ytbehandling utifrån hur utrymmet används – från storformat på vägg till halksäker klinker på golv." } },
+        { "@type": "Question", "name": "Lägger ni även klinker och kakel i kök?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, vi utför plattsättning i kök – stänkskydd, hela väggar och golv. Kök är icke-våtrum vilket förenklar processen, men samma krav på precision och finish gäller." } }
+      ]
+    }
+    </script>
+
+    <SiteFooter
+      pageFocus="Som plattsättare i Stockholm utför vi plattsättning av golv och vägg i badrum, kök och våtrum – med BKR-behörighet, dokumenterat våtrumsintyg och tydlig projektledning från offert till färdigt resultat."
+    />
+
+    <!-- ── Service JSON-LD ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.hagaplattsattning.se/plattsattare-stockholm/#service",
+      "name": "Plattsättare Stockholm",
+      "serviceType": "Plattsättning",
+      "provider": { "@id": "https://www.hagaplattsattning.se/#business" },
+      "areaServed": "Stockholm",
+      "url": "https://www.hagaplattsattning.se/plattsattare-stockholm/",
+      "potentialAction": {
+        "@type": "RequestQuoteAction",
+        "target": "https://www.hagaplattsattning.se/offertforfragan/"
+      }
+    }
+    </script>
+
+    <!-- ── LocalBusiness JSON-LD ── -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+
+  </body>
+</html>

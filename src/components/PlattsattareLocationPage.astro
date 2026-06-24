@@ -1,0 +1,221 @@
+---
+import SiteFooter from './SiteFooter.astro';
+import SiteNav from './SiteNav.astro';
+import RecoWidget from './RecoWidget.astro';
+import type { PlattsattareLocationContent } from '../data/plattsattareLocations';
+import { BUSINESS } from '../data/business';
+
+export interface Props {
+  content: PlattsattareLocationContent;
+}
+
+const { content } = Astro.props;
+
+const localBusinessJsonLd = {
+  ...BUSINESS,
+  description: content.localBusinessDescription,
+  knowsAbout: [
+    `Plattsättare ${content.city}`,
+    'Plattsättning',
+    'Kakelsättning',
+    `Kakelsättare ${content.city}`,
+    'Plattsättare badrum',
+    'Våtrumsintyg',
+    'BKR-behörighet',
+  ],
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Hem', item: 'https://www.hagaplattsattning.se/' },
+    { '@type': 'ListItem', position: 2, name: 'Tjänster' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: `Plattsättare ${content.city}`,
+      item: content.seo.canonical,
+    },
+  ],
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: content.faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${content.seo.canonical}#service`,
+  name: `Plattsättare ${content.city}`,
+  serviceType: 'Plattsättning',
+  provider: { '@id': 'https://www.hagaplattsattning.se/#business' },
+  areaServed: content.city,
+  url: content.seo.canonical,
+  potentialAction: {
+    '@type': 'RequestQuoteAction',
+    target: 'https://www.hagaplattsattning.se/offertforfragan/',
+  },
+};
+
+const reviewsJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: { '@type': 'LocalBusiness', '@id': 'https://www.hagaplattsattning.se/#business', name: 'Haga Plattsättning AB' },
+    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+    author: { '@type': 'Person', name: 'Edit W' },
+    datePublished: '2026-04-08',
+    reviewBody:
+      'Otroligt bra upplevelse, de visade stort engagemang i vårt projekt redan från start. Riktigt hög precision i plattsättning och slutresultatet blev helt enligt överenskommelse.',
+    publisher: { '@type': 'Organization', name: 'Reco.se' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: { '@type': 'LocalBusiness', '@id': 'https://www.hagaplattsattning.se/#business', name: 'Haga Plattsättning AB' },
+    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+    author: { '@type': 'Person', name: 'Adam K, VD Rikets Projektutveckling AB' },
+    datePublished: '2025-11-08',
+    reviewBody:
+      'Vi har anlitat Haga Plattsättning AB som underentreprenör vid flera tillfällen och kan varmt rekommendera dem. Arbetet präglas av högsta kvalitet, noggrannhet och pålitlighet.',
+    publisher: { '@type': 'Organization', name: 'Reco.se' },
+  },
+];
+
+const h1Secondary = content.secondaryTerm ? ` & kakelsättare` : '';
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <title>{content.seo.title}</title>
+    <meta name="description" content={content.seo.description} />
+    <link rel="canonical" href={content.seo.canonical} />
+    <link rel="alternate" hreflang="sv-SE" href={content.seo.canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Haga Plattsättning AB" />
+    <meta property="og:url" content={content.seo.canonical} />
+    <meta property="og:title" content={content.seo.title} />
+    <meta property="og:description" content={content.seo.description} />
+    <meta property="og:image" content={content.seo.ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={content.seo.ogImageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={content.seo.title} />
+    <meta name="twitter:description" content={content.seo.description} />
+    <meta name="twitter:image" content={content.seo.ogImage} />
+
+    <meta name="geo.region" content="SE-AB" />
+    <meta name="geo.placename" content={content.seo.geoPlacename} />
+    <meta name="geo.position" content={content.seo.geoPosition} />
+  </head>
+  <body>
+    <SiteNav />
+
+    <div class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a> <span>›</span>
+      Tjänster <span>›</span>
+      <strong>{`Plattsättare ${content.city}`}</strong>
+    </div>
+
+    <section class="s-hero" aria-label={`Plattsättare ${content.city} - Haga Plattsättning AB`}>
+      <div class="container">
+        <div>
+          <span class="eyebrow">{`Plattsättare ${content.inCity}`}</span>
+          <h1 class="h-display" style="margin-top:18px">Plattsättare{h1Secondary}<br /><em>{content.inCity}</em></h1>
+          <p class="lede" style="margin-top:22px">{content.heroLead}</p>
+          <div class="hero-actions">
+            <a href="/offertforfragan/" class="btn btn-primary">Begär kostnadsfri offert <span class="arrow">→</span></a>
+            <a href="#faq" class="btn-link">Vanliga frågor ↓</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src={content.heroImageSrc} alt={content.heroImageAlt} width="2400" height="1350" loading="eager" fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+
+    <section class="cert-strip" aria-label="Certifieringar">
+      <span class="item">Behörigt Våtrum</span>
+      <span class="item">Säker Vatten</span>
+      <span class="item">BKR-certifierad</span>
+      <span class="item">F-skatt &amp; försäkrad</span>
+      <span class="item">Kvalitetsdokument</span>
+    </section>
+
+    <section class="guide-section" aria-label={`Guide – plattsättare ${content.inCity}`}>
+      <div class="guide-header">
+        <p class="section-label">{`Guide: Plattsättare ${content.city}`}</p>
+        <h2>{`Anlita en plattsättare ${content.inCity} – så gör du ett tryggt val`}</h2>
+        <p set:html={content.guideIntroHtml} />
+      </div>
+
+      {content.guideBlocks.map((block) => (
+        <div class:list={['guide-block', block.gray && 'gray']}>
+          <div class:list={['guide-block-inner', block.textOnly && 'text-only']}>
+            {!block.textOnly && block.imageSrc && block.imageFirst && (
+              <div class="img-first">
+                <img src={block.imageSrc} alt={block.imageAlt ?? block.title} width="580" height="360" loading="lazy" />
+              </div>
+            )}
+            <div class="guide-text">
+              <h3>{block.title}</h3>
+              <div class="body-prose" set:html={block.bodyHtml} />
+            </div>
+            {!block.textOnly && block.imageSrc && !block.imageFirst && (
+              <div>
+                <img src={block.imageSrc} alt={block.imageAlt ?? block.title} width="580" height="360" loading="lazy" />
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+
+      <div style="padding: 0 0 3rem;">
+        <RecoWidget />
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq" aria-label={`Vanliga frågor om plattsättare ${content.inCity}`}>
+      <div class="section-inner">
+        <p class="section-label">Vanliga frågor</p>
+        <h2 class="section-title">{`Vanliga frågor om plattsättare ${content.inCity}`}</h2>
+        <p class="section-lead">{`Svar på de vanligaste frågorna vi får från kunder som söker en plattsättare ${content.inCity}.`}</p>
+        <div class="faq-grid">
+          {content.faqs.map((faq) => (
+            <details class="faq-item">
+              <summary>{faq.question}</summary>
+              <div class="faq-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(reviewsJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+    <SiteFooter pageFocus={content.footerFocus} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(serviceJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+  </body>
+</html>
