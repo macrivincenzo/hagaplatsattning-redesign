@@ -66,8 +66,8 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
       description:
         'Mikrocement i badrum ger en sömlös, fogfri yta på golv och vägg. Vi lägger och samordnar mikrocement i Stockholm med korrekt tätskikt enligt BBV. Läs om för- och nackdelar, hållbarhet och process – begär kostnadsfri offert.',
       canonical: 'https://www.hagaplattsattning.se/mikrocement-badrum/',
-      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_40.avif',
-      ogImageAlt: 'Badrum med sömlös mikrocement på golv och vägg – Haga Plattsättning AB',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_2.avif',
+      ogImageAlt: 'Badrum med slät, fogfri yta i mjuk kulör – mikrocement-känsla',
       geoPlacename: 'Stockholm',
       geoPosition: '59.3293;18.0686',
     },
@@ -75,8 +75,8 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     h1Html: 'Mikrocement<br /><em>i badrum</em>',
     heroLead:
       'Mikrocement ger badrummet en sömlös, fogfri yta med ett modernt, sammanhållet uttryck. Vi på Haga Plattsättning AB lägger och samordnar mikrocement i Stockholm – alltid med korrekt tätskikt under ytan enligt branschreglerna, så att resultatet både blir snyggt och fuktsäkert.',
-    heroImageSrc: '/hagaplatt_40.avif',
-    heroImageAlt: 'Badrum med sömlös mikrocement på golv och vägg lagd av Haga Plattsättning AB',
+    heroImageSrc: '/hagaplatt_2.avif',
+    heroImageAlt: 'Badrum med slät, fogfri yta i mjuk kulör – sömlöst mikrocement-uttryck',
     guideLabel: 'Guide: Mikrocement i badrum',
     guideTitle: 'Mikrocement i badrum – sömlös yta utan fogar',
     guideIntroHtml:
@@ -86,8 +86,8 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
         title: 'Vad är mikrocement?',
         bodyHtml:
           '<p>Mikrocement är en tunn, cementbaserad ytbeläggning som appliceras i flera skikt på golv och vägg. Resultatet blir en sömlös yta utan fogar – till skillnad från kakel och klinker, där fogarna alltid är en del av uttrycket (och ofta den svaga punkten).</p><p>Materialet är bara ett par millimeter tjockt, vilket gör att det kan läggas på befintliga underlag utan att bygga på höjden nämnvärt. Det går att färga i många kulörer och avslutas alltid med en skyddande försegling som gör ytan tålig mot vatten och slitage.</p>',
-        imageSrc: '/hagaplatt_46.avif',
-        imageAlt: 'Närbild på sömlös mikrocementyta i badrum utan fogar',
+        imageSrc: '/hagaplatt_18.avif',
+        imageAlt: 'Slät, fogfri badrumsvägg utan synliga plattor – mikrocement-uttryck',
       },
       {
         title: 'Mikrocement i våtrum – tätskikt och BBV är avgörande',
@@ -168,8 +168,8 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
       description:
         'Golvvärme i badrum under klinker – el eller vattenburen? Vi samordnar golvvärme och lägger klinkern ovanpå med korrekt tätskikt i Stockholm. Läs om skillnaden, uppbyggnad och behörighet – begär kostnadsfri offert.',
       canonical: 'https://www.hagaplattsattning.se/golvvarme-badrum/',
-      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_5.avif',
-      ogImageAlt: 'Badrum med klinkergolv och golvvärme installerad av Haga Plattsättning AB',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_39.avif',
+      ogImageAlt: 'Klinkergolv i badrum med golvvärme under – Haga Plattsättning AB',
       geoPlacename: 'Stockholm',
       geoPosition: '59.3293;18.0686',
     },
@@ -177,8 +177,8 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     h1Html: 'Golvvärme<br /><em>i badrum</em>',
     heroLead:
       'Golvvärme är nästan standard i ett nyrenoverat badrum – och klinker är det perfekta ytmaterialet ovanpå, eftersom det leder värme bra. Vi på Haga Plattsättning AB samordnar golvvärme och lägger klinkern ovanpå med korrekt tätskikt, så att uppbyggnaden blir rätt från grunden.',
-    heroImageSrc: '/hagaplatt_5.avif',
-    heroImageAlt: 'Nyrenoverat badrum i Stockholm med klinkergolv och golvvärme',
+    heroImageSrc: '/hagaplatt_39.avif',
+    heroImageAlt: 'Nylagt klinkergolv i badrum med golvvärme under – Haga Plattsättning AB',
     guideLabel: 'Guide: Golvvärme i badrum',
     guideTitle: 'Golvvärme i badrum – el eller vattenburen under klinker',
     guideIntroHtml:
@@ -188,15 +188,15 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
         title: 'El eller vattenburen golvvärme i badrum?',
         bodyHtml:
           '<p>Det finns två huvudtyper, och de passar olika situationer:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Elgolvvärme:</strong> värmekabel eller -matta som läggs in i golvkonstruktionen. Enkel att installera vid en badrumsrenovering, snabb att reglera och vanligast i bostadsrätter och enskilda rum.</li><li><strong>Vattenburen golvvärme:</strong> slingor med varmvatten, ofta kopplade till husets värmesystem. Vanligare i villor och vid nybyggnation, mer lönsam i större ytor men kräver mer omfattande installation.</li></ul><p>I ett enskilt badrum, särskilt i bostadsrätt, är elgolvvärme ofta den praktiska lösningen. I villa kan vattenburet vara mer aktuellt om det redan finns ett system att ansluta till.</p>',
-        imageSrc: '/hagaplatt_6.avif',
-        imageAlt: 'Elgolvvärme installeras i badrumsgolv innan klinker läggs',
+        imageSrc: '/hagaplatt_4.avif',
+        imageAlt: 'Klinker lagd över golvvärme i badrum med jämn värmefördelning',
       },
       {
         title: 'Golvvärme under klinker – så byggs golvet upp',
         bodyHtml:
           `<p>Ordningen i golvet är avgörande för ett hållbart resultat. Förenklat byggs golvet upp så här: stomme, värme (el eller vattenburet) i avjämningen, därefter ${'tätskikt'} och överst klinker. Klinker är ett utmärkt ytmaterial över golvvärme eftersom det leder värmen effektivt och tål temperaturväxlingar bra.</p><p>Tätskiktet måste alltid ligga korrekt enligt ${BBV} – golvvärmen får aldrig äventyra fuktsäkerheten. Vi samordnar momenten i rätt ordning och lägger klinkern med rätt fall mot golvbrunn.</p>`,
-        imageSrc: '/hagaplatt_3.avif',
-        imageAlt: 'Uppbyggnad av badrumsgolv med golvvärme, tätskikt och klinker',
+        imageSrc: '/hagaplatt_46.avif',
+        imageAlt: 'Klinkergolv med golvvärme i badrum – tätskikt under ytan enligt BBV',
         gray: true,
         imageFirst: true,
       },
@@ -269,8 +269,8 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
       description:
         'Mögel i badrum: varför det uppstår, hur du tar bort det i fogar och silikon, hälsoriskerna – och när mögel är ett tecken på att tätskiktet är förbrukat och badrummet behöver renoveras. Guide från BKR-behörig plattsättare med källor.',
       canonical: 'https://www.hagaplattsattning.se/mogel-i-badrum/',
-      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_47.avif',
-      ogImageAlt: 'Inspektion av mögel i badrumsfogar – Haga Plattsättning AB',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_12.avif',
+      ogImageAlt: 'Badrum som bedöms för fukt och mögel – Haga Plattsättning AB',
       geoPlacename: 'Stockholm',
       geoPosition: '59.3293;18.0686',
     },
@@ -278,8 +278,8 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     h1Html: 'Mögel<br /><em>i badrum</em>',
     heroLead:
       'Mögel i badrummet är vanligt – men allt mögel är inte lika allvarligt. Ytligt mögel i silikonfogar är ofta enkelt att åtgärda, medan mögel som beror på en fuktskada bakom kaklet kan vara ett tecken på att tätskiktet är förbrukat. Här hjälper vi dig att förstå skillnaden, åtgärda rätt och veta när det är dags att renovera.',
-    heroImageSrc: '/hagaplatt_47.avif',
-    heroImageAlt: 'Inspektion av mögel i badrumsfogar och silikon',
+    heroImageSrc: '/hagaplatt_12.avif',
+    heroImageAlt: 'Badrum där fukt och mögel bedöms av behörig plattsättare',
     guideLabel: 'Guide: Mögel i badrum',
     guideTitle: 'Mögel i badrum – orsaker, åtgärd och när du bör renovera',
     guideIntroHtml:
@@ -289,15 +289,15 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
         title: 'Varför uppstår mögel i badrum?',
         bodyHtml:
           '<p>Mögel behöver fukt för att växa. I badrum kommer fukten från dusch och bad, och om den inte ventileras bort blir miljön perfekt för mögel. De vanligaste orsakerna är:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Dålig ventilation:</strong> fukten blir kvar i rummet efter dusch</li><li><strong>Bristande städning:</strong> tvål- och hudrester i fogar blir näring åt mögel</li><li><strong>Gamla eller skadade silikonfogar:</strong> släpper in fukt bakom ytan</li><li><strong>Fuktskada i konstruktionen:</strong> ett förbrukat tätskikt som läcker</li></ul><p>De tre första är ofta hanterbara. Den sista är allvarlig och hänger ihop med tätskiktets skick.</p>',
-        imageSrc: '/hagaplatt_12.avif',
-        imageAlt: 'Mögel i badrum orsakat av fukt och dålig ventilation',
+        imageSrc: '/hagaplatt_10.avif',
+        imageAlt: 'Badrum med vask och fogar där fukt och mögel ofta uppstår',
       },
       {
         title: 'Ytligt mögel kontra allvarligt mögel',
         bodyHtml:
           `<p><strong>Ytligt mögel</strong> sitter på silikonfogar, i hörn eller på ytan av kakelfogar. Det är vanligt, oftast kosmetiskt och går att rengöra eller åtgärda genom att byta silikonfogen. Läs mer i vår guide om <a href="/silikonfog-badrum/" style="color:#0a0a1a;font-weight:600;">silikonfog i badrum</a>.</p><p><strong>Allvarligt mögel</strong> är när fukt trängt in i konstruktionen – bakom kakel, i golv eller väggar. Tecken är mögellukt även när rummet är torrt, missfärgningar som återkommer, eller bomma plattor. Då räcker det inte att rengöra ytan; orsaken sitter bakom tätskiktet. Detta hänger ofta ihop med ett tätskikt som passerat sin tekniska livslängd – läs mer om <a href="/hur-lange-haller-ett-badrum/" style="color:#0a0a1a;font-weight:600;">hur länge ett badrum håller</a> och <a href="/fuktskada-vattenskada-badrum/" style="color:#0a0a1a;font-weight:600;">fuktskada och vattenskada</a>.</p>`,
-        imageSrc: '/behorig-vatrum.avif',
-        imageAlt: 'Bedömning av mögel och tätskikt i badrum av behörig plattsättare',
+        imageSrc: '/hagaplatt_29.avif',
+        imageAlt: 'Närbild på kakelfogar och hörn i badrum där mögel kan börja',
         gray: true,
         imageFirst: true,
       },
@@ -371,8 +371,8 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
       description:
         'Silikonfog i badrum: vad fogen gör, när den ska bytas, varför den inte är samma sak som tätskikt, och om du kan byta själv eller bör anlita fackman. Guide från BKR-behörig plattsättare med källor.',
       canonical: 'https://www.hagaplattsattning.se/silikonfog-badrum/',
-      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_13.avif',
-      ogImageAlt: 'Byte av silikonfog i badrum – Haga Plattsättning AB',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_8.avif',
+      ogImageAlt: 'Kakelfogar och hörn i badrum där silikonfog tätar – Haga Plattsättning AB',
       geoPlacename: 'Stockholm',
       geoPosition: '59.3293;18.0686',
     },
@@ -380,8 +380,8 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     h1Html: 'Silikonfog<br /><em>i badrum</em>',
     heroLead:
       'Silikonfogen är badrummets mest underskattade detalj. Den tätar rörliga skarvar – vid golv, hörn och genomföringar – och är en av de första sakerna som börjar mögla eller släppa. Här förklarar vi vad silikonfogen gör, när den ska bytas, och den vanligaste missuppfattningen: att silikonfog är samma sak som tätskikt.',
-    heroImageSrc: '/hagaplatt_13.avif',
-    heroImageAlt: 'Byte av silikonfog i badrum av plattsättare',
+    heroImageSrc: '/hagaplatt_8.avif',
+    heroImageAlt: 'Kaklad duschvägg med nisch och fogar där silikonfog tätar skarvarna',
     guideLabel: 'Guide: Silikonfog i badrum',
     guideTitle: 'Silikonfog i badrum – när och hur du byter',
     guideIntroHtml:
@@ -391,15 +391,15 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
         title: 'Vad gör silikonfogen – och vad gör den inte?',
         bodyHtml:
           '<p>Silikonfogen är en <strong>elastisk fog</strong> som tätar där två ytor möts och rör sig olika mycket – till exempel mellan golv och vägg, i innerhörn och runt genomföringar som blandare och golvbrunn. Eftersom dessa skarvar rör sig kan man inte använda hård kakelfog där; då skulle den spricka.</p><p>Det är viktigt att förstå att silikonfogen är ett <strong>komplement</strong>, inte byggnadens vattenskydd. Det verkliga skyddet mot fukt är tätskiktet bakom kaklet. Silikonfogen hindrar vatten från att rinna ner i skarvarna på ytan, men den ersätter aldrig tätskiktet.</p>',
-        imageSrc: '/hagaplatt_29.avif',
-        imageAlt: 'Silikonfog tätar skarven mellan golv och vägg i badrum',
+        imageSrc: '/hagaplatt_15.avif',
+        imageAlt: 'Silikonfog tätar skarven mellan golv och vägg i kaklat badrum',
       },
       {
         title: 'När ska silikonfogen bytas?',
         bodyHtml:
           '<p>Silikonfogen är en förbrukningsdetalj. Byt den när du ser något av detta:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Mögel i fogen:</strong> svarta prickar som inte går bort vid rengöring – möglet har växt in i materialet</li><li><strong>Fogen släpper:</strong> den lossnar från kakel eller golv och bildar en glipa</li><li><strong>Sprickor eller hårdnad fog:</strong> elasticiteten är borta och fogen tätar inte längre</li><li><strong>Missfärgning och gulnande:</strong> kosmetiskt, men ofta ett tecken på ålder</li></ul><p>Att byta silikonfog i tid är billig försäkring: en trasig fog släpper in vatten i skarvar och kan på sikt belasta konstruktionen.</p>',
-        imageSrc: '/hagaplatt_40.avif',
-        imageAlt: 'Gammal möglig silikonfog som behöver bytas i badrum',
+        imageSrc: '/hagaplatt_27.avif',
+        imageAlt: 'Kaklad badrumsvägg med fogar och silikonfog i hörn och skarvar',
         gray: true,
         imageFirst: true,
       },
