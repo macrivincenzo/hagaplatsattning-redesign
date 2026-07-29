@@ -22,7 +22,7 @@ export type ReviewItem = {
 };
 
 export type BadrumsLocationContent = {
-  slug: 'stockholm' | 'sollentuna' | 'solna';
+  slug: string;
   city: string;
   route: string;
   bkrImageSrc?: string;
@@ -146,6 +146,32 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         textOnly: true,
         gray: true,
       },
+      {
+        title: 'Så går en badrumsrenovering i Stockholm till hos oss',
+        bodyHtml:
+          '<p>Från första kontakt till färdigt badrum följer vi samma dokumenterade process, oavsett om projektet ligger på Södermalm eller i Bromma:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Platsbesök och offert</strong> – vi går igenom badrummets skick, dina materialval och fastighetens förutsättningar innan du får en skriftlig, specificerad offert</li><li><strong>Rivning och besiktning av underlag</strong> – först när ytskikten är borta ser man golvbrunnens och underlagets verkliga skick</li><li><strong>VVS och el</strong> – vi anlitar enbart Säker Vatten-certifierade rörmokare och behöriga elektriker</li><li><strong>Tätskikt enligt BBV</strong> – hela våtzonen tätas och varje moment dokumenteras med egenkontroller</li><li><strong>Plattsättning och fogning</strong> – kakel och klinker monteras med rätt fästmassa och fall mot brunn</li><li><strong>Slutkontroll och kvalitetsdokument</strong> – du får Bilaga A till BBV, intyget som försäkringsbolag och BRF efterfrågar</li></ul>',
+        textOnly: true,
+      },
+      {
+        title: 'Tätskiktet avgör hela renoveringen',
+        bodyHtml:
+          '<p>Det du ser i ett färdigt badrum är kakel och fog – men det som avgör om badrummet håller är tätskiktet under. En stor andel av vattenskadorna i svenska våtrum beror på brister i tätskikt och anslutningar, inte på själva plattsättningen.</p><p>Därför utför vi alltid tätskikt enligt BBV, med godkända system och dokumenterad egenkontroll. Läs mer i vår guide om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">tätskikt, våtrumsintyg och BBV</a> – eller om <a href="/hur-lange-haller-ett-badrum/" style="color:#0a0a1a;font-weight:600;">hur länge ett badrum håller</a> rent tekniskt.</p>',
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Äldre Stockholmshus – stammar, fuktskador och dolda överraskningar',
+        bodyHtml:
+          '<p>Stockholms bestånd är gammalt: sekelskifteshus i innerstan, funkishus från 30–40-talet och miljonprogram i förorterna. Det påverkar renoveringen mer än de flesta tror.</p><p>I hus med gamla stammar bör du stämma av med föreningen om stambyte är planerat – att renovera badrummet året innan ett stambyte är ett dyrt misstag. Vid rivning hittar vi ibland äldre fuktskador; då dokumenterar vi fyndet, går igenom åtgärdsförslag och uppdaterar offerten innan något extraarbete påbörjas. Läs mer om <a href="/fuktskada-vattenskada-badrum/" style="color:#0a0a1a;font-weight:600;">fuktskada och vattenskada i badrum</a>.</p>',
+        textOnly: true,
+      },
+      {
+        title: 'Vi arbetar i hela Stockholmsregionen',
+        bodyHtml:
+          '<p>Utöver Stockholms innerstad och västerort arbetar vi dagligen i norrort och närförorterna. Bor du utanför tullarna hittar du lokalt anpassade sidor för <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>, <a href="/badrumsrenovering-solna/" style="color:#0a0a1a;font-weight:600;">Solna</a>, <a href="/badrumsrenovering-sundbyberg/" style="color:#0a0a1a;font-weight:600;">Sundbyberg</a>, <a href="/badrumsrenovering-taby/" style="color:#0a0a1a;font-weight:600;">Täby</a>, <a href="/badrumsrenovering-danderyd/" style="color:#0a0a1a;font-weight:600;">Danderyd</a>, <a href="/badrumsrenovering-lidingo/" style="color:#0a0a1a;font-weight:600;">Lidingö</a> och <a href="/badrumsrenovering-nacka/" style="color:#0a0a1a;font-weight:600;">Nacka</a>.</p><p>Behöver du enbart kakel- och klinkerarbeten? Se vår sida som <a href="/plattsattare-stockholm/" style="color:#0a0a1a;font-weight:600;">plattsättare i Stockholm</a>.</p>',
+        textOnly: true,
+        gray: true,
+      },
     ],
     faqTitle: 'Vanliga frågor om badrumsrenovering i Stockholm',
     faqLead:
@@ -206,6 +232,27 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
           'Vi dokumenterar fyndet direkt, går igenom åtgärdsförslag med dig och uppdaterar offert innan extraarbete påbörjas.',
         answerHtml:
           'Vi dokumenterar fyndet direkt, går igenom åtgärdsförslag med dig och uppdaterar offert innan extraarbete påbörjas.',
+      },
+      {
+        question: 'Måste man renovera badrum efter 20 år?',
+        answer:
+          'Nej, det finns ingen regel som tvingar dig. Men tätskikt har en begränsad teknisk livslängd, och i badrum från 90-talet eller tidigare är risken för fuktskador förhöjd. En statusbesiktning ger svar på om ditt badrum behöver åtgärdas.',
+        answerHtml:
+          'Nej, det finns ingen regel som tvingar dig. Men tätskikt har en begränsad teknisk livslängd, och i badrum från 90-talet eller tidigare är risken för fuktskador förhöjd. Läs vår guide om <a href="/hur-lange-haller-ett-badrum/" style="color:#0a0a1a;font-weight:600;">hur länge ett badrum håller</a>.',
+      },
+      {
+        question: 'Är det värt att renovera badrum inför försäljning?',
+        answer:
+          'Ofta ja i Stockholm, där ett nyrenoverat badrum med kvalitetsdokument är ett starkt försäljningsargument. Dokumentationen visar köparen att arbetet är fackmässigt utfört, vilket minskar prutmån och osäkerhet.',
+        answerHtml:
+          'Ofta ja i Stockholm, där ett nyrenoverat badrum med kvalitetsdokument är ett starkt försäljningsargument. Dokumentationen visar köparen att arbetet är fackmässigt utfört, vilket minskar prutmån och osäkerhet.',
+      },
+      {
+        question: 'Vilka intyg får jag efter en badrumsrenovering hos er?',
+        answer:
+          'Du får kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör samt dokumenterade egenkontroller. Det är underlagen försäkringsbolag, BRF och framtida köpare frågar efter.',
+        answerHtml:
+          'Du får kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör samt dokumenterade egenkontroller. Läs mer om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">våtrumsintyg och BBV</a>.',
       },
     ],
     footerFocus:
