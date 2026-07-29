@@ -341,6 +341,25 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         textOnly: true,
         gray: true,
       },
+      {
+        title: 'Från platsbesök till kvalitetsdokument – vår arbetsgång i Sollentuna',
+        bodyHtml:
+          '<p>Med kontoret på Skyttevägen är platsbesöket ofta bokat inom några dagar. Därefter följer varje projekt samma dokumenterade arbetsgång:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Platsbesök och skriftlig offert</strong> – vi bedömer underlag, golvbrunn och ventilation innan du får en specificerad offert</li><li><strong>Rivning och besiktning</strong> – underlagets verkliga skick syns först när ytskikten är borta</li><li><strong>VVS och el</strong> – enbart Säker Vatten-certifierade rörmokare och behöriga elektriker</li><li><strong>Tätskikt enligt BBV</strong> – varje moment dokumenteras med egenkontroller</li><li><strong>Plattsättning, fogning och slutkontroll</strong> – du får kvalitetsdokument (Bilaga A till BBV) signerat med BankID</li></ul>',
+        textOnly: true,
+      },
+      {
+        title: 'Sollentunas bostadsbestånd – radhus, 60–80-talsvillor och växande BRF:er',
+        bodyHtml:
+          '<p>Stora delar av Sollentuna byggdes ut under 60–80-talen. Radhusen i Norrviken, Sjöberg och Vaxmora och villorna i Rotebro och Edsberg har ofta badrum där tätskikt och golvbrunnar är original eller renoverade en gång för länge sedan.</p><p>Tätskikt har en begränsad teknisk livslängd – läs vår guide om <a href="/hur-lange-haller-ett-badrum/" style="color:#0a0a1a;font-weight:600;">hur länge ett badrum håller</a>. Hittar vi fukt vid rivning dokumenterar vi fyndet och uppdaterar offerten innan något extraarbete startar. Mer om det i guiden om <a href="/fuktskada-vattenskada-badrum/" style="color:#0a0a1a;font-weight:600;">fuktskada i badrum</a>.</p>',
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Fler tjänster i Sollentuna och norrort',
+        bodyHtml:
+          '<p>Behöver du enbart kakel- och klinkerarbeten hittar du oss som <a href="/plattsattare-sollentuna/" style="color:#0a0a1a;font-weight:600;">plattsättare i Sollentuna</a>. Vi utför även <a href="/koksrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">köksrenovering i Sollentuna</a>. Bor du i grannkommunerna? Se våra sidor för <a href="/badrumsrenovering-taby/" style="color:#0a0a1a;font-weight:600;">Täby</a>, <a href="/badrumsrenovering-danderyd/" style="color:#0a0a1a;font-weight:600;">Danderyd</a> och <a href="/badrumsrenovering-sundbyberg/" style="color:#0a0a1a;font-weight:600;">Sundbyberg</a>.</p>',
+        textOnly: true,
+      },
     ],
     faqTitle: 'Vanliga frågor om badrumsrenovering i Sollentuna',
     faqLead:
@@ -401,6 +420,20 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
           'Vi stoppar arbetet, dokumenterar fynden och går igenom åtgärd med dig innan fortsättning.',
         answerHtml:
           'Vi stoppar arbetet, dokumenterar fynden och går igenom åtgärd med dig innan fortsättning.',
+      },
+      {
+        question: 'Vårt radhus är från 70-talet – behöver badrummet göras om?',
+        answer:
+          'Inte automatiskt, men tätskikt från den tiden är i regel förbi sin tekniska livslängd, även om badrummet ser fint ut. En genomgång på plats ger svar – och att åtgärda i tid är alltid billigare än en vattenskada.',
+        answerHtml:
+          'Inte automatiskt, men tätskikt från den tiden är i regel förbi sin tekniska livslängd, även om badrummet ser fint ut. Läs vår guide om <a href="/hur-lange-haller-ett-badrum/" style="color:#0a0a1a;font-weight:600;">hur länge ett badrum håller</a>.',
+      },
+      {
+        question: 'Vilka intyg får jag efter renoveringen?',
+        answer:
+          'Du får kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör och dokumenterade egenkontroller – det försäkringsbolag och BRF frågar efter.',
+        answerHtml:
+          'Du får kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör och dokumenterade egenkontroller. Läs mer om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">våtrumsintyg och BBV</a>.',
       },
     ],
     footerFocus:
@@ -487,6 +520,25 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         textOnly: true,
         gray: true,
       },
+      {
+        title: 'Stambyte eller badrumsrenovering – frågan många i Solna måste ställa först',
+        bodyHtml:
+          '<p>Stora delar av Råsunda och Huvudsta byggdes på 40- och 50-talen, och många föreningar planerar eller har nyligen genomfört stambyte. Innan du renoverar: fråga styrelsen om stambyte finns i underhållsplanen. Att göra ett nytt badrum året innan stammarna byts är ett dyrt misstag – då rivs ofta delar av arbetet upp igen.</p><p>Är stambytet redan gjort är läget omvänt: då är det ofta ett utmärkt tillfälle att uppgradera ytskikt och inredning. Vid rivning besiktar vi alltid underlag och golvbrunn – mer om det i vår guide om <a href="/fuktskada-vattenskada-badrum/" style="color:#0a0a1a;font-weight:600;">fuktskada i badrum</a>.</p>',
+        textOnly: true,
+      },
+      {
+        title: 'Vår arbetsgång i Solna – dokumenterat från start till mål',
+        bodyHtml:
+          '<p>Varje projekt följer samma kvalitetssäkrade ordning, oavsett om det gäller en etta i Hagalund eller en villa i Bergshamra:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Förbesiktning och offert</strong> – skriftlig och specificerad, med BRF-underlag om du bor i förening</li><li><strong>Rivning med underlagsbesiktning</strong> – golvbrunn och stomme bedöms innan nästa steg</li><li><strong>VVS och el via certifierade partners</strong> – Säker Vatten och behörig elektriker</li><li><strong>Tätskikt enligt BBV med egenkontroller</strong> – grunden i ett försäkringsbart badrum</li><li><strong>Plattsättning, slutkontroll och kvalitetsdokument</strong> – Bilaga A till BBV signerad med BankID</li></ul>',
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Fler tjänster i Solna med omnejd',
+        bodyHtml:
+          '<p>Behöver du enbart kakel- och klinkerarbeten hittar du oss som <a href="/plattsattare-solna/" style="color:#0a0a1a;font-weight:600;">plattsättare i Solna</a>. Bor du på andra sidan kommungränsen? Se våra sidor för <a href="/badrumsrenovering-sundbyberg/" style="color:#0a0a1a;font-weight:600;">Sundbyberg</a>, <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a> och <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a>.</p>',
+        textOnly: true,
+      },
     ],
     faqTitle: 'Vanliga frågor om badrumsrenovering i Solna',
     faqLead:
@@ -547,6 +599,27 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
           'Vi dokumenterar direkt, visar vad som behövs och inväntar ditt godkännande innan tilläggsarbete startar.',
         answerHtml:
           'Vi dokumenterar direkt, visar vad som behövs och inväntar ditt godkännande innan tilläggsarbete startar.',
+      },
+      {
+        question: 'Vår förening ska göra stambyte – ska vi vänta med badrummet?',
+        answer:
+          'Oftast ja. Fråga styrelsen om stambyte finns i underhållsplanen de närmaste åren. Renoverar du precis innan riskerar du att delar av arbetet rivs upp. Är stambytet gjort är det tvärtom ett bra läge att renovera.',
+        answerHtml:
+          'Oftast ja. Fråga styrelsen om stambyte finns i underhållsplanen de närmaste åren. Renoverar du precis innan riskerar du att delar av arbetet rivs upp. Är stambytet gjort är det tvärtom ett bra läge att renovera.',
+      },
+      {
+        question: 'Är det värt att renovera badrum inför försäljning i Solna?',
+        answer:
+          'Ofta ja. Solna har en snabb bostadsmarknad och ett nyrenoverat badrum med kvalitetsdokument minskar köparens osäkerhet och prutmån. Dokumentationen är beviset på att arbetet är fackmässigt utfört.',
+        answerHtml:
+          'Ofta ja. Solna har en snabb bostadsmarknad och ett nyrenoverat badrum med kvalitetsdokument minskar köparens osäkerhet och prutmån. Dokumentationen är beviset på att arbetet är fackmässigt utfört.',
+      },
+      {
+        question: 'Vilka intyg får jag efter renoveringen?',
+        answer:
+          'Kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör och dokumenterade egenkontroller.',
+        answerHtml:
+          'Kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör och dokumenterade egenkontroller. Läs mer om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">våtrumsintyg och BBV</a>.',
       },
     ],
     footerFocus:
