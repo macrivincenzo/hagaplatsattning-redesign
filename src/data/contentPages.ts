@@ -461,4 +461,299 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
       'BKR-behörig plattsättare i Stockholm som utför tätskikt, fogning och badrumsrenovering enligt BBV.',
     knowsAbout: ['Silikonfog badrum', 'Fog', 'Tätskikt', 'Mögel', 'Våtrum', 'Underhåll', 'Plattsättning'],
   },
+
+  vatrumstapet: {
+    slug: 'vatrumstapet',
+    breadcrumbName: 'Våtrumstapet eller kakel',
+    route: '/vatrumstapet/',
+    isService: false,
+    seo: {
+      title: 'Våtrumstapet – Regler, Livslängd & Jämförelse med Kakel | Haga Plattsättning AB',
+      description:
+        'Vad är våtrumstapet och när är det ett bra val? BKR-behörig plattsättare förklarar reglerna, livslängden, våtrumsskiva som underlag och när kakel är rätt val i stället. Opartisk guide utan försäljningssnack.',
+      canonical: 'https://www.hagaplattsattning.se/vatrumstapet/',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_22.avif',
+      ogImageAlt: 'Badrumsvägg – våtrumstapet jämförs med kakel och klinker',
+      geoPlacename: 'Stockholm',
+      geoPosition: '59.3293;18.0686',
+    },
+    eyebrow: 'Materialguide',
+    h1Html: 'Våtrumstapet<br /><em>eller kakel?</em>',
+    heroLead:
+      'Våtrumstapet är ett godkänt ytskikt för badrum – billigare och snabbare än kakel, men med kortare livslängd och ett annat uttryck. Som BKR-behörig plattsättare möter vi frågan ofta. Här är en ärlig genomgång av regler, hållbarhet och när respektive material är rätt val.',
+    heroImageSrc: '/hagaplatt_22.avif',
+    heroImageAlt: 'Badrumsvägg där våtrumstapet jämförs med kakel som ytskikt',
+    guideLabel: 'Guide: Våtrumstapet',
+    guideTitle: 'Våtrumstapet – vad det är, vad reglerna säger och när kakel är bättre',
+    guideIntroHtml:
+      'Våtrumstapet (även kallad våtrumsvägg eller våtrumsmatta för vägg) är ett plastbaserat ytskikt som svetsas i skarvarna och fungerar som både yta och tätskikt på väggar. Det är ett godkänt material enligt branschreglerna – men det är inte samma sak som att det alltid är rätt val. Här går vi igenom det viktigaste innan du bestämmer dig.',
+    guideBlocks: [
+      {
+        title: 'Vad är våtrumstapet – och vad säger reglerna?',
+        bodyHtml:
+          `<p>Våtrumstapet är en tjock, plastbaserad väggbeklädnad som limmas mot underlaget och svetsas eller fogförseglas i skarvarna. Till skillnad från kakel – där tätskiktet ligger dolt bakom plattorna – fungerar våtrumstapeten ofta som <strong>både ytskikt och tätskikt</strong> i ett.</p><p>Arbetet ska utföras enligt gällande branschregler: GVK:s säkra våtrum eller ${BBV} beroende på system, och alltid enligt ${BOVERKET}. Skarvar, genomföringar och anslutningar mot golv är de kritiska punkterna – blir de fel har du ingen andra barriär mot fukt.</p><p>I praktiken innebär det att även våtrumstapet bör monteras av behörig fackman om du vill att försäkringen ska gälla fullt ut vid en skada.</p>`,
+        imageSrc: '/hagaplatt_27.avif',
+        imageAlt: 'Montering av ytskikt i våtrum enligt branschregler',
+      },
+      {
+        title: 'Våtrumstapet eller kakel – ärlig jämförelse',
+        bodyHtml:
+          '<p>Båda är godkända ytskikt. Skillnaderna handlar om livslängd, uttryck och totalekonomi:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Livslängd:</strong> våtrumstapet håller normalt kortare än ett korrekt utfört kakelbadrum med separat tätskikt</li><li><strong>Uttryck och boendevärde:</strong> kakel upplevs i regel som mer påkostat och lyfter värderingen vid försäljning</li><li><strong>Kostnad:</strong> våtrumstapet är billigare i inköp och snabbare att montera</li><li><strong>Reparation:</strong> en skadad kakelplatta kan bytas – en skadad våtrumstapet behöver ofta göras om i större sektion</li><li><strong>Underlag:</strong> våtrumstapet kräver ett mycket slätt underlag, ofta våtrumsskiva, för ett bra resultat</li></ul><p>Vår erfarenhet: i gästtoaletter, tvättstugor och hyresfastigheter är våtrumstapet ofta ett klokt val. I familjebadrummet du ska leva med i 20 år är kakel med separat tätskikt nästan alltid den bättre investeringen. Jämför gärna med vår guide om <a href="/plastmatta-eller-kakel-badrum/" style="color:#0a0a1a;font-weight:600;">plastmatta eller kakel</a>.</p>',
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Våtrumsskiva – underlaget som ofta avgör resultatet',
+        bodyHtml:
+          '<p>Våtrumsskivor är fuktbeständiga byggskivor som ersätter vanlig gips i våtzoner. De används som underlag för både våtrumstapet och kakel, och i renoveringar av äldre badrum är de ofta det som gör konstruktionen trygg.</p><p>För våtrumstapet är skivans släthet extra viktig – varje ojämnhet syns genom det tunna materialet. För kakel handlar det om stabilitet: skivan får inte svikta, då spricker fogarna. Vi bedömer alltid befintligt underlag innan vi rekommenderar lösning – ibland räcker spackling, ibland behöver väggen byggas om med våtrumsskiva.</p>',
+        textOnly: true,
+      },
+      {
+        title: 'Kan man kakla på våtrumstapet – och byta från tapet till kakel?',
+        bodyHtml:
+          '<p>Att kakla direkt ovanpå befintlig våtrumstapet avråder vi från, även om det ibland marknadsförs som en genväg. Tapetens vidhäftning mot underlaget är inte dimensionerad för kakelvikt, och du bygger in en okänd konstruktion som ingen kan lämna intyg på.</p><p>Rätt väg vid byte från våtrumstapet till kakel: riv ytskiktet, besikta underlaget, bygg upp med godkänt tätskikt enligt BBV och kakla sedan. Då får du ett <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">våtrumsintyg</a> som gäller hos försäkringsbolaget – och ett badrum som håller. Vi utför hela kedjan som en del av vår <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">badrumsrenovering i Stockholm</a>.</p>',
+        textOnly: true,
+        gray: true,
+      },
+    ],
+    faqSubject: 'våtrumstapet',
+    faqLead: 'Korta svar på de vanligaste frågorna om våtrumstapet, regler och jämförelsen med kakel.',
+    faqs: [
+      {
+        question: 'Får man ha våtrumstapet i badrum?',
+        answer:
+          'Ja, våtrumstapet är ett godkänt ytskikt för våtrum när den monteras enligt gällande branschregler med täta skarvar, genomföringar och anslutningar. Den fungerar då som både ytskikt och tätskikt på väggen.',
+      },
+      {
+        question: 'Får man sätta upp våtrumstapet själv?',
+        answer:
+          'Det är inte förbjudet, men skarvsvetsning och genomföringar är svåra moment, och vid en vattenskada kan försäkringsbolaget neka eller sänka ersättningen om arbetet inte är fackmässigt utfört. Vår rekommendation är behörig fackman i alla våtzoner.',
+      },
+      {
+        question: 'Är våtrumstapet billigare än kakel?',
+        answer:
+          'Ja, både material och arbete är billigare än kakel med separat tätskikt. Men kakel håller i regel längre och värderas högre vid försäljning, så totalekonomin över badrummets livslängd är ofta jämnare än prislappen antyder.',
+      },
+      {
+        question: 'Kan man sätta ny våtrumstapet på gammal våtrumstapet?',
+        answer:
+          'Nej, det är inte en fackmässig lösning. Gammalt ytskikt rivs, underlaget besiktas och byggs vid behov upp med våtrumsskiva innan nytt ytskikt monteras. Att bygga lager på lager döljer fukt och gör framtida skador värre.',
+      },
+      {
+        question: 'Kan man kakla direkt på våtrumstapet?',
+        answer:
+          'Vi avråder från det. Tapetens vidhäftning är inte gjord för kakelvikt och konstruktionen kan inte intygas. Riv ytskiktet, gör nytt tätskikt enligt BBV och kakla sedan – då gäller både garantier och försäkring.',
+      },
+      {
+        question: 'Hur länge håller våtrumstapet?',
+        answer:
+          'Livslängden beror på kvalitet, montering och slitage, men den är i regel kortare än för ett korrekt kaklat badrum med separat tätskikt. Skarvarna är den svaga punkten och bör kontrolleras regelbundet.',
+      },
+    ],
+    sources: [
+      { label: 'Byggkeramikrådet (BKR) – branschregler för våtrum (BBV)', url: 'https://www.bkr.se' },
+      { label: 'Boverkets byggregler – fuktsäkerhet i våtrum', url: 'https://www.boverket.se/sv/PBL-kunskapsbanken/regler-om-byggande/boverkets-byggregler/fuktsakerhet/badrum-och-andra-vatrum' },
+      { label: 'GVK – Golvbranschens Våtrumskontroll', url: 'https://www.gvk.se' },
+    ],
+    footerFocus:
+      'Denna guide jämför våtrumstapet med kakel och klinker som ytskikt i våtrum – regler, livslängd och när respektive material är rätt val, skrivet av BKR-behörig plattsättare i Stockholm.',
+    localBusinessDescription:
+      'BKR-behörig plattsättare i Stockholm som hjälper dig välja rätt ytskikt – våtrumstapet, kakel eller klinker – och utför arbetet enligt BBV.',
+    knowsAbout: ['Våtrumstapet', 'Våtrumsskiva', 'Kakel', 'Tätskikt', 'Våtrum', 'BBV', 'Badrumsrenovering'],
+  },
+
+  halvkaklat: {
+    slug: 'halvkaklat-eller-helkaklat-badrum',
+    breadcrumbName: 'Halvkaklat eller helkaklat',
+    route: '/halvkaklat-eller-helkaklat-badrum/',
+    isService: false,
+    seo: {
+      title: 'Halvkaklat eller Helkaklat Badrum? – Regler, Stil & Ekonomi | Haga Plattsättning AB',
+      description:
+        'Halvkaklat eller helkaklat badrum? BKR-behörig plattsättare förklarar vad reglerna faktiskt kräver, var man får sluta kakla, och hur valet påverkar stil, städning och boendevärde.',
+      canonical: 'https://www.hagaplattsattning.se/halvkaklat-eller-helkaklat-badrum/',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_10.avif',
+      ogImageAlt: 'Badrum med kaklade väggar – halvkaklat jämförs med helkaklat',
+      geoPlacename: 'Stockholm',
+      geoPosition: '59.3293;18.0686',
+    },
+    eyebrow: 'Designguide',
+    h1Html: 'Halvkaklat eller<br /><em>helkaklat badrum?</em>',
+    heroLead:
+      'Måste man kakla hela badrummet – eller räcker det halvvägs? Svaret styrs av våtzonerna, inte av tycke och smak. Som BKR-behörig plattsättare förklarar vi vad reglerna kräver, var du faktiskt får sluta kakla och hur valet påverkar stil, städning och ekonomi.',
+    heroImageSrc: '/hagaplatt_10.avif',
+    heroImageAlt: 'Kaklat badrum i Stockholm – val mellan halvkaklat och helkaklat',
+    guideLabel: 'Guide: Halvkaklat vs helkaklat',
+    guideTitle: 'Halvkaklat eller helkaklat – vad reglerna kräver och vad som är smak',
+    guideIntroHtml:
+      'Halvkaklat badrum – kakel en bit upp på väggen och målad eller tapetserad yta ovanför – har gjort comeback, inte minst i sekelskifteslägenheter och lantligt inredda hem. Men i ett våtrum bestämmer branschreglerna var gränsen får gå. Här reder vi ut vad som gäller.',
+    guideBlocks: [
+      {
+        title: 'Vad innebär halvkaklat respektive helkaklat?',
+        bodyHtml:
+          '<p><strong>Helkaklat</strong> betyder kakel eller klinker från golv till tak på alla väggar – standard i de flesta moderna badrumsrenoveringar.</p><p><strong>Halvkaklat</strong> betyder att kaklet slutar en bit upp på väggen, ofta runt 120–180 cm eller i bröstningshöjd, och att ytan ovanför målas med våtrumsfärg. Stilen är klassisk och förknippas med äldre badrum, pensionat och sekelskifteskaraktär.</p><p>Valet är dock inte fritt i hela rummet – det som avgör är var våtzonerna ligger.</p>',
+        imageSrc: '/hagaplatt_12.avif',
+        imageAlt: 'Helkaklat badrum med kakel från golv till tak',
+      },
+      {
+        title: 'Vad säger reglerna? Våtzonerna styr',
+        bodyHtml:
+          `<p>Enligt ${BBV} delas badrummet in i våtzoner. <strong>Våtzon 1</strong> är duschplatsen och området närmast den (inklusive väggarna en meter ut från duschen) samt hela golvet – här krävs tätskikt på hela ytan, golv till tak, och ytskiktet ska vara vattentätt eller vattenavvisande.</p><p><strong>Våtzon 2</strong> är övriga väggar. Där är kraven lägre: ytskiktet ska vara vattenavvisande, vilket en godkänd våtrumsfärg klarar.</p><p>Översatt till praktiken: <strong>i och kring duschen ska det vara kaklat (eller annat tätt ytskikt) hela vägen upp</strong> – men på väggar utanför våtzon 1 kan du välja halvkaklat med våtrumsfärg ovanför. Ett badkar med dusch räknas som duschplats. Exakt zonindelning beror på rummets utformning, och det går vi igenom vid platsbesöket.</p>`,
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Stil, städning och boendevärde – så skiljer sig valen',
+        bodyHtml:
+          '<p>När reglerna är uppfyllda blir resten en fråga om smak och praktik:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Helkaklat:</strong> tåligast, enklast att torka av, tidlöst i värdering – men fler kvadratmeter kakel i budgeten</li><li><strong>Halvkaklat:</strong> karaktär och färgmöjligheter, billigare i material – men målade ytor behöver underhållas oftare i fuktig miljö</li><li><strong>Kondens:</strong> i badrum med dålig ventilation mår målade ytor sämre – ventilationen bör ses över oavsett val</li><li><strong>Vid försäljning:</strong> helkaklat uppfattas oftast som mer påkostat, men i rätt lägenhet kan ett välgjort halvkaklat badrum vara ett stilval som lyfter helheten</li></ul><p>Osäker på plattval? Läs vår guide om <a href="/kakel-eller-klinker-stockholm/" style="color:#0a0a1a;font-weight:600;">kakel eller klinker</a>.</p>',
+        textOnly: true,
+      },
+      {
+        title: 'Så gör vi det rätt – oavsett vilket du väljer',
+        bodyHtml:
+          '<p>Tätskiktet under ytan är detsamma oavsett om du väljer halv- eller helkaklat i våtzon 1 – det utförs enligt BBV och dokumenteras med egenkontroller och <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">kvalitetsdokument</a>. Väljer du halvkaklat avslutar vi kakelkanten med profil eller fasad kant och målning sker med godkänd våtrumsfärg ovanför.</p><p>Vi hjälper dig gärna att rita upp zonerna i just ditt badrum – som en del av en <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">komplett badrumsrenovering i Stockholm</a> eller ett rent <a href="/plattsattare-stockholm/" style="color:#0a0a1a;font-weight:600;">plattsättningsuppdrag</a>.</p>',
+        textOnly: true,
+        gray: true,
+      },
+    ],
+    faqSubject: 'halvkaklat och helkaklat badrum',
+    faqLead: 'Snabba svar om regler, våtzoner och vad som är smak respektive krav.',
+    faqs: [
+      {
+        question: 'Måste man kakla hela badrummet?',
+        answer:
+          'Nej. Kravet på vattentätt ytskikt gäller våtzon 1 – duschplatsen med omgivande väggar upp till tak samt hela golvet. På väggar utanför våtzon 1 räcker vattenavvisande ytskikt, till exempel godkänd våtrumsfärg.',
+      },
+      {
+        question: 'Vad innebär helkaklat badrum?',
+        answer:
+          'Kakel eller klinker på samtliga väggar från golv till tak. Det är standard i moderna renoveringar och det tåligaste alternativet i fuktig miljö.',
+      },
+      {
+        question: 'Hur högt ska man kakla i ett halvkaklat badrum?',
+        answer:
+          'Vanligast är 120–180 cm eller bröstningshöjd – men i våtzon 1 (dusch/badkar med omgivning) måste det täta ytskiktet gå hela vägen till tak oavsett stilval. Zonerna avgör, inte måttbandet.',
+      },
+      {
+        question: 'Kan man ha målad vägg i badrum?',
+        answer:
+          'Ja, utanför våtzon 1, med våtrumsgodkänd färg på rätt underlag. God ventilation är viktig för att målade ytor ska hålla fint över tid.',
+      },
+      {
+        question: 'Är halvkaklat billigare än helkaklat?',
+        answer:
+          'Materialkostnaden blir lägre eftersom det går åt färre kvadratmeter kakel. Tätskikt, underarbete och våtzon 1 kostar dock detsamma, så skillnaden är mindre än många tror. Vi specificerar båda alternativen i offerten om du vill jämföra.',
+      },
+    ],
+    sources: [
+      { label: 'Byggkeramikrådet (BKR) – branschregler för våtrum (BBV)', url: 'https://www.bkr.se' },
+      { label: 'Boverkets byggregler – fuktsäkerhet i våtrum', url: 'https://www.boverket.se/sv/PBL-kunskapsbanken/regler-om-byggande/boverkets-byggregler/fuktsakerhet/badrum-och-andra-vatrum' },
+    ],
+    footerFocus:
+      'Denna guide förklarar skillnaden mellan halvkaklat och helkaklat badrum – vad branschreglerna kräver i respektive våtzon och vad som är stilval, skrivet av BKR-behörig plattsättare i Stockholm.',
+    localBusinessDescription:
+      'BKR-behörig plattsättare i Stockholm som utför både halvkaklade och helkaklade badrum med tätskikt enligt BBV och kvalitetsdokument.',
+    knowsAbout: ['Halvkaklat badrum', 'Helkaklat badrum', 'Våtzoner', 'Kakel', 'Tätskikt', 'BBV', 'Badrumsrenovering'],
+  },
+
+  golvbrunn: {
+    slug: 'byta-golvbrunn',
+    breadcrumbName: 'Byta golvbrunn',
+    route: '/byta-golvbrunn/',
+    isService: true,
+    serviceType: 'Golvbrunnsbyte',
+    seo: {
+      title: 'Byta Golvbrunn – När Krävs Det & Hur Går Det Till? | Haga Plattsättning AB',
+      description:
+        'När måste golvbrunnen bytas och varför kräver det ofta att tätskiktet görs om? BKR-behörig plattsättare förklarar reglerna för golvbrunnar äldre än 1990, processen och varför bytet ska göras vid renovering.',
+      canonical: 'https://www.hagaplattsattning.se/byta-golvbrunn/',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_29.avif',
+      ogImageAlt: 'Golvbrunn i nyrenoverat badrumsgolv med klinker och korrekt fall',
+      geoPlacename: 'Stockholm',
+      geoPosition: '59.3293;18.0686',
+    },
+    eyebrow: 'Teknisk guide',
+    h1Html: 'Byta<br /><em>golvbrunn</em>',
+    heroLead:
+      'Golvbrunnen är badrummets mest kritiska punkt – de flesta vattenskador uppstår i eller kring den. Brunnar från före 1990 ska enligt branschreglerna bytas när badrummet renoveras. Här förklarar vi varför, hur bytet går till och varför det aldrig ska göras som ett isolerat ingrepp i ett tätt golv.',
+    heroImageSrc: '/hagaplatt_29.avif',
+    heroImageAlt: 'Nyrenoverat badrumsgolv med klinker, korrekt fall och modern golvbrunn',
+    guideLabel: 'Guide: Byta golvbrunn',
+    guideTitle: 'Byta golvbrunn – när det krävs, hur det går till och vad som ofta missas',
+    guideIntroHtml:
+      'Golvbrunnen samlar allt vatten i badrummet, och anslutningen mellan brunn och tätskikt är konstruktionens känsligaste detalj. Därför finns tydliga branschkrav på när brunnen ska bytas och hur anslutningen ska utföras. Som BKR-behörigt företag hanterar vi golvbrunnsbyten som en integrerad del av tätskiktsarbetet – med Säker Vatten-certifierad VVS för själva installationen.',
+    guideBlocks: [
+      {
+        title: 'När måste golvbrunnen bytas?',
+        bodyHtml:
+          `<p>Branschreglerna är tydliga: <strong>golvbrunnar installerade före 1990 ska bytas</strong> i samband med att badrummet renoveras och nytt tätskikt utförs. Äldre brunnar – ofta i gjutjärn eller tidiga plastmodeller – uppfyller inte dagens standard (SS-EN 1253) och går inte att ansluta tätt mot moderna tätskiktssystem.</p><p>Brunnen bör också bytas om den är skadad, sitter snett, saknar klämring eller om förhöjningsringar monterats felaktigt. Vid vår förbesiktning kontrollerar vi alltid brunnens typ, skick och anslutning – det är en av de första sakerna vi tittar på i ett äldre badrum. Kraven framgår av ${BBV} och ${SAKERVATTEN}.</p>`,
+        imageSrc: '/hagaplatt_39.avif',
+        imageAlt: 'Kontroll av golvbrunn och fall vid badrumsrenovering',
+      },
+      {
+        title: 'Därför byts brunnen bara i samband med tätskiktsarbete',
+        bodyHtml:
+          '<p>En golvbrunn kan tekniskt sett bytas utan att hela badrummet renoveras – men då bryts golvets tätskikt upp, och ett tätskikt som lagas punktvis kan aldrig intygas som helhet. Resultatet blir ett badrum utan giltigt våtrumsintyg, vilket försäkringsbolaget kan använda mot dig vid en framtida skada.</p><p>Därför är den fackmässiga ordningen: byt brunn när golvets tätskikt ändå görs om. Brunnsbytet blir då en naturlig del av renoveringen – VVS:aren sätter brunnen, vi bygger fall och tätskikt kring den och dokumenterar anslutningen i egenkontrollen. Läs mer om helheten i vår guide om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">tätskikt och våtrumsintyg</a>.</p>',
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Så går ett golvbrunnsbyte till hos oss',
+        bodyHtml:
+          '<p>Bytet är ett samspel mellan två yrkesgrupper – och dokumentationen är lika viktig som själva arbetet:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Förbesiktning</strong> – brunnens typ, ålder och anslutningar bedöms innan offert</li><li><strong>Rivning och friläggning</strong> – golvet bilas upp kring brunnen och avloppets skick kontrolleras</li><li><strong>Ny brunn av Säker Vatten-certifierad VVS</strong> – monterad i våg, i rätt höjd och fixerad enligt monteringsanvisning</li><li><strong>Fallbygge och tätskikt</strong> – vi bygger korrekt fall mot brunnen och ansluter tätskiktet med klämring enligt BBV</li><li><strong>Egenkontroll och kvalitetsdokument</strong> – anslutningen fotodokumenteras innan plattsättning</li></ul><p>Felaktigt fall och slarviga brunnsanslutningar är bland de vanligaste orsakerna till <a href="/fuktskada-vattenskada-badrum/" style="color:#0a0a1a;font-weight:600;">fuktskador i badrum</a> – det är här erfarenheten gör skillnad.</p>',
+        textOnly: true,
+      },
+      {
+        title: 'Vanliga frågor vi möter i Stockholms bestånd',
+        bodyHtml:
+          '<p>I hus från 40–70-talen är gjutjärnsbrunnar fortfarande vanliga, och i många BRF:er aktualiseras brunnsfrågan vid stambyte – då byts ofta brunnarna samtidigt som stammarna. Renoverar du badrummet efter ett stambyte är brunnen i regel redan modern, och då handlar vårt jobb om fall, tätskikt och anslutning.</p><p>Planerar du helrenovering? Se vår sida om <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">badrumsrenovering i Stockholm</a> – golvbrunnsbedömningen ingår alltid i platsbesöket.</p>',
+        textOnly: true,
+        gray: true,
+      },
+    ],
+    faqSubject: 'golvbrunnsbyte',
+    faqLead: 'Korta svar om golvbrunnar, regler och hur bytet hänger ihop med tätskiktet.',
+    faqs: [
+      {
+        question: 'Kan man byta golvbrunn själv?',
+        answer:
+          'Nej, det avråder vi bestämt från. Bytet kräver VVS-kompetens för avloppsanslutningen och bryter golvets tätskikt, som sedan måste återställas fackmässigt för att försäkringen ska gälla. Anlita Säker Vatten-certifierad VVS och behörig plattsättare.',
+      },
+      {
+        question: 'Måste golvbrunnen bytas vid badrumsrenovering?',
+        answer:
+          'Om brunnen är installerad före 1990 – ja, enligt branschreglerna. Nyare brunnar bedöms utifrån skick, typ och om de går att ansluta tätt mot det nya tätskiktet.',
+      },
+      {
+        question: 'Kan man byta golvbrunn utan att renovera badrummet?',
+        answer:
+          'Tekniskt ja, men golvets tätskikt bryts och kan inte intygas som helhet efteråt. Därför rekommenderas bytet i samband med att golvets tätskikt ändå görs om – allt annat är en nödlösning.',
+      },
+      {
+        question: 'Hur vet jag om min golvbrunn är från före 1990?',
+        answer:
+          'Gjutjärnsbrunnar och äldre plastbrunnar utan modern klämringsanslutning är typiska tecken. Vi identifierar brunnstyp och ålder vid förbesiktningen – ofta syns det på galler, material och anslutning.',
+      },
+      {
+        question: 'Vad kostar det att byta golvbrunn?',
+        answer:
+          'Kostnaden beror på bjälklagets typ, avloppets skick och om bytet görs som del av en större renovering. Vi lämnar en specificerad offert efter platsbesök. ROT-avdrag kan dras med 30 % av arbetskostnaden enligt Skatteverkets regler.',
+      },
+      {
+        question: 'Vem byter golvbrunnen – plattsättaren eller rörmokaren?',
+        answer:
+          'Båda. Säker Vatten-certifierad VVS monterar brunnen och ansluter avloppet, sedan bygger plattsättaren fall och tätskikt kring brunnen och ansluter med klämring enligt BBV. Samordningen mellan yrkesgrupperna är avgörande – och den sköter vi.',
+      },
+    ],
+    sources: [
+      { label: 'Byggkeramikrådet (BKR) – branschregler för våtrum (BBV)', url: 'https://www.bkr.se' },
+      { label: 'Säker Vatten – branschregler för VVS-installationer', url: 'https://www.sakervatten.se/' },
+      { label: 'Boverkets byggregler – fuktsäkerhet i våtrum', url: 'https://www.boverket.se/sv/PBL-kunskapsbanken/regler-om-byggande/boverkets-byggregler/fuktsakerhet/badrum-och-andra-vatrum' },
+    ],
+    footerFocus:
+      'Denna guide förklarar när golvbrunnen måste bytas, varför bytet hör ihop med tätskiktsarbetet och hur vi utför det med Säker Vatten-certifierad VVS och BKR-dokumentation.',
+    localBusinessDescription:
+      'BKR-behörig plattsättare i Stockholm som samordnar golvbrunnsbyte, fallbygge och tätskikt enligt BBV vid badrumsrenovering.',
+    knowsAbout: ['Golvbrunn', 'Byta golvbrunn', 'Tätskikt', 'Fall till brunn', 'Säker Vatten', 'BBV', 'Badrumsrenovering'],
+  },
 };

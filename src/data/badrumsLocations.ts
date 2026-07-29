@@ -1357,4 +1357,127 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     localBusinessDescription:
       'Professionell badrumsrenovering i Sundbyberg för lägenhetshus och villor — BKR-behörig plattsättare med erfarenhet av tät bebyggelse och små badrum.',
   },
+  jarfalla: {
+    slug: 'jarfalla',
+    city: 'Järfälla',
+    route: '/badrumsrenovering-jarfalla/',
+    seo: {
+      title: 'Badrumsrenovering Järfälla – BKR-behörig Plattsättare med Våtrumsintyg | Haga Plattsättning AB',
+      description:
+        'Badrumsrenovering i Järfälla – Jakobsberg, Barkarby, Viksjö och Kallhäll. BKR-behörig plattsättare med våtrumsintyg, Säker Vatten-certifierad VVS och kvalitetsdokument enligt BBV. Begär kostnadsfri offert.',
+      canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-jarfalla/',
+      ogTitle: 'Badrumsrenovering Järfälla – BKR-behörighet och Våtrumsintyg',
+      ogDescription:
+        'Badrumsrenovering i Järfälla med BKR-behörighet, BBV-dokumentation och våtrumsintyg. Tydlig process för villa, radhus och BRF.',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_5.avif',
+      ogImageAlt: 'Badrumsrenovering i Järfälla med certifierad plattsättning',
+      twitterTitle: 'Badrumsrenovering Järfälla | Haga Plattsättning AB',
+      twitterDescription:
+        'Badrumsrenovering i Järfälla med BKR-behörighet, våtrumsintyg och kvalitetsdokument enligt BBV.',
+      twitterImage: 'https://www.hagaplattsattning.se/hagaplatt_5.avif',
+      geoPlacename: 'Järfälla',
+      geoPosition: '59.4231;17.8357',
+      latitude: 59.4231,
+      longitude: 17.8357,
+    },
+    hero: {
+      lead:
+        'Planerar du badrumsrenovering i Järfälla? Vi arbetar i hela kommunen – Jakobsberg, Barkarby, Viksjö, Kallhäll, Skälby och Stäket – med kort inställelsetid från vårt kontor i Sollentuna. BKR-behörig process med våtrumsintyg och kvalitetsdokument.',
+      imageSrc: '/hagaplatt_5.avif',
+      imageAlt: 'Nyrenoverat badrum i Järfälla med klinker och kakel lagt av certifierad plattsättare',
+    },
+    guideHeader: {
+      title: 'Badrumsrenovering i Järfälla – från Viksjös radhus till Barkarbystaden',
+      introHtml:
+        'Järfälla spänner från 70-talsradhusen i Viksjö och villorna i Skälby till helt ny bebyggelse i Barkarbystaden. Det betyder två helt olika renoveringslägen: äldre badrum där tätskikt och golvbrunnar behöver bytas, och nyare bostäder där det handlar om uppgradering och stil. Grannkommun? Se även <a href="/badrumsrenovering-sollentuna/" style="color:#0a0a1a;font-weight:600;">Sollentuna</a> och <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">Stockholm</a>.',
+    },
+    guideBlocks: [
+      {
+        title: 'Radhus och villor från 60–80-talen dominerar Järfälla',
+        bodyHtml:
+          '<p>Viksjö, Skälby och stora delar av Kallhäll byggdes ut under miljonprogramsåren och decennierna kring dem. Badrummen i dessa hus har ofta original- eller förstagenerationsrenoverade tätskikt – och golvbrunnar som enligt branschreglerna ska bytas vid renovering om de är från före 1990.</p><p>Vid platsbesöket bedömer vi tätskiktets ålder, brunnens typ och golvkonstruktionen innan du får en specificerad offert. Läs gärna mer om <a href="/byta-golvbrunn/" style="color:#0a0a1a;font-weight:600;">golvbrunnsbyte</a> och <a href="/hur-lange-haller-ett-badrum/" style="color:#0a0a1a;font-weight:600;">hur länge ett badrum håller</a>.</p>',
+        imageSrc: '/hagaplatt_20.avif',
+        imageAlt: 'Badrumsrenovering i radhus i Järfälla med nytt tätskikt och klinker',
+      },
+      {
+        title: 'BRF i Jakobsberg och Barkarbystaden – dokumentationen avgör',
+        bodyHtml:
+          '<p>I flerbostadshusen kring Jakobsbergs centrum och i Barkarbystadens nyare föreningar ställer styrelserna i regel krav på behörig entreprenör, anmälan innan start och kvalitetsdokument efter avslutat arbete.</p><ul class="bkr-checklist" style="margin-top:0.5rem;margin-bottom:1rem;"><li>Vi tar fram underlaget styrelsen behöver – behörigheter, försäkring och tidplan</li><li>Arbetet utförs enligt BBV med dokumenterade egenkontroller</li><li>Efter slutkontroll får du och föreningen kvalitetsdokument (Bilaga A till BBV)</li></ul><p>Bor du i bostadsrätt? Läs vår guide om <a href="/badrumsrenovering-bostadsratt-brf-stockholm/" style="color:#0a0a1a;font-weight:600;">badrumsrenovering i BRF</a>.</p>',
+        imageSrc: '/hagaplatt_25.avif',
+        imageAlt: 'Genomgång av BRF-underlag inför badrumsrenovering i Järfälla',
+        gray: true,
+        imageFirst: true,
+      },
+      {
+        title: 'Vår arbetsgång i Järfälla – dokumenterad från start till mål',
+        bodyHtml:
+          '<p>Varje projekt följer samma kvalitetssäkrade ordning:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Platsbesök och skriftlig offert</strong> – underlag, golvbrunn och ventilation bedöms på plats</li><li><strong>Rivning och besiktning</strong> – underlagets verkliga skick dokumenteras</li><li><strong>VVS och el</strong> – enbart Säker Vatten-certifierade rörmokare och behöriga elektriker</li><li><strong>Tätskikt enligt BBV</strong> – med egenkontroller i varje moment</li><li><strong>Plattsättning, fogning och slutkontroll</strong> – kvalitetsdokument signerat med BankID</li></ul>',
+        textOnly: true,
+      },
+      {
+        title: 'Materialval som fungerar i Järfällas bostäder',
+        bodyHtml:
+          '<p>Våra kunder i Järfälla väljer ofta robusta, lättskötta lösningar:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Storformat i ljusa toner</strong> – gör kompakta radhusbadrum visuellt större</li><li><strong>Matt klinker med bra halkvärde</strong> – tryggt i familjebadrum</li><li><strong>Nisch i duschzonen</strong> – förvaring utan extra möbler</li><li><strong>Golvvärme</strong> – vanligt tillval vid totalrenovering, läs mer om <a href="/golvvarme-badrum/" style="color:#0a0a1a;font-weight:600;">golvvärme i badrum</a></li></ul>',
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Tre vanliga fallgropar i Järfällaprojekt',
+        bodyHtml:
+          '<p><strong>1. Golvbrunnen underskattas:</strong> i 60–80-talshusen är brunnen ofta den detalj som styr både omfattning och kostnad.</p><p><strong>2. Ventilationen glöms bort:</strong> självdragshus från epoken behöver ofta förbättrad frånluft för att det nya badrummet ska må bra.</p><p><strong>3. Renovering precis före stambyte:</strong> bor du i BRF – fråga alltid styrelsen om stambyte finns i underhållsplanen innan du sätter igång.</p><p style="margin-top:1rem;"><a href="/offertforfragan/" style="color:#0a0a1a;font-weight:700;">Begär en kostnadsfri offert för Järfälla →</a></p>',
+        textOnly: true,
+      },
+    ],
+    faqTitle: 'Vanliga frågor om badrumsrenovering i Järfälla',
+    faqLead:
+      'Svar på frågor från boende i Jakobsberg, Barkarby, Viksjö och Kallhäll om process, dokumentation och vad som gäller i äldre hus.',
+    faqs: [
+      {
+        question: 'Arbetar ni i hela Järfälla kommun?',
+        answer:
+          'Ja – Jakobsberg, Barkarby, Barkarbystaden, Viksjö, Kallhäll, Skälby och Stäket. Vi har kort inställelsetid från vårt kontor i Sollentuna.',
+        answerHtml:
+          'Ja – Jakobsberg, Barkarby, Barkarbystaden, Viksjö, Kallhäll, Skälby och Stäket. Vi har kort inställelsetid från vårt kontor i Sollentuna.',
+      },
+      {
+        question: 'Vårt radhus i Viksjö är från 70-talet – vad bör vi tänka på?',
+        answer:
+          'Tätskikt och golvbrunn är nyckelfrågorna. Original- eller tidigt renoverade tätskikt är i regel förbi sin tekniska livslängd, och golvbrunnar från före 1990 ska bytas vid renovering enligt branschreglerna.',
+        answerHtml:
+          'Tätskikt och golvbrunn är nyckelfrågorna. Original- eller tidigt renoverade tätskikt är i regel förbi sin tekniska livslängd, och golvbrunnar från före 1990 ska bytas vid renovering enligt branschreglerna. Läs mer om <a href="/byta-golvbrunn/" style="color:#0a0a1a;font-weight:600;">golvbrunnsbyte</a>.',
+      },
+      {
+        question: 'Behöver jag godkännande från min BRF i Järfälla?',
+        answer:
+          'I de flesta föreningar ja. Vi hjälper dig med anmälan, behörighetsintyg och den dokumentation styrelsen efterfrågar.',
+        answerHtml:
+          'I de flesta föreningar ja. Vi hjälper dig med anmälan, behörighetsintyg och den dokumentation styrelsen efterfrågar.',
+      },
+      {
+        question: 'Kan ni ta helhetsansvar med VVS och el?',
+        answer:
+          'Ja. Vi samordnar Säker Vatten-certifierade rörmokare och behöriga elektriker så att du har en kontaktväg genom hela projektet.',
+        answerHtml:
+          'Ja. Vi samordnar Säker Vatten-certifierade rörmokare och behöriga elektriker så att du har en kontaktväg genom hela projektet.',
+      },
+      {
+        question: 'Vilka intyg får jag efter renoveringen?',
+        answer:
+          'Kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör och dokumenterade egenkontroller – underlagen försäkringsbolag och BRF frågar efter.',
+        answerHtml:
+          'Kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör och dokumenterade egenkontroller. Läs mer om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">våtrumsintyg och BBV</a>.',
+      },
+      {
+        question: 'Hur fungerar ROT-avdraget?',
+        answer:
+          'Vi drar av ROT direkt på fakturan och sköter administrationen mot Skatteverket. Avdraget är 30 % av arbetskostnaden enligt gällande regler, förutsatt att du uppfyller villkoren.',
+        answerHtml:
+          'Vi drar av ROT direkt på fakturan och sköter administrationen mot Skatteverket. Avdraget är 30 % av arbetskostnaden enligt gällande regler, förutsatt att du uppfyller villkoren.',
+      },
+    ],
+    footerFocus:
+      'Denna sida är anpassad för badrumsrenovering i Järfälla – Jakobsberg, Barkarby, Viksjö och Kallhäll – med BKR-behörighet, våtrumsintyg och dokumenterad kvalitet.',
+    localBusinessDescription:
+      'Badrumsrenovering i Järfälla med BKR-behöriga plattsättare, Säker Vatten-certifierad VVS och kvalitetsdokument enligt BBV.',
+  },
 };
