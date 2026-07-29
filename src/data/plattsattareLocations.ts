@@ -682,4 +682,84 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     localBusinessDescription:
       'Plattsättare och kakelsättare i Solna med BKR-behörighet och våtrumsintyg. Plattsättning av golv och vägg i badrum, kök och våtrum.',
   },
+
+  vallentuna: {
+    slug: 'vallentuna',
+    city: 'Vallentuna',
+    inCity: 'i Vallentuna',
+    route: '/plattsattare-vallentuna/',
+    secondaryTerm: 'kakelsättare Vallentuna',
+    seo: {
+      title: 'Plattsättare Vallentuna – BKR-behörig Plattsättare & Kakelsättare | Haga Plattsättning AB',
+      description:
+        'Plattsättare och kakelsättare i Vallentuna för villa, radhus och bostadsrätt. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco. Begär offert.',
+      canonical: 'https://www.hagaplattsattning.se/plattsattare-vallentuna/',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_3.avif',
+      ogImageAlt: 'Plattsättare i Vallentuna lägger kakel och klinker – Haga Plattsättning AB',
+      geoPlacename: 'Vallentuna',
+      geoPosition: '59.5344;18.0776',
+    },
+    heroLead:
+      'Söker du en plattsättare eller kakelsättare i Vallentuna? Vi arbetar i hela kommunen – från centrala Vallentuna och Bällstaberg till Lindholmen, Karby och Brottby – med kort inställelsetid från vårt kontor i Sollentuna. BKR-behörig plattsättning med dokumenterad kvalitet och våtrumsintyg.',
+    heroImageSrc: '/hagaplatt_3.avif',
+    heroImageAlt:
+      'Plattsättare i Vallentuna monterar klinker i badrum – Haga Plattsättning AB',
+    guideIntroHtml:
+      'Vallentuna är en utpräglad villakommun med allt från äldre hus kring Vallentunasjön till nyare radhusområden i Bällstaberg och Åby ängar. Många badrum från 80- och 90-talen närmar sig slutet av tätskiktets livslängd. Plattsättare och kakelsättare är samma yrke – det avgörande är behörigheten och dokumentationen, inte ordvalet.',
+    guideBlocks: [
+      {
+        title: 'Vad gör en plattsättare i Vallentuna?',
+        bodyHtml:
+          `<p>En plattsättare (eller kakelsättare) ansvarar för underlagsberedning, tätskikt enligt BBV, montering av kakel och klinker samt fogning – på golv och vägg. I Vallentunas villor och radhus möter vi ofta originaltätskikt, äldre golvbrunnar och underlag som behöver byggas om innan ny plattsättning.</p><p>I våtrum måste tätskiktet utföras av en behörig plattsättare enligt ${BKR_LINK}. Vi dokumenterar varje steg och lämnar kvalitetsdokument – det försäkringsbolagen efterfrågar vid en eventuell skada.</p>`,
+        imageSrc: '/hagaplatt_6.avif',
+        imageAlt: 'Plattsättare i Vallentuna förbereder tätskikt och underlag i badrum',
+      },
+      {
+        title: 'Så väljer du rätt plattsättare i Vallentuna',
+        bodyHtml:
+          `<p>Kontrollera BKR-behörighetsnummer på bkr.se, be om F-skattsedel och ansvarsförsäkring, och begär referensprojekt i närområdet. En seriös plattsättare lämnar alltid en skriftlig, specificerad offert med tydligt arbetsomfång.</p><div class="rot-box"><strong>ROT-avdraget för godkända arbeten är 30 % av arbetskostnaden.</strong> Vi hanterar ${ROT_LINK} åt dig enligt gällande regler.</div>`,
+        imageSrc: '/hagaplatt_22.avif',
+        imageAlt: 'Plattsättare i Vallentuna går igenom offert och materialval med kund',
+        gray: true,
+        imageFirst: true,
+      },
+      {
+        title: 'Plattsättning för villa och radhus – hela Vallentuna',
+        bodyHtml:
+          '<p>Vi lägger kakel och klinker på golv och vägg i badrum, kök och övriga utrymmen. Planerar du ett helt badrum? Se vår <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">badrumsrenovering i Stockholm</a> – samma process gäller i Vallentuna. Grannkommun? Vi finns även som <a href="/plattsattare-taby/" style="color:#0a0a1a;font-weight:600;">plattsättare i Täby</a>. Se hela översikten som <a href="/plattsattare-stockholm/" style="color:#0a0a1a;font-weight:600;">plattsättare i Stockholm</a>.</p>',
+        textOnly: true,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Arbetar ni som plattsättare i hela Vallentuna?',
+        answer:
+          'Ja, vi tar uppdrag i hela Vallentuna kommun – centrala Vallentuna, Bällstaberg, Ormsta, Lindholmen, Karby, Brottby och Kårsta. Vi har kort inställelsetid från vårt kontor i Sollentuna.',
+      },
+      {
+        question: 'Är plattsättare och kakelsättare samma sak?',
+        answer:
+          'Ja, det är samma yrke. Plattsättare är den formella yrkestiteln och kakelsättare är vanligare i dagligt tal. Båda monterar kakel, klinker, mosaik och natursten på golv och vägg.',
+      },
+      {
+        question: 'Hur vet jag att plattsättaren är behörig?',
+        answer:
+          'Be om BKR-behörighetsnummer och kontrollera det på bkr.se. Vi är BKR-behöriga och visar gärna vår certifiering. Behörigheten krävs i praktiken av försäkringsbolag och bostadsrättsföreningar.',
+      },
+      {
+        question: 'Vad kostar en plattsättare i Vallentuna?',
+        answer:
+          'Kostnaden styrs av underlagets skick, plattformat, ytan och eventuella dolda fel som kan visa sig vid rivning. Vi lämnar en offert efter att vi sett förutsättningarna. ROT-avdrag kan dras med 30 % av arbetskostnaden.',
+      },
+      {
+        question: 'Vi har en villa från 80-talet – behöver tätskiktet bytas?',
+        answer:
+          'Ofta ja. Tätskikt från 80- och 90-talen är i regel förbi sin förväntade tekniska livslängd, även om badrummet ser helt ut. Vi bedömer skicket på plats och dokumenterar allt arbete enligt BBV.',
+      },
+    ],
+    footerFocus:
+      'Som plattsättare och kakelsättare i Vallentuna utför vi plattsättning av golv och vägg i badrum, kök och våtrum för villa, radhus och bostadsrätt – med BKR-behörighet, våtrumsintyg och dokumenterad kvalitet.',
+    localBusinessDescription:
+      'Plattsättare och kakelsättare i Vallentuna med BKR-behörighet och våtrumsintyg. Plattsättning av golv och vägg i badrum, kök och våtrum.',
+  },
 };

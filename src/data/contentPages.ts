@@ -756,4 +756,194 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
       'BKR-behörig plattsättare i Stockholm som samordnar golvbrunnsbyte, fallbygge och tätskikt enligt BBV vid badrumsrenovering.',
     knowsAbout: ['Golvbrunn', 'Byta golvbrunn', 'Tätskikt', 'Fall till brunn', 'Säker Vatten', 'BBV', 'Badrumsrenovering'],
   },
+
+  toalett: {
+    slug: 'toalett-renovering',
+    breadcrumbName: 'Toalettrenovering',
+    route: '/toalett-renovering/',
+    isService: true,
+    serviceType: 'Toalettrenovering',
+    seo: {
+      title: 'Toalettrenovering – Renovera Gästtoalett & WC | Haga Plattsättning AB',
+      description:
+        'Renovera toalett eller gästtoalett i Stockholm? BKR-behörig plattsättare förklarar vad som gäller: när ett WC räknas som våtrum, vilka regler som styr och hur renoveringen går till. Begär kostnadsfri offert.',
+      canonical: 'https://www.hagaplattsattning.se/toalett-renovering/',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_40.avif',
+      ogImageAlt: 'Nyrenoverad gästtoalett med kakel och klinker – Haga Plattsättning AB',
+      geoPlacename: 'Stockholm',
+      geoPosition: '59.3293;18.0686',
+    },
+    eyebrow: 'Toalettrenovering i Stockholm',
+    h1Html: 'Renovera<br /><em>toalett &amp; gäst-WC</em>',
+    heroLead:
+      'En gästtoalett är ofta hemmets mest använda och minst omtänkta rum. Renoveringen är mindre än ett helt badrum – men reglerna är inte alltid enklare. Här förklarar vi när ett WC räknas som våtrum, vad det betyder för material och tätskikt, och hur vi genomför projektet.',
+    heroImageSrc: '/hagaplatt_40.avif',
+    heroImageAlt: 'Nyrenoverad gästtoalett i Stockholm med kakel och klinker',
+    guideLabel: 'Guide: Toalettrenovering',
+    guideTitle: 'Renovera toalett – mindre rum, samma krav på hantverket',
+    guideIntroHtml:
+      'En toalettrenovering går snabbare och kostar mindre än en badrumsrenovering – men det lilla formatet ställer egna krav: varje centimeter syns, plattformat och ljus avgör rumskänslan, och frågan om tätskikt beror på om rummet räknas som våtrum eller inte. Så här tänker vi.',
+    guideBlocks: [
+      {
+        title: 'Räknas en toalett som våtrum?',
+        bodyHtml:
+          `<p>Det beror på utrustningen. Ett WC <strong>utan dusch eller badkar</strong> med enbart toalettstol och handfat räknas normalt inte som våtrum i branschreglernas mening – då krävs inget heltäckande tätskikt, och du har större frihet i materialval.</p><p>Finns det – eller planeras – en dusch blir rummet ett våtrum fullt ut, med krav på tätskikt enligt ${BBV} och golvbrunn. Även utan dusch rekommenderar vi vattentåliga ytskikt och omsorg kring golvets anslutningar: ett läckande handfat eller en toalettstol som står och droppar ska inte kunna skada konstruktionen.</p>`,
+        imageSrc: '/hagaplatt_46.avif',
+        imageAlt: 'Kaklad gästtoalett med handfat – toalettrenovering i Stockholm',
+      },
+      {
+        title: 'Litet rum – därför blir detaljerna viktigare',
+        bodyHtml:
+          '<p>På 1,5–3 kvadratmeter syns varje val:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Plattformat:</strong> storformat ger lugn yta med få fogar – men kräver perfekt underlag; småformat och mosaik kan tvärtom ge karaktär</li><li><strong>Ljusa toner och genomtänkt belysning</strong> – gör det kompakta rummet visuellt större</li><li><strong>Vägghängd toalettstol och kommod</strong> – frigör golvyta och gör städningen enklare</li><li><strong>Halvkaklat med våtrumsfärg</strong> – klassiskt val i gäst-WC, läs vår guide om <a href="/halvkaklat-eller-helkaklat-badrum/" style="color:#0a0a1a;font-weight:600;">halvkaklat eller helkaklat</a></li></ul><p>Vi hjälper dig med materialvalen utifrån rummets ljus, mått och stil – det ingår i offertarbetet.</p>',
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Så går en toalettrenovering till hos oss',
+        bodyHtml:
+          '<p>Samma dokumenterade arbetsgång som i våra badrumsprojekt, anpassad till det mindre formatet:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Platsbesök och skriftlig offert</strong> – vi bedömer golv, väggar och installationernas skick</li><li><strong>Rivning och underlagskontroll</strong> – ojämna underlag spacklas eller byggs upp</li><li><strong>VVS och el via certifierade partners</strong> – flytt av handfat eller ny belysning görs i rätt ordning</li><li><strong>Plattsättning och fogning</strong> – med samma precision som i våtrum</li><li><strong>Slutkontroll</strong> – och kvalitetsdokument när arbetet omfattar tätskikt</li></ul><p>Renoverar du i bostadsrätt kan anmälan till föreningen krävas även för ett gäst-WC om VVS berörs – vi hjälper dig med underlaget.</p>',
+        textOnly: true,
+      },
+      {
+        title: 'Toalett i dag – badrum i morgon?',
+        bodyHtml:
+          '<p>En vanlig fråga i Stockholms lägenheter och villor: går gäst-WC:t att bygga om till duschrum längre fram? Ofta ja – men då ska rummet redan nu förberedas som våtrum med tätskikt och golvbrunn, annars görs jobbet om två gånger.</p><p>Berätta om dina långsiktiga planer vid platsbesöket, så dimensionerar vi lösningen rätt från början. Se även vår <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">badrumsrenovering i Stockholm</a> och guiden om <a href="/byta-golvbrunn/" style="color:#0a0a1a;font-weight:600;">golvbrunnsbyte</a>.</p>',
+        textOnly: true,
+        gray: true,
+      },
+    ],
+    faqSubject: 'toalettrenovering',
+    faqLead: 'Snabba svar om regler, material och process för toalett och gäst-WC.',
+    faqs: [
+      {
+        question: 'Får man renovera toaletten själv?',
+        answer:
+          'I ett WC utan dusch är kraven lägre och du får göra mer själv, till exempel måla och byta inredning. VVS-arbeten ska dock alltid utföras fackmässigt, och i bostadsrätt kan föreningens regler kräva behörig entreprenör även här.',
+      },
+      {
+        question: 'Krävs tätskikt i en gästtoalett?',
+        answer:
+          'Inte enligt branschreglerna om rummet saknar dusch och badkar. Men vattentåliga ytskikt och täta anslutningar kring golvet är alltid en klok försäkring mot läckage från handfat och toalettstol.',
+      },
+      {
+        question: 'Kan man göra om gästtoaletten till duschrum?',
+        answer:
+          'Ofta ja, om avlopp och ventilation går att lösa. Rummet blir då ett våtrum med krav på tätskikt enligt BBV och golvbrunn. Planera för det redan vid toalettrenoveringen om tanken finns – det sparar dubbelarbete.',
+      },
+      {
+        question: 'Hur lång tid tar en toalettrenovering?',
+        answer:
+          'Kortare än ett badrum eftersom rummet är mindre och tätskiktsmomenten ofta färre. Exakt tid beror på omfattning och materialval – du får en tydlig tidplan i offerten.',
+      },
+      {
+        question: 'Vad kostar det att renovera en toalett?',
+        answer:
+          'Det beror på storlek, materialval och om VVS ska flyttas. Ett gäst-WC är väsentligt billigare än ett komplett badrum. Vi lämnar en specificerad offert efter platsbesök, och ROT-avdrag kan dras med 30 % av arbetskostnaden.',
+      },
+    ],
+    sources: [
+      { label: 'Byggkeramikrådet (BKR) – branschregler för våtrum (BBV)', url: 'https://www.bkr.se' },
+      { label: 'Säker Vatten – branschregler för VVS-installationer', url: 'https://www.sakervatten.se/' },
+    ],
+    footerFocus:
+      'Denna sida beskriver toalettrenovering i Stockholm – gäst-WC och separata toaletter – med rätt materialval, fackmässig VVS och plattsättning av BKR-behörigt företag.',
+    localBusinessDescription:
+      'BKR-behörig plattsättare i Stockholm som renoverar toaletter och gäst-WC med kakel, klinker och fackmässig VVS-samordning.',
+    knowsAbout: ['Toalettrenovering', 'Gästtoalett', 'WC', 'Kakel', 'Plattsättning', 'Våtrum', 'Badrumsrenovering'],
+  },
+
+  vatrumsskiva: {
+    slug: 'vatrumsskiva',
+    breadcrumbName: 'Våtrumsskiva',
+    route: '/vatrumsskiva/',
+    isService: false,
+    seo: {
+      title: 'Våtrumsskiva – Rätt Underlag för Kakel i Badrum | Haga Plattsättning AB',
+      description:
+        'Vad är en våtrumsskiva och när ska den användas? BKR-behörig plattsättare förklarar skillnaden mellan våtrumsskivor som underlag för kakel och skivor med färdig yta (typ Fibo), reglerna och vanliga misstag.',
+      canonical: 'https://www.hagaplattsattning.se/vatrumsskiva/',
+      ogImage: 'https://www.hagaplattsattning.se/hagaplatt_47.avif',
+      ogImageAlt: 'Väggunderlag förbereds i badrum inför tätskikt och kakel',
+      geoPlacename: 'Stockholm',
+      geoPosition: '59.3293;18.0686',
+    },
+    eyebrow: 'Teknisk guide',
+    h1Html: 'Våtrumsskiva<br /><em>– rätt underlag i badrum</em>',
+    heroLead:
+      'Våtrumsskivan är det man inte ser i ett färdigt badrum – men den avgör om kaklet sitter still och tätskiktet håller. Här förklarar vi vad en våtrumsskiva är, skillnaden mot skivor med färdig yta som Fibo, och varför underlaget är fel ställe att spara pengar på.',
+    heroImageSrc: '/hagaplatt_47.avif',
+    heroImageAlt: 'Underlag och tätskikt förbereds på badrumsvägg inför plattsättning',
+    guideLabel: 'Guide: Våtrumsskiva',
+    guideTitle: 'Våtrumsskiva – vad det är, när den krävs och vanliga misstag',
+    guideIntroHtml:
+      'Ordet våtrumsskiva används om två helt olika saker: byggskivor som ersätter gips som underlag för tätskikt och kakel – och väggpaneler med färdig yta (som Fibo och liknande) som monteras i stället för kakel. Båda har sin plats, men de löser olika problem. Här reder vi ut begreppen.',
+    guideBlocks: [
+      {
+        title: 'Våtrumsskiva som underlag för kakel – när och varför?',
+        bodyHtml:
+          `<p>I våtzoner rekommenderar branschreglerna fukttåliga skivmaterial i stället för vanlig kartonggips. Våtrumsskivor av cement- eller polymerbaserat material sväller inte vid fukt, ger stabil grund för tätskiktet och bär tyngre plattformat utan att svikta.</p><p>Vid renovering av äldre badrum är väggarna ofta det stora frågetecknet: skruttig gips, ojämn puts eller organiskt material som inte får byggas in i en våtzon. Då byggs väggen om med våtrumsskiva innan tätskikt enligt ${BBV} appliceras. Det är ett moment som syns i offerten men som betalar sig i decennier av stabilitet.</p>`,
+        imageSrc: '/hagaplatt_13.avif',
+        imageAlt: 'Tätskikt appliceras på förberett skivunderlag i badrum',
+      },
+      {
+        title: 'Skivor med färdig yta (Fibo m.fl.) – alternativ till kakel?',
+        bodyHtml:
+          '<p>Den andra sortens "våtrumsskiva" är väggpaneler med färdig, vattentät yta – ofta laminat på trästomme – som monteras direkt och ersätter både tätskikt och kakel på väggen. De är snabba att montera och billigare än kakel, vilket gör dem populära i fritidshus, tvättstugor och hyresbestånd.</p><p>Begränsningarna liknar våtrumstapetens: skarvarna är den svaga punkten, livslängden är i regel kortare än för kakel med separat tätskikt, och uttrycket värderas sällan lika högt vid försäljning. Vår ärliga rekommendation: bra val i rätt utrymme – men i det permanenta familjebadrummet är kakel på korrekt tätskikt fortfarande standarden. Jämför gärna med vår guide om <a href="/vatrumstapet/" style="color:#0a0a1a;font-weight:600;">våtrumstapet</a>.</p>',
+        textOnly: true,
+        gray: true,
+      },
+      {
+        title: 'Vanliga misstag med våtrumsskivor',
+        bodyHtml:
+          '<p>Det här är felen vi oftast möter när vi river i badrum:</p><ul class="bkr-checklist" style="margin-top:0.75rem;"><li><strong>Vanlig gips i våtzon</strong> – kartonggips bakom kakel i dusch är en tickande fuktskada</li><li><strong>Skiva direkt på gammalt ytskikt</strong> – panel monterad ovanpå befintlig våtrumstapet eller kakel döljer fukt i stället för att lösa problemet</li><li><strong>Fel infästning</strong> – skivor som sviktar ger sprickor i fog och tätskikt</li><li><strong>Otäta skarvar och genomföringar</strong> – på panelsystem med färdig yta är varje skarv en potentiell läcka</li></ul><p>Misstänker du fukt bakom befintliga ytskikt? Läs vår guide om <a href="/fuktskada-vattenskada-badrum/" style="color:#0a0a1a;font-weight:600;">fuktskada i badrum</a>.</p>',
+        textOnly: true,
+      },
+      {
+        title: 'Så bedömer vi underlaget i ditt badrum',
+        bodyHtml:
+          '<p>Vid platsbesöket knackar, mäter och bedömer vi befintliga väggar: är underlaget stabilt och torrt kan det ofta behållas och förberedas; är det tveksamt bygger vi om med våtrumsskiva. Beslutet dokumenteras i offerten så att du vet exakt vad som ingår.</p><p>Underlagsarbetet är grunden i varje <a href="/badrumsrenovering-stockholm/" style="color:#0a0a1a;font-weight:600;">badrumsrenovering i Stockholm</a> – och skälet till att ett kvalitetsbadrum håller i 25 år i stället för 15. Mer om tätskiktet ovanpå hittar du i guiden om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">tätskikt och våtrumsintyg</a>.</p>',
+        textOnly: true,
+        gray: true,
+      },
+    ],
+    faqSubject: 'våtrumsskivor',
+    faqLead: 'Snabba svar om våtrumsskivor som underlag och som färdiga väggsystem.',
+    faqs: [
+      {
+        question: 'Kan man ha våtrumsskiva i duschen?',
+        answer:
+          'Ja. Som underlag för tätskikt och kakel är våtrumsskivan tvärtom det rekommenderade valet i våtzon 1. Panelsystem med färdig yta får också användas i dusch om systemet är godkänt och skarvarna monteras exakt enligt tillverkarens anvisning.',
+      },
+      {
+        question: 'Får man sätta våtrumsskiva själv?',
+        answer:
+          'Skivmontering i sig är inte förbjuden att göra själv, men i våtzoner hänger den ihop med tätskiktsarbetet – och där kräver försäkringsbolag och BRF:er i praktiken behörig entreprenör med dokumentation. Felmonterade skarvar är en av de vanligaste skadeorsakerna.',
+      },
+      {
+        question: 'Är våtrumsskivor billigare än kakel?',
+        answer:
+          'Panelsystem med färdig yta är billigare i både material och arbetstid. Men livslängden är i regel kortare och andrahandsvärdet lägre, så räknat per år är skillnaden mindre än prislappen antyder.',
+      },
+      {
+        question: 'Kan man kakla på en våtrumsskiva?',
+        answer:
+          'Ja – det är precis vad underlagsskivorna är gjorda för, med tätskikt enligt BBV mellan skiva och kakel. Däremot ska man inte kakla på panelsystem med färdig laminatyta.',
+      },
+      {
+        question: 'Måste gipsskivor bytas ut i badrum?',
+        answer:
+          'Vanlig kartonggips ska inte sitta i våtzon 1. Vid renovering bedömer vi väggarnas skick – ofta byts gipsen i duschzonen mot våtrumsskiva medan övriga väggar kan behållas och förberedas.',
+      },
+    ],
+    sources: [
+      { label: 'Byggkeramikrådet (BKR) – branschregler för våtrum (BBV)', url: 'https://www.bkr.se' },
+      { label: 'GVK – Golvbranschens Våtrumskontroll', url: 'https://www.gvk.se' },
+      { label: 'Boverkets byggregler – fuktsäkerhet i våtrum', url: 'https://www.boverket.se/sv/PBL-kunskapsbanken/regler-om-byggande/boverkets-byggregler/fuktsakerhet/badrum-och-andra-vatrum' },
+    ],
+    footerFocus:
+      'Denna guide förklarar våtrumsskivans roll i badrummet – som underlag för tätskikt och kakel respektive som väggsystem med färdig yta – skrivet av BKR-behörig plattsättare i Stockholm.',
+    localBusinessDescription:
+      'BKR-behörig plattsättare i Stockholm som bygger korrekta underlag med våtrumsskiva och utför tätskikt och plattsättning enligt BBV.',
+    knowsAbout: ['Våtrumsskiva', 'Underlag kakel', 'Tätskikt', 'Fibo', 'Våtzoner', 'BBV', 'Badrumsrenovering'],
+  },
 };
