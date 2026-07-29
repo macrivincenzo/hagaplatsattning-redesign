@@ -104,6 +104,10 @@ const relatedLinksIntroBySlug: Record<string, string> = {
 const relatedLinksIntro =
   relatedLinksIntroBySlug[content.slug] ??
   `Planerar du ett större projekt i ${content.city}?`;
+
+const plattsattareRoute = `/plattsattare-${content.slug}/`;
+const plattsattareAnchor =
+  content.slug === 'lidingo' ? `plattsättare på Lidingö` : `plattsättare i ${content.city}`;
 ---
 
 <html lang="sv">
@@ -297,7 +301,9 @@ const relatedLinksIntro =
     <section class="section" aria-label={`Relaterade tjänster i ${content.city}`}>
       <div class="container" style="max-width:900px">
         <p class="section-lead" style="margin:0">
-          {relatedLinksIntro} Jämför gärna vår
+          {relatedLinksIntro} Behöver du enbart kakel- och klinkerarbeten hittar du oss som
+          <a href={plattsattareRoute} style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">{plattsattareAnchor}</a>.
+          Jämför gärna vår
           <a href="/badrumsrenovering-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">badrumsrenovering i Stockholm</a>,
           våra tjänster för
           <a href="/kakelsattare-stockholm/" style="color:var(--ink);font-weight:600;border-bottom:1px solid var(--ink)">kakelsättare i Stockholm</a>
