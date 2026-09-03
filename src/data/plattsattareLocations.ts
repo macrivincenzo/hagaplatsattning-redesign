@@ -53,9 +53,9 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     route: '/plattsattare-sollentuna/',
     secondaryTerm: 'kakelsättare Sollentuna',
     seo: {
-      title: 'Plattsättare Sollentuna – Lokal BKR-behörig Plattsättare & Kakelsättare | Haga Plattsättning AB',
+      title: 'Plattsättare Sollentuna – kakelsättare med kontor här',
       description:
-        'Plattsättare i Sollentuna med kontor på Skyttevägen. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco. Begär kostnadsfri offert.',
+        'Plattsättare och kakelsättare i Sollentuna med kontor på Skyttevägen. BKR-behörig plattsättning i badrum, kök och våtrum. 4,9/5 på Reco – begär offert.',
       canonical: 'https://www.hagaplattsattning.se/plattsattare-sollentuna/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_15.avif',
       ogImageAlt: 'Plattsättare i Sollentuna lägger kakel och klinker – Haga Plattsättning AB',
@@ -119,6 +119,16 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
         answer:
           'Ja, vi utför plattsättning på golv och vägg i både badrum (våtrum med tätskikt enligt BBV) och kök (stänkskydd och golv). Samma krav på precision gäller överallt.',
       },
+      {
+        question: 'Vad gör en plattsättare?',
+        answer:
+          'En plattsättare bygger upp och monterar ytskikt av kakel, klinker, mosaik och natursten på golv och väggar. I ett våtrum omfattar arbetet betydligt mer än att sätta plattor: förberedelse och uppriktning av underlaget, uppbyggnad av fall mot golvbrunnen, montage av tätskikt enligt Byggkeramikrådets branschregler, anslutning mot brunn och genomföringar, samt plattsättning och fogning. En BKR-behörig plattsättare dokumenterar dessutom varje moment och utfärdar ett kvalitetsdokument med våtrumsintyg när arbetet är klart — det är den handlingen försäkringsbolaget efterfrågar om en skada uppstår. Vi utför allt detta i Sollentuna.',
+      },
+      {
+        question: 'Vad kostar en plattsättare per kvadratmeter?',
+        answer:
+          'Vi lämnar inte kvadratmeterpriser, eftersom de nästan alltid blir missvisande. Samma yta kan kräva helt olika mycket arbete beroende på plattans format, underlagets skick, hur mycket som måste kapas kring rör och nischer, om tätskikt ingår och om det är golv eller vägg. Storformatsplattor och mosaik tar till exempel betydligt längre tid per kvadratmeter än standardformat. Vi tittar på badrummet eller köket i Sollentuna, går igenom vad som faktiskt ska göras och lämnar en skriftlig offert per moment. Då ser du vad du betalar för — och kan jämföra offerten mot andra på riktigt.',
+      },
     ],
     footerFocus:
       'Som plattsättare i Sollentuna med kontor på Skyttevägen utför vi plattsättning av golv och vägg i badrum, kök och våtrum – med BKR-behörighet, våtrumsintyg och tydlig lokal projektledning.',
@@ -132,9 +142,9 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     inCity: 'i Täby',
     route: '/plattsattare-taby/',
     seo: {
-      title: 'Plattsättare Täby – BKR-behörig Plattsättning i Täby | Haga Plattsättning AB',
+      title: 'Plattsättare Täby – BKR-behörig kakelsättare, 4,9/5',
       description:
-        'Plattsättare i Täby för villa, radhus och bostadsrätt. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco. Begär kostnadsfri offert.',
+        'Plattsättare och kakelsättare i Täby – Näsby Park, Gribbylund och Täby centrum. BKR-behörig plattsättning i badrum och kök. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/plattsattare-taby/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_22.avif',
       ogImageAlt: 'Plattsättare i Täby lägger kakel och klinker – Haga Plattsättning AB',
@@ -198,6 +208,16 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
         answer:
           'Ja. I äldre villor är originaltätskikt ofta nära slutet av sin livslängd. Ett dokumenterat, BKR-utfört arbete minskar risken vid framtida vattenskada och är värdefullt vid en eventuell försäljning.',
       },
+      {
+        question: 'Vad gör en plattsättare?',
+        answer:
+          'En plattsättare bygger upp och monterar ytskikt av kakel, klinker, mosaik och natursten på golv och väggar. I ett våtrum omfattar arbetet betydligt mer än att sätta plattor: förberedelse och uppriktning av underlaget, uppbyggnad av fall mot golvbrunnen, montage av tätskikt enligt Byggkeramikrådets branschregler, anslutning mot brunn och genomföringar, samt plattsättning och fogning. En BKR-behörig plattsättare dokumenterar dessutom varje moment och utfärdar ett kvalitetsdokument med våtrumsintyg när arbetet är klart — det är den handlingen försäkringsbolaget efterfrågar om en skada uppstår. Vi utför allt detta i Täby.',
+      },
+      {
+        question: 'Vad kostar en plattsättare per kvadratmeter?',
+        answer:
+          'Vi lämnar inte kvadratmeterpriser, eftersom de nästan alltid blir missvisande. Samma yta kan kräva helt olika mycket arbete beroende på plattans format, underlagets skick, hur mycket som måste kapas kring rör och nischer, om tätskikt ingår och om det är golv eller vägg. Storformatsplattor och mosaik tar till exempel betydligt längre tid per kvadratmeter än standardformat. Vi tittar på badrummet eller köket i Täby, går igenom vad som faktiskt ska göras och lämnar en skriftlig offert per moment. Då ser du vad du betalar för — och kan jämföra offerten mot andra på riktigt.',
+      },
     ],
     footerFocus:
       'Som plattsättare i Täby utför vi plattsättning av golv och vägg i badrum, kök och våtrum för villa, radhus och bostadsrätt – med BKR-behörighet, våtrumsintyg och dokumenterad kvalitet.',
@@ -212,9 +232,9 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     route: '/plattsattare-nacka/',
     secondaryTerm: 'kakelsättare Nacka',
     seo: {
-      title: 'Plattsättare Nacka – BKR-behörig Plattsättare & Kakelsättare | Haga Plattsättning AB',
+      title: 'Plattsättare Nacka – kakelsättare och tätskikt i våtrum',
       description:
-        'Plattsättare och kakelsättare i Nacka för villa, radhus och bostadsrätt. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco. Begär offert.',
+        'Plattsättare och kakelsättare i Nacka – Saltsjö-Boo, Sicklaön, Fisksätra och Saltsjöbaden. BKR-behörig plattsättning och tätskikt. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/plattsattare-nacka/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_4.avif',
       ogImageAlt: 'Plattsättare i Nacka lägger kakel och klinker – Haga Plattsättning AB',
@@ -278,6 +298,16 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
         answer:
           'Ja, vi utför plattsättning på golv och vägg i både badrum (våtrum med tätskikt enligt BBV) och kök (stänkskydd och golv). Samma krav på precision gäller överallt.',
       },
+      {
+        question: 'Vad gör en plattsättare?',
+        answer:
+          'En plattsättare bygger upp och monterar ytskikt av kakel, klinker, mosaik och natursten på golv och väggar. I ett våtrum omfattar arbetet betydligt mer än att sätta plattor: förberedelse och uppriktning av underlaget, uppbyggnad av fall mot golvbrunnen, montage av tätskikt enligt Byggkeramikrådets branschregler, anslutning mot brunn och genomföringar, samt plattsättning och fogning. En BKR-behörig plattsättare dokumenterar dessutom varje moment och utfärdar ett kvalitetsdokument med våtrumsintyg när arbetet är klart — det är den handlingen försäkringsbolaget efterfrågar om en skada uppstår. Vi utför allt detta i Nacka.',
+      },
+      {
+        question: 'Vad kostar en plattsättare per kvadratmeter?',
+        answer:
+          'Vi lämnar inte kvadratmeterpriser, eftersom de nästan alltid blir missvisande. Samma yta kan kräva helt olika mycket arbete beroende på plattans format, underlagets skick, hur mycket som måste kapas kring rör och nischer, om tätskikt ingår och om det är golv eller vägg. Storformatsplattor och mosaik tar till exempel betydligt längre tid per kvadratmeter än standardformat. Vi tittar på badrummet eller köket i Nacka, går igenom vad som faktiskt ska göras och lämnar en skriftlig offert per moment. Då ser du vad du betalar för — och kan jämföra offerten mot andra på riktigt.',
+      },
     ],
     footerFocus:
       'Som plattsättare och kakelsättare i Nacka utför vi plattsättning av golv och vägg i badrum, kök och våtrum – med BKR-behörighet, våtrumsintyg och dokumenterad kvalitet.',
@@ -291,9 +321,9 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     inCity: 'i Bromma',
     route: '/plattsattare-bromma/',
     seo: {
-      title: 'Plattsättare Bromma – BKR-behörig Plattsättning i Västerort | Haga Plattsättning AB',
+      title: 'Plattsättare Bromma – BKR-behörig kakelsättare',
       description:
-        'Plattsättare i Bromma för villa, radhus och bostadsrätt. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco. Begär kostnadsfri offert.',
+        'Plattsättare och kakelsättare i Bromma och Västerort. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/plattsattare-bromma/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_18.avif',
       ogImageAlt: 'Plattsättare i Bromma lägger kakel och klinker – Haga Plattsättning AB',
@@ -357,6 +387,16 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
         answer:
           'Ofta ja. I villor från 1920–40-talet är originaltätskikt och golvbrunnar i regel förbi sin förväntade livslängd. Vi bedömer skicket på plats och dokumenterar allt arbete enligt BBV.',
       },
+      {
+        question: 'Vad gör en plattsättare?',
+        answer:
+          'En plattsättare bygger upp och monterar ytskikt av kakel, klinker, mosaik och natursten på golv och väggar. I ett våtrum omfattar arbetet betydligt mer än att sätta plattor: förberedelse och uppriktning av underlaget, uppbyggnad av fall mot golvbrunnen, montage av tätskikt enligt Byggkeramikrådets branschregler, anslutning mot brunn och genomföringar, samt plattsättning och fogning. En BKR-behörig plattsättare dokumenterar dessutom varje moment och utfärdar ett kvalitetsdokument med våtrumsintyg när arbetet är klart — det är den handlingen försäkringsbolaget efterfrågar om en skada uppstår. Vi utför allt detta i Bromma.',
+      },
+      {
+        question: 'Vad kostar en plattsättare per kvadratmeter?',
+        answer:
+          'Vi lämnar inte kvadratmeterpriser, eftersom de nästan alltid blir missvisande. Samma yta kan kräva helt olika mycket arbete beroende på plattans format, underlagets skick, hur mycket som måste kapas kring rör och nischer, om tätskikt ingår och om det är golv eller vägg. Storformatsplattor och mosaik tar till exempel betydligt längre tid per kvadratmeter än standardformat. Vi tittar på badrummet eller köket i Bromma, går igenom vad som faktiskt ska göras och lämnar en skriftlig offert per moment. Då ser du vad du betalar för — och kan jämföra offerten mot andra på riktigt.',
+      },
     ],
     footerFocus:
       'Som plattsättare i Bromma och västerort utför vi plattsättning av golv och vägg i badrum, kök och våtrum för villa, radhus och bostadsrätt – med BKR-behörighet och våtrumsintyg.',
@@ -371,9 +411,9 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     route: '/plattsattare-danderyd/',
     secondaryTerm: 'kakelsättare Danderyd',
     seo: {
-      title: 'Plattsättare Danderyd – BKR-behörig Plattsättare & Kakelsättare | Haga Plattsättning AB',
+      title: 'Plattsättare Danderyd, Djursholm och Stocksund',
       description:
-        'Plattsättare i Danderyd, Djursholm och Stocksund. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco. Begär kostnadsfri offert.',
+        'Plattsättare och kakelsättare i Danderyd, Djursholm, Stocksund och Enebyberg. BKR-behörig plattsättning i badrum och kök. 4,9/5 på Reco – begär offert.',
       canonical: 'https://www.hagaplattsattning.se/plattsattare-danderyd/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_2.avif',
       ogImageAlt: 'Plattsättare i Danderyd lägger kakel och klinker – Haga Plattsättning AB',
@@ -437,6 +477,16 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
         answer:
           'Kostnaden styrs av underlagets skick, plattformat, materialval och eventuella dolda fel som kan visa sig vid rivning. Vi lämnar en offert efter att vi sett förutsättningarna. ROT-avdrag kan dras med 30 % av arbetskostnaden.',
       },
+      {
+        question: 'Vad gör en plattsättare?',
+        answer:
+          'En plattsättare bygger upp och monterar ytskikt av kakel, klinker, mosaik och natursten på golv och väggar. I ett våtrum omfattar arbetet betydligt mer än att sätta plattor: förberedelse och uppriktning av underlaget, uppbyggnad av fall mot golvbrunnen, montage av tätskikt enligt Byggkeramikrådets branschregler, anslutning mot brunn och genomföringar, samt plattsättning och fogning. En BKR-behörig plattsättare dokumenterar dessutom varje moment och utfärdar ett kvalitetsdokument med våtrumsintyg när arbetet är klart — det är den handlingen försäkringsbolaget efterfrågar om en skada uppstår. Vi utför allt detta i Danderyd.',
+      },
+      {
+        question: 'Vad kostar en plattsättare per kvadratmeter?',
+        answer:
+          'Vi lämnar inte kvadratmeterpriser, eftersom de nästan alltid blir missvisande. Samma yta kan kräva helt olika mycket arbete beroende på plattans format, underlagets skick, hur mycket som måste kapas kring rör och nischer, om tätskikt ingår och om det är golv eller vägg. Storformatsplattor och mosaik tar till exempel betydligt längre tid per kvadratmeter än standardformat. Vi tittar på badrummet eller köket i Danderyd, går igenom vad som faktiskt ska göras och lämnar en skriftlig offert per moment. Då ser du vad du betalar för — och kan jämföra offerten mot andra på riktigt.',
+      },
     ],
     footerFocus:
       'Som plattsättare och kakelsättare i Danderyd, Djursholm och Stocksund utför vi plattsättning av golv och vägg i badrum, kök och våtrum – med BKR-behörighet, våtrumsintyg och dokumenterad kvalitet.',
@@ -451,9 +501,9 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     route: '/plattsattare-lidingo/',
     secondaryTerm: 'kakelsättare Lidingö',
     seo: {
-      title: 'Plattsättare Lidingö – BKR-behörig Plattsättare & Kakelsättare | Haga Plattsättning AB',
+      title: 'Plattsättare Lidingö – kakelsättning i badrum och kök',
       description:
-        'Plattsättare på Lidingö för villa, radhus och bostadsrätt. BKR-behörig plattsättning och kakelsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco.',
+        'Plattsättare och kakelsättare på Lidingö för villa, radhus och bostadsrätt. BKR-behörig plattsättning i badrum, kök och våtrum. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/plattsattare-lidingo/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_6.avif',
       ogImageAlt: 'Plattsättare på Lidingö lägger kakel och klinker – Haga Plattsättning AB',
@@ -517,6 +567,16 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
         answer:
           'Ofta ja. Tätskikt från 80- och 90-talen är i regel förbi sin förväntade tekniska livslängd. Vi bedömer skicket på plats och dokumenterar allt arbete enligt BBV.',
       },
+      {
+        question: 'Vad gör en plattsättare?',
+        answer:
+          'En plattsättare bygger upp och monterar ytskikt av kakel, klinker, mosaik och natursten på golv och väggar. I ett våtrum omfattar arbetet betydligt mer än att sätta plattor: förberedelse och uppriktning av underlaget, uppbyggnad av fall mot golvbrunnen, montage av tätskikt enligt Byggkeramikrådets branschregler, anslutning mot brunn och genomföringar, samt plattsättning och fogning. En BKR-behörig plattsättare dokumenterar dessutom varje moment och utfärdar ett kvalitetsdokument med våtrumsintyg när arbetet är klart — det är den handlingen försäkringsbolaget efterfrågar om en skada uppstår. Vi utför allt detta på Lidingö.',
+      },
+      {
+        question: 'Vad kostar en plattsättare per kvadratmeter?',
+        answer:
+          'Vi lämnar inte kvadratmeterpriser, eftersom de nästan alltid blir missvisande. Samma yta kan kräva helt olika mycket arbete beroende på plattans format, underlagets skick, hur mycket som måste kapas kring rör och nischer, om tätskikt ingår och om det är golv eller vägg. Storformatsplattor och mosaik tar till exempel betydligt längre tid per kvadratmeter än standardformat. Vi tittar på badrummet eller köket i Lidingö, går igenom vad som faktiskt ska göras och lämnar en skriftlig offert per moment. Då ser du vad du betalar för — och kan jämföra offerten mot andra på riktigt.',
+      },
     ],
     footerFocus:
       'Som plattsättare och kakelsättare på Lidingö utför vi plattsättning av golv och vägg i badrum, kök och våtrum för villa, radhus och bostadsrätt – med BKR-behörighet, våtrumsintyg och dokumenterad kvalitet.',
@@ -530,9 +590,9 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     inCity: 'i Sundbyberg',
     route: '/plattsattare-sundbyberg/',
     seo: {
-      title: 'Plattsättare Sundbyberg – BKR-behörig Plattsättning i Sundbyberg | Haga Plattsättning AB',
+      title: 'Plattsättare Sundbyberg – BKR-behörig kakelsättare',
       description:
-        'Plattsättare i Sundbyberg för bostadsrätt, radhus och villa. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco. Begär kostnadsfri offert.',
+        'Plattsättare och kakelsättare i Sundbyberg – Hallonbergen, Rissne och Ursvik. BKR-behörig plattsättning i badrum och kök. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/plattsattare-sundbyberg/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_46.avif',
       ogImageAlt: 'Plattsättare i Sundbyberg lägger kakel och klinker – Haga Plattsättning AB',
@@ -596,6 +656,16 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
         answer:
           'Kostnaden styrs av underlagets skick, plattformat, ytan och eventuella dolda fel som kan visa sig vid rivning. Vi lämnar en offert efter att vi sett förutsättningarna. ROT-avdrag kan dras med 30 % av arbetskostnaden.',
       },
+      {
+        question: 'Vad gör en plattsättare?',
+        answer:
+          'En plattsättare bygger upp och monterar ytskikt av kakel, klinker, mosaik och natursten på golv och väggar. I ett våtrum omfattar arbetet betydligt mer än att sätta plattor: förberedelse och uppriktning av underlaget, uppbyggnad av fall mot golvbrunnen, montage av tätskikt enligt Byggkeramikrådets branschregler, anslutning mot brunn och genomföringar, samt plattsättning och fogning. En BKR-behörig plattsättare dokumenterar dessutom varje moment och utfärdar ett kvalitetsdokument med våtrumsintyg när arbetet är klart — det är den handlingen försäkringsbolaget efterfrågar om en skada uppstår. Vi utför allt detta i Sundbyberg.',
+      },
+      {
+        question: 'Vad kostar en plattsättare per kvadratmeter?',
+        answer:
+          'Vi lämnar inte kvadratmeterpriser, eftersom de nästan alltid blir missvisande. Samma yta kan kräva helt olika mycket arbete beroende på plattans format, underlagets skick, hur mycket som måste kapas kring rör och nischer, om tätskikt ingår och om det är golv eller vägg. Storformatsplattor och mosaik tar till exempel betydligt längre tid per kvadratmeter än standardformat. Vi tittar på badrummet eller köket i Sundbyberg, går igenom vad som faktiskt ska göras och lämnar en skriftlig offert per moment. Då ser du vad du betalar för — och kan jämföra offerten mot andra på riktigt.',
+      },
     ],
     footerFocus:
       'Som plattsättare i Sundbyberg utför vi plattsättning av golv och vägg i badrum, kök och våtrum för bostadsrätt, radhus och villa – med BKR-behörighet, våtrumsintyg och dokumenterad kvalitet.',
@@ -610,9 +680,9 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     route: '/plattsattare-solna/',
     secondaryTerm: 'kakelsättare Solna',
     seo: {
-      title: 'Plattsättare Solna – BKR-behörig Plattsättare & Kakelsättare | Haga Plattsättning AB',
+      title: 'Plattsättare Solna – kakelsättare för badrum och kök',
       description:
-        'Plattsättare och kakelsättare i Solna för bostadsrätt, radhus och villa. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco. Begär offert.',
+        'Plattsättare och kakelsättare i Solna – Hagalund, Råsunda, Bergshamra och Huvudsta. BKR-behörig plattsättning i badrum och kök. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/plattsattare-solna/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_8.avif',
       ogImageAlt: 'Plattsättare i Solna lägger kakel och klinker – Haga Plattsättning AB',
@@ -676,6 +746,16 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
         answer:
           'Kostnaden styrs av underlagets skick, plattformat, ytan och eventuella dolda fel som kan visa sig vid rivning. Vi lämnar en offert efter att vi sett förutsättningarna. ROT-avdrag kan dras med 30 % av arbetskostnaden.',
       },
+      {
+        question: 'Vad gör en plattsättare?',
+        answer:
+          'En plattsättare bygger upp och monterar ytskikt av kakel, klinker, mosaik och natursten på golv och väggar. I ett våtrum omfattar arbetet betydligt mer än att sätta plattor: förberedelse och uppriktning av underlaget, uppbyggnad av fall mot golvbrunnen, montage av tätskikt enligt Byggkeramikrådets branschregler, anslutning mot brunn och genomföringar, samt plattsättning och fogning. En BKR-behörig plattsättare dokumenterar dessutom varje moment och utfärdar ett kvalitetsdokument med våtrumsintyg när arbetet är klart — det är den handlingen försäkringsbolaget efterfrågar om en skada uppstår. Vi utför allt detta i Solna.',
+      },
+      {
+        question: 'Vad kostar en plattsättare per kvadratmeter?',
+        answer:
+          'Vi lämnar inte kvadratmeterpriser, eftersom de nästan alltid blir missvisande. Samma yta kan kräva helt olika mycket arbete beroende på plattans format, underlagets skick, hur mycket som måste kapas kring rör och nischer, om tätskikt ingår och om det är golv eller vägg. Storformatsplattor och mosaik tar till exempel betydligt längre tid per kvadratmeter än standardformat. Vi tittar på badrummet eller köket i Solna, går igenom vad som faktiskt ska göras och lämnar en skriftlig offert per moment. Då ser du vad du betalar för — och kan jämföra offerten mot andra på riktigt.',
+      },
     ],
     footerFocus:
       'Som plattsättare och kakelsättare i Solna utför vi plattsättning av golv och vägg i badrum, kök och våtrum för bostadsrätt, radhus och villa – med BKR-behörighet, våtrumsintyg och dokumenterad kvalitet.',
@@ -690,9 +770,9 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
     route: '/plattsattare-vallentuna/',
     secondaryTerm: 'kakelsättare Vallentuna',
     seo: {
-      title: 'Plattsättare Vallentuna – BKR-behörig Plattsättare & Kakelsättare | Haga Plattsättning AB',
+      title: 'Plattsättare Vallentuna – BKR-behörig kakelsättare',
       description:
-        'Plattsättare och kakelsättare i Vallentuna för villa, radhus och bostadsrätt. BKR-behörig plattsättning av golv och vägg i badrum, kök och våtrum – med våtrumsintyg och 4.9/5 på Reco. Begär offert.',
+        'Plattsättare och kakelsättare i Vallentuna för villa, radhus och bostadsrätt. BKR-behörig plattsättning i badrum, kök och våtrum. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/plattsattare-vallentuna/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_3.avif',
       ogImageAlt: 'Plattsättare i Vallentuna lägger kakel och klinker – Haga Plattsättning AB',
@@ -755,6 +835,16 @@ export const PLATTSATTARE_LOCATIONS: Record<string, PlattsattareLocationContent>
         question: 'Vi har en villa från 80-talet – behöver tätskiktet bytas?',
         answer:
           'Ofta ja. Tätskikt från 80- och 90-talen är i regel förbi sin förväntade tekniska livslängd, även om badrummet ser helt ut. Vi bedömer skicket på plats och dokumenterar allt arbete enligt BBV.',
+      },
+      {
+        question: 'Vad gör en plattsättare?',
+        answer:
+          'En plattsättare bygger upp och monterar ytskikt av kakel, klinker, mosaik och natursten på golv och väggar. I ett våtrum omfattar arbetet betydligt mer än att sätta plattor: förberedelse och uppriktning av underlaget, uppbyggnad av fall mot golvbrunnen, montage av tätskikt enligt Byggkeramikrådets branschregler, anslutning mot brunn och genomföringar, samt plattsättning och fogning. En BKR-behörig plattsättare dokumenterar dessutom varje moment och utfärdar ett kvalitetsdokument med våtrumsintyg när arbetet är klart — det är den handlingen försäkringsbolaget efterfrågar om en skada uppstår. Vi utför allt detta i Vallentuna.',
+      },
+      {
+        question: 'Vad kostar en plattsättare per kvadratmeter?',
+        answer:
+          'Vi lämnar inte kvadratmeterpriser, eftersom de nästan alltid blir missvisande. Samma yta kan kräva helt olika mycket arbete beroende på plattans format, underlagets skick, hur mycket som måste kapas kring rör och nischer, om tätskikt ingår och om det är golv eller vägg. Storformatsplattor och mosaik tar till exempel betydligt längre tid per kvadratmeter än standardformat. Vi tittar på badrummet eller köket i Vallentuna, går igenom vad som faktiskt ska göras och lämnar en skriftlig offert per moment. Då ser du vad du betalar för — och kan jämföra offerten mot andra på riktigt.',
       },
     ],
     footerFocus:

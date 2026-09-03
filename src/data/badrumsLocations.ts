@@ -69,16 +69,16 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     bkrImageSrc: '/behorig-vatrum.avif',
     bkrImageAlt: 'Behörig kakelsättare i Stockholm med dokumenterad BKR-process',
     seo: {
-      title: 'Badrumsrenovering Stockholm – BKR-behörig Plattsättare med Våtrumsintyg | Haga Plattsättning AB',
+      title: 'Badrumsrenovering Stockholm – BKR-behörig plattsättare',
       description:
-        'Badrumsrenovering i Stockholm utförd av BKR-behörig plattsättare. Komplett process från offertförfrågan till kvalitetsdokument enligt BBV — för BRF, villa och radhus i hela Stockholm.',
+        'Badrumsrenovering i Stockholm för BRF, villa och radhus. BKR-behörig plattsättare med våtrumsintyg och kvalitetsdokument enligt BBV. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-stockholm/',
-      ogTitle: 'Badrumsrenovering Stockholm – BKR-behörighet och Våtrumsintyg',
+      ogTitle: 'Badrumsrenovering Stockholm – BKR-behörig plattsättare',
       ogDescription:
         'Badrumsrenovering i Stockholm med BKR-behörighet, BBV-dokumentation och våtrumsintyg. Tydlig process för BRF, villa och radhus.',
       ogImage: 'https://www.hagaplattsattning.se/haga%20platts%C3%A4ttning%20bild%203.avif',
       ogImageAlt: 'Badrumsrenovering i Stockholm med certifierad plattsättning',
-      twitterTitle: 'Badrumsrenovering Stockholm – BKR-behörig Plattsättare',
+      twitterTitle: 'Badrumsrenovering Stockholm – BKR-behörig plattsättare',
       twitterDescription:
         'Badrumsrenovering i Stockholm med BKR-behörighet, våtrumsintyg och kvalitetsdokument enligt BBV.',
       twitterImage: 'https://www.hagaplattsattning.se/haga%20platts%C3%A4ttning%20bild%203.avif',
@@ -234,13 +234,6 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
           'Vi dokumenterar fyndet direkt, går igenom åtgärdsförslag med dig och uppdaterar offert innan extraarbete påbörjas.',
       },
       {
-        question: 'Måste man renovera badrum efter 20 år?',
-        answer:
-          'Nej, det finns ingen regel som tvingar dig. Men tätskikt har en begränsad teknisk livslängd, och i badrum från 90-talet eller tidigare är risken för fuktskador förhöjd. En statusbesiktning ger svar på om ditt badrum behöver åtgärdas.',
-        answerHtml:
-          'Nej, det finns ingen regel som tvingar dig. Men tätskikt har en begränsad teknisk livslängd, och i badrum från 90-talet eller tidigare är risken för fuktskador förhöjd. Läs vår guide om <a href="/hur-lange-haller-ett-badrum/" style="color:#0a0a1a;font-weight:600;">hur länge ett badrum håller</a>.',
-      },
-      {
         question: 'Är det värt att renovera badrum inför försäljning?',
         answer:
           'Ofta ja i Stockholm, där ett nyrenoverat badrum med kvalitetsdokument är ett starkt försäljningsargument. Dokumentationen visar köparen att arbetet är fackmässigt utfört, vilket minskar prutmån och osäkerhet.',
@@ -254,6 +247,43 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         answerHtml:
           'Du får kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör samt dokumenterade egenkontroller. Läs mer om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">våtrumsintyg och BBV</a>.',
       },
+      {
+        question: 'Vad kostar det att renovera ett badrum på 10 kvm i Stockholm?',
+        answer:
+          'Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.',
+        answerHtml:
+          '<p>Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.</p>',
+      },
+      {
+        question: 'Vad är dyrast i en badrumsrenovering?',
+        answer:
+          'Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.',
+        answerHtml:
+          '<p>Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.</p>',
+      },
+      {
+        question: 'Måste man renovera badrum efter 20 år?',
+        answer:
+          'Nej, det finns ingen regel som tvingar dig. Men tätskikt har en begränsad teknisk livslängd, och i badrum från 90-talet eller tidigare är risken för fuktskador förhöjd. En statusbesiktning ger svar på om ditt badrum behöver åtgärdas.',
+        answerHtml:
+          'Nej, det finns ingen regel som tvingar dig. Men tätskikt har en begränsad teknisk livslängd, och i badrum från 90-talet eller tidigare är risken för fuktskador förhöjd. Läs vår guide om <a href="/hur-lange-haller-ett-badrum/" style="color:#0a0a1a;font-weight:600;">hur länge ett badrum håller</a>.',
+      },
+    ],
+    reviews: [
+      {
+        author: 'Carin R',
+        date: '2025-10-15',
+        rating: 5,
+        text:
+          'Vi anlitade Haga Plattsättning för renovering av vårt badrum. Från första kontakt till färdigt resultat var dialogen professionell. Vi kände oss trygga genom hela processen och uppskattade verkligen den raka och tydliga kommunikationen. Resultatet? Ett badrum i världsklass.',
+      },
+      {
+        author: 'Adam K, VD Rikets Projektutveckling AB',
+        date: '2025-11-08',
+        rating: 5,
+        text:
+          'Vi på Rikets Projektutveckling AB har anlitat Haga Plattsättning AB som underentreprenör vid flera tillfällen och kan varmt rekommendera dem. Arbetet präglas av högsta kvalitet, noggrannhet och pålitlighet.',
+      },
     ],
     footerFocus:
       'Denna sida fokuserar på badrumsrenovering i Stockholm med BKR-behörighet, tydlig projektering och dokumenterad kvalitet från offert till färdigt badrum.',
@@ -265,9 +295,9 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     city: 'Sollentuna',
     route: '/badrumsrenovering-sollentuna/',
     seo: {
-      title: 'Badrumsrenovering Sollentuna | Lokal firma med kontor i kommunen',
+      title: 'Badrumsrenovering Sollentuna – lokal firma i kommunen',
       description:
-        'Badrumsrenovering i Sollentuna med lokal närvaro på Skyttevägen. BKR-behörighet och tydlig process för BRF, radhus och villa.',
+        'Badrumsrenovering i Sollentuna – kontor på Skyttevägen, arbeten i Tureberg, Edsberg, Häggvik och Norrviken. BKR-behörig, 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-sollentuna/',
       ogTitle: 'Badrumsrenovering Sollentuna – Lokal guide och kvalitet',
       ogDescription:
@@ -435,6 +465,43 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         answerHtml:
           'Du får kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör och dokumenterade egenkontroller. Läs mer om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">våtrumsintyg och BBV</a>.',
       },
+      {
+        question: 'Vad kostar det att renovera ett badrum på 10 kvm i Sollentuna?',
+        answer:
+          'Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.',
+        answerHtml:
+          '<p>Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.</p>',
+      },
+      {
+        question: 'Vad är dyrast i en badrumsrenovering?',
+        answer:
+          'Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.',
+        answerHtml:
+          '<p>Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.</p>',
+      },
+      {
+        question: 'Måste man renovera badrum efter 20 år?',
+        answer:
+          'Nej, det finns ingen lag som kräver det. Däremot närmar sig tätskiktet sin förväntade tekniska livslängd efter ungefär 20–25 år, och det är tätskiktet — inte kaklet — som avgör om badrummet fortfarande är tätt. Ett badrum med dokumenterat tätskikt i gott skick kan användas vidare, men risken för en vattenskada ökar med åren och många försäkringsbolag gör åldersavdrag vid skada. Låt göra en fuktbesiktning i stället för att gå på ålder, och renovera när besiktningen eller synliga tecken som mörka fogar, bomkakel eller lukt säger att det är dags.',
+        answerHtml:
+          '<p>Nej, det finns ingen lag som kräver det. Däremot närmar sig tätskiktet sin förväntade tekniska livslängd efter ungefär 20–25 år, och det är tätskiktet — inte kaklet — som avgör om badrummet fortfarande är tätt. Ett badrum med dokumenterat tätskikt i gott skick kan användas vidare, men risken för en vattenskada ökar med åren och många försäkringsbolag gör åldersavdrag vid skada. Låt göra en fuktbesiktning i stället för att gå på ålder, och renovera när besiktningen eller synliga tecken som mörka fogar, bomkakel eller lukt säger att det är dags.</p>',
+      },
+    ],
+    reviews: [
+      {
+        author: 'Edit W',
+        date: '2026-04-08',
+        rating: 5,
+        text:
+          'Otroligt bra upplevelse, de visade stort engagemang i vårt projekt redan från start. Var både följsamma och flexibla med våra önskemål, men också drivande och initiativtagande med egna förbättringar och lösningar.',
+      },
+      {
+        author: 'Amaton A',
+        date: '2026-04-07',
+        rating: 5,
+        text:
+          'Vi är nöjda med Haga Plattsättning. Allt ifrån kundservice, hantverket och bemötande. Rekommenderas till dem som vill anlita ett seriöst företag.',
+      },
     ],
     footerFocus:
       'Denna sida är anpassad för badrumsrenovering i Sollentuna med lokal närvaro, BKR-behörighet och tydlig process för BRF, radhus och villa.',
@@ -446,9 +513,9 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     city: 'Solna',
     route: '/badrumsrenovering-solna/',
     seo: {
-      title: 'Badrumsrenovering Solna | BRF-specialister',
+      title: 'Badrumsrenovering Solna – BRF-specialist med våtrumsintyg',
       description:
-        'Badrumsrenovering i Solna för bostadsrätter och villor. BKR-behörig entreprenör, tydlig BRF-process och kvalitetsdokument.',
+        'Badrumsrenovering i Solna för bostadsrätt och villa i Hagalund, Råsunda, Bergshamra och Huvudsta. BKR-behörig plattsättare, 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-solna/',
       ogTitle: 'Badrumsrenovering Solna – Trygg BRF-process',
       ogDescription:
@@ -621,6 +688,43 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         answerHtml:
           'Kvalitetsdokument enligt BBV (Bilaga A) signerat med BankID, intyg från Säker Vatten-certifierad VVS-installatör och dokumenterade egenkontroller. Läs mer om <a href="/tatskikt-vatrumsintyg-bbv/" style="color:#0a0a1a;font-weight:600;">våtrumsintyg och BBV</a>.',
       },
+      {
+        question: 'Vad kostar det att renovera ett badrum på 10 kvm i Solna?',
+        answer:
+          'Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.',
+        answerHtml:
+          '<p>Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.</p>',
+      },
+      {
+        question: 'Vad är dyrast i en badrumsrenovering?',
+        answer:
+          'Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.',
+        answerHtml:
+          '<p>Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.</p>',
+      },
+      {
+        question: 'Måste man renovera badrum efter 20 år?',
+        answer:
+          'Nej, det finns ingen lag som kräver det. Däremot närmar sig tätskiktet sin förväntade tekniska livslängd efter ungefär 20–25 år, och det är tätskiktet — inte kaklet — som avgör om badrummet fortfarande är tätt. Ett badrum med dokumenterat tätskikt i gott skick kan användas vidare, men risken för en vattenskada ökar med åren och många försäkringsbolag gör åldersavdrag vid skada. Låt göra en fuktbesiktning i stället för att gå på ålder, och renovera när besiktningen eller synliga tecken som mörka fogar, bomkakel eller lukt säger att det är dags.',
+        answerHtml:
+          '<p>Nej, det finns ingen lag som kräver det. Däremot närmar sig tätskiktet sin förväntade tekniska livslängd efter ungefär 20–25 år, och det är tätskiktet — inte kaklet — som avgör om badrummet fortfarande är tätt. Ett badrum med dokumenterat tätskikt i gott skick kan användas vidare, men risken för en vattenskada ökar med åren och många försäkringsbolag gör åldersavdrag vid skada. Låt göra en fuktbesiktning i stället för att gå på ålder, och renovera när besiktningen eller synliga tecken som mörka fogar, bomkakel eller lukt säger att det är dags.</p>',
+      },
+    ],
+    reviews: [
+      {
+        author: 'Eloise K',
+        date: '2025-11-09',
+        rating: 5,
+        text:
+          'Vi är så nöjda med vår badrumsrenovering. Snabba, effektiva och professionella!',
+      },
+      {
+        author: 'Salim H',
+        date: '2025-10-29',
+        rating: 5,
+        text:
+          'Vi på Recto AB har anlitat Haga Plattsättning AB som underentreprenör för våtrumsarbeten, och de har levererat med hög kvalitet, god kommunikation och pålitlighet. Rekommenderas varmt!',
+      },
     ],
     footerFocus:
       'Denna sida är framtagen för badrumsrenovering i Solna med tydlig BRF-process och dokumenterad kvalitet genom hela projektet.',
@@ -634,16 +738,16 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     bkrImageSrc: '/behorig-vatrum.avif',
     bkrImageAlt: 'BKR-behörig kakelsättare på Lidingö med dokumenterad våtrumsprocess',
     seo: {
-      title: 'Badrumsrenovering Lidingö – BKR-behörig Plattsättare med Våtrumsintyg | Haga Plattsättning AB',
+      title: 'Badrumsrenovering Lidingö – villa, radhus och BRF',
       description:
-        'Badrumsrenovering på Lidingö med BKR-behörig plattsättare. Komplett process från offertförfrågan till kvalitetsdokument enligt BBV — för villa, radhus och bostadsrätt på hela Lidingö.',
+        'Badrumsrenovering på Lidingö för villa, radhus och bostadsrätt. BKR-behörig plattsättare med våtrumsintyg och kvalitetsdokument. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-lidingo/',
-      ogTitle: 'Badrumsrenovering Lidingö – BKR-behörighet och Våtrumsintyg',
+      ogTitle: 'Badrumsrenovering Lidingö – villa, radhus och BRF',
       ogDescription:
         'Badrumsrenovering på Lidingö med BKR-behörighet, BBV-dokumentation och våtrumsintyg. Tydlig process för villa, radhus och bostadsrätt.',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_22.avif',
       ogImageAlt: 'Modernt badrum på Lidingö med kakel av certifierad plattsättare',
-      twitterTitle: 'Badrumsrenovering Lidingö – BKR-behörig Plattsättare',
+      twitterTitle: 'Badrumsrenovering Lidingö – villa, radhus och BRF',
       twitterDescription:
         'Badrumsrenovering på Lidingö med BKR-behörighet, våtrumsintyg och kvalitetsdokument enligt BBV.',
       twitterImage: 'https://www.hagaplattsattning.se/hagaplatt_22.avif',
@@ -706,13 +810,6 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       'Frågor vi ofta får från boende på Lidingö om livslängd, försäljning och materialval — med svar baserade på BBV och vår erfarenhet i kommunen.',
     faqs: [
       {
-        question: 'Måste man renovera badrum efter 20 år?',
-        answer:
-          'Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vid 20 år rekommenderar vi en oberoende fuktbesiktning innan beslut tas — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar med åren.',
-        answerHtml:
-          '<p>Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vid 20 år rekommenderar vi en oberoende fuktbesiktning innan beslut tas — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar med åren.</p>',
-      },
-      {
         question: 'Måste man renovera badrum efter 30 år?',
         answer:
           'Efter 30 år är tätskiktet i de flesta originalbadrum förbi sin förväntade livslängd, även med god underhåll. Försäkringsbolag kan minska eller neka ersättning vid fuktskada om badrummet är äldre än 30 år utan dokumenterat tätskiktsbyte. Vi rekommenderar att du tar in en BKR-behörig firma för bedömning innan eventuella problem uppstår.',
@@ -739,6 +836,27 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
           'Båda är godkända enligt BBV men har olika styrkor. Kakel och klinker är slitstarkt, har lång livslängd (25–40 år) och ger designfrihet — det vanliga valet i villor och bostadsrätter. Våtrumsmatta är snabbare att lägga och fungerar bra i hyresrätter eller mindre toalettutrymmen, men är känsligare för slitage och behöver oftast bytas tidigare.',
         answerHtml:
           '<p>Båda är godkända enligt BBV men har olika styrkor. Kakel och klinker är slitstarkt, har lång livslängd (25–40 år) och ger designfrihet — det vanliga valet i villor och bostadsrätter. Våtrumsmatta är snabbare att lägga och fungerar bra i hyresrätter eller mindre toalettutrymmen, men är känsligare för slitage och behöver oftast bytas tidigare.</p>',
+      },
+      {
+        question: 'Vad kostar det att renovera ett badrum på 10 kvm på Lidingö?',
+        answer:
+          'Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.',
+        answerHtml:
+          '<p>Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.</p>',
+      },
+      {
+        question: 'Vad är dyrast i en badrumsrenovering?',
+        answer:
+          'Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.',
+        answerHtml:
+          '<p>Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.</p>',
+      },
+      {
+        question: 'Måste man renovera badrum efter 20 år?',
+        answer:
+          'Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vid 20 år rekommenderar vi en oberoende fuktbesiktning innan beslut tas — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar med åren.',
+        answerHtml:
+          '<p>Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vid 20 år rekommenderar vi en oberoende fuktbesiktning innan beslut tas — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar med åren.</p>',
       },
     ],
     reviews: [
@@ -773,16 +891,16 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     bkrImageSrc: '/behorig-vatrum.avif',
     bkrImageAlt: 'BKR-behörig kakelsättare i Nacka med dokumenterad våtrumsprocess',
     seo: {
-      title: 'Badrumsrenovering Nacka – BKR-behörig Plattsättare med Våtrumsintyg | Haga Plattsättning AB',
+      title: 'Badrumsrenovering Nacka – Saltsjö-Boo och Sicklaön',
       description:
-        'Badrumsrenovering i Nacka med BKR-behörig plattsättare. Komplett process från offertförfrågan till kvalitetsdokument enligt BBV — för villa, radhus och bostadsrätt i Saltsjö-Boo, Sicklaön och centrala Nacka.',
+        'Badrumsrenovering i Nacka – Saltsjö-Boo, Sicklaön och centrala Nacka. BKR-behörig plattsättare med våtrumsintyg och tätskikt enligt BBV. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-nacka/',
-      ogTitle: 'Badrumsrenovering Nacka – BKR-behörighet och Våtrumsintyg',
+      ogTitle: 'Badrumsrenovering Nacka – Saltsjö-Boo och Sicklaön',
       ogDescription:
         'Badrumsrenovering i Nacka med BKR-behörighet, BBV-dokumentation och våtrumsintyg. Tydlig process för villa, radhus och bostadsrätt.',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_3.avif',
       ogImageAlt: 'Badrumsrenovering i Nacka med certifierad plattsättning och kakel',
-      twitterTitle: 'Badrumsrenovering Nacka – BKR-behörig Plattsättare',
+      twitterTitle: 'Badrumsrenovering Nacka – Saltsjö-Boo och Sicklaön',
       twitterDescription:
         'Badrumsrenovering i Nacka med BKR-behörighet, våtrumsintyg och kvalitetsdokument enligt BBV.',
       twitterImage: 'https://www.hagaplattsattning.se/hagaplatt_3.avif',
@@ -879,6 +997,20 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         answerHtml:
           '<p>Kakel är starkt rekommenderat inför försäljning. Det signalerar kvalitet och långvarighet, vilket köpare värderar högt i områden som Nacka. Kakel håller 25–40 år medan våtrumsmatta oftast byts tidigare. För försäljning är kakel nästan alltid valet.</p>',
       },
+      {
+        question: 'Vad kostar det att renovera ett badrum på 10 kvm i Nacka?',
+        answer:
+          'Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.',
+        answerHtml:
+          '<p>Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.</p>',
+      },
+      {
+        question: 'Vad är dyrast i en badrumsrenovering?',
+        answer:
+          'Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.',
+        answerHtml:
+          '<p>Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.</p>',
+      },
     ],
     reviews: [
       {
@@ -912,16 +1044,16 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     bkrImageSrc: '/behorig-vatrum.avif',
     bkrImageAlt: 'BKR-behörig kakelsättare i Täby med dokumenterad våtrumsprocess',
     seo: {
-      title: 'Badrumsrenovering Täby – BKR-behörig Plattsättare med Våtrumsintyg | Haga Plattsättning AB',
+      title: 'Badrumsrenovering Täby – BKR-behörig, 4,9/5 på Reco',
       description:
-        'Badrumsrenovering i Täby med BKR-behörig plattsättare. Komplett process från offertförfrågan till kvalitetsdokument enligt BBV — för villa, radhus och bostadsrätt i hela Täby.',
+        'Badrumsrenovering i Täby för villa, radhus och bostadsrätt – Näsby Park, Täby centrum och Roslags-Näsby. BKR-behörig plattsättare med våtrumsintyg.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-taby/',
-      ogTitle: 'Badrumsrenovering Täby – BKR-behörighet och Våtrumsintyg',
+      ogTitle: 'Badrumsrenovering Täby – BKR-behörig plattsättare',
       ogDescription:
         'Badrumsrenovering i Täby med BKR-behörighet, BBV-dokumentation och våtrumsintyg. Tydlig process för villa, radhus och bostadsrätt.',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_13.avif',
       ogImageAlt: 'Badrumsrenovering i Täby med kakel av certifierad plattsättare',
-      twitterTitle: 'Badrumsrenovering Täby – BKR-behörig Plattsättare',
+      twitterTitle: 'Badrumsrenovering Täby – BKR-behörig plattsättare',
       twitterDescription:
         'Badrumsrenovering i Täby med BKR-behörighet, våtrumsintyg och kvalitetsdokument enligt BBV.',
       twitterImage: 'https://www.hagaplattsattning.se/hagaplatt_13.avif',
@@ -984,13 +1116,6 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
       'Frågor vi ofta får från boende i Täby om tätskikt, materialval, försäljning och när det är dags att renovera.',
     faqs: [
       {
-        question: 'Måste man renovera badrum efter 20 år?',
-        answer:
-          'Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vi rekommenderar en oberoende fuktbesiktning — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar. Efter 30 år är många originalbadrum förbi sin förväntade livslängd.',
-        answerHtml:
-          '<p>Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vi rekommenderar en oberoende fuktbesiktning — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar. Efter 30 år är många originalbadrum förbi sin förväntade livslängd.</p>',
-      },
-      {
         question: 'Är det värt att renovera badrum inför försäljning i Täby?',
         answer:
           'Ja, i de flesta fall. Täby är en attraktiv marknad där ett dokumenterat och nyrenoverat badrum både höjer slutpriset och minskar risken för prisförhandling vid besiktning. Det viktigaste är att utförandet är BKR-dokumenterat enligt BBV — det är vad besiktningsmän och försäkringsbolag faktiskt frågar efter.',
@@ -1025,6 +1150,27 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         answerHtml:
           '<p>Ja, vi samordnar certifierade samarbetspartners för VVS och el, så att du har en kontaktväg genom hela projektet. Vi sätter tidplan som tar hänsyn till rivning, tätskikt, rörbyte och elektriska installationer i rätt ordning.</p>',
       },
+      {
+        question: 'Vad kostar det att renovera ett badrum på 10 kvm i Täby?',
+        answer:
+          'Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.',
+        answerHtml:
+          '<p>Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.</p>',
+      },
+      {
+        question: 'Vad är dyrast i en badrumsrenovering?',
+        answer:
+          'Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.',
+        answerHtml:
+          '<p>Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.</p>',
+      },
+      {
+        question: 'Måste man renovera badrum efter 20 år?',
+        answer:
+          'Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vi rekommenderar en oberoende fuktbesiktning — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar. Efter 30 år är många originalbadrum förbi sin förväntade livslängd.',
+        answerHtml:
+          '<p>Det finns ingen lag som kräver renovering efter 20 år, men efter den tiden börjar tätskiktet närma sig sin förväntade livslängd. Vi rekommenderar en oberoende fuktbesiktning — om tätskiktet är dokumenterat och i gott skick kan badrummet fortsätta användas, men risken för läckage ökar. Efter 30 år är många originalbadrum förbi sin förväntade livslängd.</p>',
+      },
     ],
     reviews: [
       {
@@ -1058,9 +1204,9 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     bkrImageSrc: '/behorig-vatrum.avif',
     bkrImageAlt: 'BKR-behörig kakelsättare på Danderyd med dokumenterad våtrumsprocess',
     seo: {
-      title: 'Badrumsrenovering Danderyd – BKR-behörig Plattsättare för Premiumvillor | Haga Plattsättning AB',
+      title: 'Badrumsrenovering Danderyd, Djursholm och Stocksund',
       description:
-        'Badrumsrenovering på Danderyd med BKR-behörig plattsättare för villor och bostadsrätt. Tydlig process från offert till kvalitetsdokument enligt BBV — särskild kompetens i Djursholm och Stocksund.',
+        'Badrumsrenovering på Danderyd, i Djursholm, Stocksund och Mörby. BKR-behörig plattsättare för villa och bostadsrätt – våtrumsintyg och 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-danderyd/',
       ogTitle: 'Badrumsrenovering Danderyd – BKR-behörighet för Premiumvillor',
       ogDescription:
@@ -1171,6 +1317,27 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         answerHtml:
           '<p>Vi dokumenterar fyndet direkt, visar vad som behövs och inväntar ditt godkännande innan tillägg börjar. I äldre villor är detta vanligare än i nyare hus, men vi budgeterar ofta för det under planeringen.</p>',
       },
+      {
+        question: 'Vad kostar det att renovera ett badrum på 10 kvm på Danderyd?',
+        answer:
+          'Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.',
+        answerHtml:
+          '<p>Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.</p>',
+      },
+      {
+        question: 'Vad är dyrast i en badrumsrenovering?',
+        answer:
+          'Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.',
+        answerHtml:
+          '<p>Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.</p>',
+      },
+      {
+        question: 'Måste man renovera badrum efter 20 år?',
+        answer:
+          'Nej, det finns ingen lag som kräver det. Däremot närmar sig tätskiktet sin förväntade tekniska livslängd efter ungefär 20–25 år, och det är tätskiktet — inte kaklet — som avgör om badrummet fortfarande är tätt. Ett badrum med dokumenterat tätskikt i gott skick kan användas vidare, men risken för en vattenskada ökar med åren och många försäkringsbolag gör åldersavdrag vid skada. Låt göra en fuktbesiktning i stället för att gå på ålder, och renovera när besiktningen eller synliga tecken som mörka fogar, bomkakel eller lukt säger att det är dags.',
+        answerHtml:
+          '<p>Nej, det finns ingen lag som kräver det. Däremot närmar sig tätskiktet sin förväntade tekniska livslängd efter ungefär 20–25 år, och det är tätskiktet — inte kaklet — som avgör om badrummet fortfarande är tätt. Ett badrum med dokumenterat tätskikt i gott skick kan användas vidare, men risken för en vattenskada ökar med åren och många försäkringsbolag gör åldersavdrag vid skada. Låt göra en fuktbesiktning i stället för att gå på ålder, och renovera när besiktningen eller synliga tecken som mörka fogar, bomkakel eller lukt säger att det är dags.</p>',
+      },
     ],
     reviews: [
       {
@@ -1204,9 +1371,9 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     bkrImageSrc: '/behorig-vatrum.avif',
     bkrImageAlt: 'BKR-behörig kakelsättare i Sundbyberg med dokumenterad våtrumsprocess',
     seo: {
-      title: 'Badrumsrenovering Sundbyberg – BRF-specialist i tät bebyggelse | Haga Plattsättning AB',
+      title: 'Badrumsrenovering Sundbyberg – BRF och lägenhet',
       description:
-        'Badrumsrenovering i Sundbyberg för lägenheter och villor. BKR-behörig plattsättare, logistik i tät bebyggelse och kvalitetsdokument enligt BBV.',
+        'Badrumsrenovering i Sundbyberg för bostadsrätt, lägenhet och villa. BKR-behörig plattsättare med våtrumsintyg, van vid BRF-krav. 4,9/5 på Reco.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-sundbyberg/',
       ogTitle: 'Badrumsrenovering Sundbyberg – BKR-behörighet och tät bebyggelse',
       ogDescription:
@@ -1331,6 +1498,20 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
         answerHtml:
           '<p>Vi dokumenterar direkt, visar resultatet tillsammans med dig och ger ett klart åtgärdsförslag innan extraarbete börjar. Oftast är detta redan budgeterat.</p>',
       },
+      {
+        question: 'Vad kostar det att renovera ett badrum på 10 kvm i Sundbyberg?',
+        answer:
+          'Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.',
+        answerHtml:
+          '<p>Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.</p>',
+      },
+      {
+        question: 'Vad är dyrast i en badrumsrenovering?',
+        answer:
+          'Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.',
+        answerHtml:
+          '<p>Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.</p>',
+      },
     ],
     reviews: [
       {
@@ -1362,9 +1543,9 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
     city: 'Järfälla',
     route: '/badrumsrenovering-jarfalla/',
     seo: {
-      title: 'Badrumsrenovering Järfälla – BKR-behörig Plattsättare med Våtrumsintyg | Haga Plattsättning AB',
+      title: 'Badrumsrenovering Järfälla – Jakobsberg och Barkarby',
       description:
-        'Badrumsrenovering i Järfälla – Jakobsberg, Barkarby, Viksjö och Kallhäll. BKR-behörig plattsättare med våtrumsintyg, Säker Vatten-certifierad VVS och kvalitetsdokument enligt BBV. Begär kostnadsfri offert.',
+        'Badrumsrenovering i Järfälla – Jakobsberg, Barkarby, Viksjö och Kallhäll. BKR-behörig plattsättare med våtrumsintyg och kvalitetsdokument enligt BBV.',
       canonical: 'https://www.hagaplattsattning.se/badrumsrenovering-jarfalla/',
       ogTitle: 'Badrumsrenovering Järfälla – BKR-behörighet och Våtrumsintyg',
       ogDescription:
@@ -1473,6 +1654,43 @@ export const BADRUMS_LOCATIONS: Record<string, BadrumsLocationContent> = {
           'Vi drar av ROT direkt på fakturan och sköter administrationen mot Skatteverket. Avdraget är 30 % av arbetskostnaden enligt gällande regler, förutsatt att du uppfyller villkoren.',
         answerHtml:
           'Vi drar av ROT direkt på fakturan och sköter administrationen mot Skatteverket. Avdraget är 30 % av arbetskostnaden enligt gällande regler, förutsatt att du uppfyller villkoren.',
+      },
+      {
+        question: 'Vad kostar det att renovera ett badrum på 10 kvm i Järfälla?',
+        answer:
+          'Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.',
+        answerHtml:
+          '<p>Det går inte att ge en rättvisande siffra utan att ha sett badrummet, och en firma som gör det gissar. Ytan är sällan det som styr kostnaden mest — det gör underlaget. Är bjälklaget av trä eller betong, ska golvbrunnen bytas, behöver stammarna eller elen dras om, och finns det fukt bakom det befintliga tätskiktet? Ett stort badrum med friskt betongbjälklag och brunn som får sitta kvar kan bli enklare än ett litet badrum där allt under ytan måste göras om. Vi går igenom detta på plats och lämnar sedan en skriftlig offert där varje moment är specificerat, så att du kan jämföra äpplen med äpplen mot andra offerter. Kom ihåg att ROT-avdraget ger 30 % på arbetskostnaden.</p>',
+      },
+      {
+        question: 'Vad är dyrast i en badrumsrenovering?',
+        answer:
+          'Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.',
+        answerHtml:
+          '<p>Det är sällan kaklet. Merparten av kostnaden ligger i arbetet under ytan: rivning och bortforsling av det gamla badrummet, eventuell flytt eller byte av golvbrunn, omdragning av vatten och avlopp, elarbete, uppbyggnad av fall mot brunnen och själva tätskiktet. Byte av golvbrunn och omdragning av stammar är de enskilda moment som oftast drar iväg mest, eftersom de påverkar allt annat som ska göras efteråt. Det är också därför två badrum med identisk yta kan skilja sig kraftigt i pris — skillnaden syns inte när badrummet är färdigt, men den avgör hur länge det håller.</p>',
+      },
+      {
+        question: 'Måste man renovera badrum efter 20 år?',
+        answer:
+          'Nej, det finns ingen lag som kräver det. Däremot närmar sig tätskiktet sin förväntade tekniska livslängd efter ungefär 20–25 år, och det är tätskiktet — inte kaklet — som avgör om badrummet fortfarande är tätt. Ett badrum med dokumenterat tätskikt i gott skick kan användas vidare, men risken för en vattenskada ökar med åren och många försäkringsbolag gör åldersavdrag vid skada. Låt göra en fuktbesiktning i stället för att gå på ålder, och renovera när besiktningen eller synliga tecken som mörka fogar, bomkakel eller lukt säger att det är dags.',
+        answerHtml:
+          '<p>Nej, det finns ingen lag som kräver det. Däremot närmar sig tätskiktet sin förväntade tekniska livslängd efter ungefär 20–25 år, och det är tätskiktet — inte kaklet — som avgör om badrummet fortfarande är tätt. Ett badrum med dokumenterat tätskikt i gott skick kan användas vidare, men risken för en vattenskada ökar med åren och många försäkringsbolag gör åldersavdrag vid skada. Låt göra en fuktbesiktning i stället för att gå på ålder, och renovera när besiktningen eller synliga tecken som mörka fogar, bomkakel eller lukt säger att det är dags.</p>',
+      },
+    ],
+    reviews: [
+      {
+        author: 'David B',
+        date: '2026-03-27',
+        rating: 5,
+        text:
+          'Riktigt duktiga, bland de bästa. Efter 30 års erfarenhet i branschen så vet jag.',
+      },
+      {
+        author: 'Fredrik E',
+        date: '2025-12-12',
+        rating: 5,
+        text:
+          'Väl utfört arbete i tid och på budget.',
       },
     ],
     footerFocus:

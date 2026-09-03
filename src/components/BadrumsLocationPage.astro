@@ -26,22 +26,9 @@ const breadcrumbJsonLd = {
   ],
 };
 
-const DEFAULT_REVIEWS = [
-  {
-    author: 'Edit W',
-    date: '2026-04-08',
-    rating: 5,
-    text: 'Otroligt bra upplevelse, de visade stort engagemang i vårt projekt redan från start. Var både följsamma och flexibla med våra önskemål, men också drivande och initiativtagande med egna förbättringar och lösningar.',
-  },
-  {
-    author: 'Adam K, VD Rikets Projektutveckling AB',
-    date: '2025-11-08',
-    rating: 5,
-    text: 'Vi på Rikets Projektutveckling AB har anlitat Haga Plattsättning AB som underentreprenör vid flera tillfällen och kan varmt rekommendera dem.',
-  },
-];
-
-const visibleReviews = content.reviews ?? DEFAULT_REVIEWS;
+// Review-schema får bara skickas för omdömen som faktiskt syns på sidan
+// (Googles riktlinjer för strukturerad data).
+const visibleReviews = content.reviews ?? [];
 
 const reviewJsonLd = visibleReviews.map((rev) => ({
   '@context': 'https://schema.org',
@@ -322,7 +309,9 @@ const plattsattareAnchor =
     </section>
 
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
-    <script type="application/ld+json" set:html={JSON.stringify(reviewJsonLd)} />
+    {reviewJsonLd.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify(reviewJsonLd)} />
+    )}
     <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
     <SiteFooter pageFocus={content.footerFocus} />

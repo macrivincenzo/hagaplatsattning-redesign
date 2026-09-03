@@ -65,31 +65,6 @@ const serviceJsonLd = {
   },
 };
 
-const reviewsJsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    itemReviewed: { '@type': 'LocalBusiness', '@id': 'https://www.hagaplattsattning.se/#business', name: 'Haga Plattsättning AB' },
-    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-    author: { '@type': 'Person', name: 'Edit W' },
-    datePublished: '2026-04-08',
-    reviewBody:
-      'Otroligt bra upplevelse, de visade stort engagemang i vårt projekt redan från start. Riktigt hög precision i plattsättning och slutresultatet blev helt enligt överenskommelse.',
-    publisher: { '@type': 'Organization', name: 'Reco.se' },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    itemReviewed: { '@type': 'LocalBusiness', '@id': 'https://www.hagaplattsattning.se/#business', name: 'Haga Plattsättning AB' },
-    reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-    author: { '@type': 'Person', name: 'Adam K, VD Rikets Projektutveckling AB' },
-    datePublished: '2025-11-08',
-    reviewBody:
-      'Vi har anlitat Haga Plattsättning AB som underentreprenör vid flera tillfällen och kan varmt rekommendera dem. Arbetet präglas av högsta kvalitet, noggrannhet och pålitlighet.',
-    publisher: { '@type': 'Organization', name: 'Reco.se' },
-  },
-];
-
 const h1Secondary = content.secondaryTerm ? ` & kakelsättare` : '';
 ---
 
@@ -210,7 +185,6 @@ const h1Secondary = content.secondaryTerm ? ` & kakelsättare` : '';
     </section>
 
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
-    <script type="application/ld+json" set:html={JSON.stringify(reviewsJsonLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
     <SiteFooter pageFocus={content.footerFocus} />

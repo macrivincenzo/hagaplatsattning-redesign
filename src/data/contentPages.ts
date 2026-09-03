@@ -62,9 +62,9 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     isService: true,
     serviceType: 'Mikrocement',
     seo: {
-      title: 'Mikrocement i Badrum – Sömlös Yta utan Fogar | Haga Plattsättning AB',
+      title: 'Mikrocement i badrum – sömlös yta utan fogar',
       description:
-        'Mikrocement i badrum ger en sömlös, fogfri yta på golv och vägg. Vi lägger och samordnar mikrocement i Stockholm med korrekt tätskikt enligt BBV. Läs om för- och nackdelar, hållbarhet och process – begär kostnadsfri offert.',
+        'Mikrocement i badrum ger en sömlös, fogfri yta på golv och vägg. Läs om för- och nackdelar, hållbarhet och varför tätskiktet under är avgörande enligt BBV.',
       canonical: 'https://www.hagaplattsattning.se/mikrocement-badrum/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_2.avif',
       ogImageAlt: 'Badrum med slät, fogfri yta i mjuk kulör – mikrocement-känsla',
@@ -164,9 +164,9 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     isService: true,
     serviceType: 'Golvvärme i badrum',
     seo: {
-      title: 'Golvvärme i Badrum – El eller Vattenburen under Klinker | Haga Plattsättning AB',
+      title: 'Golvvärme i badrum – el eller vattenburen under klinker',
       description:
-        'Golvvärme i badrum under klinker – el eller vattenburen? Vi samordnar golvvärme och lägger klinkern ovanpå med korrekt tätskikt i Stockholm. Läs om skillnaden, uppbyggnad och behörighet – begär kostnadsfri offert.',
+        'Golvvärme i badrum under klinker – el eller vattenburen? Skillnaden, uppbyggnaden och vilken behörighet som krävs. Guide från BKR-behörig plattsättare.',
       canonical: 'https://www.hagaplattsattning.se/golvvarme-badrum/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_39.avif',
       ogImageAlt: 'Klinkergolv i badrum med golvvärme under – Haga Plattsättning AB',
@@ -265,9 +265,9 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     route: '/mogel-i-badrum/',
     isService: false,
     seo: {
-      title: 'Mögel i Badrum – Orsaker, Åtgärd & När du Bör Renovera | Haga Plattsättning AB',
+      title: 'Mögel i badrum – orsaker, åtgärder och när du bör agera',
       description:
-        'Mögel i badrum: varför det uppstår, hur du tar bort det i fogar och silikon, hälsoriskerna – och när mögel är ett tecken på att tätskiktet är förbrukat och badrummet behöver renoveras. Guide från BKR-behörig plattsättare med källor.',
+        'Mögel i badrum: varför det uppstår, hur du tar bort det i fogar och silikon – och när det är ett tecken på att tätskiktet är förbrukat och måste göras om.',
       canonical: 'https://www.hagaplattsattning.se/mogel-i-badrum/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_12.avif',
       ogImageAlt: 'Badrum som bedöms för fukt och mögel – Haga Plattsättning AB',
@@ -367,9 +367,9 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     route: '/silikonfog-badrum/',
     isService: false,
     seo: {
-      title: 'Silikonfog i Badrum – När & Hur du Byter | Haga Plattsättning AB',
+      title: 'Silikonfog i badrum – när och hur du byter den',
       description:
-        'Silikonfog i badrum: vad fogen gör, när den ska bytas, varför den inte är samma sak som tätskikt, och om du kan byta själv eller bör anlita fackman. Guide från BKR-behörig plattsättare med källor.',
+        'Silikonfog i badrum: vad fogen gör, när den ska bytas och varför den inte är samma sak som tätskikt. Kan du byta själv eller bör du anlita fackman?',
       canonical: 'https://www.hagaplattsattning.se/silikonfog-badrum/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_8.avif',
       ogImageAlt: 'Kakelfogar och hörn i badrum där silikonfog tätar – Haga Plattsättning AB',
@@ -468,9 +468,9 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     route: '/vatrumstapet/',
     isService: false,
     seo: {
-      title: 'Våtrumstapet – Regler, Livslängd & Jämförelse med Kakel | Haga Plattsättning AB',
+      title: 'Våtrumstapet – regler, livslängd och jämförelse med kakel',
       description:
-        'Vad är våtrumstapet och när är det ett bra val? BKR-behörig plattsättare förklarar reglerna, livslängden, våtrumsskiva som underlag och när kakel är rätt val i stället. Opartisk guide utan försäljningssnack.',
+        'Vad är våtrumstapet och när är det ett bra val? BKR-behörig plattsättare förklarar reglerna, livslängden och när kakel är ett bättre val i stället.',
       canonical: 'https://www.hagaplattsattning.se/vatrumstapet/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_22.avif',
       ogImageAlt: 'Badrumsvägg – våtrumstapet jämförs med kakel och klinker',
@@ -568,9 +568,9 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     route: '/halvkaklat-eller-helkaklat-badrum/',
     isService: false,
     seo: {
-      title: 'Halvkaklat eller Helkaklat Badrum? – Regler, Stil & Ekonomi | Haga Plattsättning AB',
+      title: 'Halvkaklat eller helkaklat badrum? Regler och stil',
       description:
-        'Halvkaklat eller helkaklat badrum? BKR-behörig plattsättare förklarar vad reglerna faktiskt kräver, var man får sluta kakla, och hur valet påverkar stil, städning och boendevärde.',
+        'Halvkaklat eller helkaklat badrum? Vad reglerna faktiskt kräver, var du får sluta kakla och hur valet påverkar stil, städning och boendevärde.',
       canonical: 'https://www.hagaplattsattning.se/halvkaklat-eller-helkaklat-badrum/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_10.avif',
       ogImageAlt: 'Badrum med kaklade väggar – halvkaklat jämförs med helkaklat',
@@ -663,9 +663,9 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     isService: true,
     serviceType: 'Golvbrunnsbyte',
     seo: {
-      title: 'Byta Golvbrunn – När Krävs Det & Hur Går Det Till? | Haga Plattsättning AB',
+      title: 'Byta golvbrunn – när krävs det och hur går det till?',
       description:
-        'När måste golvbrunnen bytas och varför kräver det ofta att tätskiktet görs om? BKR-behörig plattsättare förklarar reglerna för golvbrunnar äldre än 1990, processen och varför bytet ska göras vid renovering.',
+        'När måste golvbrunnen bytas och varför kräver det oftast att tätskiktet görs om? Reglerna för brunnar äldre än 1990 och hur bytet går till i praktiken.',
       canonical: 'https://www.hagaplattsattning.se/byta-golvbrunn/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_29.avif',
       ogImageAlt: 'Golvbrunn i nyrenoverat badrumsgolv med klinker och korrekt fall',
@@ -764,9 +764,9 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     isService: true,
     serviceType: 'Toalettrenovering',
     seo: {
-      title: 'Toalettrenovering – Renovera Gästtoalett & WC | Haga Plattsättning AB',
+      title: 'Toalettrenovering – renovera gästtoalett och WC',
       description:
-        'Renovera toalett eller gästtoalett i Stockholm? BKR-behörig plattsättare förklarar vad som gäller: när ett WC räknas som våtrum, vilka regler som styr och hur renoveringen går till. Begär kostnadsfri offert.',
+        'Renovera toalett eller gästtoalett i Stockholm? När ett WC räknas som våtrum, vilka regler som styr och hur renoveringen går till steg för steg.',
       canonical: 'https://www.hagaplattsattning.se/toalett-renovering/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_40.avif',
       ogImageAlt: 'Nyrenoverad gästtoalett med kakel och klinker – Haga Plattsättning AB',
@@ -858,9 +858,9 @@ export const CONTENT_PAGES: Record<string, ContentPageData> = {
     route: '/vatrumsskiva/',
     isService: false,
     seo: {
-      title: 'Våtrumsskiva – Rätt Underlag för Kakel i Badrum | Haga Plattsättning AB',
+      title: 'Våtrumsskiva – rätt underlag för kakel i badrum',
       description:
-        'Vad är en våtrumsskiva och när ska den användas? BKR-behörig plattsättare förklarar skillnaden mellan våtrumsskivor som underlag för kakel och skivor med färdig yta (typ Fibo), reglerna och vanliga misstag.',
+        'Vad är en våtrumsskiva och när ska den användas? Skillnaden mellan skivor som underlag för kakel och skivor med färdig yta – plus vanliga misstag.',
       canonical: 'https://www.hagaplattsattning.se/vatrumsskiva/',
       ogImage: 'https://www.hagaplattsattning.se/hagaplatt_47.avif',
       ogImageAlt: 'Väggunderlag förbereds i badrum inför tätskikt och kakel',

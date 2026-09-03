@@ -1,5 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": true,
-  "cleanUrls": false
+  "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/kakel-alternativt-klinker-skillnaden-forklarad-stockholm",
+      "destination": "/kakel-eller-klinker-stockholm/",
+      "permanent": true
+    }
+  ]
 }
