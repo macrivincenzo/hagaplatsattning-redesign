@@ -7,6 +7,11 @@
       "source": "/kakel-alternativt-klinker-skillnaden-forklarad-stockholm",
       "destination": "/kakel-eller-klinker-stockholm/",
       "permanent": true
+    },
+    {
+      "source": "/kakelsattare-stockholm",
+      "destination": "/plattsattare-stockholm/",
+      "permanent": true
     }
   ]
 }
